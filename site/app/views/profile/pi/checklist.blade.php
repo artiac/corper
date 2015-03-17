@@ -223,9 +223,9 @@
             </div>
             <div class="tab-pane fade" id="tab_6_2">
               <ol class="pdf-ul">
-                <li><a href="#">NYSC ID card</a></li>
-                <li><a href="#">Final clearance letter (<span style="color:red;">Must be Stamped and signed</span>)</a></li>
-                <li><a href="#">Completely signed CD card.</a></li>
+                <li><a href="javascript:;">NYSC ID card</a></li>
+                <li><a href="javascript:;">Final clearance letter (<span style="color:red;">Must be Stamped and signed</span>)</a></li>
+                <li><a href="javascript:;">Completely signed CD card.</a></li>
               </ol>
             </div>
             <div class="tab-pane fade" id="tab_6_3">
