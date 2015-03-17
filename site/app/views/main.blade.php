@@ -54,7 +54,7 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+23-987654321</span></li>
+                        <li><i class="fa fa-phone"></i><span>+23-9879879876</span></li>
                         <li><i class="fa fa-envelope-o"></i><span>info@corperlife.com</span></li>
                     </ul>
                 </div>
