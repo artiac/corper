@@ -252,3 +252,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', end
 	list-style-type: none;
 	padding-left: 15px;
 }
+.quotes div{
+	display: none;
+}
+.quotes div.visible{
+	display: block;
+}

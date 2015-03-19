@@ -33,7 +33,8 @@
   {{ HTML::style("assets/css/themes/default.css")}}       
   {{ HTML::style("assets/css/custom.css")}}       
   {{ HTML::style("assets/css/main.css")}}       
-  {{ HTML::style("assets/css/bootstrap-wysihtml5.css")}}       
+  {{ HTML::style("assets/css/bootstrap-wysihtml5.css")}}    
+  {{ HTML::style("assets/css/animate.css")}}    
 
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
