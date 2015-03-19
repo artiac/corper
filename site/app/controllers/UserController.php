@@ -26,24 +26,21 @@ class UserController extends BaseController {
         $cre = [
             'firstname' => Input::get('firstname'),
             'lastname' => Input::get('lastname'),
+            'email' => Input::get('email'),
             'password' => Input::get('password')
         ];
         $rules = [
             'firstname' => 'required',
             'lastname' => 'required',             
-            'username' => 'required|email|unique:users,username',
-            'password' => 'required|min:8',
+            'email' => 'required|email|unique:users,username',
+            'password' => 'required|min:8'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
-            if(Input::get('password') === Input::get('confirmpassword')){
                 $password = Hash::make(Input::get('password'));
-                $id = DB::table("users")->insertGetID(array('firstname'=>Input::get("firstname"),'lastname'=>Input::get("lastname"),'username'=>Input::get("username"),'password' => $password));
+                $id = DB::table("users")->insertGetID(array('firstname'=>Input::get("firstname"),'lastname'=>Input::get("lastname"),'username'=>Input::get("email"),'password' => $password));
                 Auth::loginUsingId($id);
-                return Redirect::to('/profile');
-            } else {
-                return Redirect::Back()->with('fail','Both passwords do not match')->withErrors($validator)->withInput();
-            }            
+                return Redirect::to('/profile');           
         } else {
             return Redirect::Back()->withErrors($validator)->withInput();
         }

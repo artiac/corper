@@ -18,20 +18,16 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">Firstname</label>
                     {{Form::text('firstname','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"First name","id"=>"Firstname"))}}
                     <span>{{$errors->first('firstname')}}</span>
-                    <!-- <input class=" type="text" autocomplete="off" placeholder="Username" name="username"/> -->
                   </div> 
                 </div> 
                 <div class="col-md-6">
                   <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">Lastname</label>
                     {{Form::text('lastname','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Last name","id"=>"Lastname"))}}
                     <span>{{$errors->first('lastname')}}</span>
-                    <!-- <input class=" type="text" autocomplete="off" placeholder="Username" name="username"/> -->
                   </div> 
                 </div> 
               </div>             
