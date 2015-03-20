@@ -454,11 +454,13 @@ body.page-header-fixed {
   float: left;
   font-size: 23px;
   font-weight: 400;
-  margin-right: 67px;
  padding-top: 11px;
+ max-width: 80%;
  
 }
-
+.site-logo img{
+	max-width: 100%;
+}
 .header .mobi-toggler {
   float: right;
   color: #D8D8D8;
@@ -467,7 +469,7 @@ body.page-header-fixed {
   width: 32px;
   height: 32px;
   display: none;
-  margin: 25px 0 0 30px;
+  margin: 25px 0;
   position: relative;
   background: #fff url(../img/icons/toggler.png) no-repeat 6px 8px;
 }

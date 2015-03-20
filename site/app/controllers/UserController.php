@@ -27,13 +27,19 @@ class UserController extends BaseController {
             'firstname' => Input::get('firstname'),
             'lastname' => Input::get('lastname'),
             'email' => Input::get('email'),
-            'password' => Input::get('password')
+            'password' => Input::get('password'),
+            'gender' => Input::get('gender'),
+            'serv_year' => Input::get('serv_year'),
+            'batch' => Input::get('batch')
         ];
         $rules = [
             'firstname' => 'required',
             'lastname' => 'required',             
             'email' => 'required|email|unique:users,username',
-            'password' => 'required|min:8'
+            'password' => 'required|min:8',
+            'gender' => 'required',
+            'serv_year' => 'required',
+            'batch' => 'required'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){

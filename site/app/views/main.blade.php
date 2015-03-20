@@ -79,7 +79,7 @@
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation pull-right font-transform-inherit">
           <ul>
-            <li><a href="{{url('/')}}" class="close-menu"><i class="fa fa-remove"></i></a></li>
+            <li class="close-button"><a href="{{url('/')}}" class="close-menu"><i class="fa fa-remove"></i></a></li>
             <li><a href="{{url('/')}}">Home</a></li>                     
             <li><a href="{{url('/ourstory')}}">Our Story</a></li>
              <li><a href="{{url('/faq')}}">FAQ</a></li>    
