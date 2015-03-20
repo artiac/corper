@@ -1,22 +1,16 @@
 var onGoingEvent = 0;
 var preloader = ' <img src="'+base_url+'/assets/img/preloader1.gif" style="height:18px; width:auto">';
 
-var $active,$next,$active_menu,$next_menu,$active_text,$next_text;
+var $active,$next;
 function cycleQuotes(){
 
-      //image
       $active = $('.quotes .visible');
       $next = ($active.next().length > 0) ? $active.next() : $('.quotes div:first');
-      //thumbs
-      
-      $active.removeClass('visible zoomIn',function(){//fade out the top image
-
-      $next.addClass('visible').addClass('zoomIn');//make the next image the top one
-
-    });
+      $active.removeClass('visible animated zoomIn');
+      $next.addClass('visible').addClass('animated zoomIn');
 }
 $(document).ready(function(){
-    var inter = setInterval('cycleQuotes()', 3000);
+    var inter = setInterval('cycleQuotes()', 5000);
     $(document).on("click",".section_link", function(){
         var div_show = $(this).attr("data-show");
         $('.section').addClass('hide_panel');

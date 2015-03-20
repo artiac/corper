@@ -86,7 +86,6 @@
               @endif
               <!-- END USER LOGIN DROPDOWN -->
             </ul>
-           <a href="javascript:;" class="menu-toggler"></a>
           </div>
           <!-- END TOP NAVIGATION MENU -->
         </div>

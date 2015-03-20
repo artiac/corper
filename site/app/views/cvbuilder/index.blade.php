@@ -27,12 +27,12 @@
                         <div class="portlet-body">
                           <div class=" portlet-tabs">
                             <ul class="nav nav-tabs corper-life-tab">
-                              <li class="active col-md-6 align-center">
+                              <li class="active col-md-6 col-sm-12 align-center">
                                 <a href="#portlet_tab1" data-toggle="tab">
                                   CV Builder 
                                 </a>
                               </li>
-                              <li class="col-md-6 align-center">
+                              <li class="col-md-6 col-sm-12 align-center">
                                 <a href="#portlet_tab2" data-toggle="tab">
                                 Job Seeker Resource </a>
                               </li>
