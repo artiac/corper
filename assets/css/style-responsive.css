@@ -1,3 +1,13 @@
+.overlay{
+	position: fixed;
+	top:0;
+	left: 0;
+	z-index: 999;
+	width: 20%;
+	height: 100%;
+	background: rgba(255,255,255,0.5);
+	display: none;
+}
 /* BEGIN max width 1200px */
 @media (max-width: 1200px) {
 	.content-form-page .control-label {
@@ -90,11 +100,18 @@
 	.header .header-navigation {
 		float: none !important;		
 		display: none;
+		position: fixed;
+		right: -80%;
+		top: 0;
+		height: 100%;
+		width: 80%;
 		clear: both;
 		background: #F9F9F9;
-		padding: 0 20px;
-		margin: 0 -20px 25px;
 		font-size: 16px;
+		z-index: 1000;
+		margin: 0;
+		padding: 0 20px;
+
 	}
 	.header .header-navigation li {
 		float: none;
@@ -489,10 +506,6 @@
 		width: auto;
 	}
 
-	.header .header-navigation {
-		margin: 0 -10px 0;
-		padding: 0 10px;
-	}
 	.header-navigation-content {
 		min-width: 100px;
 

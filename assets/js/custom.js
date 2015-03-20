@@ -142,6 +142,11 @@ $(document).ready(function(){
         });
        } });
 
+    $(".profile-toggle a").on("click", function(event) {
+            event.preventDefault();//the default action of the event will not be triggered
+            $(".side-menu").toggle(300);
+        });
+
 
 });
 

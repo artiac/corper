@@ -259,8 +259,21 @@ var Layout = function () {
         $(".mobi-toggler").on("click", function(event) {
             event.preventDefault();//the default action of the event will not be triggered
             
-            $(".header").toggleClass("menuOpened");
-            $(".header").find(".header-navigation").toggle(300);
+
+            // $(".header").find(".header-navigation").toggle(300);
+            $(".header").find(".header-navigation").show();
+            $(".overlay").show();
+            $(".header").find(".header-navigation").animate({right: '0'}, 300);
+
+        });
+         $(".close-menu").on("click", function(event) {
+            event.preventDefault();
+            $(".overlay").hide();
+            $(".header").find(".header-navigation").animate({right: '-80%'}, 300, function(e){
+                $(".header").find(".header-navigation").hide();
+            });
+
+
         });
     }
 

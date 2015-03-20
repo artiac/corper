@@ -79,6 +79,7 @@
         <!-- BEGIN NAVIGATION -->
         <div class="header-navigation pull-right font-transform-inherit">
           <ul>
+            <li><a href="{{url('/')}}" class="close-menu"><i class="fa fa-remove"></i></a></li>
             <li><a href="{{url('/')}}">Home</a></li>                     
             <li><a href="{{url('/ourstory')}}">Our Story</a></li>
              <li><a href="{{url('/faq')}}">FAQ</a></li>    
@@ -99,13 +100,15 @@
             </li>
             <!-- END TOP SEARCH -->
           </ul>
-        </div>
+        </div>  
         <!-- END NAVIGATION -->
       </div>
     </div>
     <!-- Header END -->
     {{$main}}
     @include('footer_common')
+    <div class="overlay">
+    </div>
     <!-- Load javascripts at bottom, this will reduce page load time -->
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
     <!--[if lt IE 9]>

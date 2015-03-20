@@ -169,6 +169,10 @@
                 <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
               </div>    
             </div>
+            <div class="profile-toggle">
+              asdsad
+              <a href="javascript:void(0);" class="pull-right" style="color:#FFF"><i class="fa fa-bars"></i></a>
+            </div>
               <div class="side-menu">
                 <ul>
                   <li @if($top_active == 2)class="active start" @else class="start" @endif;>
