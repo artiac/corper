@@ -82,6 +82,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', end
 .nysc-item .edit-edu .remove{	
 	font-size: larger;
 }
+.language-item .edit-lang{	
+	text-align: right;
+	margin-top: 10px;
+}
+.language-item .edit-lang .remove{	
+	font-size: larger;
+}
 #section_panel input[type=checkbox]{
 	display:none;
 }

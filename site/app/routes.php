@@ -110,9 +110,13 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 		Route::get('/fetch_nysc', function(){
 		return View::make('cvbuilder.section_views.nysc');
 	});
+		Route::get('/fetch_language', function(){
+		return View::make('cvbuilder.section_views.language');
+	});
 	Route::post('/fetch_workex', 'CVController@postWorkex');
 	Route::post('/fetch_education', 'CVController@postEducation');
 	Route::post('/fetch_nysc', 'CVController@postNysc');
+	Route::post('/fetch_language', 'CVController@postLanguage');
 
 	Route::get('/fetch_ui_section', function(){
 		return View::make('cvbuilder.section_views.add_new_section');
@@ -133,15 +137,20 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 		$nysc = Nysc::find($id);
 		return View::make('cvbuilder.section_views.edit_nysc', ['nysc'=>$nysc]);
 	});
+	  Route::get('/edit_ui_language/{id}', function($id){
+		$language = Language::find($id);
+		return View::make('cvbuilder.section_views.edit_language', ['lang'=>$language]);
+	});
 
 	Route::post('/fetch_addsection', 'CVController@postSection');
 	Route::post('/edit_section', 'CVController@putSection');
 
-	Route::post('/edit_work', 'CVController@putwork')
-	;
+	Route::post('/edit_work', 'CVController@putwork');
 	Route::post('/edit_education', 'CVController@puteducation');
 
 	Route::post('/edit_nysc', 'CVController@putnysc');
+
+	Route::post('/edit_language', 'CVController@putlanguage');
 
 	Route::get('/preview/{code}/{style}', 'CVController@getPreview');
 	Route::get('/pdf/{code}/{style}', 'CVController@getPDF');
@@ -152,18 +161,17 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 
 	Route::post('/remove_nysc/{id}/{code}', 'CVController@deleteNysc');
 
+	Route::post('/remove_language/{id}/{code}', 'CVController@deleteLanguage');
+
 	Route::post('/remove_section/{id}/{code}', 'CVController@deleteSection');
 });
 
 Route::group(['before'=> 'auth'], function(){
 
-
 	Route::post('/proaccount', 'UseraccountController@postLogin');
 	Route::get('/account',function(){
 		return View::make('account');
 	});
-	
-
 
 });
 	
@@ -187,9 +195,11 @@ Route::get('/userprofile',function(){
 Route::get('/user/{id}', function(){
 	return View::make('main');
 });
+
 Route::post('/user/{id}', function(){
 	return 'Post';
 });
+
 Route::post('/', function(){
 	return 'This is the post request';
 });

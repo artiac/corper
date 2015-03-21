@@ -165,10 +165,10 @@
 													</div>
 											    </div>
 												@elseif($section->type == 1)
-										    <div class="row section hide_panel" id="prop{{$section->id}}">
-										  		<h2>{{$section->section_name}}</h2>
-								               <div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_work_ex"> + Add New Entry</div>
-									              <div class="margin-top-20" id="work_ex_panel">
+										        <div class="row section hide_panel" id="prop{{$section->id}}">
+										    		<h2>{{$section->section_name}}</h2>
+								                    <div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_work_ex"> + Add New Entry</div>
+									                <div class="margin-top-20" id="work_ex_panel">
 									               	@foreach($workex as $work)
 									              		<div class="workex-item">
 									              			<div class="row" style="padding:10px 0">
@@ -272,7 +272,65 @@
 							             	       @endforeach
 				                                </div>    
 					                        </div>
-							           		@endif
+					                        @elseif ($section->type == 4)
+									        <div class="row section hide_panel" id="prop{{$section->id}}">
+												<h2>{{$section->section_name}}</h2>	
+								                <div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_language"> + Add New Entry</div> 	        
+								                <div class="margin-top-20" id="language_panel">
+									            	@foreach($language as $lang)
+								            		<div class="language-item">
+								            			<div class="row">
+							             		            <div class="col-md-10" id="lang">
+											              		<input type="checkbox" name="language[]" value="{{$lang->id}}" checked>
+												              	<div class="row" style="padding:0" id="lang{{$lang->id}}">
+										              			 	<div class="col-md-4">
+										              					<span class="small-text">Language Name</span><br>
+										              					<b>{{$lang->language_id}}</b>
+											              			</div>
+									              					<div class="col-md-4">
+										              					<span class="small-text">Ability</span><br>
+										              					<b>{{$lang->ability}}</b>                                  
+										              			 	</div>
+									              					<div class="col-md-4">
+										              					<span class="small-text">Level</span><br>
+										              					<b>{{$lang->level}}</b>
+										              				</div>			                                         			
+												              	</div>	
+										              		</div>
+										            		<div class="col-md-2">
+										              			<div class="edit-lang">
+											               			<a href="javascript:;" data-id="{{$lang->id}}" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a>
+											               			<a href="javascript:;" data-id="{{$lang->id}}" class="remove-language">x</a>
+										      		           </div>
+										     		        </div> 
+									        		    </div> 
+									       		    </div>                                               		
+								            	   @endforeach		                                                     
+												</div>
+											</div>
+											 @elseif ($section->type == 5)
+									            <div class="row section hide_panel" id="prop{{$section->id}}">	
+									            	<h2>{{$section->section_name}}</h2>	
+                                                		<div class="col-md-2">
+							            				    <div class="form-group">
+											                    <label class="col-md-2 control-label">Profile Image</label>
+											                    <div class="col-md-8">
+											                      {{Form::file('profile_image',array("class"=>"form-control"))}} 
+											                   </div>
+											                </div> 
+						            			    	</div>
+						            				<div class="col-md-4">
+								              			<div class="edit-lang">
+									               		  <a href="{{url('/')}}"><button type="submit" class="btn btn-success">Submit</button></a>
+								      		           </div>
+								     		        </div> 
+						            				<div class="col-md-11">
+						            				@if($profiles)
+                                                      {{HTML::image('/assets/img/'.$profiles->profile_image)}}
+                                                     @endif
+                                                    </div>
+                                                </div>
+							           		@endif							           		
 							               @endforeach
 		                                </div>
 								    </div>
@@ -283,7 +341,7 @@
 				</div>
 	        </div>
 	    </div>
-		{{Form::close()}}
+	{{Form::close()}}
 	<!--new section-->
 		<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">

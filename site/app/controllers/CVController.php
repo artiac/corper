@@ -34,8 +34,10 @@ class CVController extends BaseController {
             array("cv_id"=>"$cv_id","section_name"=>"Qualfications","type"=>"0","priority"=>"2","default"=>"1"),
             array("cv_id"=>"$cv_id","section_name"=>"Education","type"=>"2","priority"=>"3","default"=>"1"),
             array("cv_id"=>"$cv_id","section_name"=>"NYSC","type"=>"3","priority"=>"4","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"5","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"6","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Language","type"=>"4","priority"=>"5","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"profiles","type"=>"5","priority"=>"6","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"7","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"8","default"=>"1"),
         ));
         return Redirect::to('/cvbuilder/cv/'.$cv->cv_code);
     }
@@ -48,8 +50,10 @@ class CVController extends BaseController {
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $profiles = Profile::where('cv_id',$cv_id)->orderBy('priority')->first();
 
         $this->layout->title = 'CV Builder';
         $this->layout->top_active = 6;
@@ -59,7 +63,9 @@ class CVController extends BaseController {
             "workex" => $workex,
             "education" => $education,
             "dob" => $dob,
-            "nysc" => $nysc
+            "nysc" => $nysc,
+            "language" => $language,
+            "profiles" => $profiles
         ));          
     }
 
@@ -110,6 +116,23 @@ class CVController extends BaseController {
             if($nysc_order){
                 foreach ($nysc_order as $nysc_id) {
                     Nysc::where('id',$nysc_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
+                    $count++;
+                }
+            }
+             $count = 1;
+            $language_order = Input::get('language');
+            if($language_order){
+                foreach ($language_order as $language_id) {
+                    Language::where('id',$language_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
+                    $count++;
+                }
+            }
+
+               $count = 1;
+            $profile_order = Input::get('profile');
+            if($profile_order){
+                foreach ($profile_order as $profile_id) {
+                    Profile::where('id',$profile_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
                     $count++;
                 }
             }
@@ -344,6 +367,138 @@ class CVController extends BaseController {
         }
     }
 
+
+         public function postLanguage(){
+       
+        $cre = [
+            'language_id' => Input::get('language_id'),        
+            'language_name' => Input::get('language_name'),
+            'ability' => Input::get('ability'),
+            'level' => Input::get('level')
+        ];
+        $rules = [
+            'language_id' => 'required',
+            'language_name' => 'required',
+            'ability' => 'required',
+            'level' => 'required'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+            $language = new Language;
+            $language->cv_id = Input::get('cv_id');
+            $language->language_id = Input::get('language_id');
+            $language->language_name = Input::get('language_name');
+            $language->ability = Input::get('ability');
+            $language->level = Input::get('level');
+            $language->save();
+            $insert_id = $language->id;
+            $data["message"] = 'Language Succefully added';
+            $data["language_id"] = Input::get('language_id');
+            $data["language_name"] = Input::get('language_name');
+            $data["ability"] = Input::get('ability');
+            $data["level"] = Input::get('level');
+            $data["id"] = $insert_id;
+            return json_encode($data);
+        } else {
+            return 'Please fill all the inputs';
+        }
+    }
+
+    public function putLanguage(){       
+        $cre = [
+            'language_id' => Input::get('language_id'),
+            'language_name' => Input::get('language_name'),
+            'ability' => Input::get('ability'),
+            'level' => Input::get('level')
+        ];
+        $rules = [
+            'language_id' => 'required',
+            'language_name' => 'required',
+            'ability' => 'required',
+            'level' => 'required'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+
+            $language = Language::find(Input::get('language_id'));
+            $cv = Cv::select('id')->where('cv_code',Input::get('cv_code'))->first();
+            if($cv->id == $language->cv_id){
+                $language->language_id = Input::get('language_id');
+                $language->language_name = Input::get('language_name');
+                $language->ability = Input::get('ability');
+                $language->level = Input::get('level');     
+                $language->save();
+                $data["message"] = 'Language Succefully updated';
+                $data["language_id"] = Input::get('language_id');
+                $data["language_name"] = Input::get('language_name');
+                $data["ability"] = Input::get('ability');
+                $data["level"] = Input::get('level');
+            }
+            else {
+                $data["message"] = 'Error in editing language';
+            }
+            return json_encode($data);
+        } 
+        else {
+            return 'Please fill all the inputs';
+        }
+    }
+
+     public function postProfile(){      
+         
+          $cre = [
+            'profile_image' => Input::get('profile_image')
+        ];
+        $rules = [
+            'profile_image' => 'required'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+            $profile = new Profile;
+            $profile->cv_id = Input::get('cv_id');
+            $profile->profile_image = Input::get('profile_image');
+            $profile->save();
+            $insert_id = $profile->id;
+            $data["message"] = 'profile details Succefully added';
+            $data["profile_image"] = Input::get('profile_image');
+            $data["id"] = $insert_id;
+            return json_encode($data);
+        } else {
+            return 'Please upload the image';
+        }
+    }
+
+      public function putProfile(){
+       
+        $cre = [
+            'profile_image' => Input::get('profile_image')
+        ];
+        $rules = [
+            'profile_image' => 'required'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+
+            $profile = Nysc::find(input::get('profile_id'));
+            $cv=CV::select('id')->where('cv_code',Input::get('cv_code'))->first();
+            if($cv->id==$profile->cv_id){
+            $profile->profile_image = Input::get('profile_image');
+            $profile->save();
+            $data["message"] = 'profile details Succefully updated';
+            $data["profile_image"] = Input::get('profile_image');
+        }
+        else{            
+            $data["message"] = 'Error in editing image';
+
+        } return json_encode($data);
+    }
+        else 
+        {
+            return 'Please upload the image';
+        }
+    }
+
+
     public function postSection(){
        
         $cre = [
@@ -407,6 +562,7 @@ class CVController extends BaseController {
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
@@ -416,7 +572,8 @@ class CVController extends BaseController {
             "workex" => $workex,
             "education" => $education,
             "dob" => $dob,
-            "nysc" => $nysc
+            "nysc" => $nysc,
+            "language" => $language
         ));          
     }
 
@@ -431,6 +588,7 @@ class CVController extends BaseController {
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
@@ -440,7 +598,8 @@ class CVController extends BaseController {
             "workex" => $workex,
             "education" => $education,
             "dob" => $dob,
-            "nysc" => $nysc
+            "nysc" => $nysc,
+            "language" => $language
         ));
 
         $dompdf->load_html($html);
@@ -470,6 +629,15 @@ class CVController extends BaseController {
         $cv = Cv::where('cv_code',$code)->first();
         $cv_id = $cv->id;
         Nysc::where('id',$nysc_id)->where('cv_id',$cv_id)->delete();
+        $data["success"] = 1;
+        $data["message"] = "Succefully deleted";
+        return json_encode($data);
+    }
+
+      public function deleteLanguage($language_id,$code){
+        $cv = Cv::where('cv_code',$code)->first();
+        $cv_id = $cv->id;
+        Language::where('id',$language_id)->where('cv_id',$cv_id)->delete();
         $data["success"] = 1;
         $data["message"] = "Succefully deleted";
         return json_encode($data);

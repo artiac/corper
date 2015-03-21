@@ -51,6 +51,15 @@ $(document).ready(function(){
             onmodalload("#Modal");
         });
     });
+       $(document).on("click",".edit-language", function(){
+        $("#Modal .modal-title").html('Edit Language Section');
+        $("#Modal .modal-body-main").html('Loading');
+        var id = $(this).attr('data-id');
+        $.get(base_url+'/cvbuilder/edit_ui_language/'+id,function(data){
+            $("#Modal .modal-body-main").html(data);
+            onmodalload("#Modal");
+        });
+    });
 
     $(document).on("click",".remove-work", function(){
         var item = $(this);
@@ -76,6 +85,15 @@ $(document).ready(function(){
         var cv_code = $("#cv_code").val();
         $.post(base_url+'/cvbuilder/remove_nysc/'+id+'/'+cv_code,function(data){
             item.parent().parent().parent().parent().parent().remove();
+        });
+
+    });
+       $(document).on("click",".remove-language", function(){
+        var item = $(this);
+        var id = item.attr('data-id');
+        var cv_code = $("#cv_code").val();
+        $.post(base_url+'/cvbuilder/remove_language/'+id+'/'+cv_code,function(data){
+            item.parent().parent().parent().remove();
         });
 
     });
@@ -192,6 +210,17 @@ $(function(){
     });
 });
 
+$(function(){
+    $("#add_new_language").click(function(){
+        $("#Modal .modal-title").html('Add New Language');
+        $("#Modal .modal-body-main").html('Loading');
+        $.get(base_url+'/cvbuilder/fetch_language',function(data){
+            $("#Modal .modal-body-main").html(data);
+            onmodalload("#Modal");
+        });
+    });
+});
+
 function work_ex_submit(){
         var val = $("#work_ex_form").serialize();
         var id = $("#cv_id").val();
@@ -202,68 +231,93 @@ function work_ex_submit(){
             $("#work_ex_panel").prepend('<div class="workex-item"> <div class="row" style="padding:10px 0"> <div class="col-md-10" id="work"> <input type="checkbox" name="work_ex[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="work'+data.id+'"> <div class="col-md-4"> <span class="small-text">Position</span><br> <b>'+data.title+'</b> </div> <div class="col-md-4"> <span class="small-text">Company</span><br> <b>'+data.company+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+' - '+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-work"><i class="fa fa-edit"></i></a> <a href="" class="remove-work" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
         });
 };
+
 function education_submit(){
-        var val = $("#education_form").serialize();
-        var id = $("#cv_id").val();
-        val = val+'&cv_id='+id;
-        $.post(base_url+'/cvbuilder/fetch_education',val,function(data){
-            data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            $("#education_panel").prepend('<div class="education-item"> <div class="row"> <div class="col-md-10" id="edu"> <input type="checkbox" name="education[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="edu'+data.id+'"> <div class="col-md-4"> <span class="small-text">Course</span><br> <b>'+data.coursename+'</b> </div> <div class="col-md-4"> <span class="small-text">Institute</span><br> <b>'+data.institutename+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+'-'+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-edu"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-education"><i class="fa fa-edit"></i></a> <a href="" class="remove-education" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
-        });
+    var val = $("#education_form").serialize();
+    var id = $("#cv_id").val();
+    val = val+'&cv_id='+id;
+    $.post(base_url+'/cvbuilder/fetch_education',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#education_panel").prepend('<div class="education-item"> <div class="row"> <div class="col-md-10" id="edu"> <input type="checkbox" name="education[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="edu'+data.id+'"> <div class="col-md-4"> <span class="small-text">Course</span><br> <b>'+data.coursename+'</b> </div> <div class="col-md-4"> <span class="small-text">Institute</span><br> <b>'+data.institutename+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+'-'+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-edu"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-education"><i class="fa fa-edit"></i></a> <a href="" class="remove-education" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
+    });
+};
+
+function language_submit(){
+    var val = $("#language_form").serialize();
+    var id = $("#cv_id").val();
+    val = val+'&cv_id='+id;
+    $.post(base_url+'/cvbuilder/fetch_language',val,function(data){
+        alert(data);
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#language_panel").prepend('<div class="language-item"> <div class="row"> <div class="col-md-10" id="lang"> <input type="checkbox" name="language[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="lang'+data.id+'"> <div class="col-md-4"> <span class="small-text">Language Name</span><br> <b>'+data.language_id+'</b> </div> <div class="col-md-4"> <span class="small-text">Ability</span><br> <b>'+data.ability+'</b> </div> <div class="col-md-4"> <span class="small-text">Level</span><br> <b>'+data.level+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-lang"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a> <a href="" class="remove-language" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
+    });
 };
 
 function addsection_submit(){
-        var val = $("#addsection_form").serialize();
-        var id = $("#cv_id").val();
-        val = val+'&cv_id='+id;
-        $.post(base_url+'/cvbuilder/fetch_addsection',val,function(data){
-            data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            // $("#sortable1").append('<div style="background:#EEE; padding:5px 10px; text-align:center; font-size:14px; margin-bottom:1px" class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked>'+data.section_name+'</div>');
-            $("#sortable1").append('<div class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked=""><span id="section'+data.id+'">'+data.section_name+'</span><a href="javascript:;" data-id="'+data.id+'" class="remove-section" style="float:right;">x</a><a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-section"><i class="fa fa-edit"></i></a></div>');
-            $("#section_panel").append('<div class="row section hide_panel" id="prop'+data.id+'"><h2>'+data.section_name+'</h2><div class="col-md-11"><div class="form-group"><textarea name="section_'+data.id+'" class="form-control textarea"  cols="50" rows="10"></textarea></div></div></div>');
-            $(".section_link[data-show=#prop"+data.id+"]").trigger('click');
-            onmodalload("#prop"+data.id);
-        });
+    var val = $("#addsection_form").serialize();
+    var id = $("#cv_id").val();
+    val = val+'&cv_id='+id;
+    $.post(base_url+'/cvbuilder/fetch_addsection',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        // $("#sortable1").append('<div style="background:#EEE; padding:5px 10px; text-align:center; font-size:14px; margin-bottom:1px" class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked>'+data.section_name+'</div>');
+        $("#sortable1").append('<div class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked=""><span id="section'+data.id+'">'+data.section_name+'</span><a href="javascript:;" data-id="'+data.id+'" class="remove-section" style="float:right;">x</a><a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-section"><i class="fa fa-edit"></i></a></div>');
+        $("#section_panel").append('<div class="row section hide_panel" id="prop'+data.id+'"><h2>'+data.section_name+'</h2><div class="col-md-11"><div class="form-group"><textarea name="section_'+data.id+'" class="form-control textarea"  cols="50" rows="10"></textarea></div></div></div>');
+        $(".section_link[data-show=#prop"+data.id+"]").trigger('click');
+        onmodalload("#prop"+data.id);
+    });
 };
 
 function editsection_submit(id){
-        var val = $("#editsection_form").serialize();
-        var cv_code = $("#cv_code").val();
-        val = val+'&section_id='+id+'&cv_code='+cv_code;
-        $.post(base_url+'/cvbuilder/edit_section',val,function(data){
-            data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            $("#section"+id).html(data.section_name);
-        });
+    var val = $("#editsection_form").serialize();
+    var cv_code = $("#cv_code").val();
+    val = val+'&section_id='+id+'&cv_code='+cv_code;
+    $.post(base_url+'/cvbuilder/edit_section',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#section"+id).html(data.section_name);
+    });
 };
 
 function editwork_submit(id){
-        var val = $("#editwork_form").serialize();
-        var cv_code = $("#cv_code").val();
-        val = val+'&work_id='+id+'&cv_code='+cv_code;
-        $.post(base_url+'/cvbuilder/edit_work',val,function(data){
-            data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            $("#work"+id).find('b').eq(0).html(data.title);
-            $("#work"+id).find('b').eq(1).html(data.company);
-            $("#work"+id).find('b').eq(2).html(data.startdate + '-' +data.enddate);
+    var val = $("#editwork_form").serialize();
+    var cv_code = $("#cv_code").val();
+    val = val+'&work_id='+id+'&cv_code='+cv_code;
+    $.post(base_url+'/cvbuilder/edit_work',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#work"+id).find('b').eq(0).html(data.title);
+        $("#work"+id).find('b').eq(1).html(data.company);
+        $("#work"+id).find('b').eq(2).html(data.startdate + '-' +data.enddate);
 
-        });
+    });
 };
 
 function editeducation_submit(id){
-        var val = $("#editeducation_form").serialize();
-        var cv_code = $("#cv_code").val();
-        val = val+'&education_id='+id+'&cv_code='+cv_code;
-        $.post(base_url+'/cvbuilder/edit_education',val,function(data){
-            data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            $("#edu"+id).find('b').eq(0).html(data.coursename);
-            $("#edu"+id).find('b').eq(1).html(data.institutename);
-            $("#edu"+id).find('b').eq(2).html(data.startdate+ '-' +data.enddate);
-        });
+    var val = $("#editeducation_form").serialize();
+    var cv_code = $("#cv_code").val();
+    val = val+'&education_id='+id+'&cv_code='+cv_code;
+    $.post(base_url+'/cvbuilder/edit_education',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#edu"+id).find('b').eq(0).html(data.coursename);
+        $("#edu"+id).find('b').eq(1).html(data.institutename);
+        $("#edu"+id).find('b').eq(2).html(data.startdate+ '-' +data.enddate);
+    });
+};
+function editlanguage_submit(id){
+    var val = $("#editlanguage_form").serialize();
+    var cv_code = $("#cv_code").val();
+    val = val+'&language_id='+id+'&cv_code='+cv_code;
+    $.post(base_url+'/cvbuilder/edit_language',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#lang"+id).find('b').eq(0).html(data.language_id);
+        $("#lang"+id).find('b').eq(1).html(data.ability);
+        $("#lang"+id).find('b').eq(2).html(data.level);
+    });
 };
 function nysc_submit(){
     var val = $("#nysc_form").serialize();
@@ -276,16 +330,16 @@ function nysc_submit(){
     });
 };
 function editnysc_submit(id){
-        var val = $("#editnysc_form").serialize();
-        var cv_code = $("#cv_code").val();
-        val = val+'&nysc_id='+id+'&cv_code='+cv_code;
-        $.post(base_url+'/cvbuilder/edit_nysc',val,function(data){
-            data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            $("#nysc"+id).find('b').eq(0).html(data.batch);
-            $("#nysc"+id).find('b').eq(1).html(data.year);
-            $("#nysc"+id).find('b').eq(2).html(data.ppa);
-        });
+    var val = $("#editnysc_form").serialize();
+    var cv_code = $("#cv_code").val();
+    val = val+'&nysc_id='+id+'&cv_code='+cv_code;
+    $.post(base_url+'/cvbuilder/edit_nysc',val,function(data){
+        data = $.parseJSON(data);
+        $("#Modal .modal-body-main").html(data.message);
+        $("#nysc"+id).find('b').eq(0).html(data.batch);
+        $("#nysc"+id).find('b').eq(1).html(data.year);
+        $("#nysc"+id).find('b').eq(2).html(data.ppa);
+    });
 };
 $(document).ready(function(){
     $('.textarea').wysihtml5({
