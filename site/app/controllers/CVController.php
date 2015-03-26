@@ -64,8 +64,7 @@ class CVController extends BaseController {
             "education" => $education,
             "dob" => $dob,
             "nysc" => $nysc,
-            "language" => $language,
-            "profiles" => $profiles
+            "language" => $language
         ));          
     }
 
@@ -89,8 +88,16 @@ class CVController extends BaseController {
             $cv->add_line2 = Input::get("add_line2");
             $cv->dob = Input::get("dob_year").'-'.Input::get("dob_month").'-'.Input::get("dob_date");
             $cv->marital_status = Input::get("marital_status");
+            $cv->profile_image = Input::get("profile_image");
+              if (Input::hasFile('profile_image')){
+                    $destinationPath = "assets/img/";
+                    $extension = Input::file('profile_image')->getClientOriginalExtension();
+                    $image = Input::file('profile_image')->getClientOriginalName();
+                    Input::file('profile_image')->move($destinationPath,$image);
+                    $cv->profile_image = $image;
+                }           
             $cv->save();
-
+            
             $count = 1;
             $work_ex_order = Input::get('work_ex');
             if($work_ex_order){
@@ -454,11 +461,11 @@ class CVController extends BaseController {
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
-            $profile = new Profile;
-            $profile->cv_id = Input::get('cv_id');
-            $profile->profile_image = Input::get('profile_image');
-            $profile->save();
-            $insert_id = $profile->id;
+            $profiles = new Profile;
+            $profiles->cv_id = Input::get('cv_id');
+            $profiles->profile_image = Input::get('profile_image');
+            $profiles->save();
+            $insert_id = $profiles->id;
             $data["message"] = 'profile details Succefully added';
             $data["profile_image"] = Input::get('profile_image');
             $data["id"] = $insert_id;
@@ -479,11 +486,11 @@ class CVController extends BaseController {
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
 
-            $profile = Nysc::find(input::get('profile_id'));
+            $profiles = Nysc::find(input::get('profile_id'));
             $cv=CV::select('id')->where('cv_code',Input::get('cv_code'))->first();
-            if($cv->id==$profile->cv_id){
-            $profile->profile_image = Input::get('profile_image');
-            $profile->save();
+            if($cv->id==$profiles->cv_id){
+            $profiles->profile_image = Input::get('profile_image');
+            $profiles->save();
             $data["message"] = 'profile details Succefully updated';
             $data["profile_image"] = Input::get('profile_image');
         }
@@ -563,6 +570,7 @@ class CVController extends BaseController {
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
         $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $profiles = profiles::where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
@@ -573,7 +581,8 @@ class CVController extends BaseController {
             "education" => $education,
             "dob" => $dob,
             "nysc" => $nysc,
-            "language" => $language
+            "language" => $language,
+            "profiles" => $profiles
         ));          
     }
 
@@ -589,6 +598,7 @@ class CVController extends BaseController {
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
         $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $profile = profile::where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
@@ -599,7 +609,8 @@ class CVController extends BaseController {
             "education" => $education,
             "dob" => $dob,
             "nysc" => $nysc,
-            "language" => $language
+            "language" => $language,
+            "profile" => $profile
         ));
 
         $dompdf->load_html($html);

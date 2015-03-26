@@ -117,6 +117,7 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 	Route::post('/fetch_education', 'CVController@postEducation');
 	Route::post('/fetch_nysc', 'CVController@postNysc');
 	Route::post('/fetch_language', 'CVController@postLanguage');
+	Route::post('/save', 'CVController@postProfile');
 
 	Route::get('/fetch_ui_section', function(){
 		return View::make('cvbuilder.section_views.add_new_section');
@@ -152,6 +153,8 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 
 	Route::post('/edit_language', 'CVController@putlanguage');
 
+	Route::post('/edit_profile', 'CVController@putprofile');
+
 	Route::get('/preview/{code}/{style}', 'CVController@getPreview');
 	Route::get('/pdf/{code}/{style}', 'CVController@getPDF');
 
@@ -165,6 +168,7 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 
 	Route::post('/remove_section/{id}/{code}', 'CVController@deleteSection');
 });
+
 
 Route::group(['before'=> 'auth'], function(){
 

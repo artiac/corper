@@ -51,19 +51,19 @@
 	</div>
 			<!-- END PAGE BREADCRUMB -->
 			<!-- BEGIN PAGE CONTENT INNER -->
-	{{Form::open(array("url"=>"","method" => "PUT","id"=>"builderForm"))}}	
+	{{Form::open(array("url"=>"/cvbuilder/cv/saveinfo".$cv->id,"method" => "PUT","id"=>"builderForm","files"=>"true"))}}	
 	{{Form::hidden('cv_id',$cv->id,["id"=>"cv_id","readonly"=>"readonly"])}}
 	{{Form::hidden('cv_code',$cv->cv_code,["id"=>"cv_code","readonly"=>"readonly"])}}
 
 		<div class="container margin-top-20" style="margin-bottom:15px;">
 			<div class="row margin-top-10">
 				<!-- BEGIN PROFILE CONTENT -->
-				<div class="profile-content">
-					<div class="row">					
-						<div class="col-md-12">
 							<div class="portlet light">
 								<div class="portlet-title tabbable-line">
 									<div class="caption caption-md">
+				<div class="profile-content">
+					<div class="row">					
+						<div class="col-md-12">
 										<i class="icon-globe theme-font hide"></i>
 										<span class="caption-subject font-blue-madison bold uppercase">Create Your CV</span>
 									</div>
@@ -311,22 +311,22 @@
 											 @elseif ($section->type == 5)
 									            <div class="row section hide_panel" id="prop{{$section->id}}">	
 									            	<h2>{{$section->section_name}}</h2>	
-                                                		<div class="col-md-2">
-							            				    <div class="form-group">
-											                    <label class="col-md-2 control-label">Profile Image</label>
-											                    <div class="col-md-8">
+									            	    <div class="form-group">
+                                                		    <div class="col-md-3">							            				    
+											                    <label class="control-label">Profile Image</label>
+											                    </div>
+											                    <div class="col-md-5">
 											                      {{Form::file('profile_image',array("class"=>"form-control"))}} 
 											                   </div>
-											                </div> 
-						            			    	</div>
-						            				<div class="col-md-4">
-								              			<div class="edit-lang">
-									               		  <a href="{{url('/')}}"><button type="submit" class="btn btn-success">Submit</button></a>
-								      		           </div>
-								     		        </div> 
+											                </div> 						            			    	
+								            				<div class="col-md-4">
+										              			<div class="edit-lang">
+										              				{{ link_to('/cvbuilder/cv/edit_profile', 'Update', array('class' => 'btn btn-danger')) }}
+										      		            </div>
+										     		        </div> 
 						            				<div class="col-md-11">
-						            				@if($profiles)
-                                                      {{HTML::image('/assets/img/'.$profiles->profile_image)}}
+						            				@if($cv)
+                                                      {{HTML::image('/assets/img/'.$cv->profile_image)}}
                                                      @endif
                                                     </div>
                                                 </div>
