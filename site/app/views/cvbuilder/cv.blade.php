@@ -19,7 +19,7 @@
 					<div class="col-md-6">
 						<a href="{{url('/cvbuilder/pdf/'.$cv->cv_code.'/executive')}}" class="btn green pull-right" target="_blank">Downlaod</a>
 						<button type="button" class="btn green pull-right" data-toggle="modal" data-target="#style-modal">Preview</button>
-						<button type="button" class="btn green pull-right">Save</button>
+						<button type="button" class="btn green pull-right submit-form">Save</button>
 					</div>
 				</div>
 				<!-- BEGIN SAMPLE FORM PORTLET-->					

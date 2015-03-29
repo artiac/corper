@@ -14,7 +14,7 @@
         @if(Auth::check())
         <li>
             <a href="{{URL('/profile')}}" style="color:#1caf9a">{{HTML::image('assets/img/avatar1.jpg','logo',array("class"=>"img-circle hidden-xs hidden-sm pull-right","style"=>"margin-top:-5px;height:30px; margin-left:10px"))}}
-            <span class="username">{{Auth::user()->username}}</span></a>
+            <span class="username">{{Auth::user()->firstname}}</span></a>
         </li>
         @endif
         <!-- END TOP SEARCH -->
