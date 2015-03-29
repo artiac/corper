@@ -62,7 +62,9 @@
                 <!-- BEGIN TOP BAR MENU -->
                 <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
-                        <li><a href="{{url("/login")}}">Log In</a></li>
+                        @if(!Auth::check())
+                          <li><a href="{{url("/login")}}">Log In</a></li>
+                        @endif
                         <li><a href="{{url("/cvbuilder")}}">CV Builder</a></li>
                     </ul>
                 </div>
@@ -71,40 +73,8 @@
         </div>        
     </div>
     <!-- END TOP BAR -->
-    <!-- BEGIN HEADER -->
-    <div class="header">
-      <div class="container">                  
-        <a class="site-logo" href="{{url('/')}}">{{HTML::image('assets/img/logos/Final-Logo1.png','logo')}}</a>
-        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
-        <!-- BEGIN NAVIGATION -->
-        <div class="header-navigation pull-right font-transform-inherit">
-          <ul>
-            <li class="close-button"><a href="{{url('/')}}" class="close-menu"><i class="fa fa-remove"></i></a></li>
-            <li><a href="{{url('/')}}">Home</a></li>                     
-            <li><a href="{{url('/ourstory')}}">Our Story</a></li>
-             <li><a href="{{url('/faq')}}">FAQ</a></li>    
-            <!-- BEGIN TOP SEARCH -->
-            <li class="menu-search">
-              <span class="sep"></span>
-              <i class="fa fa-search search-btn"></i>
-              <div class="search-box">
-                {{Form::open(array("url"=>"/user/1", "method" => "POST"))}}
-                  <div class="input-group">
-                    <input type="text" placeholder="Search" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit">Search</button>
-                    </span>
-                  </div>
-                {{Form::close()}}
-              </div> 
-            </li>
-            <!-- END TOP SEARCH -->
-          </ul>
-        </div>  
-        <!-- END NAVIGATION -->
-      </div>
-    </div>
-    <!-- Header END -->
+    @include('header_common')
+
     {{$main}}
     @include('footer_common')
     <div class="overlay">

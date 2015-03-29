@@ -58,44 +58,7 @@
 </div>
 <!-- END TOP BAR -->
 
-<!-- BEGIN HEADER -->
-<div class="page-header">
-  <!-- BEGIN HEADER TOP -->
-  <div class="page-header-top">
-    <div class="container">
-      <div class="row" style="padding:10px 0">
-        <div class="col-md-6 col-sm-6 col-xs-12" style="">
-          <!-- BEGIN LOGO -->           
-            <div class="page-logo">
-              <a href="{{url('/')}}">{{HTML::image('assets/img/logos/Final-Logo1.png','logo')}}</a>
-            </div>
-          <!-- END LOGO -->
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 pull-right" style="">
-          <!-- BEGIN TOP NAVIGATION MENU -->
-          <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-              <!-- BEGIN USER LOGIN DROPDOWN -->
-              @if(Auth::check())
-                <li class="dropdown dropdown-user dropdown-dark">
-                  <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                    {{HTML::image('assets/img/avatar1.jpg','logo',array("class"=>"img-circle"))}}
-                  <span class="username">{{Auth::user()->username}}</span>
-                  </a>
-                </li>
-              @endif
-              <!-- END USER LOGIN DROPDOWN -->
-            </ul>
-          </div>
-          <!-- END TOP NAVIGATION MENU -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END HEADER TOP -->
-
-</div>
-<!-- END HEADER -->
+  @include('header_common')
   {{$main}}
   @include('footer_common')
   <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -113,7 +76,6 @@
       {{ HTML::script("assets/js/jquery.cokie.min.js")}}
       {{ HTML::script("assets/js/metronic.js")}}
       {{ HTML::script("assets/js/layout.js")}}
-      {{ HTML::script("assets/js/layoutpro.js")}}
       {{ HTML::script("assets/js/demo.js")}}
       {{ HTML::script("assets/js/cropper.min.js")}}
       {{ HTML::script("assets/js/crop-avatar.js")}}
@@ -126,6 +88,7 @@
   jQuery(document).ready(function() {     
     $("#sortable1").sortable();
     $("#sortable1").disableSelection();
+
       $("#work_ex_panel").sortable();
     $("#work_ex_panel").disableSelection();
       $("#education_panel").sortable();

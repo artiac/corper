@@ -8,8 +8,9 @@
           @if(Session::has('fail'))
           <span style="background:#f00; color:white">{{Session::get('fail')}}</span>
           @endif
+          @if(!Auth::check())
           {{Form::open(array("url"=>"/signup", "method" => "POST","class"=>"login-form"))}}
-          <h3 class="form-title" style="color:#fff;">Sign Up</h3>
+          <h3 class="form-title" style="color:#fff;">Sign Up (Corpers Only)</h3>
           <div class="alert alert-danger display-hide">
             <button class="close" data-close="alert"></button>
             <span>
@@ -47,7 +48,7 @@
 
               </div>
               <div class="col-md-4" style="margin-bottom:10px;">
-                {{Form::select('serv_year',array(""=>"Year","1"=>"2014","2"=>"2015"),'',array("class"=>"form-control"))}}
+                {{Form::select('serv_year',array(""=>"Service Year","1"=>"2014","2"=>"2015"),'',array("class"=>"form-control"))}}
                 <span>{{$errors->first('serv_year')}}</span>
 
               </div>
@@ -71,7 +72,10 @@
             </div>
             <label class="rememberme check" style="color:#fff; margin:5px;">
              {{Form::checkbox('agree')}} I dont want to subscribe </label>
-             {{Form::close()}}              
+             {{Form::close()}}
+             @else
+              <h2 style="color:#FFF; text-align:center">Dear {{Auth::user()->firstname}} {{Auth::user()->lastname}} <br> Welcome to CorperLife</h2>
+             @endif           
            </div>
          </div>
        </div>

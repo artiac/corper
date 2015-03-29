@@ -24,7 +24,7 @@
 
           <!-- BEGIN BOTTOM CONTACTS -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
-            <h2>Our Contacts</h2>
+            <h2>Contact Us</h2>
             <address class="margin-bottom-40">
               35, Lorem Lis Street, Park Ave<br>
               Lagos, Nigeria<br>

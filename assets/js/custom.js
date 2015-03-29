@@ -10,11 +10,20 @@ function cycleQuotes(){
       $next.addClass('visible').addClass('animated zoomIn');
 }
 $(document).ready(function(){
+
+    $("#section_panel").css('min-height',($('.section-names').height()+50)+'px');
+
     var inter = setInterval('cycleQuotes()', 5000);
     $(document).on("click",".section_link", function(){
         var div_show = $(this).attr("data-show");
+        $(".section_link").removeClass('active');
+        $(this).addClass('active');
         $('.section').addClass('hide_panel');
         $(div_show).removeClass('hide_panel');
+
+        if($(document).width() <= 980){
+            $(".cv-toggle a").trigger('click');
+        }
     });
     $(document).on("click",".edit-section", function(){
         $("#Modal .modal-title").html('Edit Section Name');
@@ -164,6 +173,10 @@ $(document).ready(function(){
             event.preventDefault();//the default action of the event will not be triggered
             $(".side-menu").toggle(300);
         });
+    $(".cv-toggle a").on("click", function(event) {
+            event.preventDefault();//the default action of the event will not be triggered
+            $(".cv-links").toggle(300);
+        });
 
 
 });
@@ -267,6 +280,7 @@ function addsection_submit(){
         $("#section_panel").append('<div class="row section hide_panel" id="prop'+data.id+'"><h2>'+data.section_name+'</h2><div class="col-md-11"><div class="form-group"><textarea name="section_'+data.id+'" class="form-control textarea"  cols="50" rows="10"></textarea></div></div></div>');
         $(".section_link[data-show=#prop"+data.id+"]").trigger('click');
         onmodalload("#prop"+data.id);
+         $("#section_panel").css('min-height',($('.section-names').height()+50)+'px');
     });
 };
 

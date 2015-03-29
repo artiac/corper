@@ -2,15 +2,15 @@
   <div class="container quotes" style="">
     <div class="visible">
       <p class="quote" style="font-size:32px;">"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."</p>
-        <p class="author" style="font-size:20px; margin-bottom:30px">Thomas A. Edison (Inventor, buisnessan)</p>
+        <p class="author" style="font-size:20px;">Thomas A. Edison (Inventor, buisnessan)</p>
     </div>
     <div>
       <p class="quote" style="font-size:32px;">"2Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."</p>
-        <p class="author" style="font-size:20px; margin-bottom:30px">Thomas A. Edison (Inventor, buisnessan)</p>
+        <p class="author" style="font-size:20px;">Thomas A. Edison (Inventor, buisnessan)</p>
     </div>
     <div>
       <p class="quote" style="font-size:32px;">"3Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."</p>
-        <p class="author" style="font-size:20px; margin-bottom:30px">Thomas A. Edison (Inventor, buisnessan)</p>
+        <p class="author" style="font-size:20px;">Thomas A. Edison (Inventor, buisnessan)</p>
     </div>
   </div>
 </div>

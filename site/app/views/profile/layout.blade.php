@@ -31,7 +31,9 @@
   {{ HTML::style("assets/css/components-rounded.css")}}             
   {{ HTML::style("assets/css/layout.css")}}       
   {{ HTML::style("assets/css/themes/default.css")}}       
-  {{ HTML::style("assets/css/custom.css")}}       
+  {{ HTML::style("assets/css/custom.css")}}
+  {{ HTML::style("assets/css/bootstrap-wysihtml5.css")}}    
+
 
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
@@ -58,44 +60,11 @@
 </div>
 <!-- END TOP BAR -->
 
-<!-- BEGIN HEADER -->
-<div class="page-header">
-  <!-- BEGIN HEADER TOP -->
-  <div class="page-header-top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-12" style="min-height:56px;">
-          <!-- BEGIN LOGO -->           
-            <div class="page-logo">
-              <a href="{{url('/profile')}}">{{HTML::image('assets/img/logos/Final-Logo1.png','logo')}}</a>
-            </div>
-          <!-- END LOGO -->
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12 pull-right" style="min-height:56px;">
-          <!-- BEGIN TOP NAVIGATION MENU -->
-          <div class="top-menu">
-            <ul class="nav navbar-nav pull-right">
-              <!-- BEGIN USER LOGIN DROPDOWN -->
-              <li class="dropdown dropdown-user dropdown-dark">
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                  {{HTML::image('assets/img/avatar1.jpg','logo',array("class"=>"img-circle"))}}
-                <span class="username">{{Auth::user()->username}}</span>
-                </a>
-              </li>
-              <!-- END USER LOGIN DROPDOWN -->
-            </ul>
-          </div>
-          <!-- END TOP NAVIGATION MENU -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END HEADER TOP -->
-</div>
-<!-- END HEADER -->
+@include('header_common')
+
 <div class="page-container">
   <!-- BEGIN PAGE CONTENT -->
-  <div class="page-content" style="background:#f7f7f7; padding-top:30px; border-top:1px solid #ddd">
+  <div class="page-content" style="background:#f7f7f7; padding:30px 0; border-top:1px solid #ddd">
     <div class="container">
       <!-- BEGIN PAGE BREADCRUMB -->
       <!-- <ul class="page-breadcrumb breadcrumb">
@@ -230,11 +199,11 @@
     {{ HTML::script("assets/js/jquery.cokie.min.js")}}
     {{ HTML::script("assets/js/metronic.js")}}
     {{ HTML::script("assets/js/layout.js")}}
-    {{ HTML::script("assets/js/layoutpro.js")}}
-    {{ HTML::script("assets/js/demo.js")}}
     {{ HTML::script("assets/js/cropper.min.js")}}
     {{ HTML::script("assets/js/crop-avatar.js")}}
     {{ HTML::script("assets/js/profile.js")}}
+    {{ HTML::script("assets/js/wysihtml5-0.3.0.js")}}
+    {{ HTML::script("assets/js/bootstrap-wysihtml5.js")}}
     {{ HTML::script("assets/js/custom.js")}}
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>

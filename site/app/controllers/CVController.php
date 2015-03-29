@@ -75,10 +75,10 @@ class CVController extends BaseController {
         $section_order=Input::get ('section');
         $count = 1;
 
-            foreach ($section_order as $section_id) {
-                Section::where('id',$section_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
-                $count++;
-            }
+        foreach ($section_order as $section_id) {
+            Section::where('id',$section_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
+            $count++;
+        }
 
             $cv->full_name = Input::get("full_name");
             $cv->email = Input::get("email");
@@ -88,7 +88,6 @@ class CVController extends BaseController {
             $cv->add_line2 = Input::get("add_line2");
             $cv->dob = Input::get("dob_year").'-'.Input::get("dob_month").'-'.Input::get("dob_date");
             $cv->marital_status = Input::get("marital_status");
-            $cv->profile_image = Input::get("profile_image");
               if (Input::hasFile('profile_image')){
                     $destinationPath = "assets/img/";
                     $extension = Input::file('profile_image')->getClientOriginalExtension();
@@ -135,14 +134,14 @@ class CVController extends BaseController {
                 }
             }
 
-               $count = 1;
-            $profile_order = Input::get('profile');
-            if($profile_order){
-                foreach ($profile_order as $profile_id) {
-                    Profile::where('id',$profile_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
-                    $count++;
-                }
-            }
+            //    $count = 1;
+            // $profile_order = Input::get('profile');
+            // if($profile_order){
+            //     foreach ($profile_order as $profile_id) {
+            //         Profile::where('id',$profile_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
+            //         $count++;
+            //     }
+            // }
 
             $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
