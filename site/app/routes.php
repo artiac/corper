@@ -10,10 +10,8 @@ Route::get('/advertise', function(){
 	$main = View::make('add');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/faq', function(){
-	$main = View::make('faq');
-	return View::make('main',["title"=>"FAQ","main"=>$main]);
-});
+Route::get('/faq', 'GeneralController@faq');
+Route::post('/faq', 'GeneralController@faqsubmit');
 Route::get('/whycorperlife', function(){
 	$main = View::make('whycorper');
 	return View::make('main',["title"=>"Why Corper Life?","main"=>$main]);

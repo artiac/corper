@@ -11,6 +11,8 @@ function cycleQuotes(){
 }
 $(document).ready(function(){
 
+    $(".ttip").tooltip();
+
     $("#section_panel").css('min-height',($('.section-names').height()+50)+'px');
 
     var inter = setInterval('cycleQuotes()', 5000);

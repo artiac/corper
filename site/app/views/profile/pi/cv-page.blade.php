@@ -1,6 +1,4 @@
 @include('profile.adv')
-  <div class="page-content" style="padding-top:0px;">
-      <!-- BEGIN PAGE CONTENT INNER -->
     <div class="row">
       <div class="col-md-8" style="padding-right:0px;">
           <!-- BEGIN SAMPLE TABLE PORTLET-->
@@ -8,7 +6,7 @@
 
           <div class="portlet-body">
             <div class="table-scrollable">
-              <table class="table table-hover">
+              <table class="table table-hover" style="width:100%">
                 <thead>
                   <tr>
                     <th>
@@ -54,11 +52,6 @@
       <div class="col-md-4" style="padding-left:1px;">
         <!-- BEGIN BORDERED TABLE PORTLET-->
         <div class="portlet light">
-          <div class="portlet-title">
-            <div class="caption">
-              <span class="caption-subject font-green-sharp bold uppercase">Stats</span>
-            </div>
-          </div>
           <div class="portlet-body" align="center">              
             <span class="caption-subject font-green-sharp bold" style="font-size:24px">Created by You</span> <br>             
             <span class="" style="margin:10px 90px; font-size:36px;">{{sizeof($cvs)}}</span> 
@@ -70,8 +63,3 @@
           <!-- END BORDERED TABLE PORTLET-->
       </div>
     </div>
-      <!-- END PAGE CONTENT INNER -->
-  </div>
-</div>
-
-      <!-- END PAGE CONTENT INNER -->

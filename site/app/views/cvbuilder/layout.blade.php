@@ -20,7 +20,8 @@
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN THEME STYLES -->
   {{ HTML::style("assets/plugins/font-awesome/css/font-awesome.min.css")}}       
-  {{ HTML::style("assets/css/bootstrap.min.css")}}       
+  {{ HTML::style("assets/css/bootstrap.css")}}    
+  {{ HTML::style("assets/css/bootstrap.css.map")}}    
   {{ HTML::style("assets/css/components.css")}}       
   {{ HTML::style("assets/css/style.css")}}       
   {{ HTML::style("assets/css/style-responsive.css")}}  

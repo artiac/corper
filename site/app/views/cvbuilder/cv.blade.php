@@ -14,7 +14,10 @@
 			<div class="col-md-12">
 				<div class="row cv" style="margin-bottom:10px">
 					<div class="col-md-6">
-						<h3>CV Code : {{$cv->cv_code}}</h3>
+						<h3>CV Code : {{$cv->cv_code}} <a href="#" class="ttip" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+							<i class="fa fa-question-circle" style="font-size:24px; font-weight:normal; color:#1caf9a"></i>
+						</a></h3>
+						
 					</div>
 					<div class="col-md-6">
 						<a href="{{url('/cvbuilder/pdf/'.$cv->cv_code.'/executive')}}" class="btn green pull-right" target="_blank">Downlaod</a>

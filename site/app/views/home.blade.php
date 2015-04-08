@@ -74,7 +74,10 @@
              {{Form::checkbox('agree')}} I dont want to subscribe </label>
              {{Form::close()}}
              @else
-              <h2 style="color:#FFF; text-align:center">Dear {{Auth::user()->firstname}} {{Auth::user()->lastname}} <br> Welcome to CorperLife</h2>
+              <h2 style="color:#FFF; text-align:center; line-height:2">
+                Dear {{Auth::user()->firstname}} {{Auth::user()->lastname}} 
+              </h2>
+              <h1 style="color:#FFF; text-align:center; line-height:2">Welcome to CorperLife<sup>TM</sup></h1>
              @endif           
            </div>
          </div>
