@@ -4,8 +4,22 @@ Route::get('/', function(){
 	$main = View::make('home');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-
-
+Route::get('/interview-questions', function(){
+	$main = View::make('interview_qus');
+	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+});
+Route::get('/interview-tipes', function(){
+	$main = View::make('interview_tipes');
+	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+});
+Route::get('/cv-tipes', function(){
+	$main = View::make('cv_tipes');
+	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+});
+Route::get('/cover-letter', function(){
+	$main = View::make('cover_letter');
+	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+});
 Route::get('/advertise', function(){
 	$main = View::make('add');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
@@ -87,6 +101,7 @@ Route::group(['prefix' => 'content-page', 'before' => 'auth'], function () {
 Route::group(['prefix' => 'cvbuilder'], function () {
 	Route::get('/', 'CVController@getIndex');
 	Route::post('/createnew', 'CVController@postCreateNew');
+	Route::post('/uploadCvPic/{code}', 'UserMediaController@uploadCvPic');
 
 	Route::post('/editcv', function(){
 
@@ -109,7 +124,10 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 		return View::make('cvbuilder.section_views.nysc');
 	});
 		Route::get('/fetch_language', function(){
-		return View::make('cvbuilder.section_views.language');
+			$langs = DB::table('langs')->lists('language','id');
+			$levels = DB::table('levels')->lists('level','id');
+			$abilities = DB::table('abilities')->lists('ability','id');
+		return View::make('cvbuilder.section_views.language',array("langs"=>$langs,"levels"=>$levels,"abilities"=>$abilities));
 	});
 	Route::post('/fetch_workex', 'CVController@postWorkex');
 	Route::post('/fetch_education', 'CVController@postEducation');
@@ -138,7 +156,10 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 	});
 	  Route::get('/edit_ui_language/{id}', function($id){
 		$language = Language::find($id);
-		return View::make('cvbuilder.section_views.edit_language', ['lang'=>$language]);
+		$langs = DB::table('langs')->lists('language','id');
+		$levels = DB::table('levels')->lists('level','id');
+		$abilities = DB::table('abilities')->lists('ability','id');
+		return View::make('cvbuilder.section_views.edit_language', ['lang'=>$language,'langs'=>$langs,'levels'=>$levels,'abilities'=>$abilities]);
 	});
 
 	Route::post('/fetch_addsection', 'CVController@postSection');

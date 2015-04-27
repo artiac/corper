@@ -53,7 +53,7 @@
         <div id="owl-example" class="owl-carousel">
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Opening-Master-Plan-Documen.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Opening-Master-Plan-Documen1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                   <h2>Opening Master Plan Document</h2>
                     <p>2014 May 01st</p>
@@ -63,7 +63,7 @@
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Figuring-out-the-Name.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Figuring-out-the-Name1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                     <h2>Figuring out the Name</h2>
                     <p>2014 May 04th</p>                 
@@ -73,7 +73,7 @@
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Creation-of-CorperLife-Logo.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Creation-of-CorperLife-Logo1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                  <h2>Logo Creation begins</h2>
                  <p>2014 May 15th </p>                 
@@ -87,13 +87,13 @@
                <div class="mix-details">
                   <h2>The Founders</h2>
                   <p></p>                 
-                  <a data-rel="fancybox-button" title="Project Name" href="assets/img/story/Founders1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="Project Name" href="assets/img/story/Founders.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/time-to-eat.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/time-to-eat1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                   <h2>Inception of Idea</h2>
                   <p>2014 Apr 12th</p>                 
@@ -103,7 +103,7 @@
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Working-on-checklists.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Working-on-checklists1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                   <h2>Working on checklists</h2>
                   <p>2014 May 01st</p>                 
@@ -113,7 +113,7 @@
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Facebook-Page.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Facebook-Page1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                   <h2>Corper Life Facebook Page</h2>
                   <p></p>                 

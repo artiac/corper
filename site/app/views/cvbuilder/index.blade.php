@@ -122,9 +122,30 @@
                                 </div>
                               </div>
                               <div class="tab-pane" id="portlet_tab2">
-                                <p class="para_big"> 
-                                  Job seeker resources
-                                </p>             
+                                  <div class="row row-padding">
+                                    <div class="col-md-4">
+                                      <div class="jsr-section background-1">
+                                        <h3>Getting Ready</h3>
+                                        <h4 class="job-seeker"><a href="#">Research</a></h4>
+                                        <h4><a href="#">Networking</a></h4>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="jsr-section background-2">
+                                        <h3>Applying</h3>
+                                        <h4 class="job-seeker"><a href="{{url('/cv-tipes')}}">CV's</a></h4>
+                                        <h4><a href="{{url('/cover-letter')}}">Cover Letters</a></h4>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="jsr-section background-3">
+                                        <h3>The Interview</h3>
+                                          <h4 class="job-seeker"><a href="{{url('/interview-questions')}}">Interview Question</a></h4>
+                                          <h4><a href="{{url('/interview-tipes')}}">Tipes</a></h4> 
+                                          <h4><a href="#">Negotiation</a></h4> 
+                                      </div>
+                                    </div>
+                                  </div>       
                               </div>
                             </div>
                           </div>

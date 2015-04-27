@@ -50,10 +50,9 @@ class CVController extends BaseController {
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::join('langs','languages.language_id','=','langs.id')->join('levels','languages.level_id','=','levels.id')->join('abilities','languages.ability_id','=','abilities.id')->select('languages.id','langs.language','abilities.ability','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $profiles = Profile::where('cv_id',$cv_id)->orderBy('priority')->first();
 
         $this->layout->title = 'CV Builder';
         $this->layout->top_active = 6;
@@ -378,13 +377,11 @@ class CVController extends BaseController {
        
         $cre = [
             'language_id' => Input::get('language_id'),        
-            'language_name' => Input::get('language_name'),
             'ability' => Input::get('ability'),
             'level' => Input::get('level')
         ];
         $rules = [
             'language_id' => 'required',
-            'language_name' => 'required',
             'ability' => 'required',
             'level' => 'required'
         ];
@@ -393,16 +390,20 @@ class CVController extends BaseController {
             $language = new Language;
             $language->cv_id = Input::get('cv_id');
             $language->language_id = Input::get('language_id');
-            $language->language_name = Input::get('language_name');
-            $language->ability = Input::get('ability');
-            $language->level = Input::get('level');
+            // $language->language_name = Input::get('language_name');
+            $language->ability_id = Input::get('ability');
+            $language->level_id = Input::get('level');
             $language->save();
+
             $insert_id = $language->id;
             $data["message"] = 'Language Succefully added';
-            $data["language_id"] = Input::get('language_id');
-            $data["language_name"] = Input::get('language_name');
-            $data["ability"] = Input::get('ability');
-            $data["level"] = Input::get('level');
+            $lang = DB::table('langs')->select('language')->where('id',$language->language_id)->first();
+            $data["language_id"] = $lang->language;
+            // $data["language_name"] = Input::get('language_name');
+            $ability = DB::table('abilities')->select('ability')->where('id',$language->ability_id)->first();
+            $data["ability"] = $ability->ability;
+            $level = DB::table('levels')->select('level')->where('id',$language->level_id)->first();
+            $data["level"] = $level->level;
             $data["id"] = $insert_id;
             return json_encode($data);
         } else {
@@ -411,7 +412,7 @@ class CVController extends BaseController {
     }
 
     public function putLanguage(){       
-        $cre = [
+         $cre = [
             'language_id' => Input::get('language_id'),
             'language_name' => Input::get('language_name'),
             'ability' => Input::get('ability'),
@@ -426,19 +427,24 @@ class CVController extends BaseController {
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
 
-            $language = Language::find(Input::get('language_id'));
+            $language = Language::find(Input::get('language_edit'));
+            
             $cv = Cv::select('id')->where('cv_code',Input::get('cv_code'))->first();
             if($cv->id == $language->cv_id){
                 $language->language_id = Input::get('language_id');
                 $language->language_name = Input::get('language_name');
-                $language->ability = Input::get('ability');
-                $language->level = Input::get('level');     
+                $language->ability_id = Input::get('ability');
+                $language->level_id = Input::get('level');     
                 $language->save();
                 $data["message"] = 'Language Succefully updated';
-                $data["language_id"] = Input::get('language_id');
+               
+                $lang = DB::table('langs')->select('language')->where('id',$language->language_id)->first();
+                $data["language_id"] = $lang->language;
                 $data["language_name"] = Input::get('language_name');
-                $data["ability"] = Input::get('ability');
-                $data["level"] = Input::get('level');
+                $ability = DB::table('abilities')->select('ability')->where('id',$language->ability_id)->first();
+                $data["ability"] = $ability->ability;
+                $level = DB::table('levels')->select('level')->where('id',$language->level_id)->first();
+                $data["level"] = $level->level;
             }
             else {
                 $data["message"] = 'Error in editing language';

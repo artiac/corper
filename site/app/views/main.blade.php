@@ -41,6 +41,7 @@
   {{ HTML::style("assets/css/style-responsive.css")}}       
   {{ HTML::style("assets/css/owl.carousel.css")}}       
   {{ HTML::style("assets/css/owl.theme.css")}}       
+  {{ HTML::style("assets/css/custom.css")}}         
   
   <!-- Theme styles END -->
 </head>

@@ -233,7 +233,7 @@
 													<div class="row" style="padding:0" id="lang{{$lang->id}}">
 														<div class="col-md-4">
 															<span class="small-text">Language Name</span><br>
-															<b>{{$lang->language_id}}</b>
+															<b>{{$lang->language}}</b>
 														</div>
 														<div class="col-md-4">
 															<span class="small-text">Ability</span><br>
@@ -259,24 +259,25 @@
 								@elseif ($section->type == 5)
 								<div class="row section hide_panel" id="prop{{$section->id}}">	
 									<h2>{{$section->section_name}}</h2>	
-									<div class="form-group">
-										<div class="col-md-3">							            				    
-											<label class="control-label">Profile Image</label>
-										</div>
-										<div class="col-md-5">
-											{{Form::file('profile_image',array("class"=>"form-control"))}} 
-										</div>
-									</div> 						            			    	
-									<div class="col-md-4">
-										<div class="edit-lang">
-											{{ link_to('/cvbuilder/cv/edit_profile', 'Update', array('class' => 'btn btn-danger')) }}
-										</div>
-									</div> 
-									<div class="col-md-11">
-										@if($cv)
-										{{HTML::image('/assets/img/'.$cv->profile_image)}}
-										@endif
-									</div>
+										<div class="portlet-body form" style="border:1px solid #ddd; border-right:none; padding-bottom: 30px !important;">               
+						              <div id="crop-avatar">
+						                 <!-- Current avatar -->
+						                <div class="avatar-view">
+						                  <?php 
+						                    if($cv->profile_image == '') $profile_image = 'assets/avatars/default.png';
+						                    else $profile_image = $cv->profile_image;  ?>
+						                  {{HTML::image($profile_image,'cv picture')}}
+						                </div>
+						                <div style="font-style:italic; text-align:center">
+						                  Click on the image to change cv picture
+						                </div>
+						      
+
+						                      <!-- Loading state -->
+						                <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+						              </div>    
+						            </div>			            		
+
 								</div>
 								@endif							           		
 								@endforeach
@@ -358,3 +359,43 @@
 				</div>
 				<!-- /.modal-dialog -->
 			</div>
+
+			 <!-- Cropping modal -->
+						                <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+						                  <div class="modal-dialog modal-lg">
+						                    <div class="modal-content">
+						                      <form class="avatar-form" action="{{url('/cvbuilder/uploadCvPic/'.$cv->cv_code)}}" enctype="multipart/form-data" method="post">
+						                        <div class="modal-header">
+						                          <button class="close" data-dismiss="modal" type="button">&times;</button>
+						                          <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+						                        </div>
+						                        <div class="modal-body">
+						                          <div class="avatar-body">
+						                            <!-- Upload image and data -->
+						                            <div class="avatar-upload">
+						                              <input class="avatar-src" name="avatar_src" type="hidden">
+						                              <input class="avatar-data" name="avatar_data" type="hidden">
+						                              <label for="avatarInput">Local upload</label>
+						                              <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+						                            </div>
+						                            <!-- Crop and preview -->
+						                            <div class="row">
+						                              <div class="col-md-9">
+						                                <div class="avatar-wrapper"></div>
+						                              </div>
+						                              <div class="col-md-3">
+						                                <div class="avatar-preview preview-lg"></div>
+						                                <div class="avatar-preview preview-md"></div>
+						                                <div class="avatar-preview preview-sm"></div>
+						                              </div>
+						                            </div>
+						                          </div>
+						                        </div>
+						                        <div class="modal-footer">
+						                          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+						                          <button class="btn btn-primary avatar-save" type="submit">Save</button>
+						                        </div>
+						                      </form>
+						                    </div>
+						                  </div>
+						                </div><!-- /.modal -->

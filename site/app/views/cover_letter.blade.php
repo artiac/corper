@@ -1,0 +1,49 @@
+<div class="main" style="padding:40px">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li><a href="{{url('/')}}">Home</a></li>
+      <li class="{{url('/cover_letter')}}">Cover Letter</li>
+    </ul>
+    <!-- BEGIN SIDEBAR & CONTENT -->
+    <div class="row margin-bottom-40">
+      <!-- BEGIN CONTENT -->
+      <div class="col-md-12 col-sm-12">
+        <h1>Cover Letter</h1>
+           
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+          <div class="container">   
+                  <!-- BEGIN PAGE CONTENT INNER -->
+          <div class="row">
+            <div class="col-md-9 topics-col9 cover-page">
+                 <p class="para_big"> 
+                     <p>You might be asking, what is a cover letter and why do I have to write one? Never fear, the CorperLife™ team is here to school you. </p>
+                      <p>The Cover letter is simply a letter of introduction that accompanies your resume. It is important because it allows you to say everything your resume  
+                        can’t, for example how you invited so
+                         many corpers  to join CorperLife™ proving that you are a very social person. It is important that you take full advantage of the potential the cover letter has to offer. Keep it simple and straight to the point and make sure you talk about yourself in a measurable manner e.g “I met and invited 140 corpers to Corperlife” and not with opinions e.g “I am a very friendly person”.
+                      </p>
+                    </p> 
+            </div>
+            <div class="col-md-3">
+               <h3 class="navigation">
+                <span><a href="#">Research</a></span>                
+              </h3>
+               <h3 class="navigation">
+                <a href="#">Networking</a>
+              </h3>
+               <h3 class="navigation"><a href="{{url('/cv-tipes')}}">CV's</a></h3>
+               <h3 class="navigation"><a href="{{url('/interview-questions')}}">Interview Qustions</a></h3>
+               <h3 class="navigation"><a href="{{url('/interview-tipes')}}">Interview Tipes</a></h3>
+               <h3 class="navigation"><a href="#">Negotiation</a></h3>
+            </div>
+          </div>
+            <!-- END PAGE CONTENT INNER -->
+          </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+      </div>
+    </div>
+  </div>
+  <!-- END CONTENT -->
+</div>
+       
