@@ -20,9 +20,9 @@
 						
 					</div>
 					<div class="col-md-6">
-						<a href="{{url('/cvbuilder/pdf/'.$cv->cv_code.'/executive')}}" class="btn green pull-right" target="_blank">Downlaod</a>
-						<button type="button" class="btn green pull-right" data-toggle="modal" data-target="#style-modal">Preview</button>
-						<button type="button" class="btn green pull-right submit-form">Save</button>
+						<a href="{{url('/cvbuilder/pdf/'.$cv->cv_code.'/executive')}}" class="btn red pull-right" target="_blank">Done!</a>
+						<button type="button" class="btn red pull-right" data-toggle="modal" data-target="#style-modal">Preview</button>
+						<button type="button" class="btn red pull-right submit-form">Save</button>
 					</div>
 				</div>
 				<!-- BEGIN SAMPLE FORM PORTLET-->					
@@ -80,7 +80,7 @@
 											</div>
 										</div>
 										<div class="form-group col-md-6">
-											{{ Form::label('', 'marital_status') }} 							                       
+											{{ Form::label('', 'Marital Status') }} 							                       
 											{{Form::select('marital_status',array("0"=>"Select","1"=>"Married","2"=>"UnMarried"),$cv->marital_status,array("class"=>"form-control"))}}
 											<span>{{$errors->first('marital_status')}}</span>							                    
 										</div>
@@ -99,7 +99,26 @@
 										<div class="form-group col-md-6">
 											<label>Web Site</label>	
 											{{Form::text('website',$cv->website,array("class"=>"form-control", "placeholder"=>"Web Site"))}}
-										</div>	                                              
+										</div>
+										<div class="form-group col-md-6">
+											{{ Form::label('', 'Sex') }} 							                       
+											{{Form::select('sex',array("0"=>"Select","1"=>"Male","2"=>"Female"),$cv->sex,array("class"=>"form-control"))}}
+											<span>{{$errors->first('sex')}}</span>							                    
+										</div>	
+										<div class="form-group col-md-6">
+											{{ Form::label('', 'State Origin') }} 							                       
+											{{Form::select('state_origin',array("0"=>"Select","1"=>"Male","2"=>"Female"),$cv->state_origin,array("class"=>"form-control"))}}
+											<span>{{$errors->first('state_origin')}}</span>							                    
+										</div>	
+										<div class="form-group col-md-6">
+											{{ Form::label('', 'Religion') }} 							                       
+											{{Form::select('religion',array("0"=>"Select","1"=>"Male","2"=>"Female"),$cv->religion,array("class"=>"form-control"))}}
+											<span>{{$errors->first('religion')}}</span>							                    
+										</div>	
+										<div class="form-group col-md-6">
+											<label>Local Government</label>	
+											{{Form::text('local_government',$cv->local_government,array("class"=>"form-control", "placeholder"=>"Local Government"))}}
+										</div>                                              
 									</div>
 								</div>
 								@foreach($sections as $section)
@@ -360,42 +379,42 @@
 				<!-- /.modal-dialog -->
 			</div>
 
-			 <!-- Cropping modal -->
-						                <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
-						                  <div class="modal-dialog modal-lg">
-						                    <div class="modal-content">
-						                      <form class="avatar-form" action="{{url('/cvbuilder/uploadCvPic/'.$cv->cv_code)}}" enctype="multipart/form-data" method="post">
-						                        <div class="modal-header">
-						                          <button class="close" data-dismiss="modal" type="button">&times;</button>
-						                          <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
-						                        </div>
-						                        <div class="modal-body">
-						                          <div class="avatar-body">
-						                            <!-- Upload image and data -->
-						                            <div class="avatar-upload">
-						                              <input class="avatar-src" name="avatar_src" type="hidden">
-						                              <input class="avatar-data" name="avatar_data" type="hidden">
-						                              <label for="avatarInput">Local upload</label>
-						                              <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
-						                            </div>
-						                            <!-- Crop and preview -->
-						                            <div class="row">
-						                              <div class="col-md-9">
-						                                <div class="avatar-wrapper"></div>
-						                              </div>
-						                              <div class="col-md-3">
-						                                <div class="avatar-preview preview-lg"></div>
-						                                <div class="avatar-preview preview-md"></div>
-						                                <div class="avatar-preview preview-sm"></div>
-						                              </div>
-						                            </div>
-						                          </div>
-						                        </div>
-						                        <div class="modal-footer">
-						                          <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-						                          <button class="btn btn-primary avatar-save" type="submit">Save</button>
-						                        </div>
-						                      </form>
-						                    </div>
-						                  </div>
-						                </div><!-- /.modal -->
+		<!-- Cropping modal -->
+		    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+		      <div class="modal-dialog modal-lg">
+		        <div class="modal-content">
+		          <form class="avatar-form" action="{{url('/cvbuilder/uploadCvPic/'.$cv->cv_code)}}" enctype="multipart/form-data" method="post">
+		            <div class="modal-header">
+		              <button class="close" data-dismiss="modal" type="button">&times;</button>
+		              <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+		            </div>
+		            <div class="modal-body">
+		              <div class="avatar-body">
+		                <!-- Upload image and data -->
+		                <div class="avatar-upload">
+		                  <input class="avatar-src" name="avatar_src" type="hidden">
+		                  <input class="avatar-data" name="avatar_data" type="hidden">
+		                  <label for="avatarInput">Local upload</label>
+		                  <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+		                </div>
+		                <!-- Crop and preview -->
+		                <div class="row">
+		                  <div class="col-md-9">
+		                    <div class="avatar-wrapper"></div>
+		                  </div>
+		                  <div class="col-md-3">
+		                    <div class="avatar-preview preview-lg"></div>
+		                    <div class="avatar-preview preview-md"></div>
+		                    <div class="avatar-preview preview-sm"></div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="modal-footer">
+		              <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
+		              <button class="btn btn-primary avatar-save" type="submit">Save</button>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+		    </div><!-- /.modal -->
