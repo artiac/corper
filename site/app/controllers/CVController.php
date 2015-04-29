@@ -35,7 +35,7 @@ class CVController extends BaseController {
             array("cv_id"=>"$cv_id","section_name"=>"Education","type"=>"2","priority"=>"3","default"=>"1"),
             array("cv_id"=>"$cv_id","section_name"=>"NYSC","type"=>"3","priority"=>"4","default"=>"1"),
             array("cv_id"=>"$cv_id","section_name"=>"Language","type"=>"4","priority"=>"5","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"profiles","type"=>"5","priority"=>"6","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Profile Image","type"=>"5","priority"=>"6","default"=>"1"),
             array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"7","default"=>"1"),
             array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"8","default"=>"1"),
         ));
@@ -50,12 +50,25 @@ class CVController extends BaseController {
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $language = Language::join('langs','languages.language_id','=','langs.id')->join('levels','languages.level_id','=','levels.id')->join('abilities','languages.ability_id','=','abilities.id')->select('languages.id','langs.language','abilities.ability','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->select('languages.id','langs.language','languages.ability_id','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
+        $abilities = DB::table('abilities')->lists('ability','id');
+
+        foreach ($language as $value) {
+            $value->ability_id = explode(',', $value->ability_id);
+            $values = array();
+            foreach ($value->ability_id as $ability_id) {
+                array_push($values, $abilities[$ability_id]);
+            }
+            $value->ability = implode(' / ', $values);
+        }
+
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
         $this->layout->title = 'CV Builder';
         $this->layout->top_active = 6;
+
+
         $this->layout->main = View::make('cvbuilder.cv',array(
             "cv" => $cv,
             "sections" => $sections,
@@ -63,7 +76,8 @@ class CVController extends BaseController {
             "education" => $education,
             "dob" => $dob,
             "nysc" => $nysc,
-            "language" => $language
+            "language" => $language,
+            "abilities" => $abilities
         ));          
     }
 
@@ -577,9 +591,20 @@ class CVController extends BaseController {
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->select('languages.id','langs.language','languages.ability_id','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $abilities = DB::table('abilities')->lists('ability','id');
+
+         foreach ($language as $value) {
+            $value->ability_id = explode(',', $value->ability_id);
+            $values = array();
+            foreach ($value->ability_id as $ability_id) {
+                array_push($values, $abilities[$ability_id]);
+            }
+             $value->ability = '<b>Ability</b>: '.implode(' / ', $values);
+            $value->level = '<b>Level</b>: '.$value->level;
+        }
 
         return View::make('cvbuilder.templates.'.$style,array(
             "cv" => $cv,

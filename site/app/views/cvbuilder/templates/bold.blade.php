@@ -120,7 +120,8 @@ text-align: center;
                        <td><b>{{$edu->coursename}}</b></td>
                       <td align="right"><b>{{$edu->startdate}} - {{$edu->enddate}}</b></td>
                     </tr>
-                      <tr>  <td colspan="2">   
+                      <tr>  
+                        <td colspan="2">   
                       <span>{{$edu->institutename}}, {{$edu->location}}</span><br>
                       {{$edu->otherinfo}}</td>
                     </tr>
@@ -140,6 +141,25 @@ text-align: center;
                    <tr>
                       <td><b>{{$ny->ppa}}</b></td>
                        <td align="right"><b>{{$ny->start_date}} - {{$ny->end_date}}</b></td>
+                   </tr>   
+                    @endforeach
+                    </table>
+             <div class="clear"></div>            
+                 </div>             
+            </div>
+             <div class="clear"></div>            
+           @endif
+            @elseif ($section->type == 4)
+            @if(sizeof($language)>0)
+             <div class="section_cv">
+                <div class="left">{{$section->section_name}}</div>
+                <div class="right">
+                  <table style="width:100%;">
+                   @foreach($language as $lang)
+                   <tr>
+                      <td style="width:30%"><b>{{$lang->language}}</b></td>
+                       <td style="width:30%">{{$lang->ability}}</td>
+                       <td align="right">{{$lang->level}}</td>
                    </tr>   
                     @endforeach
                     </table>

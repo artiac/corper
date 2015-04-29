@@ -194,6 +194,21 @@
               <div class="clear"></div>
              </div> 
           @endif
+           @elseif ($section->type == 4)
+             @if(sizeof($langhuage)>0)
+             <div class="section_cv">
+              <div class="text5">{{$section->section_name}}</div>              
+            @foreach($langhuage as $lang)
+              <div class="cont-inner">
+                <div class="left"><span class="bold text1">{{$lang->language}}</span></div>
+                <div align="center"><span class="bold text3">{{$lang->ability}}</span></div>
+                <div class="right"><span class="bold text3"> {{$lang->level}}</span></div>
+              </div>
+              <div class="clear"></div>  
+              @endforeach
+              <div class="clear"></div>
+            </div> 
+          @endif
         @endif
         @endforeach   
     </div>

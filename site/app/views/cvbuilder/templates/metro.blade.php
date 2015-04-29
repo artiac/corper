@@ -191,8 +191,9 @@
               <div class="text5">{{$section->section_name}}</div>              
             @foreach($nysc as $ny)
               <div class="cont-inner">
-                <div class="left"><span class="bold text1">{{$ny->ppa}}</span></div>
-                <div class="right"><span class="bold text3">{{$ny->start_date}} - {{$ny->end_date}}</span></div>
+                <div class="left"><span class="bold text1">{{$lang->language}}</span></div>
+                <div align="center"><span class="bold text3">{{$lang->ability}}</span></div>
+                <div class="right"><span class="bold text3"> {{$lang->level}}</span></div>
               </div>
             <div class="clear"></div>
 
@@ -205,3 +206,6 @@
     </div>
   </body>
 </html>
+
+
+              
