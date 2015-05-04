@@ -142,6 +142,7 @@ class CVController extends BaseController {
                     $count++;
                 }
             }
+            
              $count = 1;
             $language_order = Input::get('language');
             if($language_order){
