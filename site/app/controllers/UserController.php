@@ -62,7 +62,7 @@ class UserController extends BaseController {
     }
 
     public function getFBLogin(){
-        
+
         if(Auth::check()){
             return Redirect::to('/profile');
         } else {
@@ -77,36 +77,39 @@ class UserController extends BaseController {
             $user = $facebook->getUser();
 
             if ($user) {
-              try {
-                $user_profile = $facebook->api('/me');
-                $fbid = $user_profile['id'];                
-                $fbuname = $user_profile['username']; 
-                $fbfullname = $user_profile['name'];
-                $femail = $user_profile['email'];   
-                $flink = $user_profile['link'];   
-                $fpicture = "https://graph.facebook.com/".$fbid."/picture?type=large";
+                try {
+                    $user_profile = $facebook->api('/me');
+                    $fbid = $user_profile['id'];                
+                    $first_name = $user_profile['first_name']; 
+                    $last_name = $user_profile['last_name'];
+                    $gender = $user_profile['gender'];
+                    $fbfullname = $user_profile['name'];
+                    $femail = $user_profile['email'];   
+                    $flink = $user_profile['link'];   
+                    $fpicture = "https://graph.facebook.com/".$fbid."/picture?type=large";
 
-                $check_exists = User::select('id','username')->where('facebook_id',$fbid)->count();
+                    $check_exists = User::select('id','username')->where('facebook_id',$fbid)->count();
 
-                if($check_exists == 0){
+                    if($check_exists == 0){
 
                     $check2 = User::select('id')->where('username',$femail)->count();
                     if($check2 == 0){
-                        $user_profile = new User;
-                        $user_profile->name = $fbfullname;
-                        $user_profile->username = $femail;
-                        $user_profile->password = -1;
-                        $user_profile->facebook_id = $fbid;
-                        $user_profile->facebook_link = $flink;
-                        $user_profile->facebook_picture_link = $fpicture;
+                        $new_user = new User;
+                        $new_user->firstname = $first_name;
+                        $new_user->lastname = $last_name;
+                        $new_user->username = $femail;
+                        $new_user->password = -1;
+                        $new_user->facebook_id = $fbid;
+                        $new_user->facebook_link = $flink;
+                        $new_user->facebook_picture_link = $fpicture;
                         $user->save();
-                        Auth::loginUsingId($user_profile->id);
+                        Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
                         
                     } else {
                         return Redirect::Back()->with('fail', $femail.' is alredy registered with Corper Life');
                         Auth::loginUsingId(1);
-                    }       
+                    }      
                 } else {
                     $user_to_login = User::select('id')->where('facebook_id',$fbid)->first();
                     Auth::loginUsingId($user_to_login->id);
