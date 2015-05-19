@@ -102,13 +102,12 @@ class UserController extends BaseController {
                         $new_user->facebook_id = $fbid;
                         $new_user->facebook_link = $flink;
                         $new_user->facebook_picture_link = $fpicture;
-                        $user->save();
+                        $new_user->save();
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
                         
                     } else {
                         return Redirect::Back()->with('fail', $femail.' is alredy registered with Corper Life');
-                        Auth::loginUsingId(1);
                     }      
                 } else {
                     $user_to_login = User::select('id')->where('facebook_id',$fbid)->first();
