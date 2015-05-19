@@ -17,29 +17,41 @@ class CVController extends BaseController {
     }
 
     public function postCreateNew(){
-        $cv = new Cv;
-        do {
-            $random = str_random(10);
-            $count = Cv::where('cv_code',$random)->count();
-        } while($count != 0);
+         $cre = [
+            'cv_name' => Input::get('cv_name')
+        ];
+        $rules = [
+            'cv_name' => 'required'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+            $cv = new Cv;
+            do {
+                $random = str_random(10);
+                $count = Cv::where('cv_code',$random)->count();
+            } while($count != 0);
 
-        $cv->cv_code = $random;
-        if(Auth::check()){
-            $cv->user_id = Auth::id();
+            $cv->cv_code = $random;
+            if(Auth::check()){
+                $cv->user_id = Auth::id();
+            }
+            $cv->cv_name = Input::get('cv_name');
+            $cv->save();
+            $cv_id = $cv->id;
+            DB::table('sections')->insert(array(
+                array("cv_id"=>"$cv_id","section_name"=>"Work Experience","type"=>"1","priority"=>"1","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"Qualfications","type"=>"0","priority"=>"2","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"Education","type"=>"2","priority"=>"3","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"NYSC","type"=>"3","priority"=>"4","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"Languages","type"=>"4","priority"=>"5","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"Passport Photo","type"=>"5","priority"=>"6","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"7","default"=>"1"),
+                array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"8","default"=>"1"),
+            ));
+            return Redirect::to('/cvbuilder/cv/'.$cv->cv_code);
+        }   else {
+            return Redirect::Back()->withErrors($validator)->withInput();
         }
-        $cv->save();
-        $cv_id = $cv->id;
-        DB::table('sections')->insert(array(
-            array("cv_id"=>"$cv_id","section_name"=>"Work Experience","type"=>"1","priority"=>"1","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Qualfications","type"=>"0","priority"=>"2","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Education","type"=>"2","priority"=>"3","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"NYSC","type"=>"3","priority"=>"4","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Language","type"=>"4","priority"=>"5","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Profile Image","type"=>"5","priority"=>"6","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"7","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"8","default"=>"1"),
-        ));
-        return Redirect::to('/cvbuilder/cv/'.$cv->cv_code);
     }
 
     public function getCV($id){

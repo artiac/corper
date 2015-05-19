@@ -361,3 +361,11 @@
 	color: #F00;
 	font-size: 11px;
 }
+span.error{
+	color: #F00;
+	font-size: 11px;
+}
+.pre-footer span.error{
+	color: #EEE;
+	font-size: 11px;	
+}

@@ -8,6 +8,7 @@ Route::get('/logout', function(){
 	Auth::logout();
 	return Redirect::to('/');
 });
+Route::post('/subscribe', 'UserController@postSubscribe');
 
 Route::get('/interview-questions', function(){
 	$main = View::make('interview_qus');
@@ -95,9 +96,11 @@ Route::group(['prefix' => 'forum', 'before' => 'auth'], function () {
 
 Route::group(['prefix' => 'knowledge', 'before' => 'auth'], function () {
 	Route::get('/', 'UserprofileController@getknowledge');
+	Route::post('/askquestion', 'UserprofileController@postAskQuestion');
 });
 Route::group(['prefix' => 'cv-page', 'before' => 'auth'], function () {
 	Route::get('/', 'UserprofileController@getcvpage');
+	Route::get('/delete/{code}', 'UserprofileController@deleteCV');
 });
 
 Route::group(['prefix' => 'content-page', 'before' => 'auth'], function () {

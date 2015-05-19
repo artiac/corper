@@ -5,6 +5,16 @@
         <div class="portlet light">
 
           <div class="portlet-body">
+            @if(Session::has('success'))
+                <div class="alert alert-dismissable alert-success">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                  {{Session::get('success')}}</div>
+            @endif
+            @if(Session::has('fail'))
+              <div class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                {{Session::get('fail')}}</div>
+            @endif
             <div class="table-scrollable">
               <table class="table table-hover" style="width:100%">
                 <thead>
@@ -16,10 +26,13 @@
                        CV Code
                     </th>
                     <th>
+                       CV Name
+                    </th>
+                    <th>
                        Created on
                     </th>
                     <th>
-                      Edit
+                      Edit/Delete
                     </th>                 
                   </tr>
                 </thead>
@@ -33,12 +46,17 @@
                     <td>
                        {{$cv->cv_code}}
                     </td>
-                    <td>
-                       {{date("H:i:s d-M-y", strtotime($cv->created_at))}}
+                     <td>
+                       {{$cv->cv_name}}
                     </td>
                     <td>
-                       <a href="{{url("/cvbuilder/cv/".$cv->cv_code)}}"> <span class="label label-lg label-success">
+                       {{date("d-M-y H:i", strtotime($cv->created_at))}}
+                    </td>
+                    <td>
+                      <a href="{{url("/cvbuilder/cv/".$cv->cv_code)}}"> <span class="label label-lg label-success">
                       Edit</span></a>
+                      <a href="{{url("/cv-page/delete/".$cv->cv_code)}}"> <span class="label label-lg label-danger">
+                      Delete</span></a>
                     </td>                 
                   </tr>
                  @endforeach
@@ -53,9 +71,20 @@
         <!-- BEGIN BORDERED TABLE PORTLET-->
         <div class="portlet light">
           <div class="portlet-body" align="center">              
-            <span class="caption-subject font-green-sharp bold" style="font-size:24px">Created by You</span> <br>             
+            <span class="caption-subject font-green-sharp bold" style="font-size:24px">CVs Created by You</span> <br>             
             <span class="" style="margin:10px 90px; font-size:36px;">{{sizeof($cvs)}}</span> 
-              {{Form::open(array("url"=>"cvbuilder/createnew","method"=>"POST"))}}         
+              {{Form::open(array("url"=>"cvbuilder/createnew","method"=>"POST","class"=>"horizontal-form"))}}
+               <div class="form-body">
+                @if(Session::has('mail-send'))
+                  <div class="alert alert-success">{{Session::get('mail-send')}}</div>
+                @endif
+                <div class="form-group">                 
+                  <div>
+                    {{Form::text('cv_name','',array("class"=>"form-control","placeholder"=>"CV Name"))}}
+                    <span class="error">{{$errors->first('cv_name')}}</span>
+                  </div>
+                </div>
+              </div>        
               <button href="#" type="submit" class="btn green">Create New</button>  
               {{Form::close()}}              
           </div>

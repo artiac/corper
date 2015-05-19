@@ -21,7 +21,9 @@ class UserprofileController extends BaseController {
     public function getknowledge(){
         $this->layout->title = 'Corper Life | Knowledge Bank';
         $this->layout->top_active = 5;
-        $this->layout->main = View::make("profile.pi.knowledge");
+        if(Input::has('tab')) $tab = Input::get('tab');
+        else $tab = 1;
+        $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab]);
     }
      public function getcvpage(){
         $this->layout->title = 'Corper Life | CV';
@@ -59,6 +61,26 @@ class UserprofileController extends BaseController {
         }
     }
 
+    public function deleteCV($code){
+        $cv = Cv::where('cv_code',$code)->first();
+        if($cv->exists){
+            if($cv->user_id != Auth::id()){
+                return Redirect::Back()->with('fail','You are not authorized to delete this CV');
+            } else {
+                $cv_id = $cv->id;
+                Cv::find($cv_id)->delete();
+                Education::where('cv_id',$cv_id)->delete();
+                Language::where('cv_id',$cv_id)->delete();
+                Nysc::where('cv_id',$cv_id)->delete();
+                Section::where('cv_id',$cv_id)->delete();
+                WorkExperience::where('cv_id',$cv_id)->delete();
+                return Redirect::Back()->with('success','CV is successfully deleted');
+            }
+        } else {
+            return Redirect::Back()->with('fail','You are not authorized to delete this CV');
+        }
+    }
+
     public function postsave(){
         $cre = [
             'username' => Input::get('username'),
@@ -81,6 +103,23 @@ class UserprofileController extends BaseController {
                       
          }else {
             return Redirect::Back()->withErrors($validator)->withInput();
+        }
+    }
+
+    public function postAskQuestion(){
+        $cre = [
+            'name' => Input::get('name'),
+            'message' => Input::get('message')          
+        ];
+        $rules = [
+           'name' => 'required',
+            'message' => 'required'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+            return Redirect::to('/knowledge?tab=2')->with('mail-send','Your Message has been successfully received by us.');
+         }else {
+            return Redirect::to('/knowledge?tab=2')->withErrors($validator)->withInput();
         }
     }
 }

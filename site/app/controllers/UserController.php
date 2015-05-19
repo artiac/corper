@@ -160,4 +160,39 @@ class UserController extends BaseController {
             return Redirect::Back()->withErrors($validator)->withInput();
         }
     }
+
+    public function postSubscribe(){
+        $cre = [
+            'email' => Input::get('email')
+        ];
+        $rules = [
+            'email' => 'required|email'
+        ];
+        $validator = Validator::make($cre,$rules);
+
+        if($validator->passes()){
+            include(app_path().'/includes/Mailchimp.php');
+            $api_key = "5df910bc47331f1309a290dc2d4255f2-us5";
+            $list_id = "49a09ccd0e";
+         
+            // set up our mailchimp object, and list object
+            $Mailchimp = new Mailchimp( $api_key );
+            $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
+         
+            $email = 'vashi@gmail.com';
+         
+            try {
+                $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
+            } catch (Exception $e) {
+                return $e;
+                return 'not succeded';
+            }
+
+            if ( !empty( $subscriber['leid'] ) ) {
+                return 'Email Added to MailChimp';
+            }   
+        }   else    {
+            return Redirect::Back()->withErrors($validator)->withInput();
+        }
+    }
 }

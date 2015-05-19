@@ -2,17 +2,17 @@
 <div class="portlet light">
   <div class="portlet-body">
     <ul class="nav nav-tabs profile-tab">
-      <li class="active">
+      <li @if($tab == 1) class="active" @endif>
         <a href="#tab_1_1" data-toggle="tab">
         Knowledge Bank </a>
       </li>
-      <li>
+      <li @if($tab == 2) class="active" @endif>
         <a href="#tab_1_2" data-toggle="tab">
         Ask a question? </a>
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane fade active in" id="tab_1_1">
+      <div class="tab-pane fade @if($tab == 1) active in @endif" id="tab_1_1">
         <div class="portlet-body">
           <ul class="nav nav-pills">
             <li class="active">
@@ -305,7 +305,36 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="tab_1_2">          
+      <div class="tab-pane fade @if($tab == 2) active in @endif " id="tab_1_2">
+        {{Form::open(array('url'=>'/knowledge/askquestion','method' => 'POST','class'=>'form-horizontal'))}}
+          <div class="form-body">
+            @if(Session::has('mail-send'))
+              <div class="alert alert-success">{{Session::get('mail-send')}}</div>
+            @endif
+            <div class="form-group">
+              {{ Form::label('', 'Your Name', array('class' => 'col-md-3 control-label')) }}                   
+              <div class="col-md-9">
+                {{Form::text('name',Auth::user()->firstname.' '.Auth::user()->lastname,array("class"=>"form-control"))}}
+                <span class="error">{{$errors->first('name')}}</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              {{ Form::label('', 'Your Message', array('class' => 'col-md-3 control-label')) }}                   
+              <div class="col-md-9">
+                {{Form::textarea('message','',array("class"=>"form-control"))}}
+                <span class="error">{{$errors->first('message')}}</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              {{ Form::label('', '', array('class' => 'col-md-3 control-label')) }}                   
+              <div class="col-md-9">
+                {{Form::submit('Submit',array("class"=>"btn blue"))}}
+              </div>
+            </div>
+          </div>
+        {{Form::close()}}
       </div>
     </div>
   </div>
