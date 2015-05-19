@@ -107,7 +107,7 @@ class UserController extends BaseController {
                         return Redirect::to('/profile');
                         
                     } else {
-                        return Redirect::Back()->with('fail', $femail.' is alredy registered with Corper Life');
+                        return Redirect::to('/')->with('fail', $femail.' is alredy registered with Corper Life');
                     }      
                 } else {
                     $user_to_login = User::select('id')->where('facebook_id',$fbid)->first();

@@ -36,8 +36,10 @@
               </div>
                             <div class="row"> 
               <div class="col-md-8">         
-              <div class="login-options" style="margin-top:8px;">               
-                  {{HTML::image('assets/img/fb3.png','Facebook')}}
+              <div class="login-options" style="margin-top:8px;">
+                <a href="{{URL::to('/fblogin')}}">              
+                  {{HTML::image('assets/img/fb3.png','Facebook Login')}}
+                </a>
               </div>
               </div>
               <div class="col-md-4" style="margin-top:7px;">
