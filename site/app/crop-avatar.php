@@ -190,6 +190,6 @@
     $response = array(
         'state'  => 200,
         'message' => $crop -> getMsg(),
-        'result' => $crop -> getResult()
+        'result' => URL::to('/').'/'.$crop -> getResult()
     );
 ?>

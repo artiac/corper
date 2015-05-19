@@ -4,7 +4,7 @@
         <div class="row">
           <!-- BEGIN BOTTOM ABOUT BLOCK -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
-            <h2>About us</h2>
+            <h2>About Us</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut laoreet dolore magna aliquarm erat sit volutpat.</p>
              <div class="row">
               <div class="col-md-12">
