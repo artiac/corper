@@ -6,7 +6,7 @@
       <div class="col-md-5">
         <div style="background:rgba(0,0,0,0.7); padding:20px; margin:55px 0 30px 0;">
           @if(Session::has('fail'))
-          <span style="background:#f00; color:white">{{Session::get('fail')}}</span>
+            <div class="alert alert-danger">{{Session::get('fail')}}</div>
           @endif
           @if(!Auth::check())
           {{Form::open(array("url"=>"/signup", "method" => "POST","class"=>"login-form"))}}
@@ -21,40 +21,40 @@
                 <div class="form-group">
                   <label class="control-label visible-ie8 visible-ie9">Firstname</label>
                   {{Form::text('firstname','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"First name","id"=>"Firstname"))}}
-                  <span>{{$errors->first('firstname')}}</span>
+                  <span class="error">{{$errors->first('firstname')}}</span>
                 </div> 
               </div> 
               <div class="col-md-6">
                 <div class="form-group">
                   <label class="control-label visible-ie8 visible-ie9">Lastname</label>
                   {{Form::text('lastname','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Last name","id"=>"Lastname"))}}
-                  <span>{{$errors->first('lastname')}}</span>
+                  <span class="error">{{$errors->first('lastname')}}</span>
                 </div> 
               </div> 
             </div>             
             <div class="form-group">
               {{Form::text('email','',array("class"=>"form-control form-control-solid placeholder-no-fix","autocomplete"=>"off","placeholder"=>"E-mail","id"=>"email"))}}
-              <span>{{$errors->first('email')}}</span>
+              <span class="error">{{$errors->first('email')}}</span>
             </div>
             <div class="form-group" style="margin-bottom:15px;">
               <label class="control-label visible-ie8 visible-ie9">Password</label>
               {{Form::password('password', array("class"=>"form-control form-control-solid placeholder-no-fix","autocomplete"=>"off","placeholder"=>"New Password","id"=>"password"))}}
-              <span>{{$errors->first('password')}}</span>
+              <span class="error">{{$errors->first('password')}}</span>
             </div>
             <div class="row">
               <div class="col-md-4" style="margin-bottom:10px;">
                 {{Form::select('gender',array(""=>"Gender","1"=>"Male","2"=>"Female"),'',array("class"=>"form-control"))}}
-                <span>{{$errors->first('gender')}}</span>
+                <span class="error">{{$errors->first('gender')}}</span>
 
               </div>
               <div class="col-md-4" style="margin-bottom:10px;">
                 {{Form::select('serv_year',array(""=>"Service Year","1"=>"2014","2"=>"2015"),'',array("class"=>"form-control"))}}
-                <span>{{$errors->first('serv_year')}}</span>
+                <span class="error">{{$errors->first('serv_year')}}</span>
 
               </div>
               <div class="col-md-4">
                 {{Form::select('batch',array(""=>"Batch","A"=>"A","B"=>"B","C"=>"C"),'',array("class"=>"form-control"))}}
-                <span>{{$errors->first('batch')}}</span>
+                <span class="error">{{$errors->first('batch')}}</span>
               </div>
             </div>
             <div class="form-actions" style="padding-right:0px; margin-bottom:10px;">
@@ -63,7 +63,7 @@
             <div class="row"> 
               <div class="col-md-8">         
                 <div class="login-options" style="margin-top:8px;">               
-                  <a href="#">{{HTML::image('assets/img/fb3.png','Facebook')}}</a>
+                  <a href="{{URL::to('/fblogin')}}">{{HTML::image('assets/img/fb3.png','Facebook')}}</a>
                 </div>
               </div>
               <div class="col-md-4" style="margin-top:7px;">
@@ -97,7 +97,13 @@
             <a href="{{url('/profile')}}"><span style="color:#B6C876">The</span><span>Dashboard</span></a>
           </div> 
           <p>The section of the CorperLife<sup>TM</sup> site is dedicated to all currently serving Corpers. We are proud to say we have the deepest and best organized cache of information and tool to make the NYSC Journey a breeze.Corper'WE'Lcome!</p>
-          <div style="text-align:center"><a href="{{url('/profile')}}" class="btn green">Click Here</a></div>
+          <div style="text-align:center">
+            @if(Auth::check())
+            <a href="{{url('/profile')}}" class="btn green">Click Here</a>
+            @else
+            <a href="{{url('/login')}}" class="btn green">Click Here</a>
+            @endif
+          </div>
         </div>
         <div class="col-md-4 col-sm-4">
           <div class="service-box-heading">

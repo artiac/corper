@@ -52,10 +52,96 @@ class UserController extends BaseController {
         }
     }
     public function getLogin(){
-       return View::make('login');
+        if(Auth::check()){
+            return Redirect::to('/profile');
+        } else {
+            $main = View::make('login');
+            return View::make('main',["title"=>"Login | Corper Life","main"=>$main]);
+        }
+        
     }
 
-     public function postSaveadd(){
+    public function getFBLogin(){
+
+        if(Auth::check()){
+            return Redirect::to('/profile');
+        } else {
+        
+            require app_path().'/fb/src/facebook.php';  // Include facebook SDK file
+            $facebook = new Facebook(array(
+              'appId'  => '1508724149415565',   // Facebook App ID 
+              'secret' => 'f5c6659102f5d2572b7838cd1fc2f28b',  // Facebook App Secret
+              'cookie' => true, 
+            ));
+
+            $user = $facebook->getUser();
+
+            if ($user) {
+              try {
+                $user_profile = $facebook->api('/me');
+                $fbid = $user_profile['id'];                
+                $fbuname = $user_profile['username']; 
+                $fbfullname = $user_profile['name'];
+                $femail = $user_profile['email'];   
+                $flink = $user_profile['link'];   
+                $fpicture = "https://graph.facebook.com/".$fbid."/picture?type=large";
+
+                $check_exists = User::select('id','username')->where('facebook_id',$fbid)->count();
+
+                if($check_exists == 0){
+
+                    $check2 = User::select('id')->where('username',$femail)->count();
+                    if($check2 == 0){
+                        $user_profile = new User;
+                        $user_profile->name = $fbfullname;
+                        $user_profile->username = $femail;
+                        $user_profile->password = -1;
+                        $user_profile->facebook_id = $fbid;
+                        $user_profile->facebook_link = $flink;
+                        $user_profile->facebook_picture_link = $fpicture;
+                        $user->save();
+                        if(mysql_query($sql)){
+
+                        $mail = new Mail($femail);
+                        $mail->register($fbfullname);
+
+                        $user_id = mysql_insert_id();
+
+                        $_SESSION['SESS_MEMBER_ID'] = $user_id;
+                        $_SESSION['SESS_MEMBER_USER_NAME'] = $email;
+
+                        } else {
+                           echo "Some Problem";
+                        }
+                    } else {
+                        return Redirect::Back()->with('fail', $femail.' is alredy registered with Corper Life');
+                        Auth::loginUsingId(1);
+                    }       
+                } else {
+                    $user_to_login = User::select('id')->where('facebook_id',$fbid)->first();
+                    Auth::loginUsingId($user_to_login->id);
+                    return Redirect::to('/profile');
+                }
+              } catch (FacebookApiException $e) {
+                error_log($e);
+                $user = null;
+              }
+            }
+
+            if ($user) {
+                return Redirect::to('/profile');
+            } else {
+                $loginUrl = $facebook->getLoginUrl(array(
+                    'scope'     => 'email', // Permissions to request from the user
+                ));
+                header("Location: ".$loginUrl);
+            }
+
+        }
+        
+    }
+
+    public function postSaveadd(){
         $cre = [
             'name' => Input::get('name'),
             'email' => Input::get('email'),         

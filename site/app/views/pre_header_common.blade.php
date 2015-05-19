@@ -14,6 +14,8 @@
                     <ul class="list-unstyled list-inline pull-right">
                         @if(!Auth::check())
                           <li><a href="{{url("/login")}}">Log In</a></li>
+                        @else
+                          <li><a href="{{url("/logout")}}">Logout</a></li>
                         @endif
                         <li><a href="{{url("/cvbuilder")}}">CV Builder</a></li>
                     </ul>

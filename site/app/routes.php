@@ -4,6 +4,11 @@ Route::get('/', function(){
 	$main = View::make('home');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
+Route::get('/logout', function(){
+	Auth::logout();
+	return Redirect::to('/');
+});
+
 Route::get('/interview-questions', function(){
 	$main = View::make('interview_qus');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
@@ -51,6 +56,7 @@ Route::get('/website-rules', function(){
 Route::post('/advertise/saveadd', 'UserController@postSaveadd');
 
 Route::get('/login', 'UserController@getLogin');
+Route::get('/fblogin', 'UserController@getFBLogin');
 
 Route::get('/career-document', 'CVController@getcareer');
 

@@ -357,3 +357,7 @@
 .topics-col9 span{
 	color:#5b9bd1;
 }
+.login-form span.error{
+	color: #F00;
+	font-size: 11px;
+}
