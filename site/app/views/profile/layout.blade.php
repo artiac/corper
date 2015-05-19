@@ -145,7 +145,7 @@
                     <span class="selected"></span></a>
                   </li>
                   <li @if($top_active == 5)class="active"@endif;>
-                   <a href="{{url('/knowledge')}}">Knowledge
+                   <a href="{{url('/knowledge')}}">Knowledge Bank
                     <span class="selected"></span></a>
                   </li>
                   <li @if($top_active == 6)class="active"@endif;>

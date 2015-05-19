@@ -62,15 +62,15 @@ class UserController extends BaseController {
     }
 
     public function getFBLogin(){
-
+        
         if(Auth::check()){
             return Redirect::to('/profile');
         } else {
         
             require app_path().'/fb/src/facebook.php';  // Include facebook SDK file
             $facebook = new Facebook(array(
-              'appId'  => '1508724149415565',   // Facebook App ID 
-              'secret' => 'f5c6659102f5d2572b7838cd1fc2f28b',  // Facebook App Secret
+              'appId'  => '1616910621872702',   // Facebook App ID 
+              'secret' => 'ca502f2286b98512247c4a8a91e5e1ff',  // Facebook App Secret
               'cookie' => true, 
             ));
 
@@ -100,19 +100,9 @@ class UserController extends BaseController {
                         $user_profile->facebook_link = $flink;
                         $user_profile->facebook_picture_link = $fpicture;
                         $user->save();
-                        if(mysql_query($sql)){
-
-                        $mail = new Mail($femail);
-                        $mail->register($fbfullname);
-
-                        $user_id = mysql_insert_id();
-
-                        $_SESSION['SESS_MEMBER_ID'] = $user_id;
-                        $_SESSION['SESS_MEMBER_USER_NAME'] = $email;
-
-                        } else {
-                           echo "Some Problem";
-                        }
+                        Auth::loginUsingId($user_profile->id);
+                        return Redirect::to('/profile');
+                        
                     } else {
                         return Redirect::Back()->with('fail', $femail.' is alredy registered with Corper Life');
                         Auth::loginUsingId(1);
@@ -134,7 +124,7 @@ class UserController extends BaseController {
                 $loginUrl = $facebook->getLoginUrl(array(
                     'scope'     => 'email', // Permissions to request from the user
                 ));
-                header("Location: ".$loginUrl);
+               return Redirect::to($loginUrl);
             }
 
         }
