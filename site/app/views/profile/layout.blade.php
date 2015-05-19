@@ -72,7 +72,7 @@
             <div class="portlet-body form" style="border:1px solid #ddd; border-right:none; padding-bottom: 30px !important;">               
               <div id="crop-avatar">
                  <!-- Current avatar -->
-                <div class="avatar-view">
+                <div class="avatar-view" pic-ratio="1">
                   <?php 
                     if(Auth::user()->profile_pic == '') $profile_pic = 'assets/avatars/default.png';
                     else $profile_pic = Auth::user()->profile_pic;  ?>
@@ -191,7 +191,7 @@
     {{ HTML::script("assets/js/profile.js")}}
     {{ HTML::script("assets/js/wysihtml5-0.3.0.js")}}
     {{ HTML::script("assets/js/bootstrap-wysihtml5.js")}}
-    {{ HTML::script("assets/js/custom.js")}}
+    {{ HTML::script("assets/js/custom.js?v=1.2")}}
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() {     

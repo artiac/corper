@@ -127,31 +127,26 @@
                                         @if(Session::has('fail'))
                                           <span style="background:#f00; color:white">{{Session::get('fail')}}</span>
                                         @endif
-                                          {{Form::open(array("url"=>"/", "method" => "POST","class"=>"login-form"))}}
+                                          
                                           <h3 class="form-title" style="color:#fff;">Create New CV</h3>
-                                          <h5 class="form-title" style="color:#fff; font-size:20px;">Are you a corper?</h5>
-                                          <div class="alert alert-danger display-hide">
-                                            <button class="close" data-close="alert"></button>
-                                            <span>
-                                            Enter any username and password. </span>
-                                          </div>
+                                          <h5 class="form-title" style="color:#fff; font-size:20px;">Hey! {{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                                           <div class="col-md-12" style="margin:0px 0px 15px 0px; padding: 0px;">
-                                            {{Form::submit('Sign Up For New Account',array("class"=>"btn btn-success uppercase","style"=>"background-color:#ABC351;"))}}    
+                                            <a href="{{URL::to('/cv-page')}}" class="btn btn-success uppercase" style="background-color:#ABC351;">Your Cv List</a>
                                           </div>
-                                           {{Form::close()}} 
 
-                                            {{Form::open(array("url"=>"cvbuilder/createnew","method"=>"POST"))}} 
-                                           <h5 class="form-title" style="color:#fff; margin-top:5px;">Or Continue Without Registering</h5>
+
+                                          {{Form::open(array("url"=>"cvbuilder/createnew","method"=>"POST"))}} 
+                                           <h5 class="form-title" style="color:#fff; margin-top:5px;">Or Create a New CV</h5>
                                            <div class="col-md-12" style="padding-left:0px;">
                                              <div class="col-md-9" style="padding-left:0px;">
                                               <div class="form-group">
-                                                <label class="control-label visible-ie8 visible-ie9">Username</label>
-                                                {{Form::text('email','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Enter E-mail id","style"=>"color:#555"))}}
-                                            <span>{{$errors->first('email')}}</span>
+                                                <label class="control-label visible-ie8 visible-ie9">CV Name</label>
+                                                {{Form::text('cv_name','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Cv Name","style"=>"color:#555"))}}
+                                                <span>{{$errors->first('cv_name')}}</span>
                                               </div>
                                             </div>
                                             <div class="col-md-3" style="padding-left:0px;">
-                                                {{Form::submit('Proceed',array("class"=>"btn btn-success uppercase","style"=>"background-color:#ABC351;"))}}  
+                                                {{Form::submit('Create',array("class"=>"btn btn-success uppercase","style"=>"background-color:#ABC351;"))}}  
                                             </div>
                                           </div>     
                                             <label class="rememberme check" style="color:#fff; margin:5px;">

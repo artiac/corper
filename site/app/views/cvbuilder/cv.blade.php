@@ -7,16 +7,18 @@
 	{{Form::open(array("class"=>"builderForm"))}}
 	{{Form::hidden('cv_id',$cv->id,["id"=>"cv_id","readonly"=>"readonly"])}}
 	{{Form::hidden('cv_code',$cv->cv_code,["id"=>"cv_code","readonly"=>"readonly"])}}
-	<div class="container" style="">
+	<div class="container" style="position:relative; max-width:1024px">
+		<div class="cv-ads" style="left:-100px"><div>Advertisement Space</div></div>
+		<div class="cv-ads" style="right:-100px"><div>Advertisement Space</div></div>
 		<div class="row">
 			<!-- BEGIN PROFILE CONTENT -->									
 					<!-- PERSONAL INFO TAB -->
 			<div class="col-md-12">
 				<div class="row cv" style="margin-bottom:10px">
 					<div class="col-md-6">
-						<h3>CV Code : {{$cv->cv_code}} <a href="#" class="ttip" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
-							<i class="fa fa-question-circle" style="font-size:24px; font-weight:normal; color:#1caf9a"></i>
-						</a></h3>
+
+						<h3>CV Code : {{$cv->cv_code}} <a type="button" data-toggle="popover" title="CV Code" data-content="This Code will help you to retrieve this CV for editing."><i class="fa fa-question-circle" style="font-size:24px; font-weight:normal; color:#1caf9a"></i></a>
+						</h3>
 						
 					</div>
 					<div class="col-md-6">
@@ -31,7 +33,7 @@
 						<div class="row">	
 							<div class="col-md-3 section-names">
 								<div class="cv-toggle">
-						              asdsad
+						              <span id="menu_name">Basic Information</span>
 						              <a href="javascript:void(0);" class="pull-right" style="color:#FFF"><i class="fa fa-bars"></i></a>
 						            </div>
 								<div id="sortable1" class="cv-links">
@@ -40,7 +42,7 @@
 									<div class="section_link" data-show="#prop{{$section->id}}">
 										<span class="selected"></span>
 										<input type="checkbox" name="section[]" id="" value="{{$section->id}}" checked>
-										<span id="section{{$section->id}}">{{$section->section_name}}</span>
+										<span id="section{{$section->id}}" class="section_name">{{$section->section_name}}</span>
 										@if($section->default == 0)
 										<a href="javascript:;" data-id="{{$section->id}}" class="remove-section">x</a>
 										@endif
@@ -54,7 +56,14 @@
 							</div>                      
 							<div class="col-md-9" id="section_panel" style="min-height:500px">			
 								<div class="row section" id="prop-1">			 
-									<h2>Basic Information</h2>
+									
+									<div class="col-md-6" style="padding:0"><h2>Basic Information</h2></div>
+									<div class="col-md-6 pull-right" style="text-align:right">
+										<div class="">
+											<div class="col-md-6"><label style="margin-top:5px">CV Name</label></div>
+											<div class="col-md-6">{{Form::text('cv_name',$cv->cv_name,array("class"=>"form-control", "placeholder"=>"CV Name"))}}</div>
+										</div>
+									</div>
 									<div class="col-md-12">
 										<div class="form-group col-md-6">
 											<label>Full Name</label>
@@ -124,17 +133,21 @@
 								@foreach($sections as $section)
 								@if($section->type == 0)
 								<div class="row section hide_panel" id="prop{{$section->id}}">	
-									<h2>{{$section->section_name}}</h2>		
-									<div class="col-md-11">
-										<div class="form-group">
-											{{ Form::textarea('section_'.$section->id,$section->content,["class"=>"form-control textarea"])}}		
+									<h2>{{$section->section_name}}</h2>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="col-md-12">
+												<div class="form-group">
+													{{ Form::textarea('section_'.$section->id,$section->content,["class"=>"form-control textarea"])}}		
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
 								@elseif($section->type == 1)
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>
-									<div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_work_ex"> + Add New Entry</div>
+									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_work_ex"> + Add New</div>
 									<div class="margin-top-20" id="work_ex_panel">
 										@foreach($workex as $work)
 										<div class="workex-item">
@@ -170,7 +183,7 @@
 								@elseif ($section->type == 2)
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>	
-									<div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_education"> + Add New Entry</div> 	        
+									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_education"> + Add New</div> 	        
 									<div class="margin-top-20" id="education_panel">
 										@foreach($education as $edu)
 										<div class="education-item">
@@ -206,7 +219,7 @@
 								@elseif ($section->type == 3)
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>	
-									<div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_nysc" > + Add New Entry</div> 	        
+									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_nysc" > + Add New</div> 	        
 									<div  id="nysc_panel">
 										@foreach($nysc as $nysc)
 										<div class="nysc-item" class="margin-top-20">
@@ -242,7 +255,7 @@
 								@elseif ($section->type == 4)
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>	
-									<div class="btn btn-primary section-button" data-toggle="modal" data-target="#Modal" id="add_new_language"> + Add New Entry</div> 	        
+									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_language"> + Add New</div> 	        
 									<div class="margin-top-20" id="language_panel">
 										@foreach($language as $lang)
 										<div class="language-item">
@@ -279,19 +292,25 @@
 								{{Form::close()}}
 								<div class="row section hide_panel" id="prop{{$section->id}}">	
 									<h2>{{$section->section_name}}</h2>	
-										<div class="portlet-body form" style="border:1px solid #ddd; border-right:none; padding-bottom: 30px !important;">               
-						              <div id="crop-avatar">
+										<div class="portlet-body form" style="border-right:none; padding-bottom: 30px !important;">               
+						              <div id="crop-avatar" class="passport_pic">
 						                 <!-- Current avatar -->
-						                <div class="avatar-view">
-						                  <?php 
-						                    if($cv->profile_image == '') $profile_image = 'assets/avatars/default.png';
-						                    else $profile_image = $cv->profile_image;  ?>
-						                  {{HTML::image($profile_image,'cv picture')}}
-						                </div>
-						                <div style="text-align:center">
-											<button type="button" class="btn" data-toggle="modal" data-target="#avatar-modal">Upload Image</button> 	        
+						                <div class="col-md-6">
+						                	<div class="avatar-view" pic-ratio = "0.778">
+							                  <?php 
+							                    if($cv->profile_image == '') $profile_image = 'assets/avatars/default.png';
+							                    else $profile_image = $cv->profile_image;  ?>
+							                  {{HTML::image($profile_image,'cv picture')}}
+							                </div>
+							                <div style="text-align:center">
+												<button type="button" class="btn" data-toggle="modal" data-target="#avatar-modal">Upload Image</button> 	        
 
+							                </div>
 						                </div>
+						                <div>
+						                	Help
+						                </div>
+
 						                	<!-- Cropping modal -->
 											    <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
 											      <div class="modal-dialog modal-lg">
@@ -320,7 +339,7 @@
 											            </div>
 											            <div class="modal-footer">
 											              <button class="btn btn-default" data-dismiss="modal" type="button">Close</button>
-											              <button class="btn btn-primary avatar-save" type="button" onclick="$('#profileForm').submit()" >Save</button>
+											              <button class="btn green avatar-save" type="button" onclick="$('#profileForm').submit()" >Save</button>
 											            </div>
 											          </form>
 											        </div>

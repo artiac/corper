@@ -9,15 +9,17 @@ function cycleQuotes(){
       $active.removeClass('visible animated zoomIn');
       $next.addClass('visible').addClass('animated zoomIn');
 }
+$(function () {
+  $('[data-toggle="popover"]').popover({'trigger':'hover'});
+})
 $(document).ready(function(){
-
-    $(".ttip").tooltip();
 
     $("#section_panel").css('min-height',($('.section-names').height()+50)+'px');
 
     var inter = setInterval('cycleQuotes()', 5000);
     $(document).on("click",".section_link", function(){
         var div_show = $(this).attr("data-show");
+        $("#menu_name").html($(this).find('.section_name').eq(0).html());
         $(".section_link").removeClass('active');
         $(this).addClass('active');
         $('.section').addClass('hide_panel');
@@ -129,11 +131,10 @@ $(document).ready(function(){
             var item = $(this);
             item.html(item.html()+preloader);
             var cv_code = $("#cv_code").val();
-            var val = $("#builderForm").serialize();
+            var val = $(".builderForm").serialize();
             $.post(base_url+'/cvbuilder/saveinfo/'+cv_code,val,function(data){
                 if(data == 'success'){
                     $("#style-modal").modal('hide');
-                    //window.open(base_url+'/cvbuilder/preview/'+cv_code+'/'+style,'_blank');
                     $("#Preview_Modal").modal('show');
                     $("#Preview_Modal .modal-content").html('Loading');
 
@@ -147,21 +148,15 @@ $(document).ready(function(){
                 onGoingEvent = 0;
             });
        }
-       // $("#Preview_Modal").modal('show');
-       //  $.get(base_url+'/cvbuilder/preview/'+cv_code+'/'+style,function(data){
-       //      z
-       //  });
-
     });
 
     $(document).on("click",".submit-form", function(){
-       //$("#builderForm").submit();
        if(onGoingEvent == 0){
         onGoingEvent =1;
         var item = $(this);
         item.html(item.html()+preloader);
         var cv_code = $("#cv_code").val();
-        var val = $("#builderForm").serialize();
+        var val = $(".builderForm").serialize();
         $.post(base_url+'/cvbuilder/saveinfo/'+cv_code,val,function(data){
             if(data == 'success'){
                

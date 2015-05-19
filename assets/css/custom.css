@@ -58,9 +58,7 @@
 	padding-left: 25px;
 }
 .section-button{
-	border-radius:25px !important; 
-	margin-top:25px; 
-	background:#97B82C;
+	margin-top:15px; 
 	margin-left:20px;
 }
 .nysc-item, .education-item, .workex-item{	
@@ -252,6 +250,9 @@
 	list-style-type: none;
 	padding-left: 15px;
 }
+.quotes {
+	overflow: hidden;
+}
 .quotes div{
 	display: none;
 }
@@ -368,4 +369,22 @@ span.error{
 .pre-footer span.error{
 	color: #EEE;
 	font-size: 11px;	
+}
+.passport_pic .avatar-view {
+  height: 225px;
+  width: 175px;
+}
+.cv-ads{
+	border:1px dashed #888;
+	min-height:500px;
+	width:100px;
+	position:absolute;
+	top:0;
+}
+.cv-ads div{
+	-ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    margin-top: 200px;
+    text-align: center;
 }

@@ -122,7 +122,7 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 		}
 	});
 	Route::get('/cv/{id}', 'CVController@getCV');
-	Route::put('/saveinfo/{id}', 'CVController@putSaveInfo');
+	Route::post('/saveinfo/{id}', 'CVController@putSaveInfo');
 	Route::get('/fetch_workex', function(){
 		return View::make('cvbuilder.section_views.workex');
 	});

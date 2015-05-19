@@ -104,7 +104,7 @@ class CVController extends BaseController {
             Section::where('id',$section_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
             $count++;
         }
-
+            $cv->cv_name = Input::get("cv_name");
             $cv->full_name = Input::get("full_name");
             $cv->email = Input::get("email");
             $cv->phone_num = Input::get("phone_num");
@@ -164,14 +164,6 @@ class CVController extends BaseController {
                 }
             }
 
-            //    $count = 1;
-            // $profile_order = Input::get('profile');
-            // if($profile_order){
-            //     foreach ($profile_order as $profile_id) {
-            //         Profile::where('id',$profile_id)->where('cv_id',$cv_id)->update(array('priority'=>$count));
-            //         $count++;
-            //     }
-            // }
 
             $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 

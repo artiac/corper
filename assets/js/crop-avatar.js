@@ -16,6 +16,7 @@
     this.$container = $element;
 
     this.$avatarView = this.$container.find(".avatar-view");
+    this.ratio = this.$avatarView.attr("pic-ratio");
     this.$avatar = this.$avatarView.find("img");
     this.$avatarModal = this.$container.find("#avatar-modal");
     this.$loading = this.$container.find(".loading");
@@ -181,7 +182,7 @@
         this.$img = $('<img src="' + this.url + '">');
         this.$avatarWrapper.empty().html(this.$img);
         this.$img.cropper({
-          aspectRatio: 1,
+          aspectRatio: this.ratio ,
           preview: this.$avatarPreview.selector,
           done: function (data) {
             var json = [
