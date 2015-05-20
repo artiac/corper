@@ -307,8 +307,8 @@
 
 							                </div>
 						                </div>
-						                <div>
-						                	Help
+						                <div class="col-md-6" style="text-align:justify">
+						                	<p>While passport photos were previously required for almost all passport and ID cards, the uses have now strongly increased. The sizes of passport photos vary, depending on country and purpose the passport photo will be used for. In Nigeria, the size of the passport photo is:<br><b> 35mm x 45mm (3.5cm width and 4.5 cm height)<b></p>
 						                </div>
 
 						                	<!-- Cropping modal -->
