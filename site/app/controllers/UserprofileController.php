@@ -23,7 +23,7 @@ class UserprofileController extends BaseController {
         $this->layout->top_active = 5;
         if(Input::has('tab')) $tab = Input::get('tab');
         else $tab = 1;
-        $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab]);
+        $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab,"question_categories"=>$question_categories,"questions" => $questions]);
     }
      public function getcvpage(){
         $this->layout->title = 'Corper Life | CV';
