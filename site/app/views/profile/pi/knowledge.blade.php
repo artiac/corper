@@ -22,7 +22,7 @@
                <div class="col-sm-6">
                 <button class="btn blue">Search!</button>
                 @if($query != '')
-                  <a href="{{url('/knowledge')}}" class="btn red">Clear Search!</a>
+                  <a href="{{url('/knowledge')}}" class="btn red">Clear Search</a>
                 @endif
               </div>
             </div>

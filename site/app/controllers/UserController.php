@@ -103,6 +103,11 @@ class UserController extends BaseController {
                         $new_user->facebook_link = $flink;
                         $new_user->facebook_picture_link = $fpicture;
                         $new_user->save();
+
+                        require app_path().'/mail.php';
+                        $mail = new Mail;
+                        $mail->send_registration_mail($first_name, $femail);
+
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
                         
