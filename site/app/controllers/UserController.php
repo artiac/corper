@@ -106,7 +106,8 @@ class UserController extends BaseController {
 
                         require app_path().'/mail.php';
                         $mail = new Mail;
-                        $mail->send_registration_mail($first_name, $femail);
+                        $mail->registration_mail($first_name, $femail);
+                        $mail->send_mail();
 
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
