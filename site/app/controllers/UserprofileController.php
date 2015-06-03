@@ -21,9 +21,21 @@ class UserprofileController extends BaseController {
     public function getknowledge(){
         $this->layout->title = 'Corper Life | Knowledge Bank';
         $this->layout->top_active = 5;
+        $categories = DB::table('qus_category')->get();
+        $questions = DB::table('member_qus')->orderBy('member_qus.category_id','asc')->get();
+        $terms = DB::table('terms_definitions')->get();
         if(Input::has('tab')) $tab = Input::get('tab');
         else $tab = 1;
-        $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab,"question_categories"=>$question_categories,"questions" => $questions]);
+        if(Input::has('query') && Input::has('query')!= '' ){
+            $query = Input::get('query');
+            $query_results = DB::table('member_qus')->where('question','LIKE',"%".$query."%")->orWhere('answer','LIKE',"%".$query."%")->get();
+            $term_results = DB::table('terms_definitions')->where('term','LIKE',"%".$query."%")->orWhere('definition','LIKE',"%".$query."%")->get();
+        } else {
+            $query = '';
+            $query_results = [];
+            $term_results = [];
+        }
+        $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab,"categories"=>$categories,"questions" => $questions,'terms'=>$terms,'query'=>$query,'query_results'=>$query_results,'term_results'=>$term_results]);
     }
      public function getcvpage(){
         $this->layout->title = 'Corper Life | CV';
