@@ -661,8 +661,11 @@ class CVController extends BaseController {
             $mail->isMail();
             $mail->setFrom('info@corperlife.com', 'Corper Life');
             $mail->cv_mail($cv->full_name, $code, Input::get("emails"));
-            $mail->addAddress('whoto@example.com', 'John Doe');
-            $mail->send_mail();
+            $mail->addAddress('vishu.iitd@gmail.com', 'Vashistha Aggarwal');
+            $mail->isHTML(true);
+            $mail->Subject = "CV ".$code;
+            $mail->Body = 'sadasdasd';
+            $mail->send();
             $response["success"] = true;
             $response["message"] = "The cv has been mailed to you on ".Input::get("emails");
         } else {
