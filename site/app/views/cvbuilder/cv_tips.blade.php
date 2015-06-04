@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="breadcrumb">
       <li><a href="{{url('/')}}">Home</a></li>
-      <li class="{{url('/cv_tipes')}}">CV's</li>
+      <li>CV Tips</li>
     </ul>
     <!-- BEGIN SIDEBAR & CONTENT -->
     <div class="row margin-bottom-40">
@@ -27,7 +27,7 @@
                     <ol>
                       <li>The most Important things employers look for in a Cv are:
                         <ul>
-                          <li> Previous related work experience </li>
+                          <li>Previous related work experience </li>
                           <li>Qualifications and Skills.</li>
                           <li>Education</li>
                           <li>Accomplishments</li>
@@ -78,16 +78,7 @@
                     </p> 
             </div>
             <div class="col-md-3">
-               <h3 class="navigation">
-                <span><a href="#">Research</a></span>                
-              </h3>
-               <h3 class="navigation">
-                <a href="#">Networking</a>
-              </h3>
-               <h3 class="navigation"><a href="{{url('/cover-letter')}}">Cover Letters</a></h3>
-               <h3 class="navigation"><a href="{{url('/interview-questions')}}">Interview Qustions</a></h3>
-               <h3 class="navigation"><a href="{{url('/interview-tipes')}}">Tipes</a></h3>
-               <h3 class="navigation"><a href="#">Negotiation</a></h3>
+              @include('cvbuilder.jobseeker_sidebar')
             </div>
           </div>
             <!-- END PAGE CONTENT INNER -->

@@ -129,7 +129,7 @@
                                         @endif
                                           
                                           <h3 class="form-title" style="color:#fff;">Create New CV</h3>
-                                          <h5 class="form-title" style="color:#fff; font-size:20px;">Hey! {{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
+                                          <h5 class="form-title" style="color:#fff; font-size:20px;">Hey! {{Auth::user()->firstname}}</h5>
                                           <div class="col-md-12" style="margin:0px 0px 15px 0px; padding: 0px;">
                                             <a href="{{URL::to('/cv-page')}}" class="btn btn-success uppercase" style="background-color:#ABC351;">Your Cv List</a>
                                           </div>
@@ -169,15 +169,15 @@
                                     <div class="col-md-4">
                                       <div class="jsr-section background-2">
                                         <h3>Applying</h3>
-                                        <h4 class="job-seeker"><a href="{{url('/cv-tipes')}}">CV's</a></h4>
-                                        <h4><a href="{{url('/cover-letter')}}">Cover Letters</a></h4>
+                                        <h4 class="job-seeker"><a href="{{url('/cv-tips')}}">CV Tips</a></h4>
+                                        <h4><a href="{{url('/cover-letters')}}">Cover Letters</a></h4>
                                       </div>
                                     </div>
                                     <div class="col-md-4">
                                       <div class="jsr-section background-3">
                                         <h3>The Interview</h3>
                                           <h4 class="job-seeker"><a href="{{url('/interview-questions')}}">Interview Question</a></h4>
-                                          <h4><a href="{{url('/interview-tipes')}}">Tipes</a></h4> 
+                                          <h4><a href="{{url('/interview-tips')}}">Interview Tips</a></h4> 
                                           <h4><a href="#">Negotiation</a></h4> 
                                       </div>
                                     </div>

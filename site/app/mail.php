@@ -3,7 +3,7 @@
         public function __construct(){
             $this->headers = "MIME-Version: 1.0" . "\r\n";
             $this->headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $this->headers .= 'From: Corper Life <info@corperlife.com>' . "\r\n";;
+            $this->headers .= 'From: info@corperlife.com' . "\r\n";;
         }
 
         public function registration_mail($first_name,$email){

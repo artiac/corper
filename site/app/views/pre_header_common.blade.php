@@ -17,7 +17,7 @@
                         @else
                           <li><a href="{{url("/logout")}}">Logout</a></li>
                         @endif
-                        <li><a href="{{url("/cvbuilder")}}">CV Builder</a></li>
+                        <li><a href="{{url("/cvbuilder")}}">Career Center</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR MENU -->

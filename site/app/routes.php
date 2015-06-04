@@ -11,19 +11,19 @@ Route::get('/logout', function(){
 Route::post('/subscribe', 'UserController@postSubscribe');
 
 Route::get('/interview-questions', function(){
-	$main = View::make('interview_qus');
+	$main = View::make('cvbuilder.interview_qus');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/interview-tipes', function(){
-	$main = View::make('interview_tipes');
+Route::get('/interview-tips', function(){
+	$main = View::make('cvbuilder.interview_tips');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/cv-tipes', function(){
-	$main = View::make('cv_tipes');
+Route::get('/cv-tips', function(){
+	$main = View::make('cvbuilder.cv_tips');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/cover-letter', function(){
-	$main = View::make('cover_letter');
+Route::get('/cover-letters', function(){
+	$main = View::make('cvbuilder.cover_letter');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
 Route::get('/advertise', function(){

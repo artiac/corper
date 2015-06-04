@@ -45,6 +45,10 @@ class UserController extends BaseController {
         if($validator->passes()){
                 $password = Hash::make(Input::get('password'));
                 $id = DB::table("users")->insertGetID(array('firstname'=>Input::get("firstname"),'lastname'=>Input::get("lastname"),'username'=>Input::get("email"),'password' => $password));
+                require app_path().'/mail.php';
+                    $mail = new Mail;
+                    $mail->registration_mail(Input::get("firstname"), Input::get("email"));
+                    $mail->send_mail();
                 Auth::loginUsingId($id);
                 return Redirect::to('/profile');           
         } else {

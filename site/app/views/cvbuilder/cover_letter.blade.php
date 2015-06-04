@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="breadcrumb">
       <li><a href="{{url('/')}}">Home</a></li>
-      <li class="{{url('/cover_letter')}}">Cover Letter</li>
+      <li>Cover Letter</li>
     </ul>
     <!-- BEGIN SIDEBAR & CONTENT -->
     <div class="row margin-bottom-40">
@@ -25,16 +25,7 @@
                     </p> 
             </div>
             <div class="col-md-3">
-               <h3 class="navigation">
-                <span><a href="#">Research</a></span>                
-              </h3>
-               <h3 class="navigation">
-                <a href="#">Networking</a>
-              </h3>
-               <h3 class="navigation"><a href="{{url('/cv-tipes')}}">CV's</a></h3>
-               <h3 class="navigation"><a href="{{url('/interview-questions')}}">Interview Qustions</a></h3>
-               <h3 class="navigation"><a href="{{url('/interview-tipes')}}">Interview Tipes</a></h3>
-               <h3 class="navigation"><a href="#">Negotiation</a></h3>
+               @include('cvbuilder.jobseeker_sidebar')
             </div>
           </div>
             <!-- END PAGE CONTENT INNER -->

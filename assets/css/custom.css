@@ -388,3 +388,10 @@ span.error{
     margin-top: 200px;
     text-align: center;
 }
+.user-top-image{
+	margin-top:-5px;height:30px; margin-left:10px
+}
+.resource-side{
+	list-style: none;
+	padding-left: 0;
+}

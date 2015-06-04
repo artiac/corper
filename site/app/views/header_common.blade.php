@@ -13,7 +13,12 @@
         <!-- BEGIN TOP SEARCH -->
         @if(Auth::check())
         <li>
-            <a href="{{URL('/profile')}}" style="color:#1caf9a">{{HTML::image('assets/img/avatar1.jpg','logo',array("class"=>"img-circle hidden-xs hidden-sm pull-right","style"=>"margin-top:-5px;height:30px; margin-left:10px"))}}
+            <a href="{{URL('/profile')}}" style="color:#1caf9a">
+              @if(Auth::user()->profile_pic == '')
+                {{HTML::image('assets/avatars/default.png','logo',array("class"=>"img-circle hidden-xs hidden-sm pull-right user-top-image"))}}
+              @else
+                {{HTML::image(Auth::user()->profile_pic,'logo',array("class"=>"img-circle hidden-xs hidden-sm pull-right user-top-image"))}}
+              @endif
             <span class="username">{{Auth::user()->firstname}}</span></a>
         </li>
         @endif
