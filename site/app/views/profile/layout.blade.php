@@ -31,7 +31,7 @@
   {{ HTML::style("assets/css/components-rounded.css")}}             
   {{ HTML::style("assets/css/layout.css")}}       
   {{ HTML::style("assets/css/themes/default.css")}}       
-  {{ HTML::style("assets/css/custom.css")}}
+  {{ HTML::style("assets/css/custom.css?v=1.0.0")}}
   {{ HTML::style("assets/css/bootstrap-wysihtml5.css")}}    
 
 
