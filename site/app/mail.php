@@ -28,6 +28,17 @@
             $this->to = $email;
         }
 
+        public function cv_mail($full_name,$code,$emails){
+            $this->subject = "CV - ".$code." | CorperLife Career Center";
+            $this->message = 'Hey '.$full_name.'
+            <p style="margin-top:20px">
+                Your CV with code <b>'.$code.'</b> is attached with this email. This code with be helpful for you to retrieve this CV. You can also find this CV in your CV list, if you have signed up with CorperLife™.
+            </p>
+            <p>Best wishes,<br>
+            Team Corperlife</p>';
+            $this->to = $emails;
+        }
+
         public function send_mail(){
             mail($this->to, $this->subject, $this->message, $this->headers);
         }

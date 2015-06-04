@@ -183,8 +183,10 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 
 	Route::post('/edit_profile', 'CVController@putprofile');
 
-	Route::get('/preview/{code}/{style}', 'CVController@getPreview');
-	Route::get('/pdf/{code}/{style}', 'CVController@getPDF');
+	Route::get('/preview/{code}/{style}/{type}', 'CVController@getPreview');
+
+	Route::get('/pdf/{type}/{code}/{style}', 'CVController@getPDF');
+	Route::post('/pdf/{type}/{code}/{style}', 'CVController@getPDF');
 
 	Route::post('/remove_work/{id}/{code}', 'CVController@deleteWork');
 

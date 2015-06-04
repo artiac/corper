@@ -11,10 +11,16 @@
                 <div class="row" style="background:#EEE; margin:10px 0; padding:10px 0">
                   <div class="col-md-9">
                     <div class="media" style="">
-                     <a href="{{url("/cvbuilder/cv/".$topic->user_id)}}" class="pull-left" style="padding-right: 10px;">{{HTML::image('assets/img/avatar4.jpg','img')}}</a>
+                     <a href="{{url("/cvbuilder/cv/".$topic->user_id)}}" class="pull-left" style="padding-right:  10px;">
+                      @if($topic->profile_pic == '')
+                       <img class="user-pic" src="{{url('assets/avatars/default.png')}}">
+                      @else
+                      <img class="user-pic" src="{{url($topic->profile_pic)}}">
+                      @endif
+                     </a>
                       <div class="media-body">
-                       <a href="{{url("/forum/forum-page/".$topic->id)}}"><h4 class="media-heading">[{{$topic->category_name}}] {{$topic->title}}</h4></a> 
-                        <span>Posted by <a href="#">{{$topic->username}}</a></span>
+                       <a href="{{url("/forum/forum-page/".$topic->id)}}"><h4 class="media-heading">{{$topic->title}}</h4></a> 
+                        <span>Posted by <a href="#">{{$topic->firstname}}</a></span>
                       </div>
                     </div>
                   </div>

@@ -71,7 +71,7 @@
         <!-- BEGIN BORDERED TABLE PORTLET-->
         <div class="portlet light">
           <div class="portlet-body" align="center">              
-            <span class="caption-subject font-green-sharp bold" style="font-size:24px">CVs Created by You</span> <br>             
+            <span class="caption-subject font-green-sharp " style="font-size:24px">CVs Created by You</span> <br>             
             <span class="" style="margin:10px 90px; font-size:36px;">{{sizeof($cvs)}}</span> 
               {{Form::open(array("url"=>"cvbuilder/createnew","method"=>"POST","class"=>"horizontal-form"))}}
                <div class="form-body">

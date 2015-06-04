@@ -588,7 +588,7 @@ class CVController extends BaseController {
         }
     }
 
-    public function getPreview($code,$style){
+    public function getPreview($code,$style,$type){
 
         $cv = Cv::where('cv_code',$code)->first();
         $cv_id = $cv->id;
@@ -611,7 +611,7 @@ class CVController extends BaseController {
             $value->level = '<b>Level</b>: '.$value->level;
         }
 
-        return View::make('cvbuilder.templates.'.$style,array(
+        $view = View::make('cvbuilder.templates.'.$style,array(
             "cv" => $cv,
             "sections" => $sections,
             "workex" => $workex,
@@ -619,11 +619,14 @@ class CVController extends BaseController {
             "dob" => $dob,
             "nysc" => $nysc,
             "language" => $language
-        ));          
+        ));
+        if($type == 2) return $view.'<script>window.onload = function() { window.print(); }</script>';
+        else return $view;      
     }
 
-    public function getPDF($code,$style){
-
+    public function getPDF($type,$code,$style){
+        if($type == 2)
+            return Redirect::to('/cvbuilder/preview/'.$code.'/'.$style.'/'.'2');
         include(app_path().'/dompdf/dompdf_config.inc.php');
         $dompdf = new DOMPDF();
 
@@ -649,7 +652,22 @@ class CVController extends BaseController {
 
         $dompdf->load_html($html);
         $dompdf->render();
-        $dompdf->stream("hello_world.pdf",array('Attachment'=>0));
+
+        if($type == 3){
+            $output = $dompdf->output();
+            file_put_contents(app_path().'/../../cvs/'.$code.'.pdf', $output);
+            require app_path().'/libraries/PHPMailerAutoload.php';
+            $mail = new PHPMailer;
+            $mail->isMail();
+            $mail->setFrom('info@corperlife.com', 'Corper Life');
+            $mail->cv_mail($cv->full_name, $code, Input::get("emails"));
+            $mail->addAddress('whoto@example.com', 'John Doe');
+            $mail->send_mail();
+            $response["success"] = true;
+            $response["message"] = "The cv has been mailed to you on ".Input::get("emails");
+        } else {
+            $dompdf->stream($code.".pdf",array('Attachment'=>0));
+        }
     }
 
     public function deleteWork($work_id,$code){

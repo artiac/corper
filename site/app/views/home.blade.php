@@ -1,4 +1,4 @@
- <div class="container-fluid" style="background-image:url(assets/img/bgimg.jpg); min-height:400px; margin-top:-25px;">
+ <div class="container-fluid" style="background-image:url(assets/img/bgimg.jpg); min-height:400px; margin-top:-25px; background-repeat:no-repeat">
   <div class="container">
     <div class="row">
       <div class="col-md-4"></div>

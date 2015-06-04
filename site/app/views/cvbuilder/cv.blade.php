@@ -22,9 +22,10 @@
 						
 					</div>
 					<div class="col-md-6">
-						<a href="{{url('/cvbuilder/pdf/'.$cv->cv_code.'/executive')}}" class="btn red pull-right" target="_blank">Done!</a>
-						<button type="button" class="btn red pull-right" data-toggle="modal" data-target="#style-modal">Preview</button>
-						<button type="button" class="btn red pull-right submit-form">Save</button>
+						<!-- <a href="{{url('/cvbuilder/pdf/'.$cv->cv_code.'/executive')}}" class="btn green pull-right" target="_blank">Done!</a> -->
+						<a href="#Download" data-toggle="modal" class="btn green pull-right">Done!</a>
+						<button type="button" class="btn blue pull-right" data-toggle="modal" data-target="#style-modal" style="margin-right:10px">Preview</button>
+						<button type="button" class="btn blue pull-right submit-form" style="margin-right:10px">Save</button>
 					</div>
 				</div>
 				<!-- BEGIN SAMPLE FORM PORTLET-->					
@@ -308,7 +309,7 @@
 							                </div>
 						                </div>
 						                <div class="col-md-6" style="text-align:justify">
-						                	<p>While passport photos were previously required for almost all passport and ID cards, the uses have now strongly increased. The sizes of passport photos vary, depending on country and purpose the passport photo will be used for. In Nigeria, the size of the passport photo is:<br><b> 35mm x 45mm (3.5cm width and 4.5 cm height)<b></p>
+						                	<p>While passport photos were previously required for almost all passport and ID cards, the uses have now strongly increased. The sizes of passport photos vary, depending on country and purpose the passport photo will be used for. In Nigeria, the size of the passport photo is:<br><b> 35mm x 45mm (3.5cm width and 4.5 cm height)</b></p>
 						                </div>
 
 						                	<!-- Cropping modal -->
@@ -379,7 +380,6 @@
 	</div>
 	<!-- end new section-->
 
-	<!--new section-->
 	<div class="mod">
 		<div class="modal fade" id="Preview_Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 			<div class="modal-dialog" style="width:90%;">
@@ -387,20 +387,17 @@
 				</div>
 			</div>
 		</div>   
-		<!-- end new section-->
 		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="style-modal">
-			<div class="modal-dialog modal-sm">
+			<div class="modal-dialog ">
 				<div class="modal-content" style="padding:20px;">
 					<div class="form-group">
-						<label>Style</label>
-						<hr style="border-width:3px;">
-						<div class="radio-list">
-							<label><input type="radio" name="cvstyle" value="bold" checked> Bold</label>
-							
-							<label><input type="radio" name="cvstyle" value="elegant"> Elegant </label>
-							<label><input type="radio" name="cvstyle" value="executive"> Executive </label>
-							<label><input type="radio" name="cvstyle" value="literateur"> Literateur </label>
-							<label><input type="radio" name="cvstyle" value="finesse"> Finesse </label>
+						<h4 style="border-bottom:1px dashed #CCC; padding-bottom:10px;">Select Style</h4>
+						<div class="radio-list" style="text-align:center">
+							<input type="radio" name="cvstyle" value="bold" checked="checked"> Bold&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="cvstyle" value="elegant"> Elegant &nbsp;&nbsp;&nbsp;
+							<input type="radio" name="cvstyle" value="executive"> Executive &nbsp;&nbsp;&nbsp;
+							<input type="radio" name="cvstyle" value="literateur"> Literateur &nbsp;&nbsp;&nbsp;
+							<input type="radio" name="cvstyle" value="finesse"> Finesse &nbsp;&nbsp;&nbsp;
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -412,24 +409,36 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-							<h4 class="modal-title">Modal title</h4>
-						</div>
-						<div class="modal-body">
-							Widget settings form goes here
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn blue">Save changes</button>
-							<button type="button" class="btn default" data-dismiss="modal">Close</button>
+	<!--new section-->
+	<div class="modal fade" id="Download" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="ModalLabel">Download CV</h4>
+				</div>
+				<div class="modal-body-main">
+					<div class="radio-list" style="text-align:center">
+						<h4 style="border-bottom:1px dashed #CCC; padding-bottom:10px;">Select Style</h4>
+						<input type="radio" name="cvstyle_final" value="bold" checked> Bold&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="cvstyle_final" value="elegant"> Elegant &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="cvstyle_final" value="executive"> Executive &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="cvstyle_final" value="literateur"> Literateur &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="cvstyle_final" value="finesse"> Finesse &nbsp;&nbsp;&nbsp;
+						<div style="margin:20px 80px; ">
+							Your Email : <input type="text" class="form-control" id="email_mail" placeholder="Email">
+							<span style="font-size:12px">You can write additional email-id separated by comma</span>
 						</div>
 					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
 
-	
+				</div>
+				<div class="modal-footer">
+						<button class="btn download_pdf green">Download as PDF</button>
+						<button class="btn email_pdf green">Email CV</button>
+						<button class="btn print_cv green">Print</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end new section-->

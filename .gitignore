@@ -3,6 +3,7 @@
 .env.php
 etc
 packages
+cvs
 assets/*
 !assets/css
 !assets/js

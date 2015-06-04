@@ -138,7 +138,7 @@ $(document).ready(function(){
                     $("#Preview_Modal").modal('show');
                     $("#Preview_Modal .modal-content").html('Loading');
 
-                    $.get(base_url+'/cvbuilder/preview/'+cv_code+'/'+style,function(data){
+                    $.get(base_url+'/cvbuilder/preview/'+cv_code+'/'+style+'/1',function(data){
                         $("#Preview_Modal").modal('show');
                         $("#Preview_Modal .modal-content").html(data);
                     });
@@ -174,6 +174,61 @@ $(document).ready(function(){
             event.preventDefault();//the default action of the event will not be triggered
             $(".cv-links").toggle(300);
         });
+
+    $(document).on("click",".download_pdf", function(){
+       if(onGoingEvent == 0){
+        onGoingEvent =1;
+        var item = $(this);
+        var inital_html = item.html();
+        item.html(inital_html+preloader);
+        var cv_style = $("input[name=cvstyle_final]:checked").val();
+        var cv_code = $("#cv_code").val();
+        window.open(base_url+'/cvbuilder/pdf/1/'+cv_code+'/'+cv_style, '_blank');
+        item.html(inital_html);
+        $("#Download").modal('hide');
+        onGoingEvent = 0;
+       } 
+   });
+
+    $(document).on("click",".print_cv", function(){
+       if(onGoingEvent == 0){
+        onGoingEvent =1;
+        var item = $(this);
+        var inital_html = item.html();
+        item.html(inital_html+preloader);
+        var cv_style = $("input[name=cvstyle_final]:checked").val();
+        var cv_code = $("#cv_code").val();
+        window.open(base_url+'/cvbuilder/pdf/2/'+cv_code+'/'+cv_style, '_blank');
+        item.html(inital_html);
+        $("#Download").modal('hide');
+        onGoingEvent = 0;
+       } 
+   });
+
+    $(document).on("click",".email_pdf", function(){
+       if(onGoingEvent == 0){
+        onGoingEvent =1;
+        var item = $(this);
+        var inital_html = item.html();
+        item.html(inital_html+preloader);
+        var cv_style = $("input[name=cvstyle_final]:checked").val();
+        var emails = $("#email_mail").val();
+        var cv_code = $("#cv_code").val();
+
+        $.post(base_url+'/cvbuilder/pdf/3/'+cv_code+'/'+cv_style,{emails:emails},function(data){
+            alert(data);
+            data = $.parseJSON(data);
+            if(data.success){
+                alert(data.message);
+                $("#Download").modal('hide');
+            }   else {
+                alert(data.message);
+            }
+            item.html(inital_html);
+            onGoingEvent = 0;
+        });
+       } 
+   });
 
 
 });

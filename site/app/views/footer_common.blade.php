@@ -5,10 +5,10 @@
           <!-- BEGIN BOTTOM ABOUT BLOCK -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
             <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit nonummy nibh euismod tincidunt ut laoreet dolore magna aliquarm erat sit volutpat.</p>
+            <p style="text-align:justify">Launched in 2015, the CorperLife<sup>TM</sup> team decided to take on possibly the largest CD project ever - drumroll, please - the reinvention of the NYSC experience! We want to inspire positive social change in our great nation and we believe that the youth should play a big part in this process. </p>
              <div class="row">
               <div class="col-md-12">
-            <div class="photo-stream">
+           <!--  <div class="photo-stream">
               <h2>Photos Stream</h2>
               <ul class="list-unstyled">
                   {{HTML::image('assets/img/people/img5-small.jpg','people')}}
@@ -16,7 +16,7 @@
                   {{HTML::image('assets/img/people/img4-large.jpg','people')}}
                   {{HTML::image('assets/img/works/img6.jpg','people')}}
               </ul>                    
-            </div>
+            </div> -->
             </div>
             </div>
           </div>

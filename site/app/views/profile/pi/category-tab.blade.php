@@ -11,11 +11,13 @@
             <div>                                   
               <div class="form-group">                  
                 {{ Form::label('', 'Select Category') }}   
-                     <ol>
+                     <ul>
                 @foreach($category_get as $category)                  
                 <li><a href="{{url('/forum/category/'.$category->id)}}">{{$category->category_name}}</a></li>
                 @endforeach
-              </ol> 
+                <li><a href="{{url('/forum')}}">View All</a></li>
+
+              </ul> 
 
                    <!-- BEGIN TOP SEARCH -->
                     <div class="menu-search">
@@ -23,7 +25,7 @@
                       <div class="search-box">
                          {{Form::open(array("url"=>"/forum/search", "method" => "POST"))}}
                           <div class="input-group">
-                            <input type="text" name="topic_q" placeholder="Search Topic" class="form-control">
+                            <input type="text" name="topic_q" placeholder="Search Topic" class="form-control" value="@if(isset($search_for)) {{$search_for}} @endif ">
                             <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">Search</button>
                             </span>
@@ -37,13 +39,20 @@
                 </div> 
                 {{Form::open(array("url"=>"/forum/savetopic","method" => "POST","role"=>"form"))}}
                 <div class="form-group">
-                    <label>Forum Title</label> 
+                    <label>Topic Category</label> 
+                    {{Form::select('category',$categories,'',array("class"=>"form-control", "placeholder"=>"Forum category"))}}
+                    <span class="error">{{$errors->first('category')}}</span>
+                </div>
+                <div class="form-group">
+                    <label>Topic Title</label> 
                     {{Form::text('title','',array("class"=>"form-control", "placeholder"=>"Forum Title"))}}
-                      <span>{{$errors->first('title')}}</span>
+                      <span class="error">{{$errors->first('title')}}</span>
                 </div>                   
                 <div class="form-group">
-                  {{ Form::label('', 'Topic') }}
-                    {{Form::textarea('content','',array("class"=>"form-control", "placeholder"=>"Description"))}}            
+                  {{ Form::label('', 'Description') }}
+                  {{Form::textarea('content','',array("class"=>"form-control", "placeholder"=>"Description"))}}
+                  <span class="error">{{$errors->first('content')}}</span>
+
                 </div>
               </div>
               <div>

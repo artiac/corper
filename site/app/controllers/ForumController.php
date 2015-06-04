@@ -8,7 +8,7 @@ class ForumController extends BaseController {
         $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
         $category_get = DB::table('categories')->select('category_name','id')->get();       
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.username')->orderBy('topics.id','desc')->get();
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->orderBy('topics.id','desc')->get();
         $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get));
     }
      public function postSearch(){
@@ -16,19 +16,19 @@ class ForumController extends BaseController {
         $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
         $category_get = DB::table('categories')->select('category_name','id')->get();       
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.username')->where('topics.title', 'LIKE' , '%'.Input::get('topic_q').'%')->orderBy('topics.id','desc')->get();
-        $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get));
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.title', 'LIKE' , '%'.Input::get('topic_q').'%')->orderBy('topics.id','desc')->get();
+        $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get,"search_for"=>Input::get('topic_q')));
     }
 
       public function getForumpage($id){
         $this->layout->title = 'Corper Life | Forum-Page';
-        $this->layout->top_active = 7;
+        $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
 
         $category_get = DB::table('categories')->select('category_name','id')->get();
-        $replies = DB::table('replies')->join('users','replies.user_id','=','users.id')->where('replies.topic_id',$id)->select('replies.reply','replies.created_at','users.username')->get();
+        $replies = DB::table('replies')->join('users','replies.user_id','=','users.id')->where('replies.topic_id',$id)->select('replies.reply','replies.created_at','users.firstname','users.profile_pic')->get();
 
-        $topic = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.username')->where('topics.id',$id)->first();
+        $topic = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.id',$id)->first();
         $this->layout->main = View::make("profile.pi.forum-page",array("categories"=>$category,"topic"=>$topic,"replies"=>$replies,"category_get"=>$category_get));
     }
 
@@ -45,12 +45,12 @@ class ForumController extends BaseController {
         $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
         $category_get = DB::table('categories')->select('category_name','id')->get(); 
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.username')->where('topics.category_id',$id)->orderBy('topics.id','desc')->get();
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.category_id',$id)->orderBy('topics.id','desc')->get();
         $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get));
     }
       public function postSaveTopic(){
         $cre = [
-            'category_id' => Input::get('category_id'),
+            'category_id' => Input::get('category'),
             'title' => Input::get('title'),         
             'content' => Input::get('content')            
         ];
@@ -64,12 +64,11 @@ class ForumController extends BaseController {
         if($validator->passes()){
             $topic = new Topic;
             $topic->user_id =Auth::id(); 
-            $topic->category_id = Input::get('category_id');
+            $topic->category_id = Input::get('category');
             $topic->title =  Input::get('title');
             $topic->content =  Input::get('content');
             $topic->save();
-            return Redirect::to('/forum/'.$topic->topic_id);
-                      
+            return Redirect::to('/forum/'.$topic->topic_id)->with('success','Topic is successfully added');
          }else {
             return Redirect::Back()->withErrors($validator)->withInput();
         }
