@@ -656,18 +656,31 @@ class CVController extends BaseController {
         if($type == 3){
             $output = $dompdf->output();
             file_put_contents(app_path().'/../../cvs/'.$code.'.pdf', $output);
+
             require app_path().'/libraries/PHPMailerAutoload.php';
+            require app_path().'mail.php';
+
             $mail = new PHPMailer;
+            $mail_text = new Mail;
+
             $mail->isMail();
             $mail->setFrom('info@corperlife.com', 'Corper Life');
-            $mail->cv_mail($cv->full_name, $code, Input::get("emails"));
+            
             $mail->addAddress('vishu.iitd@gmail.com', 'Vashistha Aggarwal');
             $mail->isHTML(true);
-            $mail->Subject = "CV ".$code;
-            $mail->Body = 'sadasdasd';
-            $mail->send();
-            $response["success"] = true;
-            $response["message"] = "The cv has been mailed to you on ".Input::get("emails");
+
+            $mail->Subject = "Your CV -".$code." | Corper Life ";
+            $mail->Body = $mail_text->cv_mail($cv->full_name, $code, Input::get("emails"));
+
+            if(!$mail->send()) {
+                $response["success"] = false;
+                $response["message"] = 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                $response["success"] = true;
+                $response["message"] = "The cv has been mailed to you on ".Input::get("emails");
+            }
+
+            return json_encode($response);
         } else {
             $dompdf->stream($code.".pdf",array('Attachment'=>0));
         }
