@@ -46,6 +46,8 @@
 <!-- DOC: Apply "page-header-top-fixed" class to set the top menu fixed  -->
 <body>
 <!-- BEGIN HEADER -->
+@include('pre_header_common')
+
 <div class="pre-header">
   <div class="container">
       <div class="row" STYLE="height:80px">

@@ -73,7 +73,12 @@ class CVController extends BaseController {
             }
             $value->ability = implode(' / ', $values);
         }
-
+        $sex = array("0"=>"Select","1"=>"Male","2"=>"Female");
+        
+        $states =  array("0" => "Select") + DB::table('states')->lists('state','id');
+        $religions =  array("0" => "Select") + DB::table('religions')->lists('religion','id');
+        
+        
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
@@ -89,8 +94,11 @@ class CVController extends BaseController {
             "dob" => $dob,
             "nysc" => $nysc,
             "language" => $language,
-            "abilities" => $abilities
-        ));          
+            "abilities" => $abilities,
+            "sex" => $sex,
+            "states" => $states,
+            "religions" => $religions,
+        ));
     }
 
     public function putSaveInfo($id){
@@ -182,11 +190,13 @@ class CVController extends BaseController {
        
         $cre = [
             'title' => Input::get('title'),
-            'company' => Input::get('company')
+            'company' => Input::get('company'),
+            'location' => Input::get('location')
         ];
         $rules = [
             'title' => 'required',
-            'company' => 'required'
+            'company' => 'required',
+            'location' => 'required'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
@@ -200,27 +210,31 @@ class CVController extends BaseController {
             $workex->otherinfo = Input::get('otherinfo');
             $workex->save();
             $insert_id = $workex->id;
-            $data["message"] = 'Work ex Succefully added';
+            $data["success"] = true;
+            $data["message"] = 'Work Experience is succefully added';
             $data["title"] = Input::get('title');
             $data["company"] = Input::get('company');
             $data["location"] = Input::get('location');
             $data["startdate"] = Input::get('startdate');
             $data["enddate"] = Input::get('enddate');
             $data["id"] = $insert_id;
-            return json_encode($data);
         } else {
-            return 'Please fill all the inputs';
+            $data["success"] = false;
+            $data["message"] = 'Please fill required fields';
         }
+        return json_encode($data);
     }
 
     public function putWork(){       
         $cre = [
             'title' => Input::get('title'),
-            'company' => Input::get('company')
+            'company' => Input::get('company'),
+            'location' => Input::get('location')
         ];
         $rules = [
             'title' => 'required',
-            'company' => 'required'
+            'company' => 'required',
+            'location' => 'required'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
@@ -235,7 +249,8 @@ class CVController extends BaseController {
                 $workex->enddate = Input::get('enddate');
                 $workex->otherinfo = Input::get('otherinfo');         
                 $workex->save();
-                $data["message"] = 'Work ex Succefully updated';
+                $data["success"] = true;
+                $data["message"] = 'Work Experience is succefully updated';
                 $data["title"] = Input::get('title');
                 $data["company"] = Input::get('company');
                 $data["location"] = Input::get('location');
@@ -245,11 +260,11 @@ class CVController extends BaseController {
             else {
                 $data["message"] = 'Error in editing work';
             }
-            return json_encode($data);
-        } 
-        else {
-            return 'Please fill all the inputs';
+        } else {
+            $data["success"] = false;
+            $data["message"] = 'Please fill required fields';
         }
+        return json_encode($data);
     }
 
 
@@ -276,7 +291,9 @@ class CVController extends BaseController {
             $education->otherinfo = Input::get('otherinfo');
             $education->save();
             $insert_id = $education->id;
-            $data["message"] = 'education details Succefully added';
+
+            $data["success"] = true;
+            $data["message"] = 'Education details are succefully added';
             $data["title"] = Input::get('title');
             $data["id"] = $insert_id;
             $data["coursename"] = Input::get('coursename');
@@ -284,10 +301,12 @@ class CVController extends BaseController {
             $data["startdate"] = Input::get('startdate');
             $data["enddate"] = Input::get('enddate');
 
-            return json_encode($data);
         } else {
-            return 'Please fill all the inputs';
+            $data["success"] = false;
+            $data["message"] = 'Please fill required fields';
         }
+        return json_encode($data);
+
     }
 
     public function putEducation(){
@@ -313,30 +332,31 @@ class CVController extends BaseController {
                 $education->enddate = Input::get('enddate');
                 $education->otherinfo = Input::get('otherinfo');
                 $education->save();
-                $data["message"] = 'education details Succefully updated';
+                $data["success"] = true;
+                $data["message"] = 'Education details are succefully updated';
                 $data["coursename"] = Input::get('coursename');
                 $data["institutename"] = Input::get('institutename');              
                 $data["startdate"] = Input::get('startdate');
                 $data["enddate"] = Input::get('enddate');
             }
-            else {
-                $data["message"] = 'Error in editing work';
-               
-            }
-            return json_encode($data);
+        } else {
+                $data["success"] = false;
+                $data["message"] = 'Please fill required fields';
         }
-         else {
-            return 'Please fill all the inputs';
-        }
+        return json_encode($data);
     }
     
     public function postNysc(){
        
         $cre = [
-            'ppa' => Input::get('ppa')
+            'ppa' => Input::get('ppa'),
+            'batch' => Input::get('batch'),
+            'year' => Input::get('year')
         ];
         $rules = [
-            'ppa' => 'required'
+            'ppa' => 'required',
+            'batch' => 'required',
+            'year' => 'required'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
@@ -349,24 +369,31 @@ class CVController extends BaseController {
             $nysc->otherinfo = Input::get('otherinfo');     
             $nysc->save();
             $insert_id = $nysc->id;
-            $data["message"] = 'nysc details Succefully added';
+            $data["success"] = true;
+            $data["message"] = 'NYSC details are succefully added';
             $data["title"] = Input::get('title');
             $data["id"] = $insert_id;
             $data["batch"] = Input::get('batch');
             $data["year"] = Input::get('year');
             $data["ppa"] = Input::get('ppa');
-            return json_encode($data);
         } else {
-            return 'Please fill all the inputs';
+            $data["success"] = false;
+            $data["message"] = "Please fill all required fields";
         }
+        return json_encode($data);
+
     }
       public function putNysc(){
        
         $cre = [
-            'ppa' => Input::get('ppa')
+            'ppa' => Input::get('ppa'),
+            'batch' => Input::get('batch'),
+            'year' => Input::get('year')
         ];
         $rules = [
-            'ppa' => 'required'
+            'ppa' => 'required',
+            'batch' => 'required',
+            'year' => 'required'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
@@ -379,20 +406,24 @@ class CVController extends BaseController {
             $nysc->ppa = Input::get('ppa');
             $nysc->cd = Input::get('cd');    
             $nysc->save();
-            $data["message"] = 'nysc details Succefully updated';
+            $data["success"]= true;
+            $data["message"] = 'NYSC details are succefully updated';
             $data["batch"] = Input::get('batch');
             $data["year"] = Input::get('year');
             $data["ppa"] = Input::get('ppa');
-        }
-        else{            
-            $data["message"] = 'Error in editing work';
+            }
+            else{            
+                $data["success"]= false;
+                $data["message"] = 'Error in editing work';
 
-        } return json_encode($data);
-    }
+            } 
+        }
         else 
         {
-            return 'Please fill all the inputs';
+                $data["success"]= false;
+                $data["message"] = 'Please fill all required fields';
         }
+        return json_encode($data);
     }
 
          public function postLanguage(){
@@ -418,7 +449,7 @@ class CVController extends BaseController {
             $language->save();
 
             $insert_id = $language->id;
-            $data["message"] = 'Language Succefully added';
+            $data["message"] = 'Language is succefully added';
             $lang = DB::table('langs')->select('language')->where('id',$language->language_id)->first();
             $data["language_id"] = $lang->language;
             // $data["language_name"] = Input::get('language_name');
@@ -458,7 +489,7 @@ class CVController extends BaseController {
                 $language->ability_id = Input::get('ability');
                 $language->level_id = Input::get('level');     
                 $language->save();
-                $data["message"] = 'Language Succefully updated';
+                $data["message"] = 'Language is succefully updated';
                
                 $lang = DB::table('langs')->select('language')->where('id',$language->language_id)->first();
                 $data["language_id"] = $lang->language;
@@ -493,7 +524,7 @@ class CVController extends BaseController {
             $profiles->profile_image = Input::get('profile_image');
             $profiles->save();
             $insert_id = $profiles->id;
-            $data["message"] = 'profile details Succefully added';
+            $data["message"] = 'Profile detail is succefully added';
             $data["profile_image"] = Input::get('profile_image');
             $data["id"] = $insert_id;
             return json_encode($data);
@@ -518,7 +549,7 @@ class CVController extends BaseController {
             if($cv->id==$profiles->cv_id){
             $profiles->profile_image = Input::get('profile_image');
             $profiles->save();
-            $data["message"] = 'profile details Succefully updated';
+            $data["message"] = 'Profile details are succefully updated';
             $data["profile_image"] = Input::get('profile_image');
         }
         else{            
@@ -551,7 +582,7 @@ class CVController extends BaseController {
             $section->save();
             $insert_id = $section->id;
 
-            $data["message"] = 'Section is Succefully added';
+            $data["message"] = 'Section is succefully added';
             $data["section_name"] = Input::get('section_name');
             $data["id"] = $insert_id;
             return json_encode($data);
@@ -577,7 +608,7 @@ class CVController extends BaseController {
                 $section->section_name = Input::get('section_name');
                 $section->save();
 
-                $data["message"] = 'Section is Succefully added';
+                $data["message"] = 'Section name is succefully updated';
                 $data["section_name"] = Input::get('section_name');
             } else {
                 $data["message"] = 'Error in editing section';
@@ -670,7 +701,7 @@ class CVController extends BaseController {
             foreach ($emails as $email) {
                 $mail->addAddress($email);
             }
-            
+
             $mail->addAttachment(app_path().'/../../cvs/'.$code.'.pdf'); 
             $mail->isHTML(true);
 

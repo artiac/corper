@@ -79,7 +79,9 @@ $(document).ready(function(){
         var id = item.attr('data-id');
         var cv_code = $("#cv_code").val();
         $.post(base_url+'/cvbuilder/remove_work/'+id+'/'+cv_code,function(data){
-            item.parent().parent().parent().remove();
+            item.parent().parent().parent().parent().hide("slow",function(){
+                item.parent().parent().parent().parent().remove();
+            });
         });
 
     });
@@ -88,7 +90,9 @@ $(document).ready(function(){
         var id = item.attr('data-id');
         var cv_code = $("#cv_code").val();
         $.post(base_url+'/cvbuilder/remove_education/'+id+'/'+cv_code,function(data){
-            item.parent().parent().parent().remove();
+            item.parent().parent().parent().parent().hide("slow",function(){
+                item.parent().parent().parent().parent().remove();
+            });
         });
 
     });
@@ -97,7 +101,9 @@ $(document).ready(function(){
         var id = item.attr('data-id');
         var cv_code = $("#cv_code").val();
         $.post(base_url+'/cvbuilder/remove_nysc/'+id+'/'+cv_code,function(data){
-            item.parent().parent().parent().parent().parent().remove();
+            item.parent().parent().parent().parent().parent().parent().hide("slow",function(){
+                item.parent().parent().parent().parent().parent().parent().remove();
+            });
         });
 
     });
@@ -106,7 +112,9 @@ $(document).ready(function(){
         var id = item.attr('data-id');
         var cv_code = $("#cv_code").val();
         $.post(base_url+'/cvbuilder/remove_language/'+id+'/'+cv_code,function(data){
-            item.parent().parent().parent().remove();
+            item.parent().parent().parent().parent().hide("slow",function(){
+                item.parent().parent().parent().parent().remove();
+            });
         });
 
     });
@@ -270,6 +278,7 @@ $(function(){
         $("#Modal .modal-body-main").html('Loading');
         $.get(base_url+'/cvbuilder/fetch_nysc',function(data){
             $("#Modal .modal-body-main").html(data);
+            onmodalload("#Modal");
         });
     });
 });
@@ -286,24 +295,39 @@ $(function(){
 });
 
 function work_ex_submit(){
+        $("#work_ex_submit").html('Adding '+preloader);
         var val = $("#work_ex_form").serialize();
         var id = $("#cv_id").val();
         val = val+'&cv_id='+id;
         $.post(base_url+'/cvbuilder/fetch_workex',val,function(data){
             data = $.parseJSON(data);
-            $("#Modal .modal-body-main").html(data.message);
-            $("#work_ex_panel").prepend('<div class="workex-item"> <div class="row" style="padding:10px 0"> <div class="col-md-10" id="work"> <input type="checkbox" name="work_ex[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="work'+data.id+'"> <div class="col-md-4"> <span class="small-text">Position</span><br> <b>'+data.title+'</b> </div> <div class="col-md-4"> <span class="small-text">Company</span><br> <b>'+data.company+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+' - '+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-work"><i class="fa fa-edit"></i></a> <a href="" class="remove-work" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
+            if(data.success){
+                $("#Modal .modal-body-main").html(data.message);
+                $("#work_ex_panel").prepend('<div class="workex-item"> <div class="row" style="padding:10px 0"> <div class="col-md-10" id="work"> <input type="checkbox" name="work_ex[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="work'+data.id+'"> <div class="col-md-4"> <span class="small-text">Position</span><br> <b>'+data.title+'</b> </div> <div class="col-md-4"> <span class="small-text">Company</span><br> <b>'+data.company+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+' - '+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-work"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="remove-work" data-id="'+data.id+'" title=""><i class="fa fa-remove"></i></a> </div> </div> </div> </div>');
+            } else{
+                alert(data.message);
+            }
+            
+            $("#work_ex_submit").html('Add');
         });
 };
 
 function education_submit(){
+    $("#education_submit").html('Adding '+preloader);
+
     var val = $("#education_form").serialize();
     var id = $("#cv_id").val();
     val = val+'&cv_id='+id;
     $.post(base_url+'/cvbuilder/fetch_education',val,function(data){
         data = $.parseJSON(data);
-        $("#Modal .modal-body-main").html(data.message);
-        $("#education_panel").prepend('<div class="education-item"> <div class="row"> <div class="col-md-10" id="edu"> <input type="checkbox" name="education[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="edu'+data.id+'"> <div class="col-md-4"> <span class="small-text">Course</span><br> <b>'+data.coursename+'</b> </div> <div class="col-md-4"> <span class="small-text">Institute</span><br> <b>'+data.institutename+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+'-'+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-edu"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-education"><i class="fa fa-edit"></i></a> <a href="" class="remove-education" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
+        if(data.success){
+            $("#Modal .modal-body-main").html(data.message);
+            $("#education_panel").prepend('<div class="education-item"> <div class="row"> <div class="col-md-10" id="edu"> <input type="checkbox" name="education[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="edu'+data.id+'"> <div class="col-md-4"> <span class="small-text">Course</span><br> <b>'+data.coursename+'</b> </div> <div class="col-md-4"> <span class="small-text">Institute</span><br> <b>'+data.institutename+'</b> </div> <div class="col-md-4"> <span class="small-text">Duration</span><br> <b>'+data.startdate+'-'+data.enddate+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-edu"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-education"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="remove-education" data-id="'+data.id+'" title=""><i class="fa fa-remove"></i></a> </div> </div> </div> </div>');
+        }else{
+           alert(data.message); 
+        }
+        $("#education_submit").html('Add');
+        
     });
 };
 
@@ -314,7 +338,7 @@ function language_submit(){
     $.post(base_url+'/cvbuilder/fetch_language',val,function(data){
         data = $.parseJSON(data);
         $("#Modal .modal-body-main").html(data.message);
-        $("#language_panel").prepend('<div class="language-item"> <div class="row"> <div class="col-md-10" id="lang"> <input type="checkbox" name="language[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="lang'+data.id+'"> <div class="col-md-4"> <span class="small-text">Language Name</span><br> <b>'+data.language_id+'</b> </div> <div class="col-md-4"> <span class="small-text">Ability</span><br> <b>'+data.ability+'</b> </div> <div class="col-md-4"> <span class="small-text">Level</span><br> <b>'+data.level+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-lang"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a> <a href="" class="remove-language" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div>');
+        $("#language_panel").prepend('<div class="language-item"> <div class="row"> <div class="col-md-10" id="lang"> <input type="checkbox" name="language[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="lang'+data.id+'"> <div class="col-md-4"> <span class="small-text">Language Name</span><br> <b>'+data.language_id+'</b> </div> <div class="col-md-4"> <span class="small-text">Ability</span><br> <b>'+data.ability+'</b> </div> <div class="col-md-4"> <span class="small-text">Level</span><br> <b>'+data.level+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-lang"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="remove-language" data-id="'+data.id+'" title=""><i class="fa fa-remove"></i></a> </div> </div> </div> </div>');
     });
 };
 
@@ -326,7 +350,7 @@ function addsection_submit(){
         data = $.parseJSON(data);
         $("#Modal .modal-body-main").html(data.message);
         // $("#sortable1").append('<div style="background:#EEE; padding:5px 10px; text-align:center; font-size:14px; margin-bottom:1px" class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked>'+data.section_name+'</div>');
-        $("#sortable1").append('<div class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked=""><span id="section'+data.id+'">'+data.section_name+'</span><a href="javascript:;" data-id="'+data.id+'" class="remove-section" style="float:right;">x</a><a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-section"><i class="fa fa-edit"></i></a></div>');
+        $("#sortable1").append('<div class="section_link" data-show="#prop'+data.id+'"><input type="checkbox" name="section[]" id="" value="'+data.id+'" checked=""><span id="section'+data.id+'">'+data.section_name+'</span><a href="javascript:;" data-id="'+data.id+'" class="remove-section" style="float:right;"><i class="fa fa-remove"></i></a><a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-section"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;/div>');
         $("#section_panel").append('<div class="row section hide_panel" id="prop'+data.id+'"><h2>'+data.section_name+'</h2><div class="col-md-11"><div class="form-group"><textarea name="section_'+data.id+'" class="form-control textarea"  cols="50" rows="10"></textarea></div></div></div>');
         $(".section_link[data-show=#prop"+data.id+"]").trigger('click');
         onmodalload("#prop"+data.id);
@@ -342,33 +366,47 @@ function editsection_submit(id){
         data = $.parseJSON(data);
         $("#Modal .modal-body-main").html(data.message);
         $("#section"+id).html(data.section_name);
+        $("#prop"+id+" h2").html(data.section_name);
     });
 };
 
 function editwork_submit(id){
+    $("#work_ex_submit").html('Updating '+preloader);
     var val = $("#editwork_form").serialize();
     var cv_code = $("#cv_code").val();
     val = val+'&work_id='+id+'&cv_code='+cv_code;
     $.post(base_url+'/cvbuilder/edit_work',val,function(data){
         data = $.parseJSON(data);
-        $("#Modal .modal-body-main").html(data.message);
-        $("#work"+id).find('b').eq(0).html(data.title);
-        $("#work"+id).find('b').eq(1).html(data.company);
-        $("#work"+id).find('b').eq(2).html(data.startdate + '-' +data.enddate);
-
+        if(data.success){
+            $("#Modal .modal-body-main").html(data.message);
+            $("#work"+id).find('b').eq(0).html(data.title);
+            $("#work"+id).find('b').eq(1).html(data.company);
+            $("#work"+id).find('b').eq(2).html(data.startdate + '-' +data.enddate);
+        } else {
+            alert(data.message);
+        }
+        
+        $("#work_ex_submit").html('Update');
     });
 };
 
 function editeducation_submit(id){
+    $("#education_submit").html('Updating '+preloader);
+
     var val = $("#editeducation_form").serialize();
     var cv_code = $("#cv_code").val();
     val = val+'&education_id='+id+'&cv_code='+cv_code;
     $.post(base_url+'/cvbuilder/edit_education',val,function(data){
         data = $.parseJSON(data);
-        $("#Modal .modal-body-main").html(data.message);
-        $("#edu"+id).find('b').eq(0).html(data.coursename);
-        $("#edu"+id).find('b').eq(1).html(data.institutename);
-        $("#edu"+id).find('b').eq(2).html(data.startdate+ '-' +data.enddate);
+        if(data.success){
+            $("#Modal .modal-body-main").html(data.message);
+            $("#edu"+id).find('b').eq(0).html(data.coursename);
+            $("#edu"+id).find('b').eq(1).html(data.institutename);
+            $("#edu"+id).find('b').eq(2).html(data.startdate+ '-' +data.enddate);
+        } else {
+            alert(data.message);
+        }
+        $("#education_submit").html('Update');
     });
 };
 function editlanguage_submit(id){
@@ -385,25 +423,40 @@ function editlanguage_submit(id){
     });
 };
 function nysc_submit(){
+    $("#nysc_submit").html("Adding "+preloader);
     var val = $("#nysc_form").serialize();
     var id = $("#cv_id").val();
     val = val+'&cv_id='+id;
     $.post(base_url+'/cvbuilder/fetch_nysc',val,function(data){
     data = $.parseJSON(data);
-    $("#Modal .modal-body-main").html(data.message);
-    $("#nysc_panel").prepend('<div class="nysc-item"><div class="row"> <div class="col-md-12" id="nysc"> <input type="checkbox" name="nysc[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="nysc'+data.id+'"> <div class="col-md-3"> <span class="small-text">Batch</span><br> <b>'+data.batch+'</b> </div> <div class="col-md-3"> <span class="small-text">Year</span><br> <b>'+data.year+'</b> </div> <div class="col-md-4"> <span class="small-text">PPA</span><br> <b>'+data.ppa+'</b> </div> <div class="col-md-2"> <div class="edit-edu"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-nysc"><i class="fa fa-edit"></i></a> <a href="" class="remove-nysc" data-id="'+data.id+'" title="">x</a> </div> </div> </div> </div> </div></div>');
+    if(data.success){
+        $("#Modal .modal-body-main").html(data.message);
+        $("#nysc_panel").prepend('<div class="nysc-item"><div class="row"> <div class="col-md-12" id="nysc"> <input type="checkbox" name="nysc[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="nysc'+data.id+'"> <div class="col-md-3"> <span class="small-text">Batch</span><br> <b>'+data.batch+'</b> </div> <div class="col-md-3"> <span class="small-text">Year</span><br> <b>'+data.year+'</b> </div> <div class="col-md-4"> <span class="small-text">PPA</span><br> <b>'+data.ppa+'</b> </div> <div class="col-md-2"> <div class="edit-edu"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-nysc"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="remove-nysc" data-id="'+data.id+'" title=""><i class="fa fa-remove"></i></a> </div> </div> </div> </div> </div></div>');
+    } else {
+        alert(data.message);
+    }
+    $("#nysc_submit").html("Add");
+    
     });
 };
 function editnysc_submit(id){
+    $("#nysc_submit").html("Updating "+preloader);
+
     var val = $("#editnysc_form").serialize();
     var cv_code = $("#cv_code").val();
     val = val+'&nysc_id='+id+'&cv_code='+cv_code;
     $.post(base_url+'/cvbuilder/edit_nysc',val,function(data){
         data = $.parseJSON(data);
-        $("#Modal .modal-body-main").html(data.message);
-        $("#nysc"+id).find('b').eq(0).html(data.batch);
-        $("#nysc"+id).find('b').eq(1).html(data.year);
-        $("#nysc"+id).find('b').eq(2).html(data.ppa);
+        if(data.success){
+            $("#Modal .modal-body-main").html(data.message);
+            $("#nysc"+id).find('b').eq(0).html(data.batch);
+            $("#nysc"+id).find('b').eq(1).html(data.year);
+            $("#nysc"+id).find('b').eq(2).html(data.ppa);
+        } else {
+            alert(data.message);
+        }
+        $("#nysc_submit").html("Update");
+
     });
 };
 $(document).ready(function(){

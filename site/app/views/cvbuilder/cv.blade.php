@@ -45,9 +45,9 @@
 										<input type="checkbox" name="section[]" id="" value="{{$section->id}}" checked>
 										<span id="section{{$section->id}}" class="section_name">{{$section->section_name}}</span>
 										@if($section->default == 0)
-										<a href="javascript:;" data-id="{{$section->id}}" class="remove-section">x</a>
+										<a href="javascript:;" data-id="{{$section->id}}" class="remove-section"><i class="fa fa-remove"></i></a>
 										@endif
-										<a href="javascript:;" data-id="{{$section->id}}" data-toggle="modal" data-target="#Modal" class="edit-section"><i class="fa fa-edit"></i></a>
+										<a href="javascript:;" data-id="{{$section->id}}" data-toggle="modal" data-target="#Modal" class="edit-section"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;
 									</div>
 									@endforeach 
 								</div>
@@ -112,17 +112,17 @@
 										</div>
 										<div class="form-group col-md-6">
 											{{ Form::label('', 'Sex') }} 							                       
-											{{Form::select('sex',array("0"=>"Select","1"=>"Male","2"=>"Female"),$cv->sex,array("class"=>"form-control"))}}
+											{{Form::select('sex',$sex,$cv->sex,array("class"=>"form-control"))}}
 											<span>{{$errors->first('sex')}}</span>							                    
 										</div>	
 										<div class="form-group col-md-6">
 											{{ Form::label('', 'State Origin') }} 							                       
-											{{Form::select('state_origin',array("0"=>"Select","1"=>"Male","2"=>"Female"),$cv->state_origin,array("class"=>"form-control"))}}
+											{{Form::select('state_origin',$states,$cv->state_origin,array("class"=>"form-control"))}}
 											<span>{{$errors->first('state_origin')}}</span>							                    
 										</div>	
 										<div class="form-group col-md-6">
 											{{ Form::label('', 'Religion') }} 							                       
-											{{Form::select('religion',array("0"=>"Select","1"=>"Male","2"=>"Female"),$cv->religion,array("class"=>"form-control"))}}
+											{{Form::select('religion',$religions,$cv->religion,array("class"=>"form-control"))}}
 											<span>{{$errors->first('religion')}}</span>							                    
 										</div>	
 										<div class="form-group col-md-6">
@@ -149,10 +149,10 @@
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>
 									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_work_ex"> + Add New</div>
-									<div class="margin-top-20" id="work_ex_panel">
+									<div class="margin-top-20" id="work_ex_panel" style="padding:0 10px;">
 										@foreach($workex as $work)
 										<div class="workex-item">
-											<div class="row" style="padding:10px 0">
+											<div class="row" style="padding:10px 0;">
 												<div class="col-md-10" id="work">
 													<input type="checkbox" name="work_ex[]" value="{{$work->id}}" checked>
 													<div class="row" style="padding:0" id="work{{$work->id}}">
@@ -172,8 +172,7 @@
 												</div>
 												<div class="col-md-2">
 													<div class="edit">
-														<a href="javascript:;" data-id="{{$work->id}}" data-toggle="modal" data-target="#Modal" class="edit-work"><i class="fa fa-edit"></i></a>
-														<a href="javascript:;" data-id="{{$work->id}}" class="remove-work">x</a>
+														<a href="javascript:;" data-id="{{$work->id}}" data-toggle="modal" data-target="#Modal" class="edit-work"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" data-id="{{$work->id}}" class="remove-work"><i class="fa fa-remove"></i></a>
 													</div>
 												</div> 
 											</div>
@@ -185,7 +184,7 @@
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>	
 									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_education"> + Add New</div> 	        
-									<div class="margin-top-20" id="education_panel">
+									<div class="margin-top-20" id="education_panel" style="padding:0 10px;">
 										@foreach($education as $edu)
 										<div class="education-item">
 											<div class="row">
@@ -208,8 +207,7 @@
 												</div>
 												<div class="col-md-2">
 													<div class="edit-edu">
-														<a href="javascript:;" data-id="{{$edu->id}}" data-toggle="modal" data-target="#Modal" class="edit-education"><i class="fa fa-edit"></i></a>
-														<a href="javascript:;" data-id="{{$edu->id}}" class="remove-education">x</a>
+														<a href="javascript:;" data-id="{{$edu->id}}" data-toggle="modal" data-target="#Modal" class="edit-education"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" data-id="{{$edu->id}}" class="remove-education"><i class="fa fa-remove"></i></a>
 													</div>
 												</div> 
 											</div> 
@@ -221,7 +219,7 @@
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>	
 									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_nysc" > + Add New</div> 	        
-									<div  id="nysc_panel">
+									<div  id="nysc_panel" style="padding:0 10px;">
 										@foreach($nysc as $nysc)
 										<div class="nysc-item" class="margin-top-20">
 											<div class="row">
@@ -242,8 +240,7 @@
 														</div>
 														<div class="col-md-2">
 															<div class="edit-edu">
-																<a href="javascript:;" data-id="{{$nysc->id}}" data-toggle="modal" data-target="#Modal" class="edit-nysc"><i class="fa fa-edit"></i></a>
-																<a href="javascript:;" data-id="{{$nysc->id}}" class="remove-nysc">x</a>
+																<a href="javascript:;" data-id="{{$nysc->id}}" data-toggle="modal" data-target="#Modal" class="edit-nysc"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" data-id="{{$nysc->id}}" class="remove-nysc"><i class="fa fa-remove"></i></a>
 															</div>
 														</div> 
 													</div>  	                 			
@@ -257,7 +254,7 @@
 								<div class="row section hide_panel" id="prop{{$section->id}}">
 									<h2>{{$section->section_name}}</h2>	
 									<div class="btn green section-button" data-toggle="modal" data-target="#Modal" id="add_new_language"> + Add New</div> 	        
-									<div class="margin-top-20" id="language_panel">
+									<div class="margin-top-20" id="language_panel" style="padding:0 10px;">
 										@foreach($language as $lang)
 										<div class="language-item">
 											<div class="row">
@@ -280,8 +277,7 @@
 												</div>
 												<div class="col-md-2">
 													<div class="edit-lang">
-														<a href="javascript:;" data-id="{{$lang->id}}" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a>
-														<a href="javascript:;" data-id="{{$lang->id}}" class="remove-language">x</a>
+														<a href="javascript:;" data-id="{{$lang->id}}" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" data-id="{{$lang->id}}" class="remove-language"><i class="fa fa-remove"></i></a>
 													</div>
 												</div> 
 											</div> 

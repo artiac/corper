@@ -61,9 +61,18 @@
 	margin-top:15px; 
 	margin-left:20px;
 }
-.nysc-item, .education-item, .workex-item{	
-	background:#EEE; 
+.nysc-item, .education-item, .workex-item, .language-item{	
+	background:#F7F7F7; 
 	margin:10px 10px;
+	cursor: move;
+	border: 1px dashed #CCC;
+}
+.nysc-item .col-md-4, .education-item .col-md-4, .workex-item .col-md-4, .language-item .col-md-4{	
+	padding: 0 5px;
+}
+.nysc-item .edit-edu a, .education-item .edit-edu a,  .workex-item .edit a, .language-item .edit-lang a{	
+	color: #000;
+	cursor: pointer;
 }
 .workex-item .edit{
 	 text-align: right;
@@ -121,7 +130,7 @@
 #section_panel div.row{
 	margin-left: 0;
 	margin-right: 0;
-	padding: 20px 0;
+	padding: 10px 0;
 }
 #section_panel div.dob{
 	padding: 0px;
@@ -412,4 +421,7 @@ span.error{
 }
 .form-control.form-control-solid{
 	color: #444 !important;
+}
+.required{
+	color: #F00;
 }

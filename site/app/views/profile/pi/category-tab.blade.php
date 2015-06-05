@@ -10,7 +10,7 @@
                                 
             <div>                                   
               <div class="form-group">                  
-                {{ Form::label('', 'Select Category') }}   
+                 
                      <ul>
                 @foreach($category_get as $category)                  
                 <li><a href="{{url('/forum/category/'.$category->id)}}">{{$category->category_name}}</a></li>

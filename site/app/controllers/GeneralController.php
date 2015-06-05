@@ -30,7 +30,7 @@ class GeneralController extends BaseController {
                 $mail->setFrom('info@corperlife.com', 'Corper Life');
                 $mail->addAddress('questions@corperlife.com');
                 $mail->isHTML(true);
-                $mail->Subject = "Ask Question | Corper Life";
+                $mail->Subject = "FAQ Question | Corper Life";
                 $mail->Body = $mail_text->faq_question(Input::get("name"),Input::get("email"), Input::get("question"));
                 if(!$mail->send()) {
                     return 'Mailer Error: ' . $mail->ErrorInfo;
