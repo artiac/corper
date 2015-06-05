@@ -9,6 +9,7 @@ Route::get('/logout', function(){
 	return Redirect::to('/');
 });
 Route::post('/subscribe', 'UserController@postSubscribe');
+Route::post('/mail-try', 'UserController@mailTry');
 
 Route::get('/interview-questions', function(){
 	$main = View::make('cvbuilder.interview_qus');

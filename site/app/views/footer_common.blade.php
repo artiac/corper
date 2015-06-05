@@ -5,7 +5,7 @@
           <!-- BEGIN BOTTOM ABOUT BLOCK -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
             <h2>About Us</h2>
-            <p style="text-align:justify">Launched in 2015, the CorperLife<sup>TM</sup> team decided to take on possibly the largest CD project ever - drumroll, please - the reinvention of the NYSC experience! We want to inspire positive social change in our great nation and we believe that the youth should play a big part in this process. </p>
+            <p style="text-align:justify">Corperlife is run by a small group of ex-corpers who wish to help others maximise their post grad years. We provide Free tools and resources to help Nigerian youths through the NYSC program and into starting their careers.</p>
              <div class="row">
               <div class="col-md-12">
            <!--  <div class="photo-stream">
@@ -26,12 +26,11 @@
           <div class="col-md-3 col-sm-6 pre-footer-col">
             <h2>Contact Us</h2>
             <address class="margin-bottom-40">
-              35, Lorem Lis Street, Park Ave<br>
+              Dolphine Estate<br>
+              111A Ilupeju Street<br>
+              Ikoyi<br>
               Lagos, Nigeria<br>
-              Phone: 300 323 3456<br>
-              Fax: 300 323 1456<br>
               Email: <a href="mailto:info@corperlife.com">info@corperlife.com</a><br>
-              Skype: <a href="skype:corperlife">corperlife</a>
             </address>            
           </div>
           <!-- END BOTTOM CONTACTS -->

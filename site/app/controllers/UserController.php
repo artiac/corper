@@ -205,4 +205,22 @@ class UserController extends BaseController {
             return Redirect::Back()->withErrors($validator)->withInput();
         }
     }
+
+    public function mailTry(){
+        require app_path().'/libraries/PHPMailerAutoload.php';
+        $mail = new PHPMailer;
+        $mail->isMail();
+        $mail->setFrom('info@corperlife.com', 'Corper Life');
+        $mail->cv_mail($cv->full_name, $code, Input::get("emails"));
+        $mail->addAddress('vishu.iitd@gmail.com', 'Vashistha Aggarwal');
+        $mail->isHTML(true);
+        $mail->Subject = "CV ".$code;
+        $mail->Body = 'sadasdasd';
+        if(!$mail->send()) {
+            return 'Message could not be sent.';
+            return 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            return 'Message has been sent';
+        }
+    }
 }
