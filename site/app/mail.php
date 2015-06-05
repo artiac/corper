@@ -59,4 +59,19 @@
             
             return $this->message;
         }
+
+        public function faq_question($name,$email,$question){
+            $this->message = ' Someone asked a question in knowledge bank section. Following are the details:
+            <p style="margin-top:20px">
+                <b>Name: </b>'.$name.'
+            </p>
+            <p style="margin-top:20px">
+                <b>Email: </b>'.$email.'
+            </p>
+            <p style="margin-top:20px">
+                <b>Question: </b>'.$question.'
+            </p>';
+            
+            return $this->message;
+        }
     }

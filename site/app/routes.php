@@ -135,6 +135,7 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 	});
 		Route::get('/fetch_language', function(){
 			$langs = DB::table('langs')->lists('language','id');
+			$langs[0] = "Others";
 			$levels = DB::table('levels')->lists('level','id');
 			$abilities = DB::table('abilities')->lists('ability','id');
 		return View::make('cvbuilder.section_views.language',array("langs"=>$langs,"levels"=>$levels,"abilities"=>$abilities));
