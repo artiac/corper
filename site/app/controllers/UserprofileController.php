@@ -136,7 +136,7 @@ class UserprofileController extends BaseController {
             $mail_text = new Mail;
             $mail->isMail();
             $mail->setFrom('info@corperlife.com', 'Corper Life');
-            $mail->addAddress('vishu.iitd@gmail.com');
+            $mail->addAddress('questions@corperlife.com');
             $mail->isHTML(true);
             $mail->Subject = "Ask Question | Corper Life";
             $mail->Body = $mail_text->ask_question(Input::get("name"),Auth::user()->username, Input::get("message"));
