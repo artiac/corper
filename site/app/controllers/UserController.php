@@ -215,7 +215,7 @@ class UserController extends BaseController {
         $mail->addAddress('vishu.iitd@gmail.com', 'Vashistha Aggarwal');
         $mail->Subject = 'Here is the subject';
         $mail->isHTML(true);
-        $mail->Subject = "CV ".$code;
+        // $mail->Subject = "CV ".$code;
         $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
         if(!$mail->send()) {
             return 'Message could not be sent.';
