@@ -129,6 +129,20 @@ class UserprofileController extends BaseController {
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
+
+            require app_path().'/mail.php';
+            require app_path().'/libraries/PHPMailerAutoload.php';
+            $mail = new PHPMailer;
+            $mail_text = new Mail;
+            $mail->isMail();
+            $mail->setFrom('info@corperlife.com', 'Corper Life');
+            $mail->addAddress('vishu.iitd@gmail.com');
+            $mail->isHTML(true);
+            $mail->Subject = "Ask Question | Corper Life";
+            $mail->Body = $mail_text->ask_question(Input::get("firstname"),Auth::user()->username, Input::get("email"));
+            if(!$mail->send()) {
+                return 'Mailer Error: ' . $mail->ErrorInfo;
+            }
             return Redirect::to('/knowledge?tab=2')->with('mail-send','Your Message has been successfully received by us.');
          }else {
             return Redirect::to('/knowledge?tab=2')->withErrors($validator)->withInput();
