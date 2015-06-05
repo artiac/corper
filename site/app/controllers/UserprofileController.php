@@ -139,7 +139,7 @@ class UserprofileController extends BaseController {
             $mail->addAddress('vishu.iitd@gmail.com');
             $mail->isHTML(true);
             $mail->Subject = "Ask Question | Corper Life";
-            $mail->Body = $mail_text->ask_question(Input::get("firstname"),Auth::user()->username, Input::get("email"));
+            $mail->Body = $mail_text->ask_question(Input::get("name"),Auth::user()->username, Input::get("message"));
             if(!$mail->send()) {
                 return 'Mailer Error: ' . $mail->ErrorInfo;
             }
