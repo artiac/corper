@@ -15,16 +15,24 @@ Route::get('/interview-questions', function(){
 	$main = View::make('cvbuilder.interview_qus');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/interview-tips', function(){
-	$main = View::make('cvbuilder.interview_tips');
+Route::get('/questions-you-can-ask', function(){
+	$main = View::make('cvbuilder.ask_qus');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/cv-tips', function(){
+Route::get('/interview-guide', function(){
+	$main = View::make('cvbuilder.interview_guide');
+	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+});
+Route::get('/cv-writing-tips', function(){
 	$main = View::make('cvbuilder.cv_tips');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
-Route::get('/cover-letters', function(){
+Route::get('/about-cover-letter', function(){
 	$main = View::make('cvbuilder.cover_letter');
+	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+});
+Route::get('/cv-delivery', function(){
+	$main = View::make('cvbuilder.cv_delivery');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
 Route::get('/advertise', function(){

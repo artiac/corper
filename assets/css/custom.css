@@ -259,6 +259,12 @@
 	list-style-type: none;
 	padding-left: 15px;
 }
+.pdf-ul li{
+  line-height: 30px;
+}
+.pdf-ul li a{
+  margin-left: 2px;
+}
 .quotes {
 	overflow: hidden;
 }
@@ -326,7 +332,7 @@
  padding: 10px;
 }
  .jsr-section{
-	 min-height:250px;
+	 min-height:283px;
 	 padding: 20px;
 }
 .background-1{
@@ -351,11 +357,11 @@
   text-align: center;
   border-bottom: 1px solid #eee;
   padding: 5px;
-  background:rgba(163, 206, 107, 0.83);
+  background:rgba(138, 199, 60, 0.83);
   margin-bottom:5px;
 }
 .navigation a{
-	color: #3E4D5C;
+	color: #fff;
 	font-weight: 400;
 }
 .topics-col9{

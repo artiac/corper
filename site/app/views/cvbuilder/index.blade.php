@@ -162,23 +162,23 @@
                                     <div class="col-md-4">
                                       <div class="jsr-section background-1">
                                         <h3>Getting Ready</h3>
-                                        <h4 class="job-seeker"><a href="#">Research</a></h4>
-                                        <h4><a href="#">Networking</a></h4>
+                                        <h4 class="job-seeker"><a href="{{url('/about-cover-letter')}}">About Cover Letter</a></h4>
+                                        <h4 class="job-seeker"><a href="{{url('/cv-writing-tips')}}">CV writing tips</a></h4>
                                       </div>
                                     </div>
                                     <div class="col-md-4">
                                       <div class="jsr-section background-2">
                                         <h3>Applying</h3>
-                                        <h4 class="job-seeker"><a href="{{url('/cv-tips')}}">CV Tips</a></h4>
-                                        <h4><a href="{{url('/cover-letters')}}">Cover Letters</a></h4>
+                                        <h4 class="job-seeker"><a href="{{url('/cv-tips')}}">CV Delivery</a></h4>
                                       </div>
                                     </div>
                                     <div class="col-md-4">
                                       <div class="jsr-section background-3">
                                         <h3>The Interview</h3>
-                                          <h4 class="job-seeker"><a href="{{url('/interview-questions')}}">Interview Question</a></h4>
-                                          <h4><a href="{{url('/interview-tips')}}">Interview Tips</a></h4> 
-                                          <h4><a href="#">Negotiation</a></h4> 
+                                          <h4 class="job-seeker"><a href="{{url('/interview-questions')}}">Sample Interview Questions to Expect </a></h4>
+                                          <h4><a href="{{url('/questions-you-can-ask')}}">Questions you can ask interviewers</a></h4> 
+                                          <h4><a href="{{url('/interview-guide')}}">Interview Guide</a></h4> 
+                                          <h4><a href="{{url('/')}}">Interview quick checklist (download Pdf file)</a></h4>                          
                                       </div>
                                     </div>
                                   </div>       

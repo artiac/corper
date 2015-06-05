@@ -109,7 +109,7 @@
                       <ol class="pdf-ul">
                         <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp -Ajebota-checklist.pdf" target="_blank">Camp Ajebota Checklist</a></li>
                         <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp-Aje-in-the-middle-checklist.pdf" target="_blank">Camp Aje in the Middle Checklist</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i> <a href="assets/Resources/Camp/Checklists/Camp-Ajepako-checklist.pdf" target="_blank">Camp Ajepako Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp-Ajepako-checklist.pdf" target="_blank">Camp Ajepako Checklist</a></li>
                       </ol>
                     </li>
                     <li>
@@ -178,8 +178,8 @@
             </div>
             <div class="tab-pane fade" id="tab_4_2">
               <ul class="pdf-ul">
-                <li> <i class="fa fa-file-pdf-o pdf-file"></i> <a href="assets/Resources/Serving-PPA/Rulebook.pdf" target="_blank">Rulebook</a></li>
-                <li> <i class="fa fa-file-pdf-o pdf-file"></i> <a  href="assets/Resources/Serving-PPA/Serving-PPA-checklist.pdf" target="_blank">Serving PPA Checklist</a></li>
+                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Serving-PPA/Rulebook.pdf" target="_blank">Rulebook</a></li>
+                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Serving-PPA/Serving-PPA-checklist.pdf" target="_blank">Serving PPA Checklist</a></li>
               </ul>   
                 
             </div>

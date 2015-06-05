@@ -2,13 +2,13 @@
   <div class="container">
     <ul class="breadcrumb">
       <li><a href="{{url('/')}}">Home</a></li>
-      <li>Cover Letter</li>
+      <li>About Cover Letter</li>
     </ul>
     <!-- BEGIN SIDEBAR & CONTENT -->
     <div class="row margin-bottom-40">
       <!-- BEGIN CONTENT -->
       <div class="col-md-12 col-sm-12">
-        <h1>Cover Letter</h1>
+        <h1>About Cover Letter</h1>
            
         <!-- BEGIN PAGE CONTENT -->
         <div class="page-content">
