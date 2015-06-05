@@ -658,7 +658,7 @@ class CVController extends BaseController {
             file_put_contents(app_path().'/../../cvs/'.$code.'.pdf', $output);
 
             require app_path().'/libraries/PHPMailerAutoload.php';
-            require app_path().'mail.php';
+            require app_path().'/mail.php';
 
             $mail = new PHPMailer;
             $mail_text = new Mail;

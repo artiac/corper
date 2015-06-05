@@ -36,7 +36,8 @@
             </p>
             <p>Best wishes,<br>
             Team Corperlife</p>';
-            $this->to = $emails;
+            
+            return $this->message;
         }
 
         public function send_mail(){
