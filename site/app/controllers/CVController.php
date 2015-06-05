@@ -667,7 +667,10 @@ class CVController extends BaseController {
             $mail->setFrom('info@corperlife.com', 'Corper Life');
             
             $emails = explode(',', Input::get("emails"));
-            $mail->addAddress(Input::get("emails"));
+            foreach ($emails as $email) {
+                $mail->addAddress($email);
+            }
+            
             $mail->addAttachment(app_path().'/../../cvs/'.$code.'.pdf'); 
             $mail->isHTML(true);
 
