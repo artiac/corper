@@ -666,8 +666,11 @@ class CVController extends BaseController {
             $mail->isMail();
             $mail->setFrom('info@corperlife.com', 'Corper Life');
             
-            $mail->addAddress('vishu.iitd@gmail.com', 'Vashistha Aggarwal');
+            $emails = explode(',', Input::get("emails"));
+            $mail->addAddress(Input::get("emails"));
+            $mail->addAttachment(app_path().'/../../cvs/'.$code.'.pdf'); 
             $mail->isHTML(true);
+
 
             $mail->Subject = "Your CV -".$code." | Corper Life ";
             $mail->Body = $mail_text->cv_mail($cv->full_name, $code, Input::get("emails"));

@@ -216,7 +216,6 @@ $(document).ready(function(){
         var cv_code = $("#cv_code").val();
 
         $.post(base_url+'/cvbuilder/pdf/3/'+cv_code+'/'+cv_style,{emails:emails},function(data){
-            alert(data);
             data = $.parseJSON(data);
             if(data.success){
                 alert(data.message);
