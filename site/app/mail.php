@@ -26,6 +26,7 @@
 
 
             $this->to = $email;
+            return $this->message;
         }
 
         public function cv_mail($full_name,$code,$emails){

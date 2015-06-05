@@ -45,10 +45,23 @@ class UserController extends BaseController {
         if($validator->passes()){
                 $password = Hash::make(Input::get('password'));
                 $id = DB::table("users")->insertGetID(array('firstname'=>Input::get("firstname"),'lastname'=>Input::get("lastname"),'username'=>Input::get("email"),'password' => $password));
-                require app_path().'/mail.php';
-                    $mail = new Mail;
-                    $mail->registration_mail(Input::get("firstname"), Input::get("email"));
-                    $mail->send_mail();
+                    require app_path().'/mail.php';
+                    require app_path().'/libraries/PHPMailerAutoload.php';
+
+                    $mail = new PHPMailer;
+                    $mail_text = new Mail;
+
+                    $mail->isMail();
+                    $mail->setFrom('info@corperlife.com', 'Corper Life');
+                    $mail->addAddress(Input::get("email"));
+                    $mail->isHTML(true);
+                    $mail->Subject = "Corper Life Registration";
+                    $mail->Body = $mail_text->registration_mail(Input::get("firstname"), Input::get("email"));
+
+                    if(!$mail->send()) {
+                        return 'Mailer Error: ' . $mail->ErrorInfo;
+                    }
+
                 Auth::loginUsingId($id);
                 return Redirect::to('/profile');           
         } else {
@@ -109,13 +122,24 @@ class UserController extends BaseController {
                         $new_user->save();
 
                         require app_path().'/mail.php';
-                        $mail = new Mail;
-                        $mail->registration_mail($first_name, $femail);
-                        $mail->send_mail();
+                        require app_path().'/libraries/PHPMailerAutoload.php';
+
+                        $mail = new PHPMailer;
+                        $mail_text = new Mail;
+
+                        $mail->isMail();
+                        $mail->setFrom('info@corperlife.com', 'Corper Life');
+                        $mail->addAddress($femail);
+                        $mail->isHTML(true);
+                        $mail->Subject = "Corper Life Registration";
+                        $mail->Body = $mail_text->registration_mail($first_name, $femail);
+
+                        if(!$mail->send()) {
+                            return 'Mailer Error: ' . $mail->ErrorInfo;
+                        }
 
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
-                        
                     } else {
                         return Redirect::to('/')->with('fail', $femail.' is alredy registered with Corper Life');
                     }      
