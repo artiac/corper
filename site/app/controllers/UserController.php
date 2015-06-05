@@ -211,11 +211,12 @@ class UserController extends BaseController {
         $mail = new PHPMailer;
         $mail->isMail();
         $mail->setFrom('info@corperlife.com', 'Corper Life');
-        $mail->cv_mail($cv->full_name, $code, Input::get("emails"));
+        //$mail->cv_mail($cv->full_name, $code, Input::get("emails"));
         $mail->addAddress('vishu.iitd@gmail.com', 'Vashistha Aggarwal');
+        $mail->Subject = 'Here is the subject';
         $mail->isHTML(true);
         $mail->Subject = "CV ".$code;
-        $mail->Body = 'sadasdasd';
+        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
         if(!$mail->send()) {
             return 'Message could not be sent.';
             return 'Mailer Error: ' . $mail->ErrorInfo;
