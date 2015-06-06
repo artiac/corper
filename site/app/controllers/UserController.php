@@ -206,14 +206,14 @@ class UserController extends BaseController {
 
         if($validator->passes()){
             include(app_path().'/includes/Mailchimp.php');
-            $api_key = "5df910bc47331f1309a290dc2d4255f2-us5";
-            $list_id = "49a09ccd0e";
+            $api_key = "caeff30696120d96d875bd3cfbc2b890-us10";
+            $list_id = "87ba57ac12";
          
             // set up our mailchimp object, and list object
             $Mailchimp = new Mailchimp( $api_key );
             $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
          
-            $email = 'vashi@gmail.com';
+            $email = Input::get('email');
          
             try {
                 $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );

@@ -102,6 +102,9 @@
                   </ul>
               </div>
             @endforeach
+            @if((sizeof($term_results)+sizeof($query_results)) == 0)
+              Sorry! No results found for {{$query}}.
+            @endif
           @endif
       </div>
       <div class="tab-pane fade @if($tab == 2) active in @endif " id="tab_1_2">
