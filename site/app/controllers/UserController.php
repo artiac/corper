@@ -158,12 +158,15 @@ class UserController extends BaseController {
                         $Mailchimp = new Mailchimp( $api_key );
                         $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
 
-                        return $femail;
-                     
                         $email = $femail;
                      
-                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
-                    
+                        try {
+                            $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
+                        } catch (Exception $e) {
+                            return $e;
+                            return 'not succeded';
+                        }
+                        
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
                     } else {
