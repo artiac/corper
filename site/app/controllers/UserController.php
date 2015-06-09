@@ -71,7 +71,7 @@ class UserController extends BaseController {
                         $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
                      
                         $email = Input::get('email');
-                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
+                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => Input::get("email")) );
                     }    
                 Auth::loginUsingId($id);
                 return Redirect::to('/profile');           
@@ -160,7 +160,7 @@ class UserController extends BaseController {
                      
                         $email = Input::get('email');
                      
-                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
+                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $femail ) );
                     
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
