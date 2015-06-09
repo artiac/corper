@@ -157,6 +157,8 @@ class UserController extends BaseController {
                         // set up our mailchimp object, and list object
                         $Mailchimp = new Mailchimp( $api_key );
                         $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
+
+                        return $femail;
                      
                         $email = $femail;
                      
