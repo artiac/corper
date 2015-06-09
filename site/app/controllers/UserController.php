@@ -61,7 +61,18 @@ class UserController extends BaseController {
                     if(!$mail->send()) {
                         return 'Mailer Error: ' . $mail->ErrorInfo;
                     }
-
+                    if(!Input::has('agree')){
+                        include(app_path().'/includes/Mailchimp.php');
+                        $api_key = "caeff30696120d96d875bd3cfbc2b890-us10";
+                        $list_id = "80bbc474a1";
+                     
+                        // set up our mailchimp object, and list object
+                        $Mailchimp = new Mailchimp( $api_key );
+                        $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
+                     
+                        $email = Input::get('email');
+                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
+                    }    
                 Auth::loginUsingId($id);
                 return Redirect::to('/profile');           
         } else {
@@ -138,6 +149,19 @@ class UserController extends BaseController {
                             return 'Mailer Error: ' . $mail->ErrorInfo;
                         }
 
+
+                        include(app_path().'/includes/Mailchimp.php');
+                        $api_key = "caeff30696120d96d875bd3cfbc2b890-us10";
+                        $list_id = "80bbc474a1";
+                     
+                        // set up our mailchimp object, and list object
+                        $Mailchimp = new Mailchimp( $api_key );
+                        $Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
+                     
+                        $email = Input::get('email');
+                     
+                        $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
+                    
                         Auth::loginUsingId($new_user->id);
                         return Redirect::to('/profile');
                     } else {
@@ -207,7 +231,7 @@ class UserController extends BaseController {
         if($validator->passes()){
             include(app_path().'/includes/Mailchimp.php');
             $api_key = "caeff30696120d96d875bd3cfbc2b890-us10";
-            $list_id = "87ba57ac12";
+            $list_id = "80bbc474a1";
          
             // set up our mailchimp object, and list object
             $Mailchimp = new Mailchimp( $api_key );
