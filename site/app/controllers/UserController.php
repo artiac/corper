@@ -189,34 +189,6 @@ class UserController extends BaseController {
         
     }
 
-    public function postSaveadd(){
-        $cre = [
-            'name' => Input::get('name'),
-            'email' => Input::get('email'),         
-            'enquiry' => Input::get('enquiry')            
-        ];
-        $rules = [
-            'name' => 'required',
-            'email' => 'required',   
-            'enquiry' => 'required'   
-        ];
-        $validator = Validator::make($cre,$rules);
-
-        if($validator->passes()){
-            $add = new Add;
-            $add->name = Input::get('name');
-            $add->email =  Input::get('email');
-            $add->enquiry =  Input::get('enquiry');
-            $add->phone =  Input::get('phone');
-            $add->message =  Input::get('message');
-            $add->save();
-            return Redirect::to('/advertise/');
-                      
-         }else {
-            return Redirect::Back()->withErrors($validator)->withInput();
-        }
-    }
-
     public function postSubscribe(){
         $cre = [
             'email' => Input::get('email')

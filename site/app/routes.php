@@ -36,11 +36,15 @@ Route::get('/cv-delivery', function(){
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
 Route::get('/advertise', function(){
-	$main = View::make('add');
+	$main = View::make('ad');
 	return View::make('main',["title"=>"Corper Life","main"=>$main]);
 });
+
 Route::get('/faq', 'GeneralController@faq');
+
 Route::post('/faq', 'GeneralController@faqsubmit');
+
+
 Route::get('/whycorperlife', function(){
 	$main = View::make('whycorper');
 	return View::make('main',["title"=>"Why Corper Life?","main"=>$main]);
@@ -63,7 +67,7 @@ Route::get('/website-rules', function(){
 	return View::make('main',["title"=>"Website Rules","main"=>$main]);
 });
 
-Route::post('/advertise/saveadd', 'UserController@postSaveadd');
+Route::post('/advertise/saveadd', 'GeneralController@postSaveadd');
 
 Route::get('/login', 'UserController@getLogin');
 Route::get('/fblogin', 'UserController@getFBLogin');

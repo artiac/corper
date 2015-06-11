@@ -76,7 +76,7 @@ class CVController extends BaseController {
         $sex = array("0"=>"Select","1"=>"Male","2"=>"Female");
         
         $states =  array("0" => "Select") + DB::table('states')->lists('state','id');
-        $religions =  array("0" => "Select") + DB::table('religions')->lists('religion','id');
+        $religions =  array("0" => "Select") + DB::table('religions')->lists('religion','id') + array("-1" => "Others");
         
         
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
@@ -122,6 +122,7 @@ class CVController extends BaseController {
             $cv->sex = Input::get("sex");
             $cv->state_origin = Input::get("state_origin");
             $cv->religion = Input::get("religion");
+            $cv->religion_text = Input::get("religion_text");
             $cv->local_government = Input::get("local_government");
             $cv->dob = Input::get("dob_year").'-'.Input::get("dob_month").'-'.Input::get("dob_date");
             $cv->marital_status = Input::get("marital_status");

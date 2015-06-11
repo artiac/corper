@@ -237,7 +237,6 @@ $(document).ready(function(){
        } 
    });
 
-
 });
 
 $(function(){
@@ -247,6 +246,15 @@ $(function(){
         $.get(base_url+'/cvbuilder/fetch_ui_section',function(data){
             $("#Modal .modal-body-main").html(data);
         });
+    });
+
+    $("select[name=religion]").change(function(){
+        if($(this).val() == -1){
+            $("input[name=religion_text]").removeClass('hidden');
+        } else {
+            $("input[name=religion_text]").addClass('hidden');
+            $("input[name=religion_text]").val('');
+        }
     });
 
 });

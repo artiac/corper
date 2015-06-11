@@ -21,8 +21,8 @@
 
                 <div class="row" style="margin-top:30px">
                   <div class="col-md-10" style="padding:0">
-                    <p>Advertising on jobberman.com will help you gain exposure to a large audience of viewers and jobseekers.
-                       take advantage of Jobberman's High traffic and give your brand maximum awareness and increased conversion through any of 
+                    <p>Advertising on corperlife.com will help you gain exposure to a large audience of viewers and jobseekers.
+                       take advantage of Corperlife's High traffic and give your brand maximum awareness and increased conversion through any of 
                        the following channels
                     </p>
                     <ul style="list-style: none;">
@@ -39,23 +39,32 @@
                     </p>
                     <div class="col-md-8" style="padding:0">
                       <div class="portlet-body form">
+                         @if(Session::has('success'))
+                                <div class="alert alert-dismissable alert-success">
+                                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                  {{Session::get('success')}}</div>
+                            @endif
+                            @if(Session::has('failure'))
+                              <div class="alert alert-dismissable alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                {{Session::get('failure')}}</div>
+                            @endif
                         {{Form::open(array("url"=>"/advertise/saveadd","method" => "POST","role"=>"form"))}}                    
                           <div> 
                             <div class="form-group">
                               <label>Your name:</label> 
                               {{Form::text('name','',array("class"=>"form-control", "placeholder"=>"Your name"))}}
-                               <span>{{$errors->first('name')}}</span>
+                               <span class="error">{{$errors->first('name')}}</span>
                             </div>  
                             <div class="form-group">
                               <label>Your e-mail:</label> 
                               {{Form::text('email','',array("class"=>"form-control", "placeholder"=>"Your email"))}}
-                               <span>{{$errors->first('email')}}</span>
+                               <span class="error">{{$errors->first('email')}}</span>
                             </div> 
                             <div class="form-group">
                               <label>Type of Enquiry:</label>
-                               {{Form::select('enquiry',array("0"=>"Select","1"=>"General Enquiry","2"=>"Advertising on Site",
-                               "3"=>"Technical Support","4"=>"Partnership","5"=>"Suggestions","6"=>"Complaints"),'',array("class"=>"form-control"))}}   
-                              <span>{{$errors->first('enquiry')}}</span>
+                               {{Form::select('enquiry',array("Select","General Enquiry","Advertising on Site","Technical Support","Partnership","Suggestions","Complaints"),'',array("class"=>"form-control"))}}   
+                              <span class="error">{{$errors->first('enquiry')}}</span>
                             </div>
                             <div class="form-group">
                               <label>Contact Phone:</label> 
@@ -63,7 +72,9 @@
                             </div>                   
                             <div class="form-group">
                               {{ Form::label('', 'Message:') }}
-                              {{Form::textarea('message','',array("class"=>"form-control", "placeholder"=>"Description"))}}            
+                              {{Form::textarea('message','',array("class"=>"form-control", "placeholder"=>"Description"))}}
+                              <span class="error">{{$errors->first('message')}}</span>
+
                             </div>
                           </div>
                           <div style="margin:20px 0;">

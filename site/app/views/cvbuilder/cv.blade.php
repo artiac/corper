@@ -121,9 +121,13 @@
 											<span>{{$errors->first('state_origin')}}</span>							                    
 										</div>	
 										<div class="form-group col-md-6">
-											{{ Form::label('', 'Religion') }} 							                       
+											{{ Form::label('', 'Religion') }}             
 											{{Form::select('religion',$religions,$cv->religion,array("class"=>"form-control"))}}
-											<span>{{$errors->first('religion')}}</span>							                    
+											@if($cv->religion == -1)
+											{{Form::text('religion_text',$cv->religion_text,array("class"=>"form-control", "placeholder"=>"Your Religion"))}}
+											@else 
+											{{Form::text('religion_text',$cv->religion_text,array("class"=>"form-control hidden", "placeholder"=>"Your Religion"))}}
+											@endif
 										</div>	
 										<div class="form-group col-md-6">
 											<label>Local Government</label>	

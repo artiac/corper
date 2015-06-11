@@ -61,7 +61,7 @@
         }
 
         public function faq_question($name,$email,$question){
-            $this->message = ' Someone asked a question in knowledge bank section. Following are the details:
+            $this->message = ' Someone asked a question in faq section. Following are the details:
             <p style="margin-top:20px">
                 <b>Name: </b>'.$name.'
             </p>
@@ -70,6 +70,27 @@
             </p>
             <p style="margin-top:20px">
                 <b>Question: </b>'.$question.'
+            </p>';
+            
+            return $this->message;
+        }
+        public function advert($name,$email,$enquiry,$phone,$message){
+            $enquiry_types = array("Select","General Enquiry","Advertising on Site","Technical Support","Partnership","Suggestions","Complaints");
+            $this->message = ' Someone asked an enquiry in advertisement section. Following are the details:
+            <p style="margin-top:20px">
+                <b>Name: </b>'.$name.'
+            </p>
+            <p style="margin-top:20px">
+                <b>Email: </b>'.$email.'
+            </p>
+            <p style="margin-top:20px">
+                <b>Enquiry: </b>'.$enquiry_types[$enquiry].'
+            </p>
+            <p style="margin-top:20px">
+                <b>Enquiry: </b>'.$phone.'
+            </p>
+            <p style="margin-top:20px">
+                <b>Enquiry: </b>'.$message.'
             </p>';
             
             return $this->message;

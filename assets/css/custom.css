@@ -1,6 +1,9 @@
 .hide_panel{
 	display: none;
 }
+.join-button{
+	background-color:#ABC351; float:right;
+}
 .nav-tabs .glyphicon-floppy-disk{
 	color:#3DCC38;
 }
@@ -280,10 +283,21 @@
 	color:#FFF;
 	display: none;
 }
+.hidden {
+  display: none !important;
+}
 /**************** less than 768px  *****************/
 @media (max-width: 480px) {
     .nav-tabs>li {
 	  width: 100%
+	}
+	.xs-align-center{
+		text-align: center;
+	}
+	.join-button{
+		float: none;
+		padding-right:55px;
+		padding-left:55px;
 	}
 }
 
