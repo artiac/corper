@@ -84,13 +84,13 @@
                 <b>Email: </b>'.$email.'
             </p>
             <p style="margin-top:20px">
-                <b>Enquiry: </b>'.$enquiry_types[$enquiry].'
+                <b>Enquiry Type: </b>'.$enquiry_types[$enquiry].'
             </p>
             <p style="margin-top:20px">
-                <b>Enquiry: </b>'.$phone.'
+                <b>Phone: </b>'.$phone.'
             </p>
             <p style="margin-top:20px">
-                <b>Enquiry: </b>'.$message.'
+                <b>Message: </b>'.$message.'
             </p>';
             
             return $this->message;
