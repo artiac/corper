@@ -477,7 +477,7 @@ function subscribe(){
         $.post(base_url+'/subscribe',{email:email},function(data){
         data = $.parseJSON(data);
         if(data.success){
-            $(".error-sub").html();
+            $(".error-sub").html('');
             $("input[name=email_sub]").val('');
             alert(data.message);
         } else {
