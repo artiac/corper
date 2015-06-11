@@ -267,7 +267,11 @@
 													<div class="row" style="padding:0" id="lang{{$lang->id}}">
 														<div class="col-md-4">
 															<span class="small-text">Language Name</span><br>
-															<b>{{$lang->language}}</b>
+															@if($lang->language_id != -1)
+																<b>{{$lang->language}}</b>
+															@else
+																<b>{{$lang->language_name}}</b>
+															@endif
 														</div>
 														<div class="col-md-4">
 															<span class="small-text">Ability</span><br>

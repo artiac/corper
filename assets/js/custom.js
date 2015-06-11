@@ -237,6 +237,17 @@ $(document).ready(function(){
        } 
    });
 
+    $(document).on("change","select[name=language_id]", function(){
+        var item = $(this);
+        var inputbox = $("input[name=language_name]");
+        if(item.val() == -1){
+            inputbox.removeAttr('readonly');
+        } else {
+            inputbox.attr('readonly','readonly');
+            inputbox.val('');
+        }
+    });
+
 });
 
 $(function(){
@@ -345,8 +356,14 @@ function language_submit(){
     val = val+'&cv_id='+id;
     $.post(base_url+'/cvbuilder/fetch_language',val,function(data){
         data = $.parseJSON(data);
-        $("#Modal .modal-body-main").html(data.message);
-        $("#language_panel").prepend('<div class="language-item"> <div class="row"> <div class="col-md-10" id="lang"> <input type="checkbox" name="language[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="lang'+data.id+'"> <div class="col-md-4"> <span class="small-text">Language Name</span><br> <b>'+data.language_id+'</b> </div> <div class="col-md-4"> <span class="small-text">Ability</span><br> <b>'+data.ability+'</b> </div> <div class="col-md-4"> <span class="small-text">Level</span><br> <b>'+data.level+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-lang"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="remove-language" data-id="'+data.id+'" title=""><i class="fa fa-remove"></i></a> </div> </div> </div> </div>');
+        $("#language_submit").html('Adding '+preloader);
+        if(data.success){
+            $("#Modal .modal-body-main").html(data.message);
+            $("#language_panel").prepend('<div class="language-item"> <div class="row"> <div class="col-md-10" id="lang"> <input type="checkbox" name="language[]" value="'+data.id+'" checked=""> <div class="row" style="padding:0" id="lang'+data.id+'"> <div class="col-md-4"> <span class="small-text">Language Name</span><br> <b>'+data.language_id+'</b> </div> <div class="col-md-4"> <span class="small-text">Ability</span><br> <b>'+data.ability+'</b> </div> <div class="col-md-4"> <span class="small-text">Level</span><br> <b>'+data.level+'</b> </div> </div> </div> <div class="col-md-2"> <div class="edit-lang"> <a href="javascript:;" data-id="'+data.id+'" data-toggle="modal" data-target="#Modal" class="edit-language"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="remove-language" data-id="'+data.id+'" title=""><i class="fa fa-remove"></i></a> </div> </div> </div> </div>');
+        } else {
+            alert(data.message);
+        }
+        $("#language_submit").html('Add');
     });
 };
 
@@ -422,12 +439,17 @@ function editlanguage_submit(id){
     var cv_code = $("#cv_code").val();
     val = val+'&language_edit='+id+'&cv_code='+cv_code;
     $.post(base_url+'/cvbuilder/edit_language',val,function(data){
-
+        $("#editlanguage_submit").html("Updating "+preloader);
         data = $.parseJSON(data);
-        $("#Modal .modal-body-main").html(data.message);
-        $("#lang"+id).find('b').eq(0).html(data.language_id);
-        $("#lang"+id).find('b').eq(1).html(data.ability);
-        $("#lang"+id).find('b').eq(2).html(data.level);
+        if(data.success){
+            $("#Modal .modal-body-main").html(data.message);
+            $("#lang"+id).find('b').eq(0).html(data.language_id);
+            $("#lang"+id).find('b').eq(1).html(data.ability);
+            $("#lang"+id).find('b').eq(2).html(data.level);
+        } else {
+            alert(data.message);
+        }
+        $("#editlanguage_submit").html("Update");
     });
 };
 function nysc_submit(){
@@ -490,14 +512,3 @@ function onmodalload(divid){
         "color": false //Button to change color of font  
     });
 }
-
-
-
-
-
-
-
-
-
-
-

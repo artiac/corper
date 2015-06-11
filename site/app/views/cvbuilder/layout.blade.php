@@ -98,6 +98,8 @@
     $("#education_panel").disableSelection();
      $("#nysc_panel").sortable();
     $("#nysc_panel").disableSelection();
+    $("#language_panel").sortable();
+  $("#language_panel").disableSelection();
       // initiate layout and plugins
     Metronic.init(); // init metronic core components
     Layout.init();

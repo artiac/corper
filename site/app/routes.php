@@ -145,13 +145,15 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 		Route::get('/fetch_nysc', function(){
 		return View::make('cvbuilder.section_views.nysc');
 	});
-		Route::get('/fetch_language', function(){
+	
+	Route::get('/fetch_language', function(){
 			$langs = DB::table('langs')->lists('language','id');
-			$langs[0] = "Others";
+			$langs = array("0"=>"Select") + $langs + array("-1"=>"Others");
 			$levels = DB::table('levels')->lists('level','id');
 			$abilities = DB::table('abilities')->lists('ability','id');
 		return View::make('cvbuilder.section_views.language',array("langs"=>$langs,"levels"=>$levels,"abilities"=>$abilities));
 	});
+	
 	Route::post('/fetch_workex', 'CVController@postWorkex');
 	Route::post('/fetch_education', 'CVController@postEducation');
 	Route::post('/fetch_nysc', 'CVController@postNysc');
@@ -180,6 +182,8 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 	  Route::get('/edit_ui_language/{id}', function($id){
 		$language = Language::find($id);
 		$langs = DB::table('langs')->lists('language','id');
+		$langs = array("0"=>"Select") + $langs + array("-1"=>"Others");
+
 		$levels = DB::table('levels')->lists('level','id');
 		$abilities = DB::table('abilities')->lists('ability','id');
 		return View::make('cvbuilder.section_views.edit_language', ['lang'=>$language,'langs'=>$langs,'levels'=>$levels,'abilities'=>$abilities]);
