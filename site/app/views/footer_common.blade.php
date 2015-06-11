@@ -46,16 +46,13 @@
             <div class="pre-footer-subscribe-box pre-footer-subscribe-box-vertical">
               <h2>Newsletter</h2>
               <p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
-                {{Form::open(array('url'=>'/subscribe','method' => 'POST'))}}
                 <div class="input-group">
-                  {{Form::text('email','',array("placeholder"=>"youremail@mail.com","class"=>"form-control"))}}
+                  {{Form::text('email_sub','',array("placeholder"=>"youremail@mail.com","class"=>"form-control"))}}
                   <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                    <button class="btn btn-primary" type="button" onclick="subscribe()" id="subscribe_btn" >Subscribe</button>
                   </span>
                 </div>
-                <span class="error">{{$errors->first('email')}}</span>
-
-                  {{Form::close()}}
+                <span class="error error-sub"></span>
             </div>
              </div>
             </div>

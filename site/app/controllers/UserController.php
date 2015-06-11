@@ -212,16 +212,20 @@ class UserController extends BaseController {
             try {
                 $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $email ) );
             } catch (Exception $e) {
-                return $e;
-                return 'not succeded';
+                $response["success"] = false;
+                $response["message"] = "can not add to list";
             }
 
             if ( !empty( $subscriber['leid'] ) ) {
-                return 'Email Added to MailChimp';
-            }   
+                $response["success"] = true;
+                $response["message"] = "You have successfully subscribed to CorperLife";
+            }
+
         }   else    {
-            return Redirect::Back()->withErrors($validator)->withInput();
+            $response["success"] = false;
+            $response["message"] = "Please fill a valid email";
         }
+        return json_encode($response);
     }
 
     public function mailTry(){
