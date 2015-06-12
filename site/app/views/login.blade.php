@@ -34,16 +34,19 @@
               <div class="form-actions">
                 * <a href="javascript:;" id="forget-password" class="forget-password" style="color:#eee;">Forgot Password?</a><br>                                               
               </div>
-                            <div class="row"> 
-              <div class="col-md-8">         
-              <div class="login-options" style="margin-top:8px;">
-                <a href="{{URL::to('/fblogin')}}">              
-                  {{HTML::image('assets/img/fb3.png','Facebook Login')}}
-                </a>
-              </div>
-              </div>
-              <div class="col-md-4" style="margin-top:7px;">
-                {{Form::submit('Login',array("class"=>"btn btn-success uppercase","style"=>"background-color:#ABC351; float:right"))}}    
+              <div class="row"> 
+                    <div class="col-md-8 col-sm-6 col-xs-12 hidden-xs">         
+                  <div class="login-options" style="margin-top:8px;">               
+                    <a href="{{URL::to('/fblogin')}}">{{HTML::image('assets/img/fb3.png','Facebook')}}</a>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 xs-align-center" style="margin-top:7px;">
+                  {{Form::submit('Join Now',array("class"=>"btn btn-success uppercase join-button"))}}    
+                </div>
+                <div class="col-xs-12 hidden-lg hidden-md hidden-sm" style="text-align:center; margin:10px 0">         
+                  <div class="login-options" style="margin-top:8px;">               
+                    <a href="{{URL::to('/fblogin')}}">{{HTML::image('assets/img/fb3.png','Facebook')}}</a>
+                  </div>
               </div>
               </div>
               <div class=""  style="margin-top:18px; text-align:center">

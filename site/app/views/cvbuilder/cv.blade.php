@@ -294,10 +294,22 @@
 									</div>
 								</div>
 								@elseif ($section->type == 5)
-								{{Form::close()}}
-								<div class="row section hide_panel" id="prop{{$section->id}}">	
-									<h2>{{$section->section_name}}</h2>	
-										<div class="portlet-body form" style="border-right:none; padding-bottom: 30px !important;">               
+								<div class="row section hide_panel" id="prop{{$section->id}}">
+									<div class="row" style="margin:0">
+										<div class="col-md-6">
+											<h2>{{$section->section_name}}</h2>
+										</div>
+										<div class="col-md-6" style="text-align:right">
+											@if($cv->show_profile_pic == 1)
+											<input type="checkbox" name="show_profile_pic" value = "1" style="display:inline;" checked> Show Profile Pic in CV
+											@else
+											<input type="checkbox" name="show_profile_pic" value = "1" style="display:inline;"> Show Profile Pic in CV
+											@endif
+										</div>
+									</div>
+									{{Form::close()}}
+
+									<div class="portlet-body form" style="border-right:none; padding-bottom: 30px !important;">               
 						              <div id="crop-avatar" class="passport_pic">
 						                 <!-- Current avatar -->
 						                <div class="col-md-6">
@@ -308,9 +320,9 @@
 							                  {{HTML::image($profile_image,'cv picture')}}
 							                </div>
 							                <div style="text-align:center">
-												<button type="button" class="btn" data-toggle="modal" data-target="#avatar-modal">Upload Image</button> 	        
-
+												<button type="button" class="btn" data-toggle="modal" data-target="#avatar-modal">Upload Image</button> 
 							                </div>
+
 						                </div>
 						                <div class="col-md-6" style="text-align:justify">
 						                	<p>Remember: These are photos your potential employer might see, we suggest following these guidelines to get the best result. We advise the photo is</p>

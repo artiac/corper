@@ -14,7 +14,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta content="" name="description"/>
-<meta content="" name="author"/>
+<meta content="corperlife.com" name="author"/>
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
 <!-- END GLOBAL MANDATORY STYLES -->
@@ -36,7 +36,7 @@
 
 
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
+<link rel="shortcut icon" href="{{url('/assets/img/favi.png')}}">
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->

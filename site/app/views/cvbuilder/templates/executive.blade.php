@@ -42,7 +42,7 @@
     line-height: 1.5;
     text-align: justify;
   }
-  .text4{
+  .cv-name{
       font-size: 36px;
       font-weight: bold;
       text-transform: uppercase;
@@ -61,8 +61,30 @@
   }
 
   .section_cv{
-    margin-top: 10px;
+    margin-top: 30px;
   }
+  .cv-detail-1{
+    width: 35%;
+    display: inline-block;
+    float: left;
+  }
+  .cv-detail-2{
+    width: auto;
+    display: inline-block;
+    float: right;
+    text-align: right;
+  }
+  .cv-image{
+      width: 30% !important;
+      float: left;
+      text-align: right;
+    }
+    .cv-image img{
+      width: 150px;
+      height: 150px;
+      border: 2px solid #EEE;
+      padding: 2px;
+    }
   .left{
     width: 50%;
     display: inline-block;
@@ -84,6 +106,18 @@
     clear: both;
     height: 0;
   }
+  .nysc-1{
+    float: left;
+    width: 40%;
+  }
+  .lang-1{
+    width: 40% !important;
+    float: left;
+  }
+  .lang-2{
+    width: 30% !important;
+    float: left;
+  }
   .bold{
     font-weight: bold;
   }
@@ -100,18 +134,29 @@
 </head>
   <body>
     <div class="container_cv">
-        <div class="text4">{{$cv->full_name}}</div> 
+        <div class="cv-name">{{$cv->full_name}}</div> 
           <div class="section_cv">
-            <div class="left">
-              <span class="bold text1">E-mail:</span> {{$cv->email}} <br>
-              <span class="bold text1">Phone:</span> {{$cv->phone_num}}
-            </div>
-            <div class="right">
-              <span class="bold text1">Website:</span> {{$cv->website}}<br>
-              <span class="bold text1">Address:</span> {{$cv->add_line1}}<br>{{$cv->add_line2}}
-            </div>
-            <div class="clear"></div>
+            <table style="width:100%">
+              <tr>
+                <td>
+                  @if($cv->add_line1 != '' || $cv->add_line2 != '' )<span class="bold text1">Address:</span> {{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
+                  @if($cv->email)<span class="bold text1">E-mail:</span> {{$cv->email}} <br>@endif
+                  <span class="bold text1">Website:</span> {{$cv->website}}<br>
+                  <span class="bold text1">Phone:</span> {{$cv->phone_num}}</td>
+                <td  align="right"> 
+                  <span class="bold text1">State of Origin:</span> {{$cv->state}}<br>
+                  <span class="bold text1">Religion:</span> {{$cv->religion}}<br>
+                  <span class="bold text1">Local Government:</span> {{$cv->local_government}}<br>
+                </td>
+                  @if($cv->show_profile_pic == 1)
+                  <td align="right">
+                    {{HTML::image($cv->profile_image,'cv picture',array("style"=>"width:120px; height:auto;"))}}
+                  </td>
+                  @endif
+              </tr>
+            </table>
           </div>
+          <div class="clear"></div>
         @foreach($sections as $section)
           @if($section->type == 0)
             @if($section->content !== '')
@@ -158,28 +203,33 @@
           @elseif ($section->type == 3)
              @if(sizeof($nysc)>0)
              <div class="section_cv">
-              <div class="text5">{{$section->section_name}}</div>
-              <hr>
-            @foreach($nysc as $ny)
-              <div class="cont-inner">
-                <div class="left"><span class="bold text1">{{$ny->ppa}}</span></div>
-                <div class="right"><span class="bold text3">{{$ny->start_date}} - {{$ny->end_date}}</span></div>
-              </div>
-            @endforeach
+                <div class="text5">{{$section->section_name}}</div>
+                <hr>
+              @foreach($nysc as $ny)
+                <div class="cont-inner">
+                  <div class="nysc-1"><span class="bold text1">{{$ny->ppa}}</span></div>
+                  <div class="lang-2"><span class="bold text1">Batch: {{$ny->batch}}</span></div>
+                  <div class="right"><span class="bold text3">Year: {{$ny->year}}</span></div>
+                </div>
+              @endforeach
              </div> 
+             <div class="clear"></div> 
           @endif
            @elseif ($section->type == 4)
              @if(sizeof($language)>0)
              <div class="section_cv">
               <div class="text5">{{$section->section_name}}</div>
               <hr>
-            @foreach($language as $lang)
-              <div class="cont-inner">
-                <div class="left"><span class="bold text1">{{$lang->language}}</span></div>
-                <div align="center"><span class="bold text3">{{$lang->ability}}</span></div>
-                <div class="right"><span class="bold text3"> {{$lang->level}}</span></div>
-              </div>
-            @endforeach
+            <div class="main-head">
+                    @foreach($language as $lang)
+                    <div class="lang-1"><b>{{$lang->language}}</b></div>
+                    @if($lang->language_id == -1)
+                     <div class="lang-1"><b>{{$lang->language_name}}</b></div>
+                    @endif                    
+                    <div class="lang-2">{{$lang->ability}}</div>
+                    <div align="right">{{$lang->level}}</div>
+                    @endforeach
+                  </div> 
              </div> 
           @endif
         @endif
@@ -187,3 +237,4 @@
     </div>
   </body>
 </html>
+ <div class="section_cv">

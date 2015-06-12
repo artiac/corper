@@ -10,11 +10,27 @@
     margin: 0 auto;
     font-family: Georgia;
   }
-    .text4{
+  .main-head{
+    width: 740px;
+  }
+    .cv-name{
       font-size:2em;
       text-transform: uppercase;
       margin-top: 50px;
       font-weight: 800;
+      width: 370px !important;
+      float: left;
+    }
+    .cv-image{
+      width: 370px !important;
+      float: left;
+      text-align: right;
+    }
+     .cv-image img{
+      width: 150px;
+      height: 150px;
+      border: 2px solid #EEE;
+      padding: 2px;
     }
     .container_cv hr{
       border-color: black;
@@ -37,8 +53,24 @@
     width: 620px;
     float: left;
   }
-  
-  
+  .nysc-1{
+    width: 40% !important;
+  }
+  .nysc-2{
+    width: 30%;
+    float: left;
+  }
+  .nysc-3{
+    width: 500px;
+    float: left; ;
+  }
+   .lang-1{
+    width: 30%;
+  }
+  .lang-2{
+    width: 30%;
+    float:left;
+  }
    .right-1{
    float: left;
     width: 50%;
@@ -59,13 +91,19 @@
 </head>
   <body>
     <div class="container_cv">
-       <div class="text4">{{$cv->full_name}}</div>
+       <div class="main-head">
+        <div class="cv-name">{{$cv->full_name}}</div>
+        @if($cv->show_profile_pic == 1)
+          <div class="cv-image">{{HTML::image($cv->profile_image,'cv picture')}}</div>
+        @endif
+      </div> 
+      <div class="clear"></div>
        <hr>  
            <div class="section_cv">            
-              <div class="left">Contact</div>
+              <div class="left">Personal Information</div>
               <div class="right">
-               <div class="right-1">{{$cv->add_line1}}<br>{{$cv->add_line2}}</div>
-               <div class="right-2"><b>E-mail:</b> {{$cv->email}}<br><b>Website:</b> {{$cv->website}}<br><b>Phone:</b> {{$cv->phone_num}}</div>
+               <div class="right-1"><b>Address:</b> {{$cv->add_line1}}<br>{{$cv->add_line2}}<br><b>E-mail:</b> {{$cv->email}}<br><b>Website:</b> {{$cv->website}}<br><b>Phone:</b> {{$cv->phone_num}}</div>
+               <div class="right-2"><b>State of Origin:</b> {{$cv->state}}<br><b>Religion:</b> {{$cv->religion}}<br><b>Local Government:</b> {{$cv->local_government}}</div>
               </div>             
             </div> 
        <div class="clear"></div>
@@ -125,17 +163,20 @@
             @if(sizeof($nysc)>0)
              <div class="section_cv">
                 <div class="left">{{$section->section_name}}</div>
-                <div class="right">
-                  <table style="width:100%;">
-                   @foreach($nysc as $ny)
-                   <tr>
-                      <td><b>{{$ny->ppa}}</b></td>
-                       <td align="right"><b>{{$ny->start_date}} - {{$ny->end_date}}</b></td>
-                   </tr>   
+                   <div class="right">
+                    <table class="table-width">
+                    @foreach($nysc as $ny) 
+                      <tr>
+                        <td class="nysc-1 right"><b>{{$ny->ppa}}</b></td>
+                        <td class="nysc-2"><b>Batch:</b>{{$ny->batch}}</td>
+                        <td align="right"><b>Year:</b> {{$ny->year}}</td>
+                      </tr>
+                      <tr>  
+                        <td colspan="2">{{$ny->otherinfo}}
+                      </tr>
                     @endforeach
                     </table>
-             <div class="clear"></div>
-                 </div>             
+                  </div>        
             </div>
              <div class="clear"></div>            
            @endif
@@ -143,18 +184,16 @@
             @if(sizeof($language)>0)
              <div class="section_cv">
                 <div class="left">{{$section->section_name}}</div>
-                <div class="right">
-                  <table style="width:100%;">
-                    @foreach($language as $lang)                   
-                      <tr>
-                        <td style="width:30%"><b>{{$lang->language}}</b></td>
-                        <td style="width:30%">{{$lang->ability}}</td>
-                        <td align="right">{{$lang->level}}</td>
-                      </tr>     
+                  <div class="main-head">
+                    @foreach($language as $lang)
+                    <div class="lang-1 right"><b>{{$lang->language}}</b></div>
+                    @if($lang->language_id == -1)
+                     <div class="lang-1 right"><b>{{$lang->language_name}}</b></div>
+                    @endif                    
+                    <div class="lang-2">{{$lang->ability}}</div>
+                    <div align="right">{{$lang->level}}</div>
                     @endforeach
-                  </table>
-                    <div class="clear"></div>            
-                </div>             
+                  </div>            
             </div>
             <div class="clear"></div>            
            @endif

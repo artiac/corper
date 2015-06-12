@@ -74,7 +74,6 @@
                   <a href="{{URL::to('/fblogin')}}">{{HTML::image('assets/img/fb3.png','Facebook')}}</a>
                 </div>
               </div>
-
             </div>
             <label class="rememberme check" style="color:#fff; margin:5px;">
              {{Form::checkbox('agree')}} I dont want to subscribe </label>

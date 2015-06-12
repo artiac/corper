@@ -115,6 +115,8 @@ class CVController extends BaseController {
             $cv->religion_text = Input::get("religion_text");
             $cv->local_government = Input::get("local_government");
             $cv->dob = Input::get("dob_year").'-'.Input::get("dob_month").'-'.Input::get("dob_date");
+            if(Input::has("show_profile_pic")) $cv->show_profile_pic = 1;
+            else $cv->show_profile_pic = 0;
             $cv->marital_status = Input::get("marital_status");
               if (Input::hasFile('profile_image')){
                     $destinationPath = "assets/img/";
@@ -644,13 +646,13 @@ class CVController extends BaseController {
 
     public function getPreview($code,$style,$type){
 
-        $cv = Cv::where('cv_code',$code)->first();
+        $cv = Cv::leftJoin('states','cvs.state_origin','=','states.id')->leftJoin('religions','cvs.religion','=','religions.id')->select('cvs.*','states.state','religions.religion')->where('cv_code',$code)->first();
         $cv_id = $cv->id;
         $dob = explode('-', $cv->dob);
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->select('languages.id','langs.language','languages.ability_id','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->select('languages.id','languages.language_id','languages.language_name','langs.language','languages.ability_id','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $abilities = DB::table('abilities')->lists('ability','id');
@@ -684,15 +686,26 @@ class CVController extends BaseController {
         include(app_path().'/dompdf/dompdf_config.inc.php');
         $dompdf = new DOMPDF();
 
-        $cv = Cv::where('cv_code',$code)->first();
+        $cv = Cv::leftJoin('states','cvs.state_origin','=','states.id')->leftJoin('religions','cvs.religion','=','religions.id')->select('cvs.*','states.state','religions.religion')->where('cv_code',$code)->first();
         $cv_id = $cv->id;
         $dob = explode('-', $cv->dob);
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
         $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
         $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $language = Language::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->select('languages.id','languages.language_id','languages.language_name','langs.language','languages.ability_id','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
+        $abilities = DB::table('abilities')->lists('ability','id');
+
+         foreach ($language as $value) {
+            $value->ability_id = explode(',', $value->ability_id);
+            $values = array();
+            foreach ($value->ability_id as $ability_id) {
+                array_push($values, $abilities[$ability_id]);
+            }
+             $value->ability = '<b>Ability</b>: '.implode(' / ', $values);
+            $value->level = '<b>Level</b>: '.$value->level;
+        }
 
         $html =  View::make('cvbuilder.templates.'.$style,array(
             "cv" => $cv,
