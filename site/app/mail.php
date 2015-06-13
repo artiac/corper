@@ -8,7 +8,7 @@
 
         public function registration_mail($first_name,$email){
             $this->subject = "Corper Life Registration";
-            $this->message = "Hey ".$first_name."
+            $this->message = "<p style='font-size:14px'>Hey ".$first_name."</p>
             <div style='margin-top:20px; font-size:14px;'>
             <p>
             The corperlife team is small group of already employed ex-corpers. We came together to help others get through the experience and start their careers. Here are the basic things you need to know about the corperlife<sup>TM</sup> website.</p>
