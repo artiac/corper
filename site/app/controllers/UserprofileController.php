@@ -4,7 +4,9 @@ class UserprofileController extends BaseController {
     protected $layout = 'profile.layout';
 
     public function getProfile(){
-        $this->layout->title = 'Corper Life | User Profile';
+        $this->layout->title = 'Corpers profile';
+        $this->layout->description = 'NYSC corpers can personalise their experience by logging into the Dashboard and editing their Corperlife profiles.';
+        $this->layout->keywords = 'the Dashboard, corpers, corperlife profiles';
         $this->layout->top_active = 2;
         $states = DB::table('states')->lists('state','id');
         $user = User::find(Auth::id());
@@ -13,13 +15,17 @@ class UserprofileController extends BaseController {
     }
 
     public function getChecklistGuide(){
-        $this->layout->title = 'Corper Life | Checklist & Guide';
+        $this->layout->title = 'Corpers Resources';
+        $this->layout->description = 'These are official Corperlife Tips and guides provided to help corpers through the NYSC experience.';
+        $this->layout->keywords = 'NYSC Guides, NYSC tips, Corpers';
         $this->layout->top_active = 3;
         $this->layout->main = View::make("profile.pi.checklist");
     }
 
     public function getknowledge(){
-        $this->layout->title = 'Corper Life | Knowledge Bank';
+        $this->layout->title = 'Corpers knowledge bank';
+        $this->layout->description = 'Visit the Corperlife knowledge bank to get all NYSC related questions answered.';
+        $this->layout->keywords = 'NYSC, questions, knowledge bank';
         $this->layout->top_active = 5;
         $categories = DB::table('qus_category')->get();
         $questions = DB::table('member_qus')->orderBy('member_qus.category_id','asc')->get();
@@ -38,7 +44,9 @@ class UserprofileController extends BaseController {
         $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab,"categories"=>$categories,"questions" => $questions,'terms'=>$terms,'query'=>$query,'query_results'=>$query_results,'term_results'=>$term_results]);
     }
      public function getcvpage(){
-        $this->layout->title = 'Corper Life | CV';
+        $this->layout->title = 'Your saved cvs';
+        $this->layout->description = 'Find the CVs/resumes you created using the Corperlife CV builder here.';
+        $this->layout->keywords = 'CV builder, CVs, corperlife';
         $this->layout->top_active = 6;
         $cvs = Cv::where('user_id',Auth::id())->get();
         $this->layout->main = View::make("profile.pi.cv-page",['cvs'=>$cvs]);

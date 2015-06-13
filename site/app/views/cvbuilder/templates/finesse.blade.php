@@ -3,7 +3,7 @@
 
   <style type="text/css">
   @page {
-    margin: 23px auto 40px auto;
+    margin: 25px auto 60px auto;
   }
  @font-face {
   font-family: 'Open Sans';
@@ -65,7 +65,7 @@
     width: 740px;
   }
   .section_cv{
-    margin-top: 20px;
+    margin-top: 30px;
   }
     .cv-image{
       width: 150px !important;
@@ -167,14 +167,14 @@
     float: right;
     width: 49%;
     text-align: right;
-  }
+  }                                 
   </style>
 </head>
   <body>
     <div class="container_cv">
       <div class="section_cv">
         <div class="cv-name">          
-        <div @if($cv->show_profile_pic == 1)style="border-bottom:3px solid #000; "@endif>{{$cv->full_name}}</div>
+        <div @if($cv->show_profile_pic == 1)@endif>{{$cv->full_name}}@if($cv->show_profile_pic == 1)<hr>@endif</div>
           @if($cv->show_profile_pic == 1)
           <div class="right" style="margin-top:15px; width:590px !important ">
             <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif

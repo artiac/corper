@@ -4,7 +4,9 @@ class ForumController extends BaseController {
    protected $layout = 'profile.layout';
    
      public function getForum(){
-        $this->layout->title = 'Corper Life | Forum';
+        $this->layout->title = 'NYSC corpers forum';
+        $this->layout->description = 'Meet and discuss with other corpers in the Forum. Help each other get the best out of the NYSC experience.';
+        $this->layout->keywords = 'Forum, NYSC experience, Corpers';
         $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
         $category_get = DB::table('categories')->select('category_name','id')->get();       

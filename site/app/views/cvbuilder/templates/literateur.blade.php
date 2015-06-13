@@ -2,7 +2,7 @@
 <head>
   <style type="text/css">
   @page {
-    margin: 23px auto auto auto;
+    margin: 23px auto 40px auto;
   }
   .container_cv{
     font-size: 14px;
@@ -33,7 +33,7 @@
   }
 
   .section_cv{
-    margin-top: 20px;
+    margin-top: 50px;
   }
    .cv-image{
       width: 22% !important;
@@ -135,7 +135,6 @@
     <div class="container_cv">
         <div class="cv-name">{{$cv->full_name}}</div> 
           <div class="section_cv">
-
             <table style="width:100%">
               <tr>
                 @if($cv->show_profile_pic == 1)
@@ -147,7 +146,7 @@
                   @if($cv->add_line1 != '' || $cv->add_line2 != '' )<span class="bold text1">Address:</span> {{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
                   @if($cv->email)<span class="bold text1">E-mail:</span> {{$cv->email}} <br>@endif
                   @if($cv->website)<span class="bold text1">Website:</span> {{$cv->website}}<br>@endif
-                  @if($cv->phone_num)<span class="bold text1">Phone:</span> {{$cv->phone_num}}</td>@endif
+                  @if($cv->phone_num)<span class="bold text1">Phone:</span> {{$cv->phone_num}}@endif</td>
                 <td  align="right">                   
                   @if($cv->dob)<span class="bold text1">DOB</span> {{$cv->dob}}<br>@endif
                   @if($cv->marital_status != 0)<span class="bold text1">Marital Status:</span> {{$marital_status_vals[$cv->marital_status]}}<br>@endif
@@ -213,15 +212,14 @@
               <div class="text5">{{$section->section_name}}</div>
               <hr>
             @foreach($nysc as $ny)
-              <div class="cont-inner-1">
-                <div class="nysc-1"><span class="bold text1">{{$ny->ppa}}</span></div>
-                <div class="lang-2"><span class="bold text1">Batch: {{$ny->batch}}</span></div>
-                <div class="right"><span class="bold text3">Year: {{$ny->year}}</span></div>   
-                 <div class="data-inner">
-                  {{$ny->otherinfo}}
-                  </div> 
-                  <div class="clear"></div>          
-              </div>
+             <div class="cont-inner">
+                  <div class="nysc-1"><span class="bold text1">{{$ny->ppa}}</span></div>
+                  <div class="lang-2"><span class="bold text1">Batch: {{$ny->batch}}</span></div>
+                  <div align="right"><span class="bold text3">Year: {{$ny->year}}</span></div>
+                  <div class="data-inner">
+                    {{$ny->otherinfo}}
+                    </div>
+                </div>
             @endforeach 
              </div>
              <div class="clear"></div>

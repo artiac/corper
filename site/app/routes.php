@@ -13,31 +13,31 @@ Route::post('/subscribe', 'UserController@postSubscribe');
 
 Route::get('/interview-questions', function(){
 	$main = View::make('cvbuilder.interview_qus');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"Interview questions to expect","description"=>"Here are some questions you can expect at the interview. Proper preparation will make you a better candidate.","keywords"=>"Interview, interview questions, interview preparation","main"=>$main]);
 });
 Route::get('/questions-you-can-ask', function(){
 	$main = View::make('cvbuilder.ask_qus');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"Interview questions to ask","description"=>"Here are some questions you can ask your interviewers to make sure the job is right for you and   also to impress them.","keywords"=>"Interview, interview questions,  ask","main"=>$main]);
 });
 Route::get('/interview-guide', function(){
 	$main = View::make('cvbuilder.interview_guide');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"Interview guide","description"=>"Read this guide before your interview! follow it, and you be in a better position than the competition.","keywords"=>"Interview, interview guide, interview tips","main"=>$main]);
 });
 Route::get('/cv-writing-tips', function(){
 	$main = View::make('cvbuilder.cv_tips');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"CV writing tips","description"=>"Writing a fantastic CV “no be beans”. Go through these tips to ensure it comes out great and make yourself a better candidate for the job.","keywords"=>"Nigerian Jobs, writing CV, better candidate","main"=>$main]);
 });
 Route::get('/about-cover-letter', function(){
 	$main = View::make('cvbuilder.cover_letter');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"About Cover letter","description"=>"We help you answer everything about cover letters to make sure you submit a better application for the job.","keywords"=>"cover letter, jobseeker, application","main"=>$main]);
 });
 Route::get('/cv-delivery', function(){
 	$main = View::make('cvbuilder.cv_delivery');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"CV Delivery","description"=>"You have put a lot of work into preparing your CV/resume, find out how to properly deliver it. Don’t overlook this.","keywords"=>"Cv, Resume, CV Delivery","main"=>$main]);
 });
 Route::get('/advertise', function(){
 	$main = View::make('ad');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"Advertisement Opportunities","description"=>"Find out how to get your advert on the Corperlife network and reach the Nigerian youth.","keywords"=>"Advert, corperlife network, Nigerian youth","main"=>$main]);
 });
 
 Route::get('/faq', 'GeneralController@faq');
@@ -47,11 +47,11 @@ Route::post('/faq', 'GeneralController@faqsubmit');
 
 Route::get('/whycorperlife', function(){
 	$main = View::make('whycorper');
-	return View::make('main',["title"=>"Why Corper Life?","main"=>$main]);
+	return View::make('main',["title"=>"Why Corperlife","description"=>"If you are a corper, jobseeker or advertiser, find out what the Corperlife website can help you with.","keywords"=>"jobseeker, advertiser, corper, ","main"=>$main]);
 });
 Route::get('/ourstory', function(){
 	$main = View::make('ourstory');
-	return View::make('main',["title"=>"Our Story","main"=>$main]);
+	return View::make('main',["title"=>"The Corperlife startup story","description"=>"Thinking about starting company in Nigeria?  Check out the Corperlife story, learn and get inspired. We’ll keep adding as we grow.","keywords"=>"starting company, Corperlife, story","main"=>$main]);
 });
 
 Route::get('/career-center', function(){
@@ -64,7 +64,7 @@ Route::get('/career-center-cv', function(){
 });
 Route::get('/website-rules', function(){
 	$main = View::make('rules');
-	return View::make('main',["title"=>"Website Rules","main"=>$main]);
+	return View::make('main',["title"=>"Corper Life Website Rule","description"=>"Corper life website rules","keywords"=>"corper life, website rules","main"=>$main]);
 });
 
 Route::post('/advertise/saveadd', 'GeneralController@postSaveadd');
