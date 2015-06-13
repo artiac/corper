@@ -8,21 +8,22 @@
 
         public function registration_mail($first_name,$email){
             $this->subject = "Corper Life Registration";
-            $this->message = "Hey ".$first_name."
-            <p style='margin-top:20px'>
-            The corperlife team is small group of already employed ex-corpers. We came together to help others get through the experience and start their careers. Here are the basic things you need to know about the corperlife™ website.</p>
-                
-            <p>There are 2 main areas:-<br>
-            The Dashboard: This section is exclusively for corpers. It is where you’ll find all the resources you need to get through the NYSC service year. You will also be able to communicate with other corpers using the forums and find your saved CV’s.</p>
+            $this->message = "<p style='font-size:14px'>Hey ".$first_name."</p>
+            <div style='margin-top:20px; font-size:14px;'>
             <p>
-            The Career Centre: This section will help you prepare to get a job after NYSC. You can use our online CV maker to create, download and print epic CVs. We also provide other resources like tips and guides to help you get the job you want.</p>
+            The corperlife team is small group of already employed ex-corpers. We came together to help others get through the experience and start their careers. Here are the basic things you need to know about the corperlife<span style='font-size:11px'><sup>TM</sup></span> website.</p>
+                
+            <p>There are 2 main areas:-<br><br>
+            <b>The Dashboard</b>: This section is exclusively for corpers. It is where you'll find all the resources you need to get through the NYSC service year. You will also be able to communicate with other corpers using the forums and find your saved CV's.</p>
+            <p>
+            <b>The Career Centre</b>: This section will help you prepare to get a job after NYSC. You can use our online CV maker to create, download and print epic CVs. We also provide other resources like tips and guides to help you get the job you want.</p>
 
             <p>
             The best part is, everything is is Free!<br>
-            So don’t carry last, use the corperlife™ website and be great!</p>
+            So don't carry last, use the corperlife<span style='font-size:11px'><sup>TM</sup></span> website and be great!</p>
 
             <p>Best wishes,<br>
-            Team Corperlife</p>";
+            Team Corperlife</p></div>";
 
 
             $this->to = $email;
