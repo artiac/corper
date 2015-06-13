@@ -2,7 +2,7 @@
 <head>  
   <style type="text/css">
   @page {
-    margin: 23px auto 40px auto;
+    margin: 23px auto auto auto;
   }
   .container_cv{
     font-size: 14px;
@@ -14,16 +14,16 @@
     width: 740px;
   }
     .cv-name{
-       font-size:2em;
+      font-size:2em;
       text-transform: uppercase;
-      margin-top: 20px;
+      margin-top: 50px;
       font-weight: 800;
-      width: 590px !important;
+      width: 370px !important;
       float: left;
     }
     .cv-image{
-       width: 150px !important;
-      float: right;
+      width: 370px !important;
+      float: left;
       text-align: right;
     }
      .cv-image img{
@@ -38,7 +38,7 @@
       margin-top: 0px;
     }
     .section_cv{
-    margin-top: 30px;
+    margin-top: 50px;
     display: inline-block;
   }
     .left{
@@ -50,18 +50,15 @@
       margin-right: 20px;
   }
   .right{
-     width: 620px;
+    width: 620px;
     float: left;
-    font-size: 14px;
-    text-transform: none;
-    font-weight: normal;
   }
   .nysc-1{
     width: 40% !important;
   }
   .nysc-2{
     width: 30%;
-    text-align: center;
+    float: left;
   }
   .nysc-3{
     width: 500px;
@@ -89,66 +86,34 @@
     clear: both;
     height: 0;
   }
-
-  ul{
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
     
   </style>
 </head>
   <body>
     <div class="container_cv">
        <div class="main-head">
-
-        <div class="cv-name">
-           <div @if($cv->show_profile_pic == 1)style="border-bottom:3px solid #000; "@endif>{{$cv->full_name}}</div>
-          @if($cv->show_profile_pic == 1)
-          <div class="right" style="margin-top:15px; width:590px !important ">
-            <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
-              @if($cv->email)<b>E-mail:</b> {{$cv->email}}<br>@endif
-              @if($cv->phone_num)<b>Phone:</b> {{$cv->phone_num}}<br>@endif
-              @if($cv->website)<b>Website:</b> {{$cv->website}}<br>@endif
-            </div>
-            <div class="right-2">
-               @if($cv->dob)<b>DOB:</b> {{$cv->dob}}<br>@endif              
-               @if($cv->marital_status != 0)<b>Marital Status:</b> {{$marital_status_vals[$cv->marital_status]}}<br>@endif              
-               @if($cv->state)<b>State of Origin:</b> {{$cv->state}}<br>@endif              
-               @if($cv->religion != 0 || ($cv->religion == -1 && $cv->religion_text != ''))
-                 <b>Religion:</b> {{$cv->religion_name}} {{$cv->religion_text}}           
-                 <br>
-               @endif
-               @if($cv->local_government)<b>Local Government:</b> {{$cv->local_government}}@endif
-            </div>
-          </div> 
-          @endif
-        </div>
+        <div class="cv-name">{{$cv->full_name}}</div>
          @if($cv->show_profile_pic == 1)
           <div class="cv-image">{{HTML::image($cv->profile_image,'cv picture')}}</div>
         @endif
       </div> 
       <div class="clear"></div>
-       @if($cv->show_profile_pic != 1)<hr> @endif
-
-         @if($cv->show_profile_pic != 1)
+       <hr>  
            <div class="section_cv">            
               <div class="left">Personal Information</div>
               <div class="right">
-               <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
-              @if($cv->email)<b>E-mail:</b> {{$cv->email}}<br>@endif
-              @if($cv->phone_num)<b>Phone:</b> {{$cv->phone_num}}<br>@endif
-              @if($cv->website)<b>Website:</b> {{$cv->website}}<br>@endif</div>
-               <div class="right-2">   @if($cv->dob)<b>DOB:</b> {{$cv->dob}}<br>@endif              
-               @if($cv->marital_status != 0)<b>Marital Status:</b> {{$marital_status_vals[$cv->marital_status]}}<br>@endif              
-               @if($cv->state)<b>State of Origin:</b> {{$cv->state}}<br>@endif                   
-                @if($cv->religion != 0 || ($cv->religion == -1 && $cv->religion_text != ''))
-                 <b>Religion:</b> {{$cv->religion_name}} {{$cv->religion_text}}           
+               <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address:</b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
+                @if($cv->email)<b>E-mail:</b> {{$cv->email}}<br>@endif
+                @if($cv->website)<b>Website:</b> {{$cv->website}}<br>@endif
+                @if($cv->phone)<b>Phone:</b> {{$cv->phone_num}}@endif</div>
+               <div class="right-2">  @if($cv->state)<b>State of Origin:</b> {{$cv->state}}<br>@endif               
+               @if($cv->religion)
+                 <b>Religion:</b> {{$cv->religion}} {{$cv->religion_text}}           
                  <br>
                @endif
                @if($cv->local_government)<b>Local Government:</b> {{$cv->local_government}}@endif</div>
               </div>             
             </div> 
-            @endif
        <div class="clear"></div>
       @foreach($sections as $section)
         @if($section->type == 0) 
@@ -192,7 +157,7 @@
                       <td align="right"><b>{{ date("d/m/y",strtotime($edu->startdate))}} - {{ date("d/m/y",strtotime($edu->enddate))}}</b></td>
                     </tr>
                       <tr>  <td colspan="2">   
-                      <span>{{$edu->institutename}}, {{$edu->add_line1}}@if($edu->add_line1 != '' && $edu->add_line2 != ''), @endif{{$edu->add_line2}}</span><br>
+                      <span>{{$edu->institutename}}, {{$edu->location}}</span><br>
                       {{$edu->otherinfo}}</td>
                     </tr>
                 @endforeach
@@ -209,7 +174,7 @@
                     <table class="table-width">
                     @foreach($nysc as $ny) 
                       <tr>
-                        <td class="nysc-1"><b>{{$ny->ppa}}</b></td>
+                        <td class="nysc-1 right"><b>{{$ny->ppa}}</b></td>
                         <td class="nysc-2"><b>Batch:</b>{{$ny->batch}}</td>
                         <td align="right"><b>Year:</b> {{$ny->year}}</td>
                       </tr>

@@ -646,7 +646,7 @@ class CVController extends BaseController {
 
     public function getPreview($code,$style,$type){
 
-        $cv = Cv::leftJoin('states','cvs.state_origin','=','states.id')->leftJoin('religions','cvs.religion','=','religions.id')->select('cvs.*','states.state','religions.religion')->where('cv_code',$code)->first();
+        $cv = Cv::leftJoin('states','cvs.state_origin','=','states.id')->leftJoin('religions','cvs.religion','=','religions.id')->select('cvs.*','states.state','religions.religion as religion_name')->where('cv_code',$code)->first();
         $cv_id = $cv->id;
         $dob = explode('-', $cv->dob);
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
@@ -666,6 +666,7 @@ class CVController extends BaseController {
              $value->ability = '<b>Ability</b>: '.implode(' / ', $values);
             $value->level = '<b>Level</b>: '.$value->level;
         }
+        $marital_status_vals = array("1"=>"Married","2"=>"UnMarried");
 
         $view = View::make('cvbuilder.templates.'.$style,array(
             "cv" => $cv,
@@ -674,7 +675,9 @@ class CVController extends BaseController {
             "education" => $education,
             "dob" => $dob,
             "nysc" => $nysc,
-            "language" => $language
+            "language" => $language,
+            "marital_status_vals" =>$marital_status_vals
+
         ));
         if($type == 2) return $view.'<script>window.onload = function() { window.print(); }</script>';
         else return $view;      
@@ -686,7 +689,7 @@ class CVController extends BaseController {
         include(app_path().'/dompdf/dompdf_config.inc.php');
         $dompdf = new DOMPDF();
 
-        $cv = Cv::leftJoin('states','cvs.state_origin','=','states.id')->leftJoin('religions','cvs.religion','=','religions.id')->select('cvs.*','states.state','religions.religion')->where('cv_code',$code)->first();
+        $cv = Cv::leftJoin('states','cvs.state_origin','=','states.id')->leftJoin('religions','cvs.religion','=','religions.id')->select('cvs.*','states.state','religions.religion as religion_name')->where('cv_code',$code)->first();
         $cv_id = $cv->id;
         $dob = explode('-', $cv->dob);
         $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
@@ -706,7 +709,7 @@ class CVController extends BaseController {
              $value->ability = '<b>Ability</b>: '.implode(' / ', $values);
             $value->level = '<b>Level</b>: '.$value->level;
         }
-
+        $marital_status_vals = array("1"=>"Married","2"=>"UnMarried");
         $html =  View::make('cvbuilder.templates.'.$style,array(
             "cv" => $cv,
             "sections" => $sections,
@@ -714,7 +717,8 @@ class CVController extends BaseController {
             "education" => $education,
             "dob" => $dob,
             "nysc" => $nysc,
-            "language" => $language
+            "language" => $language,
+            "marital_status_vals" =>$marital_status_vals
         ));
 
         $dompdf->load_html($html);

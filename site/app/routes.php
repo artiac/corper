@@ -2,7 +2,7 @@
 
 Route::get('/', function(){
 	$main = View::make('home');
-	return View::make('main',["title"=>"Corper Life","main"=>$main]);
+	return View::make('main',["title"=>"The official Corperlife website","description"=>"Welcome to the official Corperlife site. We help corpers maximise their NYSC experience and also get them started on their careers.","keywords"=>"Corperlife, youth corpers, NYSC batch","main"=>$main]);
 });
 Route::get('/logout', function(){
 	Auth::logout();

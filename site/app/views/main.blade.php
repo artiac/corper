@@ -13,8 +13,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="{{$description}}" name="description">
+  <meta content="{{$keywords}}" name="keywords">
   <meta content="corperlife.com" name="author">
   <link rel="shortcut icon" href="{{url('/assets/img/favi.png')}}">
 
