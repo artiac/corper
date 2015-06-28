@@ -4,6 +4,9 @@
     </IfModule>
 
     RewriteEngine On
+    Options -Indexes
+    RewriteCond %{HTTP_HOST} ^corperlife.com [NC]
+    RewriteRule ^(.*)$ http://www.corperlife.com/$1 [L,R=301,NC]
 
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]

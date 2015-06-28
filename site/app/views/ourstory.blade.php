@@ -57,7 +57,7 @@
                <div class="mix-details">
                   <h2>Opening Master Plan Document</h2>
                     <p>2014 May 01st</p>
-                  <a data-rel="fancybox-button" title="2014 May 01st - Opening Master Plan Document" href="assets/img/story/Opening-Master-Plan-Documen.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 01st - Opening Master Plan Document" href="{{url('assets/img/story/Opening-Master Plan-Document.png')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -67,7 +67,7 @@
                <div class="mix-details">
                     <h2>Figuring out the Name</h2>
                     <p>2014 May 04th</p>                 
-                  <a data-rel="fancybox-button" title="2014 May 04th - Figuring out the Name" href="assets/img/story/Figuring-out-the-Name.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 04th - Figuring out the Name" href="{{url('assets/img/story/Figuring-out-the-Name.jpg')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -77,7 +77,7 @@
                <div class="mix-details">
                  <h2>Logo Creation begins</h2>
                  <p>2014 May 15th </p>                 
-                  <a data-rel="fancybox-button" title="2014 May 15th - Logo Creation begins" href="assets/img/story/Creation-of-CorperLife-Logo.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 15th - Logo Creation begins" href="{{url('assets/img/story/Creation-of-CorperLife-Logo.jpg')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -87,7 +87,7 @@
                <div class="mix-details">
                   <h2>The Founders</h2>
                   <p></p>                 
-                  <a data-rel="fancybox-button" title="The Founders" href="assets/img/story/Founders.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="The Founders" href="{{url('assets/img/story/Founders.jpg')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -97,7 +97,7 @@
                <div class="mix-details">
                   <h2>Inception of Idea</h2>
                   <p>2014 Apr 12th</p>                 
-                  <a data-rel="fancybox-button" title="2014 Apr 12th - Inception of Idea" href="assets/img/story/time-to-eat.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 Apr 12th - Inception of Idea" href="{{url('assets/img/story/time-to-eat.jpg')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -107,7 +107,7 @@
                <div class="mix-details">
                   <h2>Working on checklists</h2>
                   <p>2014 May 01st</p>                 
-                  <a data-rel="fancybox-button" title="2014 May 01st - Working on checklists" href="assets/img/story/Working-on-checklists.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 01st - Working on checklists" href="{{url('assets/img/story/Working-on-checklists.jpg')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -117,7 +117,7 @@
                <div class="mix-details">
                   <h2>Corper Life Facebook Page</h2>
                   <p></p>                 
-                  <a data-rel="fancybox-button" title="Corper Life Facebook Page" href="assets/img/story/Facebook-Page.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="Corper Life Facebook Page" href="{{url('assets/img/story/Facebook-Page.jpg')}}" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>     
