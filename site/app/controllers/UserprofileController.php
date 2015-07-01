@@ -4,7 +4,7 @@ class UserprofileController extends BaseController {
     protected $layout = 'profile.layout';
 
     public function getProfile(){
-        $this->layout->title = 'Corpers profile';
+        $this->layout->title = 'Corpers Profile';
         $this->layout->description = 'NYSC corpers can personalise their experience by logging into the Dashboard and editing their Corperlife profiles.';
         $this->layout->keywords = 'the Dashboard, corpers, corperlife profiles';
         $this->layout->top_active = 2;
@@ -23,7 +23,7 @@ class UserprofileController extends BaseController {
     }
 
     public function getknowledge(){
-        $this->layout->title = 'Corpers knowledge bank';
+        $this->layout->title = 'Corpers Knowledge Bank';
         $this->layout->description = 'Visit the Corperlife knowledge bank to get all NYSC related questions answered.';
         $this->layout->keywords = 'NYSC, questions, knowledge bank';
         $this->layout->top_active = 5;
@@ -44,7 +44,7 @@ class UserprofileController extends BaseController {
         $this->layout->main = View::make("profile.pi.knowledge",["tab"=>$tab,"categories"=>$categories,"questions" => $questions,'terms'=>$terms,'query'=>$query,'query_results'=>$query_results,'term_results'=>$term_results]);
     }
      public function getcvpage(){
-        $this->layout->title = 'Your saved cvs';
+        $this->layout->title = 'Your Saved CVs';
         $this->layout->description = 'Find the CVs/resumes you created using the Corperlife CV builder here.';
         $this->layout->keywords = 'CV builder, CVs, corperlife';
         $this->layout->top_active = 6;

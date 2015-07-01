@@ -6,7 +6,7 @@ class CVController extends BaseController {
 
     public function getIndex(){
         $user_id = Auth::id();
-        $this->layout->title = 'The Corperlife career centre';
+        $this->layout->title = 'The Corperlife Career Centre';
         $this->layout->description = 'Corperlife provides a Free beautifully designed CV builder to help all Nigerian jobseekers get employed. Find other free career advice here.';
         $this->layout->keywords = 'jobseeker, career advice, career centre';
         $this->layout->top_active = 0;
@@ -75,7 +75,7 @@ class CVController extends BaseController {
         $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
         $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
-        $this->layout->title = 'The Corperlife CV builder'.$id;
+        $this->layout->title = 'The Corperlife CV Builder'.$id;
         $this->layout->description = 'Read this guide before your interview! follow it, and you be in a better position than the competition.';
         $this->layout->keywords = 'Interview, interview guide, interview tips';
         $this->layout->top_active = 6;
