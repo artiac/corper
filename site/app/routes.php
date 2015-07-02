@@ -43,9 +43,10 @@ Route::get('/advertise', function(){
 Route::get('/faq', 'GeneralController@faq');
 
 Route::post('/faq', 'GeneralController@faqsubmit');
-
-Route::get('/user-info', 'HomeController@getFbpage');
+Route::group(['prefix' => 'user-info', 'before' => 'auth'], function () {
+Route::get('/', 'HomeController@getFbpage');
 Route::put('/user-info/savefb-info', 'HomeController@putSavefblogin');
+});
 
 
 Route::get('/whycorperlife', function(){
