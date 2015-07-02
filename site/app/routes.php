@@ -44,6 +44,9 @@ Route::get('/faq', 'GeneralController@faq');
 
 Route::post('/faq', 'GeneralController@faqsubmit');
 
+Route::get('/user-info', 'HomeController@getFbpage');
+Route::put('/user-info/savefb-info', 'HomeController@putSavefblogin');
+
 
 Route::get('/whycorperlife', function(){
 	$main = View::make('whycorper');

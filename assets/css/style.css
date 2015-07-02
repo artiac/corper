@@ -1454,16 +1454,19 @@ Pre-Footer and pre-footer elements
 	padding-top: 45px;
 }
 .pre-footer a {
-	color: #fff;
+	color: #F0FDC6;
 	text-decoration: underline !important;
 }
 .pre-footer h2,
 .ecommerce .pre-footer h2 {
 	font-size: 21px;
-	color: #fff;
+	font-family: 'Droid Serif', serif;
+    color: #fff;
 }
 .pre-footer p {
 	margin-bottom: 20px;
+	  font-family: 'Lora', serif;
+	  color: #F0FDC6;
 }
 .pre-footer li {
 	margin-bottom: 6px;
@@ -3111,4 +3114,9 @@ Styler Panel
 	text-align: justify;
 	font-size: 15px;
 	line-height: 1.6;
+}
+.color-fb{
+   border: 1px solid #eee;
+  margin: 10px;
+  box-shadow: 1px 2px 12px #E8E7E7;
 }

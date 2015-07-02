@@ -1,6 +1,7 @@
 <?php
 
 class UserprofileController extends BaseController {
+    
     protected $layout = 'profile.layout';
 
     public function getProfile(){
@@ -14,6 +15,7 @@ class UserprofileController extends BaseController {
         $this->layout->main = View::make("profile.pi.index",array("states"=>$states,"user"=>$user));
     }
 
+   
     public function getChecklistGuide(){
         $this->layout->title = 'Corpers Resources';
         $this->layout->description = 'These are official Corperlife Tips and guides provided to help corpers through the NYSC experience.';

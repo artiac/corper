@@ -811,5 +811,4 @@ class CVController extends BaseController {
         $data["message"] = "Succefully deleted";
         return json_encode($data);
     }
-
 }    

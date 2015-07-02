@@ -20,6 +20,7 @@
 
   <!-- Fonts START -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700|Droid+Serif:400,700|Open+Sans:400,700,600|Slabo+27px' rel='stylesheet' type='text/css'>
   <!-- Fonts END -->
 
   <!-- Global styles START -->
@@ -55,6 +56,9 @@
     <!--[if lt IE 9]>
     <script src=".assets/.assets/assets/global/plugins/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+     var base_url = '{{URL::to('/')}}';
+    </script>
     {{ HTML::script("assets/js/jquery.min.js")}}
     {{ HTML::script("assets/js/jquery-migrate.min.js")}}
     {{ HTML::script("assets/fancybox/source/jquery.fancybox.pack.js")}}    
