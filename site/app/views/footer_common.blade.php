@@ -24,14 +24,8 @@
 
           <!-- BEGIN BOTTOM CONTACTS -->
           <div class="col-md-3 col-sm-6 pre-footer-col">
-            <h2>Contact Us</h2>
-            <address class="margin-bottom-40">
-              Dolphine Estate<br>
-              111A Ilupeju Street<br>
-              Ikoyi<br>
-              Lagos, Nigeria<br>
-              Email: <a href="mailto:info@corperlife.com">info@corperlife.com</a><br>
-            </address>            
+            <h2>Like Us</h2>              
+              <div class="fb-like" data-href="https://www.facebook.com/pages/Corperlife/137990536376099" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>     
           </div>
           <!-- END BOTTOM CONTACTS -->
 
@@ -39,7 +33,7 @@
           <div class="col-md-3 col-sm-6 pre-footer-col">
               <h2 style="margin:0px;"> Advertise</h2>            
             <a class="twitter-timeline" href="{{url('/advertise')}}" data-chrome="noheader nofooter noscrollbar noborders transparent" style="">
-            Click here</a> to post your ad with us.
+            Click here</a> <span style="color:#F0FDC6;">to post your ad with us.</span>
                   
              <div class="row" style="margin-top:20px;">
              <div class="col-md-12">

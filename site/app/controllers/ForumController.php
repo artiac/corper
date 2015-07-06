@@ -4,7 +4,7 @@ class ForumController extends BaseController {
    protected $layout = 'profile.layout';
    
      public function getForum(){
-        $this->layout->title = 'NYSC corpers forum';
+        $this->layout->title = 'NYSC Corpers Forum';
         $this->layout->description = 'Meet and discuss with other corpers in the Forum. Help each other get the best out of the NYSC experience.';
         $this->layout->keywords = 'Forum, NYSC experience, Corpers';
         $this->layout->top_active = 4;

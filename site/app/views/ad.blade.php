@@ -33,7 +33,6 @@
                       <li style="padding-top: 4px; padding-bottom: 4px; list-style-image:url(assets/img/icon_check.png);">Lead Generation Campaigns</li>        
                     </ul>
                     <div style="border:solid 1px; min-height: 100px; margin-top:20px;"> Advertisement Space</div>
-                    <div style="border:solid 1px; min-height: 100px; margin-top:20px;"> Advertisement Space</div>
                     <p style="margin:40px 0px;">
                       If you would like more information of you would like to book one of our available ad placements, Please use the form below and we will get back to you as soon as possible. We also can offer customized advertising packages which offer even more exposure, to learn more simply fill and submit the form below.
                     </p>
@@ -89,11 +88,6 @@
 
                   </div>
                 </div>
-
-
-
-
-
               </div>
             <!-- END PAGE CONTENT -->
             </div>
