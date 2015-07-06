@@ -2,7 +2,7 @@
 
 Route::get('/', function(){
 	$main = View::make('home');
-	return View::make('main',["title"=>"The official Corperlife website","description"=>"Welcome to the official Corperlife site. We help corpers maximise their NYSC experience and also get them started on their careers.","keywords"=>"Corperlife, youth corpers, NYSC batch","main"=>$main]);
+	return View::make('main',["title"=>"The Official Corperlife Website","description"=>"Welcome to the Official Corperlife Site. We help Corpers Maximise their NYSC Experience and also get them Started on their Careers.","keywords"=>"Corperlife, Youth Corpers, NYSC batch","main"=>$main]);
 });
 Route::get('/logout', function(){
 	Auth::logout();
@@ -13,19 +13,19 @@ Route::post('/subscribe', 'UserController@postSubscribe');
 
 Route::get('/interview-questions', function(){
 	$main = View::make('cvbuilder.interview_qus');
-	return View::make('main',["title"=>"Interview questions to expect","description"=>"Here are some questions you can expect at the interview. Proper preparation will make you a better candidate.","keywords"=>"Interview, interview questions, interview preparation","main"=>$main]);
+	return View::make('main',["title"=>"Interview Questions to Expect","description"=>"Here are some questions you can expect at the interview. Proper preparation will make you a better candidate.","keywords"=>"Interview, interview questions, interview preparation","main"=>$main]);
 });
 Route::get('/questions-you-can-ask', function(){
 	$main = View::make('cvbuilder.ask_qus');
-	return View::make('main',["title"=>"Interview questions to ask","description"=>"Here are some questions you can ask your interviewers to make sure the job is right for you and   also to impress them.","keywords"=>"Interview, interview questions,  ask","main"=>$main]);
+	return View::make('main',["title"=>"Interview Questions to Ask","description"=>"Here are some questions you can ask your interviewers to make sure the job is right for you and   also to impress them.","keywords"=>"Interview, interview questions,  ask","main"=>$main]);
 });
 Route::get('/interview-guide', function(){
 	$main = View::make('cvbuilder.interview_guide');
-	return View::make('main',["title"=>"Interview guide","description"=>"Read this guide before your interview! follow it, and you be in a better position than the competition.","keywords"=>"Interview, interview guide, interview tips","main"=>$main]);
+	return View::make('main',["title"=>"Interview Guide","description"=>"Read this guide before your interview! follow it, and you be in a better position than the competition.","keywords"=>"Interview, interview guide, interview tips","main"=>$main]);
 });
 Route::get('/cv-writing-tips', function(){
 	$main = View::make('cvbuilder.cv_tips');
-	return View::make('main',["title"=>"CV writing tips","description"=>"Writing a fantastic CV “no be beans”. Go through these tips to ensure it comes out great and make yourself a better candidate for the job.","keywords"=>"Nigerian Jobs, writing CV, better candidate","main"=>$main]);
+	return View::make('main',["title"=>"CV Writing Tips","description"=>"Writing a fantastic CV “no be beans”. Go through these tips to ensure it comes out great and make yourself a better candidate for the job.","keywords"=>"Nigerian Jobs, writing CV, better candidate","main"=>$main]);
 });
 Route::get('/about-cover-letter', function(){
 	$main = View::make('cvbuilder.cover_letter');
@@ -43,6 +43,10 @@ Route::get('/advertise', function(){
 Route::get('/faq', 'GeneralController@faq');
 
 Route::post('/faq', 'GeneralController@faqsubmit');
+Route::group(['prefix' => 'user-info', 'before' => 'auth'], function () {
+Route::get('/', 'HomeController@getFbpage');
+Route::put('/user-info/savefb-info', 'HomeController@putSavefblogin');
+});
 
 
 Route::get('/whycorperlife', function(){
@@ -51,7 +55,7 @@ Route::get('/whycorperlife', function(){
 });
 Route::get('/ourstory', function(){
 	$main = View::make('ourstory');
-	return View::make('main',["title"=>"The Corperlife startup story","description"=>"Thinking about starting company in Nigeria?  Check out the Corperlife story, learn and get inspired. We’ll keep adding as we grow.","keywords"=>"starting company, Corperlife, story","main"=>$main]);
+	return View::make('main',["title"=>"The Corperlife Startup Story","description"=>"Thinking about starting company in Nigeria?  Check out the Corperlife story, learn and get inspired. We’ll keep adding as we grow.","keywords"=>"starting company, Corperlife, story","main"=>$main]);
 });
 
 Route::get('/career-center', function(){

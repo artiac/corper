@@ -53,31 +53,31 @@
         <div id="owl-example" class="owl-carousel">
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Opening-Master-Plan-Documen1.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Opening-Master-Plan-Documen.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                   <h2>Opening Master Plan Document</h2>
                     <p>2014 May 01st</p>
-                  <a data-rel="fancybox-button" title="2014 May 01st - Opening Master Plan Document" href="assets/img/story/Opening-Master-Plan-Documen.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 01st - Opening Master Plan Document" href="assets/img/story/Opening-Master-Plan-Documen1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Figuring-out-the-Name1.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Figuring-out-the-Name.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                     <h2>Figuring out the Name</h2>
                     <p>2014 May 04th</p>                 
-                  <a data-rel="fancybox-button" title="2014 May 04th - Figuring out the Name" href="assets/img/story/Figuring-out-the-Name.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 04th - Figuring out the Name" href="assets/img/story/Figuring-out-the-Name1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Creation-of-CorperLife-Logo1.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Creation-of-CorperLife-Logo.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                  <h2>Logo Creation begins</h2>
                  <p>2014 May 15th </p>                 
-                  <a data-rel="fancybox-button" title="2014 May 15th - Logo Creation begins" href="assets/img/story/Creation-of-CorperLife-Logo.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 15th - Logo Creation begins" href="assets/img/story/Creation-of-CorperLife-Logo1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
@@ -103,11 +103,11 @@
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Working-on-checklists1.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Working-on-checklists.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
                   <h2>Working on checklists</h2>
                   <p>2014 May 01st</p>                 
-                  <a data-rel="fancybox-button" title="2014 May 01st - Working on checklists" href="assets/img/story/Working-on-checklists.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2014 May 01st - Working on checklists" href="assets/img/story/Working-on-checklists1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
