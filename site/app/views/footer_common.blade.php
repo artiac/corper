@@ -53,6 +53,17 @@
         </div>
         <div class="col-md-3 col-sm-6 pre-footer-col">           
             <h2 class="margin-bottom-0">Latest Tweets</h2>
+            <?php
+              include(app_path().'/tweet/TweetPHP.php');
+              $TweetPHP = new TweetPHP(array(
+                'consumer_key'              => 'Aid8wJIxT9XoXDHbz3sUu7Gra',
+                'consumer_secret'           => 'DACkmTZMi5g2WjsCNidFDdvnF1JFAhetJSbB2UHy46yNTAqk8z',
+                'access_token'              => '1951411668-8hmpZoQGH93aiWUBGx7CjKVcLuUU02bolljHg0z',
+                'access_token_secret'       => 'M8Uzul9imCGVFiQheF0DfKRHcXdkwlUicsKUTwjhQu4e8',
+                'twitter_screen_name'       => 'uzoma_diamond'
+              ));
+              echo $TweetPHP->get_tweet_list();
+            ?>
             <!-- END TWITTER BLOCK -->         
         </div>
       </div>

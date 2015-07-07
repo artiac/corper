@@ -445,3 +445,16 @@ span.error{
 .required{
 	color: #F00;
 }
+.normal-font {
+	font-size: 11px;
+	margin-top: 5px;
+}
+#twitter{
+	padding-left: 0px;
+	font-size: 11px;
+	list-style: none;
+	color: #EEE;
+}
+#twitter .meta{
+	color: #CCC;
+}
