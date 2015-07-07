@@ -45,7 +45,7 @@
                   <h4>Total Replies: {{sizeof($replies)}}</h4>
 
             @foreach($replies as $reply)          
-                <div class="row" style="margin-top:10px;">
+                <div class="row" style="margin-top:10px; padding-bottom:10px; border-bottom:1px dashed #CCC;">
                  <div class="col-md-2" style="padding-right:0px; max-width: 60px;">
                    @if($reply->profile_pic == '')
                     <img class="user-pic" src="{{url('assets/avatars/default.png')}}">
@@ -53,10 +53,11 @@
                     <img class="user-pic" src="{{url($reply->profile_pic)}}">
                     @endif
                 </div>    
-                 <div class="col-md-10"><p style="margin-bottom:5px;"><strong>{{$reply->firstname}}</strong> {{$reply->reply}}</p>{{ date("d-M-y H:i:s", strtotime($reply->created_at)) }}<hr> </div>     
-
+                 <div class="col-md-10"><p style="margin-bottom:5px;"><strong>{{$reply->firstname}}</strong></p>
+                  <p>{{$reply->reply}}</p>
+                  <span style="color:#BBB; font-size:11px;">{{date("d-M-y H:i:s", strtotime($reply->created_at))}}</spn>
+                  </div>     
                 </div>
-              
              @endforeach
         </div>  
       </div>
