@@ -237,7 +237,7 @@ text-align: center;
             @if(sizeof($language)>0)
               <div class="section_cv">
                 <div class="left">{{$section->section_name}}</div>
-                  <div class="main-head">
+                  <div class="right">
                     @foreach($language as $lang)
                     <div class="lang-1 right"><b>{{$lang->language}}</b></div>
                     @if($lang->language_id == -1)
