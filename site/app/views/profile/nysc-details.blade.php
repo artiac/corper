@@ -1,11 +1,11 @@
  <!-- BEGIN DIV -->
-    <div class="container-fluid" style="background-image:url({{url('assets/img/bgimg.jpg')}}); margin-top:0px;">
+    <div class="container-fluid back-div">
       <div class="container">
        <div class="row">
         <div class="col-md-4"></div>
        
         <div class="col-md-4">
-          <div style="background:rgba(0,0,0,0.8); padding:20px; margin:30px 0;">
+          <div style="background:rgba(0,0,0,0.8); padding:20px; margin:80px 0;">
               @if(Session::has('fail'))
                 <div class="alert alert-danger">{{Session::get('fail')}}</div>
               @endif
@@ -16,6 +16,7 @@
                 {{Form::select('service_year',array(""=>"Service Year","1"=>"2014","2"=>"2015"),'',array("class"=>"form-control"))}}
                 <span class="error">{{$errors->first('serv_year')}}</span>
               </div>
+              <br>
               <div class="form-group">
                 {{Form::select('batch',array(""=>"Batch","A"=>"A","B"=>"B","C"=>"C"),'',array("class"=>"form-control"))}}
                 <span class="error">{{$errors->first('batch')}}</span>

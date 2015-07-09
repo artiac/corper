@@ -153,9 +153,11 @@
                    <a href="{{url('/cv-page')}}">My CVs
                     <span class="selected"></span></a>
                   </li>
-                  <li>
-                   <a href="{{url('/logout')}}">Logout</a>
-                  </li>
+                  @if(empty(Auth::user()->facebook_id))
+                    <li>
+                     <a href="{{url('/change-password')}}">Change Password</a>
+                    </li>
+                  @endif
                 </ul>
               </div>         
             </div> 

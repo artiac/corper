@@ -10,7 +10,7 @@ class ForumController extends BaseController {
         $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
         $category_get = DB::table('categories')->select('category_name','id')->get();       
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->orderBy('topics.id','desc')->get();
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->orderBy('topics.id','desc')->paginate(12);
         $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get));
     }
      public function postSearch(){
@@ -20,7 +20,7 @@ class ForumController extends BaseController {
         $this->layout->top_active = 4;
         $category = DB::table('categories')->lists('category_name','id');
         $category_get = DB::table('categories')->select('category_name','id')->get();       
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.title', 'LIKE' , '%'.Input::get('topic_q').'%')->orderBy('topics.id','desc')->get();
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.title', 'LIKE' , '%'.Input::get('topic_q').'%')->orderBy('topics.id','desc')->paginate(12);
         $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get,"search_for"=>Input::get('topic_q')));
     }
 
@@ -45,7 +45,7 @@ class ForumController extends BaseController {
         $this->layout->keywords = 'Forum, NYSC experience, Corpers';
         $this->layout->top_active = 8;
         $category = DB::table('categories')->lists('category_name','id');           
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.*')->orderBy('topics.id','desc')->get();
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.*')->orderBy('topics.id','desc')->paginate(12);
         $this->layout->main = View::make("profile.pi.content-page",array("categories"=>$category,"topics"=>$topics));
     } 
      
@@ -55,7 +55,7 @@ class ForumController extends BaseController {
         $this->layout->description = 'Meet and discuss with other corpers in the Forum. Help each other get the best out of the NYSC experience.';
         $this->layout->keywords = 'Forum, NYSC experience, Corpers';
         $this->layout->top_active = 4;
-        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.category_id',$id)->orderBy('topics.id','desc')->get();
+        $topics = DB::table('topics')->join('categories','topics.category_id','=','categories.id')->join('users','topics.user_id','=','users.id')->select('topics.*','categories.category_name','users.firstname','users.profile_pic')->where('topics.category_id',$id)->orderBy('topics.id','desc')->paginate(12);
         $category_get = DB::table('categories')->select('category_name','id')->get(); 
 
         $this->layout->main = View::make("profile.pi.forum",array("categories"=>$category,"topics"=>$topics,"category_get"=>$category_get));

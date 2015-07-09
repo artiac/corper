@@ -36,6 +36,10 @@
             @endforeach
             @if(sizeof($topics) == 0)
               <h3>Sorry, no topics found.</h3>
+            @else
+              <div class="pull-right">
+                {{ $topics->links(); }}
+              </div>
             @endif
           </div> 
         </div>

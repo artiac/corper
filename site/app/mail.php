@@ -30,7 +30,7 @@
             return $this->message;
         }
 
-        public function registration_mail($first_name,$email,$password){
+        public function forgot_mail($first_name,$email,$password){
             $this->subject = "Corper Life Password Reset";
             $this->message = "<p style='font-size:14px'>Hey ".$first_name."</p>
             <div style='margin-top:20px; font-size:14px;'>
@@ -42,7 +42,7 @@
                 <b>Password</b>: ".$password."<br>
             </p>
             
-            Use the corperlife<span style='font-size:11px'><sup>TM</sup></span> website and be great!</p>
+            Experience the corperlife<span style='font-size:11px'><sup>TM</sup></span> website and be great!</p>
 
             <p>Best wishes,<br>
             Team Corperlife</p></div>";

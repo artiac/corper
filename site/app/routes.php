@@ -85,6 +85,9 @@ Route::group(['prefix' => 'profile', 'before' => 'auth'], function () {
 
 	Route::get('/nysc-details', 'UserprofileController@nyscDetails');
 	Route::put('/nysc-details', 'UserprofileController@putnyscDetails');
+
+	Route::get('/change-password', 'UserprofileController@changePassword');
+	Route::put('/change-password', 'UserprofileController@putchangePassword');
 	
 	Route::post('/uploadprofilepic', 'UserMediaController@uploadProfilePic');
 });

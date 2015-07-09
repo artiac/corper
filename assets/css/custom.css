@@ -1,3 +1,9 @@
+.back-div{
+	background-image:url('../img/bgimg.jpg');
+	min-height:400px;
+	margin-top:-25px;
+	background-repeat:no-repeat
+}
 .hide_panel{
 	display: none;
 }
@@ -437,6 +443,9 @@ span.error{
 .user-pic{
 	width: 50px;
 	height: auto;
+	-webkit-border-radius: 25px !important;
+	-moz-border-radius: 25px !important;
+	border-radius: 25px !important;
 }
 .topic-title{
 	font-weight: 400; 

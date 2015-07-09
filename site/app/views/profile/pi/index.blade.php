@@ -56,7 +56,7 @@
         </div>
       </div>
        <div class="form-actions right1">
-        <button type="submit" class="btn default">Submit</button>
+        <button type="submit" class="btn green">Submit</button>
       </div>
       {{Form::close()}}
   </div>            

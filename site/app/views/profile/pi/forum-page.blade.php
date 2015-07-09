@@ -7,22 +7,24 @@
       <div class="portlet light">             
          <div class="portlet-body">            
             <div class="row">
-              <div class="col-md-7 topic-title-contain">
+              <div class="col-md-12 topic-title-contain">
                 <h4 class="topic-title">{{$topic->title}}</h4>
                 Category: {{$topic->category_name}}
               </div>
-              <div class="col-md-5" style="float: right; padding: 0px 0px 0px 40px;">
-                <a href="#" class="pull-left" style="padding-right: 10px;">@if($topic->profile_pic == '')
+            </div>
+            <div class="row">
+              <div class="col-md-12" style="padding: 0px 0px 10px 15px; display:table">
+                <a href="#" class="pull-left" style="padding-right: 10px; vertical-align:middle; color:inherit">
+                  @if($topic->profile_pic == '')
                     <img class="user-pic" src="{{url('assets/avatars/default.png')}}">
                     @else
                     <img class="user-pic" src="{{url($topic->profile_pic)}}">
-                @endif
-              </a>
-                <div class="media-body">
-                  <span>Posted by<br>{{$topic->firstname}}</span>
-                </div>
+                  @endif
+                  <span>Posted by {{$topic->firstname}}</span>
+
+                </a>
               </div>
-            </div>            
+            </div>       
             <p style="border:1px solid #dbdbdb; padding:15px;">{{$topic->content}}</p>
             <div class="portlet-body form">
               {{Form::open(array("url"=>"/forum/forum-page/savereply/".$topic->id,"method" => "POST","role"=>"form"))}}                    

@@ -271,8 +271,8 @@ class UserController extends BaseController {
             $count = DB::table("users")->where('username', Input::get('email'))->count();
             if($count >0){
 
-                $user = User::where('username', Input::get('email'))->select('username','password','facebook_id','firstname')->first();
-                if($user->password != -1 && !empty($user->facebook_id)){
+                $user = User::where('username', Input::get('email'))->select('id','username','password','facebook_id','firstname')->first();
+                if($user->password != -1 && empty($user->facebook_id)){
                     require app_path().'/mail.php';
                     require app_path().'/libraries/PHPMailerAutoload.php';
                     $password = str_random(8);
@@ -289,11 +289,11 @@ class UserController extends BaseController {
                     $mail->Body = $mail_text->forgot_mail($user->firstname, $user->username, $password);
 
                     if(!$mail->send()) {
-                        $user->password = $password_hash;
-                        $user->save();
                         return Redirect::back()->with('fail','Mailer Error: ' . $mail->ErrorInfo)->withInput();
                     } else {
-                        return Redirect::back()->with('success','Your password is reset and sent to your email')->withInput();
+                        $user->password = $password_hash;
+                        $user->save();
+                        return Redirect::back()->with('success','Your password is reset and sent to your email');
                     }
                 } else {
                     return Redirect::back()->with('fail','This email is registered with Facebook Login')->withInput();
