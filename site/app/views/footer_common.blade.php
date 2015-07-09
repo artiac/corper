@@ -19,7 +19,7 @@
 
         <!-- BEGIN TWITTER BLOCK --> 
         <div class="col-md-3 col-sm-6 pre-footer-col">
-          <h2 >Advertise</h2>            
+          <h2>Advertise</h2>            
           <p><a class="twitter-timeline" href="{{url('/advertise')}}" data-chrome="noheader nofooter noscrollbar noborders transparent" style="">Click here</a> to post your ad with us.</p>
 
             <div class="row" style="margin-top:20px;">
@@ -43,11 +43,11 @@
           <?php
             include(app_path().'/tweet/TweetPHP.php');
             $TweetPHP = new TweetPHP(array(
-              'consumer_key'              => 'Aid8wJIxT9XoXDHbz3sUu7Gra',
-              'consumer_secret'           => 'DACkmTZMi5g2WjsCNidFDdvnF1JFAhetJSbB2UHy46yNTAqk8z',
-              'access_token'              => '1951411668-8hmpZoQGH93aiWUBGx7CjKVcLuUU02bolljHg0z',
-              'access_token_secret'       => 'M8Uzul9imCGVFiQheF0DfKRHcXdkwlUicsKUTwjhQu4e8',
-              'twitter_screen_name'       => 'uzoma_diamond'
+              'consumer_key'              => 'S5MdIUJXCne6ybLa29K9h3Iqf',
+              'consumer_secret'           => 'iPsT3OKLfvsyNutH0YkVy9Rh1j2k9ePilhx9vOJaps8jFr4ztr',
+              'access_token'              => '2540278561-rKu6wUzFOeuaPCcYOnZHDvX7vDpXWkftyLzkrFA',
+              'access_token_secret'       => 'oL1DVxj9k4voG6QMiQqDgst0rk9x0cFNuKjkakIyyZR3g',
+              'twitter_screen_name'       => 'corperlife'
               ));
             echo $TweetPHP->get_tweet_list();
             ?>

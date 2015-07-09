@@ -34,7 +34,6 @@
   {{ HTML::style("assets/css/owl.carousel.css")}}       
   {{ HTML::style("assets/css/owl.theme.css")}}       
   {{ HTML::style("assets/css/custom.css")}}
-  {{ HTML::script("assets/js/custom.js?v=1.2")}}
   
   <!-- Theme styles END -->
 </head>
@@ -49,6 +48,9 @@
 
     {{$main}}
     @include('footer_common')
+    <script type="text/javascript">
+     var base_url = '{{URL::to('/')}}';
+    </script>
     <div class="overlay">
     </div>
     <!-- Load javascripts at bottom, this will reduce page load time -->
@@ -56,9 +58,6 @@
     <!--[if lt IE 9]>
     <script src=".assets/.assets/assets/global/plugins/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript">
-     var base_url = '{{URL::to('/')}}';
-    </script>
     {{ HTML::script("assets/js/jquery.min.js")}}
     {{ HTML::script("assets/js/jquery-migrate.min.js")}}
     {{ HTML::script("assets/fancybox/source/jquery.fancybox.pack.js")}}    
@@ -66,12 +65,14 @@
     {{ HTML::script("assets/js/back-to-top.js")}}
     {{ HTML::script("assets/js/owl.carousel.min.js")}}
     {{ HTML::script("assets/js/owl.carousel.js")}}
+    {{ HTML::script("assets/js/custom.js?v=1.2")}}
+
     <!-- END CORE PLUGINS -->
 
     {{ HTML::script("assets/js/layout.js")}}
     <script type="text/javascript">
     jQuery(document).ready(function() {
-            Layout.init(); 
+        Layout.init(); 
         $("#owl-example").owlCarousel({
           'items':3
         });

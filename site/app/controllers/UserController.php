@@ -252,4 +252,57 @@ class UserController extends BaseController {
             return 'Message has been sent';
         }
     }
+
+    public function getForgot(){
+        $main = View::make('forgot-pass');
+        return View::make('main',["title"=>"Corperlife | Forgot Password","description"=>"You can easily reset your password if you are an existing user of corperlife community","keywords"=>"Corperlife, Youth Corpers, NYSC batch","main"=>$main]);
+    }
+
+    public function postForgot(){
+        $cre = [
+            'email' => Input::get('email')
+        ];
+        $rules = [
+            'email' => 'required|email'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+
+            $count = DB::table("users")->where('username', Input::get('email'))->count();
+            if($count >0){
+
+                $user = User::where('username', Input::get('email'))->select('username','password','facebook_id','firstname')->first();
+                if($user->password != -1 && !empty($user->facebook_id)){
+                    require app_path().'/mail.php';
+                    require app_path().'/libraries/PHPMailerAutoload.php';
+                    $password = str_random(8);
+                    $password_hash = Hash::make($password);
+                   
+                    $mail = new PHPMailer;
+                    $mail_text = new Mail;
+
+                    $mail->isMail();
+                    $mail->setFrom('info@corperlife.com', 'Corper Life');
+                    $mail->addAddress($user->username);
+                    $mail->isHTML(true);
+                    $mail->Subject = "Corper Life Forgot Password";
+                    $mail->Body = $mail_text->forgot_mail($user->firstname, $user->username, $password);
+
+                    if(!$mail->send()) {
+                        $user->password = $password_hash;
+                        $user->save();
+                        return Redirect::back()->with('fail','Mailer Error: ' . $mail->ErrorInfo)->withInput();
+                    } else {
+                        return Redirect::back()->with('success','Your password is reset and sent to your email')->withInput();
+                    }
+                } else {
+                    return Redirect::back()->with('fail','This email is registered with Facebook Login')->withInput();
+                }
+            } else {
+                return Redirect::back()->with('fail','Email not found')->withInput();
+            }
+        } else {
+            return Redirect::Back()->withErrors($validator)->withInput();
+        }
+    }
 }

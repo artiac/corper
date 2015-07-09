@@ -9,6 +9,8 @@ Route::get('/logout', function(){
 	return Redirect::to('/');
 });
 Route::post('/subscribe', 'UserController@postSubscribe');
+Route::get('/forgot-password', 'UserController@getForgot');
+Route::post('/forgot-password', 'UserController@postForgot');
 //Route::get('/mail-try', 'UserController@mailTry');
 
 Route::get('/interview-questions', function(){

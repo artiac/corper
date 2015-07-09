@@ -32,7 +32,7 @@
                 <!--<input class="" type="password"   name="password"/>-->
               </div>
               <div class="form-actions">
-                * <a href="javascript:;" id="forget-password" class="forget-password" style="color:#eee;">Forgot Password?</a><br>                                               
+                <a href="{{url('/forgot-password')}}" id="forget-password" class="forget-password" style="color:#eee;">* Forgot Password?</a><br>                                               
               </div>
               <div class="row"> 
                     <div class="col-md-8 col-sm-6 col-xs-12 hidden-xs">         

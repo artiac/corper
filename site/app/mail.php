@@ -30,6 +30,27 @@
             return $this->message;
         }
 
+        public function registration_mail($first_name,$email,$password){
+            $this->subject = "Corper Life Password Reset";
+            $this->message = "<p style='font-size:14px'>Hey ".$first_name."</p>
+            <div style='margin-top:20px; font-size:14px;'>
+            <p>
+            Your requested for password reset on corperlife<span style='font-size:11px'><sup>TM</sup></span> website.</p>
+                
+            <p>Following are your new login details:-<br><br>
+                <b>Username</b>: ".$email."<br>
+                <b>Password</b>: ".$password."<br>
+            </p>
+            
+            Use the corperlife<span style='font-size:11px'><sup>TM</sup></span> website and be great!</p>
+
+            <p>Best wishes,<br>
+            Team Corperlife</p></div>";
+
+            $this->to = $email;
+            return $this->message;
+        }
+
         public function cv_mail($full_name,$code,$emails){
             $this->subject = "CV - ".$code." | CorperLife Career Center";
             $this->message = 'Hey '.$full_name.'
