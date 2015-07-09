@@ -18,7 +18,7 @@
             <div class="col-md-9 topics-col9">
                  <p class="para_big">  
                     <ol>
-                      <li> When posting/ submitting your CV Don't fold it. Show yourself some respect and put it in an A4 sized envelope.</li>
+                      <li>When posting/ submitting your CV Don't fold it. Show yourself some respect and put it in an A4 sized envelope.</li>
                       <li>If you are emailing your cv to an employer put your cover letter as the body of the email and your cv as an attachment.</li>
                       <li>Make sure your contact informations is accurate so that it gets to the right person.</li>
                       <li>When you apply to a job advert be careful of the information you give. Be diligent and do your research  and make sure the company is not a fraud. </li>

@@ -80,7 +80,7 @@
              {{Form::close()}}
              @else
               <h2 style="color:#FFF; text-align:center; line-height:2">
-                Dear {{Auth::user()->firstname}}
+                Hey! {{Auth::user()->firstname}}
               </h2>
               <h1 style="color:#FFF; text-align:center; line-height:2">Welcome to CorperLife<sup>TM</sup></h1>
              @endif           

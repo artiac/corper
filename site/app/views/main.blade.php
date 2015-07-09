@@ -19,8 +19,7 @@
   <link rel="shortcut icon" href="{{url('/assets/img/favi.png')}}">
 
   <!-- Fonts START -->
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
-  <link href='http://fonts.googleapis.com/css?family=Lora:400,700|Droid+Serif:400,700|Open+Sans:400,700,600|Slabo+27px' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
   <!-- Fonts END -->
 
   <!-- Global styles START -->
@@ -34,7 +33,8 @@
   {{ HTML::style("assets/css/style-responsive.css")}}       
   {{ HTML::style("assets/css/owl.carousel.css")}}       
   {{ HTML::style("assets/css/owl.theme.css")}}       
-  {{ HTML::style("assets/css/custom.css")}}         
+  {{ HTML::style("assets/css/custom.css")}}
+  {{ HTML::script("assets/js/custom.js?v=1.2")}}
   
   <!-- Theme styles END -->
 </head>
@@ -70,16 +70,12 @@
 
     {{ HTML::script("assets/js/layout.js")}}
     <script type="text/javascript">
-        jQuery(document).ready(function() {
+    jQuery(document).ready(function() {
             Layout.init(); 
+        $("#owl-example").owlCarousel({
+          'items':3
         });
-         $(document).ready(function() {
-
-          $("#owl-example").owlCarousel({
-            'items':3
-          });
- 
-            });
+    });
     </script>
     <!-- END PAGE LEVEL JAVASCRIPTS -->
   </body>

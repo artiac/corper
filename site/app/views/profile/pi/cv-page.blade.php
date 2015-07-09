@@ -81,6 +81,7 @@
                 <div class="form-group">                 
                   <div>
                     {{Form::text('cv_name','',array("class"=>"form-control","placeholder"=>"CV Name"))}}
+                    {{Form::hidden('email',Auth::user()->username,array("class"=>"form-control","placeholder"=>"CV Name"))}}
                     <span class="error">{{$errors->first('cv_name')}}</span>
                   </div>
                 </div>

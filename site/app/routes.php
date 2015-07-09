@@ -43,11 +43,6 @@ Route::get('/advertise', function(){
 Route::get('/faq', 'GeneralController@faq');
 
 Route::post('/faq', 'GeneralController@faqsubmit');
-Route::group(['prefix' => 'user-info', 'before' => 'auth'], function () {
-Route::get('/', 'HomeController@getFbpage');
-Route::put('/user-info/savefb-info', 'HomeController@putSavefblogin');
-});
-
 
 Route::get('/whycorperlife', function(){
 	$main = View::make('whycorper');
@@ -85,6 +80,10 @@ Route::post('/signup', 'UserController@postSignup');
 Route::group(['prefix' => 'profile', 'before' => 'auth'], function () {
 	Route::get('/', 'UserprofileController@getProfile');
 	Route::put('/savepi', 'UserprofileController@putSavePI');
+
+	Route::get('/nysc-details', 'UserprofileController@nyscDetails');
+	Route::put('/nysc-details', 'UserprofileController@putnyscDetails');
+	
 	Route::post('/uploadprofilepic', 'UserMediaController@uploadProfilePic');
 });
 
@@ -133,7 +132,7 @@ Route::group(['prefix' => 'cvbuilder'], function () {
 
 		$count= Cv::where('cv_code',Input::get('cvcode'))->count();
 		if($count == 0){
-			return Redirect::to('/cvbuilder');
+			return Redirect::Back()->with('fail','Invalid CV Code')->withInput();
 		} else {
 			return Redirect::to('/cvbuilder/cv/'.Input::get('cvcode'));
 		}

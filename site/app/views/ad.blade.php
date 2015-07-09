@@ -73,7 +73,6 @@
                               {{ Form::label('', 'Message:') }}
                               {{Form::textarea('message','',array("class"=>"form-control", "placeholder"=>"Description"))}}
                               <span class="error">{{$errors->first('message')}}</span>
-
                             </div>
                           </div>
                           <div style="margin:20px 0;">
@@ -85,7 +84,6 @@
                   </div>
                   <div class="col-md-2" style="padding-left:10px;">
                     <div style="border:solid 1px; min-height: 500px;"> Advertisement Space</div>
-
                   </div>
                 </div>
               </div>

@@ -1447,26 +1447,28 @@ div.content-form-page .checkbox-list {
 Pre-Footer and pre-footer elements
 ***/
 .pre-footer {
-	background: #313030;
-	color: #fff;
+	/*background: #313030;*/
+	 -moz-box-shadow:    inset 0 0 10px #CCC;
+   -webkit-box-shadow: inset 0 0 10px #CCC;
+   box-shadow:         inset 0 0 10px #CCC;
 }
 .pre-footer .container {
-	padding-top: 45px;
+	padding-top: 40px;
 }
 .pre-footer a {
-	color: #F0FDC6;
+	color: inherit;
 	text-decoration: underline !important;
 }
 .pre-footer h2,
 .ecommerce .pre-footer h2 {
-	font-size: 21px;
-	font-family: 'Droid Serif', serif;
-    color: #fff;
+	  text-shadow: 0px 0px 5px rgba(255,255,255,0.7);
+	font-size: 22px;
+	letter-spacing: 2px;
+    color: #4C5826;
+    font-weight: 600;
 }
 .pre-footer p {
 	margin-bottom: 20px;
-	  font-family: 'Lora', serif;
-	  color: #F0FDC6;
 }
 .pre-footer li {
 	margin-bottom: 6px;
@@ -1708,10 +1710,13 @@ Pre-Footer and pre-footer elements
 
 /* footer */
 .footer {
-	background: #272626;
+	background: #413C3D;
 	color: #fff;
 	font-size: 12px;
 	padding: 15px 0;
+	-moz-box-shadow:    0 -2px 5px 0px #ccc;
+	  -webkit-box-shadow: 0 -2px 5px 0px #ccc;
+	  box-shadow:         0 -2px 5px 0px #ccc;
 }
 .footer-light {
 	background: #F9F9F9;

@@ -11,7 +11,7 @@
             <div>                                   
               <div class="form-group">                  
                  
-                     <ul>
+              <ul>
                 @foreach($category_get as $category)                  
                 <li><a href="{{url('/forum/category/'.$category->id)}}">{{$category->category_name}}</a></li>
                 @endforeach
@@ -25,7 +25,7 @@
                       <div class="search-box">
                          {{Form::open(array("url"=>"/forum/search", "method" => "POST"))}}
                           <div class="input-group">
-                            <input type="text" name="topic_q" placeholder="Search Topic" class="form-control" value="@if(isset($search_for)) {{$search_for}} @endif ">
+                            <input type="text" name="topic_q" placeholder="Search Topic" class="form-control" value="@if(isset($search_for)){{$search_for}}@endif">
                             <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">Search</button>
                             </span>

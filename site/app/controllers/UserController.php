@@ -13,7 +13,9 @@ class UserController extends BaseController {
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
             if(Auth::attempt($cre)){
-                return Redirect::to('/profile');
+                if( empty(Auth::user()->serv_year) || empty(Auth::user()->batch))
+                    return Redirect::to('/profile/nysc-details');
+                else return Redirect::to('/profile');
             } else {
                 return  Redirect::Back()->withErrors($validator)->withInput()->with('fail','Username and password does not match');
             }
@@ -161,7 +163,9 @@ class UserController extends BaseController {
                         $subscriber = $Mailchimp_Lists->subscribe( $list_id, array( 'email' => $femail, 'fname' => $first_name, 'lname' => $last_name ) );
 
                         Auth::loginUsingId($new_user->id);
-                        return Redirect::to('/profile');
+                        if( empty(Auth::user()->serv_year) || empty(Auth::user()->batch))
+                            return Redirect::to('/profile/nysc-details');
+                        else return Redirect::to('/profile');
                     } else {
                         return Redirect::to('/')->with('fail', $femail.' is alredy registered with Corper Life');
                     }      
@@ -177,7 +181,9 @@ class UserController extends BaseController {
             }
 
             if ($user) {
-                return Redirect::to('/profile');
+                if( empty(Auth::user()->serv_year) || empty(Auth::user()->batch))
+                    return Redirect::to('/profile/nysc-details');
+                else return Redirect::to('/profile');
             } else {
                 $loginUrl = $facebook->getLoginUrl(array(
                     'scope'     => 'email', // Permissions to request from the user

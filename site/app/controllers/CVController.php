@@ -20,10 +20,12 @@ class CVController extends BaseController {
 
     public function postCreateNew(){
          $cre = [
-            'cv_name' => Input::get('cv_name')
+            'cv_name' => Input::get('cv_name'),
+            'email' => Input::get('email')
         ];
         $rules = [
-            'cv_name' => 'required'
+            'cv_name' => 'required',
+            'email' => 'required|email'
         ];
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
@@ -38,6 +40,7 @@ class CVController extends BaseController {
                 $cv->user_id = Auth::id();
             }
             $cv->cv_name = Input::get('cv_name');
+            $cv->email = Input::get('email');
             $cv->save();
             $cv_id = $cv->id;
             DB::table('sections')->insert(array(

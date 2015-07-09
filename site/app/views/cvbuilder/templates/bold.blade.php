@@ -113,7 +113,8 @@ text-align: center;
           <div @if($cv->show_profile_pic == 1)style="border-bottom:3px solid #000; "@endif>{{$cv->full_name}}</div>
           @if($cv->show_profile_pic == 1)
           <div class="right" style="margin-top:15px; width:600px !important ">
-            <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
+            <div class="right-1">
+              @if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
               @if($cv->email)<b>E-mail:</b> {{$cv->email}}<br>@endif
               @if($cv->phone_num)<b>Phone:</b> {{$cv->phone_num}}<br>@endif
               @if($cv->website)<b>Website:</b> {{$cv->website}}<br>@endif
@@ -138,30 +139,28 @@ text-align: center;
       <div class="clear"></div>
        @if($cv->show_profile_pic != 1)<hr> @endif
 
-       @if($cv->show_profile_pic != 1)
-      <div class="section_cv">            
-        <div class="left">Personal Information</div>
-          <div class="right">
-            <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
+        @if($cv->show_profile_pic != 1)
+           <div class="section_cv">            
+              <div class="left">Personal Information</div>
+              <div class="right">
+               <div class="right-1">@if($cv->add_line1 != '' || $cv->add_line2 != '' )<b>Address: </b>{{$cv->add_line1}}@if($cv->add_line1 != '' && $cv->add_line2 != ''), @endif{{$cv->add_line2}}<br>@endif
               @if($cv->email)<b>E-mail:</b> {{$cv->email}}<br>@endif
               @if($cv->phone_num)<b>Phone:</b> {{$cv->phone_num}}<br>@endif
-              @if($cv->website)<b>Website:</b> {{$cv->website}}<br>@endif
-            </div>
-            <div class="right-2">
-               @if($cv->dob)<b>DOB:</b> {{$dob}}<br>@endif              
+              @if($cv->website)<b>Website:</b> {{$cv->website}}<br>@endif</div>
+               <div class="right-2">   
+                @if($cv->dob)<b>DOB:</b> {{$cv->dob}}<br>@endif              
                @if($cv->marital_status != 0)<b>Marital Status:</b> {{$marital_status_vals[$cv->marital_status]}}<br>@endif              
-               @if($cv->state)<b>State of Origin:</b> {{$cv->state}}<br>@endif              
-               @if($cv->religion != 0 || ($cv->religion == -1 && $cv->religion_text != ''))
+               @if($cv->state)<b>State of Origin:</b> {{$cv->state}}<br>@endif                   
+                @if($cv->religion != 0 || ($cv->religion == -1 && $cv->religion_text != ''))
                  <b>Religion:</b> {{$cv->religion_name}} {{$cv->religion_text}}           
                  <br>
                @endif
-               @if($cv->local_government)<b>Local Government:</b> {{$cv->local_government}}@endif
-            </div>
-          </div>             
-        </div>
-        @endif
-      <div class="clear"></div>
-      @foreach($sections as $section)
+               @if($cv->local_government)<b>Local Government:</b> {{$cv->local_government}}@endif</div>
+              </div>             
+            </div> 
+            @endif
+       <div class="clear"></div>
+        @foreach($sections as $section)
         @if($section->type == 0) 
           @if($section->content !== '')
             <div class="section_cv">
@@ -253,6 +252,6 @@ text-align: center;
            @endif
          @endif
         @endforeach 
-    </div>
+    </div> 
   </body>
 </html>

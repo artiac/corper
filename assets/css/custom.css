@@ -395,9 +395,19 @@ span.error{
 	color: #F00;
 	font-size: 11px;
 }
+.pre-footer{
+	color: #656565;
+	font-weight: 400;
+}
+.pre-footer h2{
+	text-transform: uppercase;
+}
 .pre-footer span.error{
-	color: #EEE;
+	color: #F00;
 	font-size: 11px;	
+}
+.pre-footer .like-us{
+	overflow: hidden;
 }
 .passport_pic .avatar-view {
   height: 225px;
@@ -451,10 +461,13 @@ span.error{
 }
 #twitter{
 	padding-left: 0px;
-	font-size: 11px;
+	font-size: 12px;
 	list-style: none;
-	color: #EEE;
+	color: #656565;
+}
+#twitter li{
+	margin-bottom: 10px;
 }
 #twitter .meta{
-	color: #CCC;
+	color: #888;
 }

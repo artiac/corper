@@ -158,5 +158,36 @@ class UserprofileController extends BaseController {
             return Redirect::to('/knowledge?tab=2')->withErrors($validator)->withInput();
         }
     }
+
+    public function nyscDetails(){
+        $title = 'Corpers Profile | NYSC Details';
+        $description = 'NYSC corpers can personalise their experience by logging into the Dashboard and editing their Corperlife profiles';
+        $keywords = 'the Dashboard, corpers, corperlife profiles';
+        $this->layout->top_active = 2;
+        $states = DB::table('states')->lists('state','id');
+        $user = User::find(Auth::id());
+        return View::make('main',array("main"=>View::make('profile.nysc-details'),"title"=>$title,"description"=>$description,"keywords"=>$keywords));
+    }
+
+    public function putnyscDetails(){
+        $cre = [
+            'serv_year' => Input::get('service_year'),
+            'batch' => Input::get('batch')      
+        ];
+        $rules = [
+            'serv_year' => 'required|not_in:0',
+            'batch' => 'required|not_in:0'
+        ];
+        $validator = Validator::make($cre,$rules);
+        if($validator->passes()){
+            $user = User::find(Auth::id());
+            $user->serv_year = Input::get('service_year');
+            $user->batch = Input::get('batch');
+            $user->save();
+            return Redirect::to('/profile');            
+        } else {
+            return Redirect::Back()->withErrors($validator)->withInput();
+        }
+    }
 }
     

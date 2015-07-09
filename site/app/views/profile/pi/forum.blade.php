@@ -14,27 +14,29 @@
                 <strong>Success!</strong> {{Session::get('success')}}
               </div>
             @endif
-              <?php $count = 0; ?>
-              @foreach($topics as $topic)
-                <div class="row" style="background:#EEE; margin:10px 0; padding:10px 0">
-                  <div class="col-md-9">
-                    <div class="media" style="">
-                      <a href="#" class="pull-left">
-                        @if($topic->profile_pic == '')
-                        <img class="user-pic" src="{{url('assets/avatars/default.png')}}">
-                        @else
-                        <img class="user-pic" src="{{url($topic->profile_pic)}}">
-                        @endif
-                      </a>
-                      <div class="media-body">
-                       <a href="{{url("/forum/forum-page/".$topic->id)}}"><h4 class="media-heading">[{{$topic->category_name}}] {{$topic->title}}</h4></a> 
-                        <span>Posted by {{$topic->firstname}}</span>
-                      </div>
+            @foreach($topics as $topic)
+              <div class="row" style="background:#EEE; margin:10px 0; padding:10px 0">
+                <div class="col-md-9">
+                  <div class="media" style="">
+                    <a href="#" class="pull-left">
+                      @if($topic->profile_pic == '')
+                      <img class="user-pic" src="{{url('assets/avatars/default.png')}}">
+                      @else
+                      <img class="user-pic" src="{{url($topic->profile_pic)}}">
+                      @endif
+                    </a>
+                    <div class="media-body">
+                     <a href="{{url("/forum/forum-page/".$topic->id)}}"><h4 class="media-heading">[{{$topic->category_name}}] {{$topic->title}}</h4></a> 
+                      <span>Posted by {{$topic->firstname}}</span>
                     </div>
                   </div>
-                  <div class="col-md-3">{{ date("d-M-y H:i:s", strtotime($topic->created_at)) }}</div>
                 </div>
-              @endforeach  
+                <div class="col-md-3">{{ date("d-M-y H:i:s", strtotime($topic->created_at)) }}</div>
+              </div>
+            @endforeach
+            @if(sizeof($topics) == 0)
+              <h3>Sorry, no topics found.</h3>
+            @endif
           </div> 
         </div>
       </div>
