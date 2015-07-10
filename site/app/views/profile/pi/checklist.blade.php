@@ -109,11 +109,11 @@
                 <div class="portlet-body">
                   <ul class="pdf-ul">
                     <li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/CCamp-Ajebota-Checklists.pdf" target="_blank">Camp Ajebota Checklist</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp Aje-in-the-middle checklist.pdf" target="_blank">Camp Aje in the Middle Checklist</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp-Ajepako-checklists.pdf" target="_blank">Camp Ajepako Checklist</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/NYSC-Rulebook.pdf" target="_blank">NYSC Rulebook (by corprerlife)</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/NYSC-Songbook.pdf" target="_blank">NYSC Songbook (by corprerlife)</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Camp-Ajebota-Checklists.pdf" target="_blank">Camp Ajebota Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Camp Aje-in-the-middle checklist.pdf" target="_blank">Camp Aje in the Middle Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Camp-Ajepako-checklists.pdf" target="_blank">Camp Ajepako Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/NYSC-Rulebook.pdf" target="_blank">NYSC Rulebook (by corprerlife)</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/NYSC-Songbook.pdf" target="_blank">NYSC Songbook (by corprerlife)</a></li>
                     </li>                    
                   </ul>
                 </div>  
