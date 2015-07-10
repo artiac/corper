@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2015 at 03:18 PM
+-- Generation Time: Jul 10, 2015 at 05:54 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `cvs` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=84 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=85 ;
 
 --
 -- Dumping data for table `cvs`
@@ -123,7 +123,7 @@ INSERT INTO `cvs` (`id`, `cv_code`, `cv_name`, `user_id`, `full_name`, `phone_nu
 (19, '1fSO1joTmL', '0', 0, '', '0', '', '', '', '', '0000-00-00', '', '', '', '', '', '', 0, '', '2015-02-05 11:02:31', '2015-02-05 11:02:31'),
 (20, 'iBfVKrauet', '0', 0, '', '0', '', '', '', '', '0000-00-00', '', '', '', '', '', '', 0, '', '2015-02-05 11:33:06', '2015-02-05 11:33:06'),
 (21, 'l16IRSinN5', '0', 0, '', '0', '', '', '', '', '0000-00-00', '', '', '', '', '', '', 0, '', '2015-02-05 12:26:20', '2015-02-05 12:26:20'),
-(83, 'cZP6L4eEIZ', 'new', 5, 'kumari arti chauhan', '5478213525', 'art@gmail.com', 'naijagosocial.com', 'asdasd', 'ihioi', '1991-05-01', '2', 'assets/avatars/20150611183202.jpeg', '2', '5', '-1', 'Hindu', 1, 'Fguernhr', '2015-06-13 16:34:26', '2015-06-13 16:34:26'),
+(83, 'cZP6L4eEIZ', 'new', 5, 'kumari arti chauhan', '5478213525', 'art@gmail.com', 'naijagosocial.com', 'asdasd', 'ihioi', '1991-05-01', '2', 'assets/avatars/20150611183202.jpeg', '2', '5', '-1', 'Hindu', 1, 'Fguernhr', '2015-07-09 11:07:52', '2015-07-09 11:07:52'),
 (26, 'Vvp2lell8T', '0', 3, '', '0', '', '', '', '', '0000-00-00', '', '', '', '', '', '', 0, '', '2015-02-06 15:24:47', '2015-02-06 15:24:47'),
 (27, 'atPhi0kNjF', '0', 3, '', '0', '', '', '', '', '0000-00-00', '', '', '', '', '', '', 0, '', '2015-02-07 04:35:20', '2015-02-07 04:35:20'),
 (28, 'hYNURBt2UG', '0', 3, '', '0', '', '', '', '', '0000-00-00', '', '', '', '', '', '', 0, '', '2015-02-07 09:26:09', '2015-02-07 09:26:09'),
@@ -178,7 +178,8 @@ INSERT INTO `cvs` (`id`, `cv_code`, `cv_name`, `user_id`, `full_name`, `phone_nu
 (77, 'Rkiki5vrhG', '0', 4, '', '0', '', '', '', '', '1970-01-01', '0', '', '', '', '', '', 0, '', '2015-03-31 07:05:02', '2015-03-31 07:05:41'),
 (78, 'URgPlo5UHO', '0', 5, 'arti9876', '2147483647', 'abcd9@gmail.com', 'shreemnetworks', 'fb uewfuikhewi', 'f gewugriw', '1989-07-09', '2', 'assets/avatars/20150611174553.jpeg', '2', '2', '1', '', 1, 'government', '2015-06-11 12:47:06', '2015-06-11 12:47:06'),
 (81, 'TKYQTlX2Tl', 'My CV1', 6, 'fdsf sdf sdf sdf dsf', '0', '', '', '', '', '1974-03-01', '0', '', '1', '17', '1', '', 0, '', '2015-06-11 09:45:38', '2015-06-11 09:45:38'),
-(82, 'IK6HX8Ghvt', 'xxx111', 6, 'sdasdsad', '0', '', '', '', '', '1970-01-01', '0', '', '0', '0', '0', '', 0, '', '2015-05-19 18:15:31', '2015-05-19 18:15:31');
+(82, 'IK6HX8Ghvt', 'xxx111', 6, 'sdasdsad', '0', '', '', '', '', '1970-01-01', '0', '', '0', '0', '0', '', 0, '', '2015-05-19 18:15:31', '2015-05-19 18:15:31'),
+(84, 'DXT7utTyT3', 'newcv', 5, 'aruthu', '54898918', 'abcd9@gmail.com', '', 'vfmv bfv', 'vfmvfm vf gmfg', '1970-01-01', '0', '', '1', '19', '1', '', 0, 'grf', '2015-07-09 11:21:09', '2015-07-09 11:21:09');
 
 -- --------------------------------------------------------
 
@@ -270,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
   `level_id` int(11) NOT NULL,
   `priority` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `languages`
@@ -300,7 +301,13 @@ INSERT INTO `languages` (`id`, `cv_id`, `language_id`, `language_name`, `ability
 (31, 81, -1, 'dfdfdsf', '1', 1, 1),
 (32, 78, -1, 'khgujh', '1', 1, 1),
 (33, 83, 1, '', '3', 2, 2),
-(34, 83, -1, 'hindi', '3', 2, 1);
+(34, 83, -1, 'hindi', '3', 2, 1),
+(35, 84, 1, '', '1', 1, 6),
+(36, 84, -1, 'hyutgu', '1', 2, 5),
+(37, 84, 4, '', '1', 1, 4),
+(38, 84, 6, '', '2', 3, 3),
+(39, 84, 2, '', '2', 1, 2),
+(40, 84, -1, 'ht gth rthtr', '2', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -337,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `member_qus` (
   `question` text NOT NULL,
   `answer` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `member_qus`
@@ -348,9 +355,10 @@ INSERT INTO `member_qus` (`id`, `category_id`, `question`, `answer`) VALUES
 (2, 1, 'What if I lose my NYSC ID card?', 'Better start re-applying for next batch. Haha just kidding. Report to your state secretariat to get issued a new one, you may be told to pay a fine and expect the process to be long.'),
 (3, 1, 'What happens If I’m caught Breaking rules', 'Depends. Punishment ranges from fines and extension of service to even police arrest depending on how bad you messed up. Save yourself stress and…...dont be wrong!'),
 (4, 1, 'I need to travel abroad', 'We would recommend getting written permission from your state coordinator however, try letting your LGI (Local Government Inspector) know first…..hopefully you guys are pals.'),
-(5, 2, 'Where do I register for NYSC', 'If you attended a Nigerian university: you’ll take care of your NYSC Registration before graduation. If you’re not registered then maybe your graduation wasn’t legit. If you attended a foreign university: you’ll have to go to Abuja for your NYSC Registration (sucks for you). Check out our Official CorperLIfe™ NYSC Registration Guide & Checklist, it just might save you from having to make this trip multiple times.'),
-(6, 2, 'What if I lost my passport or academic credentials', 'You have to get a police report from the country where you lost it, or ask really nicely from our local police You also have to get a sworn affidavit saying that you lost it You will also require documents that confirm your identity and show information that was in the lost document'),
-(7, 2, 'What happens if I am Married', 'You will be posted to the same state where you spouse resides. You have to take your marriage certificate and evidence of change of name. We also advise that you take documents that prove your spouse does indeed reside in the state you want to be posted to e.g utility bills.'),
+(5, 2, 'Where do I register for NYSC', 'You must register online using the Government NYSC <a href="http://portal.nysc.org.ng/nysc1/">portal</a>. Be careful there are a lot of fake websites out there. We recommend you do it yourself. '),
+(31, 2, 'How do I get my call up letter?', 'There are 2 ways:-\r\n<p><b>Online:</b> For a Fee you can get it online Log in to the NYSC Portal and follow the instructions. This option is preferred because it allows you to be identified with your fingerprint (in case you lose your call up letter)</p>\r\n<p><b>Pick up:</b> You can still pick up your call up letters from your schools. If you are foreign trained, you might be able to get it from your secretariat.</p>  \r\n'),
+(29, 2, 'Can someone thumbprint for me?', 'Absolutely not! You must use your own fingers because officials will check it when you get to camp.'),
+(30, 2, 'I haven''t registered and registration has closed.', 'You must register online using the Government NYSC  <a href="http://portal.nysc.org.ng/nysc1/">portal</a> . Be careful there are a lot of fake websites out there.'),
 (8, 3, 'Is it safe to take my Smartphone to camp\r\n', 'Definately!! just dont leave it unattended. Camp can be pretty boring sometimes so you’ll need a quick fix of angry birds ® or Fruit Ninja ®… More importantly how else are you going to use CorperLife™!?!?!?!'),
 (9, 3, 'I forgot to bring (insert item here) to camp\r\n', 'Where there’s Mami….there’s a way. You can honestly find everything you need at Mami Market. We know a guy who went with only his documents, atm card and a bucket and survived.. true story.'),
 (10, 3, 'What Shouldn''t I bring to Camp?\r\n', 'Alcohol, Laptops, heavy duty hair equipment (e.g blower, flat-iron, dryer), Pressing Iron, weapons (obviously)'),
@@ -371,7 +379,11 @@ INSERT INTO `member_qus` (`id`, `category_id`, `question`, `answer`) VALUES
 (25, 4, 'I havent gotten My Allowee, what do I do?\r\n', 'Corpers don’t mess with Allowee. This could be caused by a number of issues like failure to do clearance and incorrect bank info written on clearance form. First of all check to see if other corpers with the same bank have gotten an alert. If they haven''t, let you LGI know and you can quickly diagnose and fix the problem. Do this as soon as you notice so that you don''t miss another one.'),
 (26, 4, 'I need to travel out\r\n', 'Don''t just leave!! you will cause a lot of stress for yourself, tell your LGI (hopefully you followed our advice and became really good friends), they will best know how to handle the issue and save you stress and sometimes money. Make sure you plan ahead and don’t miss any important days.'),
 (27, 5, 'What do I need to do?\r\n', 'Everything you need to know about Passing Out will be found in the CorperLife™ Guide.'),
-(28, 5, 'Where is my POP ceremony\r\n', 'Wow, if you are really asking this then you are still an Otondo! Contact your LGi, a friend or post it on the forum and find out. Be responsible and don''t miss it!');
+(28, 5, 'Where is my POP ceremony\r\n', 'Wow, if you are really asking this then you are still an Otondo! Contact your LGi, a friend or post it on the forum and find out. Be responsible and don''t miss it!'),
+(32, 2, 'What if I lost my passport or academic credentials', 'You have to get a police report from the country where you lost it, or ask really nicely from our local police You also have to get a sworn affidavit saying that you lost it You will also require documents that confirm your identity and show information that was in the lost document'),
+(33, 2, 'What do I do after online registration', 'If you have successfully registered, you can just chill and for camp to start. All you information will be verified in camp so start getting ready using the  <a href="http://www.corperlife.com/checklist-guide">corperlife camp checklist</a> . '),
+(34, 2, 'How do I check the status of my online Registration payment ', 'Go to the  <a href="http://portal.nysc.org.ng/nysc2/TransactionStatus">NYSC registration portal</a>  and insert you transaction ID. '),
+(35, 2, 'What happens if I am Married', 'You will be posted to the same state where you spouse resides. You have to upload your marriage certificate and evidence of change of name. We also advise that you take documents that prove your spouse does indeed reside in the state you want to be posted to e.g utility bills.');
 
 -- --------------------------------------------------------
 
@@ -509,7 +521,7 @@ CREATE TABLE IF NOT EXISTS `sections` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=528 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=536 ;
 
 --
 -- Dumping data for table `sections`
@@ -1005,15 +1017,23 @@ INSERT INTO `sections` (`id`, `cv_id`, `section_name`, `type`, `content`, `defau
 (510, 82, 'Passport Photo', 5, '', 1, 6, '2015-05-19 18:15:31', '0000-00-00 00:00:00'),
 (511, 82, 'Interests', 0, 'sdfsdf sdf sd', 1, 7, '2015-05-19 18:15:31', '0000-00-00 00:00:00'),
 (512, 82, 'References', 0, 'asd asd asd sad', 1, 8, '2015-05-19 18:15:31', '0000-00-00 00:00:00'),
-(519, 83, 'Work Experience', 1, '', 1, 1, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(520, 83, 'Qualfications', 0, 'Proficiency\r\nwith Mac and PC platforms, Microsoft Word, Excel, PowerPoint, Acrobat, HTML,\r\nWordpress, OmniGraffle, Facebook, Twitter.', 1, 2, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(521, 83, 'Education', 2, '', 1, 3, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(522, 83, 'NYSC', 3, '', 1, 4, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(523, 83, 'Languages', 4, '', 1, 5, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(524, 83, 'Passport Photo', 5, '', 1, 6, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(525, 83, 'Interests', 0, 'Vivamus\r\na tellus. Pellentesque habitant morbitristiquesenectus et netus et malesuada\r\nfames ac turpisegestas. Proinpharetranonummypede. Mauris et orci.\r\nAeneanneclorem.', 1, 7, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(526, 83, 'References', 0, 'Donec ut est in lectus\r\nconsequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in\r\nnunc porta tristique. Proin nec augue. Quisque aliquam tempor magna.\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis\r\negestas.', 1, 8, '2015-06-13 16:34:26', '0000-00-00 00:00:00'),
-(527, 83, 'section', 0, '&nbsp;Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&nbsp;', 0, 9, '2015-06-13 16:34:26', '2015-06-12 18:56:02');
+(519, 83, 'Work Experience', 1, '', 1, 1, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(520, 83, 'Qualfications', 0, 'Proficiency\r\nwith Mac and PC platforms, Microsoft Word, Excel, PowerPoint, Acrobat, HTML,\r\nWordpress, OmniGraffle, Facebook, Twitter.', 1, 2, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(521, 83, 'Education', 2, '', 1, 3, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(522, 83, 'NYSC', 3, '', 1, 4, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(523, 83, 'Languages', 4, '', 1, 5, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(524, 83, 'Passport Photo', 5, '', 1, 6, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(525, 83, 'Interests', 0, 'Vivamus\r\na tellus. Pellentesque habitant morbitristiquesenectus et netus et malesuada\r\nfames ac turpisegestas. Proinpharetranonummypede. Mauris et orci.\r\nAeneanneclorem.', 1, 7, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(526, 83, 'References', 0, 'Donec ut est in lectus\r\nconsequat consequat. Etiam eget dui. Aliquam erat volutpat. Sed at lorem in\r\nnunc porta tristique. Proin nec augue. Quisque aliquam tempor magna.\r\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis\r\negestas.', 1, 8, '2015-07-09 11:07:52', '0000-00-00 00:00:00'),
+(527, 83, 'section', 0, '&nbsp;Quisque aliquam tempor magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.&nbsp;', 0, 9, '2015-07-09 11:07:52', '2015-06-12 18:56:02'),
+(528, 84, 'Work Experience', 1, '', 1, 1, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(529, 84, 'Qualfications', 0, '', 1, 2, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(530, 84, 'Education', 2, '', 1, 3, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(531, 84, 'NYSC', 3, '', 1, 4, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(532, 84, 'Languages', 4, '', 1, 5, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(533, 84, 'Passport Photo', 5, '', 1, 6, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(534, 84, 'Interests', 0, '', 1, 7, '2015-07-09 11:21:09', '0000-00-00 00:00:00'),
+(535, 84, 'References', 0, '', 1, 8, '2015-07-09 11:21:09', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
