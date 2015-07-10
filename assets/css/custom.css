@@ -480,3 +480,7 @@ span.error{
 #twitter .meta{
 	color: #888;
 }
+
+.width-100{
+  width: 100%;
+}

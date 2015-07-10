@@ -51,7 +51,17 @@
       <hr>
       <div class="row mix-grid thumbnails">
         <div id="owl-example" class="owl-carousel">
-          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+             <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/Initial-though.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>The initial thought</h2>
+                    <p>2014 April 25th</p>
+                  <a data-rel="fancybox-button" title="2014 April 25th - The initial thought" href="assets/img/story/Initial-though1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+             <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
                <img alt="" src="assets/img/story/Opening-Master-Plan-Documen.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
@@ -61,7 +71,7 @@
                </div>           
             </div>                       
           </div>
-          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
                <img alt="" src="assets/img/story/Figuring-out-the-Name.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
@@ -71,59 +81,172 @@
                </div>           
             </div>                       
           </div>
-          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+             <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Creation-of-CorperLife-Logo.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/logo-creation.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
-                 <h2>Logo Creation begins</h2>
-                 <p>2014 May 15th </p>                 
-                  <a data-rel="fancybox-button" title="2014 May 15th - Logo Creation begins" href="assets/img/story/Creation-of-CorperLife-Logo1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <h2>Logo Creation begins</h2>
+                    <p>2015 May 15th</p>
+                  <a data-rel="fancybox-button" title="2015 May 15th - Logo Creation begins" href="assets/img/story/logo-creation1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
-          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+             <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Founders1.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/Initial-logo.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
-                  <h2>The Founders</h2>
-                  <p></p>                 
-                  <a data-rel="fancybox-button" title="The Founders" href="assets/img/story/Founders.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <h2>Initial Logo attempt</h2>
+                    <p>2014 May 25th</p>
+                  <a data-rel="fancybox-button" title="2014 May 25th - Initial Logo attempt" href="assets/img/story/Initial-logo1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
-          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/Facebook-Page1.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Facebook Page opened</h2>
+                  <p>2014 Sept 8th</p>                 
+                  <a data-rel="fancybox-button" title="Facebook Page opened" href="assets/img/story/Facebook-Page.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div> 
+             <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
                <img alt="" src="assets/img/story/time-to-eat1.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
-                  <h2>Inception of Idea</h2>
-                  <p>2014 Apr 12th</p>                 
-                  <a data-rel="fancybox-button" title="2014 Apr 12th - Inception of Idea" href="assets/img/story/time-to-eat.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <h2>No time for proper meal</h2>
+                  <p>2014 Sept 19th</p>                 
+                  <a data-rel="fancybox-button" title="2014 Sept 19th - No time for proper meal" href="assets/img/story/time-to-eat.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
+           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/Founders1.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Founders POP ()</h2>
+                  <p>2014 Oct 16th</p>                 
+                  <a data-rel="fancybox-button" title="2014 Oct 16th - Founders POP" href="assets/img/story/Founders.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/finalizing.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Finalising master plan</h2>
+                    <p>2014 Oct 22nd - 2014 Oct 22th</p>
+                  <a data-rel="fancybox-button" title="2014 Oct 22nd - 2014 Oct 22th - Finalising master plan" href="assets/img/story/finalizing1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/master-plan.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Master Plan Completed</h2>
+                    <p>2014 Oct 22nd</p>
+                  <a data-rel="fancybox-button" title="2014 Oct 22nd - Master Plan Completed" href="assets/img/story/master-plan1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/corper-logo-creation.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Corperlife logo creation process</h2>
+                    <p>2015 Jan 26th</p>
+                  <a data-rel="fancybox-button" title="2015 Jan 26th - Corperlife logo creation process" href="assets/img/story/corper-logo-creation1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/Final-logo.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Final logo</h2>
+                    <p>2015 Jan 26th</p>
+                  <a data-rel="fancybox-button" title="2015 Jan 26th - Final logo" href="assets/img/story/Final-logo1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>         
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
                <img alt="" src="assets/img/story/Working-on-checklists.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
-                  <h2>Working on checklists</h2>
-                  <p>2014 May 01st</p>                 
-                  <a data-rel="fancybox-button" title="2014 May 01st - Working on checklists" href="assets/img/story/Working-on-checklists1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                 <h2>Working on checklists</h2>
+                 <p>2015 Jan 14th</p>                 
+                  <a data-rel="fancybox-button" title="2015 Jan 14th - Working on checklists" href="assets/img/story/Working-on-checklists1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+         <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/first-fb-page.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                 <h2>First Facebook Post</h2>
+                 <p>2015 Feb 20th</p>                 
+                  <a data-rel="fancybox-button" title="2015 Feb 20th - First Facebook Post" href="assets/img/story/first-fb-page1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
           <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
             <div class="mix-inner">
-               <img alt="" src="assets/img/story/Facebook-Page1.jpg" class="img-rounded" style="width:100%">
+               <img alt="" src="assets/img/story/first-temp.jpg" class="img-rounded" style="width:100%">
                <div class="mix-details">
-                  <h2>Corper Life Facebook Page</h2>
-                  <p></p>                 
-                  <a data-rel="fancybox-button" title="Corper Life Facebook Page" href="assets/img/story/Facebook-Page.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                 <h2>First Temp website up!</h2>
+                 <p>2015 Apr 09th</p>                 
+                  <a data-rel="fancybox-button" title="2015 Apr 09th - First Temp website up!" href="assets/img/story/first-temp1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
-          </div>     
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/corper-ignore.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                 <h2>Corperlife Ignored</h2>
+                 <p>2015 Apr 09th</p>                 
+                  <a data-rel="fancybox-button" title="2015 Apr 09th - Corperlife Ignored" href="assets/img/story/corper-ignore1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/launched.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                 <h2>The Bugle (by corperlife™) begins</h2>
+                 <p>2015 Apr 17th</p>                 
+                  <a data-rel="fancybox-button" title="2015 Apr 17th - The Bugle (by corperlife™) begins" href="assets/img/story/launched1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/corperlife-free.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                 <h2>Corperlife Free Camp guide released</h2>
+                 <p>2015 Apr 25th</p>                 
+                  <a data-rel="fancybox-button" title="2015 Apr 25th - Corperlife Free Camp guide released" href="assets/img/story/corperlife-free1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>       
+          <div class="mix category_1 mix_all" style="display: block;  opacity: 1; padding:20px 20px 0px 20px;">
+            <div class="mix-inner">
+               <img alt="" src="assets/img/story/reached-100.jpg" class="img-rounded" style="width:100%">
+               <div class="mix-details">
+                  <h2>Reached 1000 Facebook Likes!</h2>
+                  <p>2015 June 06th</p>                 
+                  <a data-rel="fancybox-button" title="2015 June 06th - Reached 1000 Facebook Likes!" href="assets/img/story/reached-1001.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+               </div>           
+            </div>                       
+          </div>             
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
    

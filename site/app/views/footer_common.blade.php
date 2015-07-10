@@ -64,25 +64,24 @@
   <div class="container">
     <div class="row">
       <!-- BEGIN COPYRIGHT -->
-      <div class="col-md-6 col-sm-6 padding-top-10">
-        2014 © Corper Life Shop UI. ALL Rights Reserved. <a href="{{url('/website-rules')}}">Privacy Policy</a> | <a href="{{url('/website-rules')}}">Terms of Service</a>
-      </div>
+      <div class="col-md-5 col-sm-5 padding-top-10">
+        © 2015 CorperLife All Rights Reserved <a href="{{url('/website-rules')}}">Privacy Policy</a> | <a href="{{url('/website-rules')}}">Terms of Service</a>
       <!-- END COPYRIGHT -->
+    </div>
       <!-- BEGIN PAYMENTS -->
-      <div class="col-md-6 col-sm-6">
-        <ul class="social-footer list-unstyled list-inline pull-right">
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-skype"></i></a></li>
-          <li><a href="#"><i class="fa fa-github"></i></a></li>
-          <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-          <li><a href="#"><i class="fa fa-dropbox"></i></a></li>
+      <div class="col-md-3 col-sm-3">
+        <ul class="social-footer list-unstyled list-inline">
+          <li><a href="https://www.facebook.com/pages/Corperlife/137990536376099"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://plus.google.com/116063502261479284840/posts/ByspxFzavwd"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="https://www.linkedin.com/company/corperlife"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="https://twitter.com/corperlife"><i class="fa fa-twitter"></i></a></li>
         </ul>  
       </div>
       <!-- END PAYMENTS -->
+      <div class="col-md-4 col-sm-4 padding-top-10 pull-right" align="right">
+        Website Designed and Developed by <a target="blank" href="http://www.naijagosocial.com/">Naija Go Social</a>
+      </div>
+
     </div>
   </div>
 </div>

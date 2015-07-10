@@ -47,7 +47,6 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-phone"></i><span>+23-758736384748</span></li>
                         <li><i class="fa fa-envelope-o"></i><span>info@corperlife.com</span></li>
                     </ul>
                 </div>
@@ -57,7 +56,7 @@
                     <ul class="list-unstyled list-inline pull-right">
                         <!-- <li><a href="page-login.html">Log In</a></li>
                         <li><a href="page-reg-page.html">Registration</a></li> -->
-                    </ul>
+                    </ul> 
                 </div>
                 <!-- END TOP BAR MENU -->
             </div>

@@ -1,16 +1,103 @@
 <div class="container-fluid" style="text-align:center; background:#839742; color:#FFF;  padding:50px 0;">
   <div class="container quotes">
     <div class="visible">
-      <p class="quote" style="font-size:32px;">"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."</p>
-      <p class="author" style="font-size:20px;">Thomas A. Edison (Inventor, buisnessan)</p>
+      <p class="quote" style="font-size:32px;">"The master has failed more times than the beginner has even tried. -Anonymous"</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
     </div>
     <div>
-      <p class="quote" style="font-size:32px;">"2Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."</p>
-      <p class="author" style="font-size:20px;">Thomas A. Edison (Inventor, buisnessan)</p>
+      <p class="quote" style="font-size:32px;">"Logic will get you from A to B, Imagination will take you anywhere"</p>
+      <p class="author" style="font-size:20px;">Albert Einstein</p>
     </div>
     <div>
-      <p class="quote" style="font-size:32px;">"3Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."</p>
-      <p class="author" style="font-size:20px;">Thomas A. Edison (Inventor, buisnessan)</p>
+      <p class="quote" style="font-size:32px;">"Strong minds discuss ideas, average minds discuss events, weak minds discuss people"</p>
+      <p class="author" style="font-size:20px;">Socrates</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"If you think you can, you can. And if you think you can’t, you’re right."</p>
+      <p class="author" style="font-size:20px;">Henry Ford</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"Any fool can know. The point is to understand."</p>
+      <p class="author" style="font-size:20px;">Albert Einstein</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"People will forget what you said, People will forget what you did, but people will never forget how you made them feel."</p>
+      <p class="author" style="font-size:20px;">Maya Angelou</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"The secret of change is to focus all your energy not on fighting the old, but on building the new."</p>
+      <p class="author" style="font-size:20px;">Socrates</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"Build your own dream or someone else will hire you to build theirs."</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
+    </div> <div>
+      <p class="quote" style="font-size:32px;">"Failure  is not the opposite of success. It is part of success"</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"No one can blame you if you’re born broke, but if you die broke, then thats your fault."</p>
+      <p class="author" style="font-size:20px;">Skizzy Mars</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"You have to be ODD to be number ONE."</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"Don’t be afraid of being different, Be afraid of being the same as everyone else."</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"When ShI*T happens, turn it into fertiliser."</p>
+      <p class="author" style="font-size:20px;">Kute Blackson</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"Don’t live the same year 75 times and call it a Life"</p>
+      <p class="author" style="font-size:20px;">Robin Sharma</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"Inspiration exists, but it has to find you working."</p>
+      <p class="author" style="font-size:20px;">Pablo Picasso</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"It’s the reputation of affirmations that leads to belief. And once that belief becomes a deep conviction, things begin to happen."</p>
+      <p class="author" style="font-size:20px;">Muhammed Ali</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"If you want something you’ve never had, you have to do something you’ve never done"</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"A thought which does not result in an action is nothing much, and an action which does not proceed from a thought is nothing  at all."</p>
+      <p class="author" style="font-size:20px;">George Bernanos</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"The best way to predict the future is to create it"</p>
+      <p class="author" style="font-size:20px;">Peter Drucker</p>
+    </div>
+     <div>
+      <p class="quote" style="font-size:32px;">"The only place where success comes before work is in the dictionary."</p>
+      <p class="author" style="font-size:20px;">Vidal Sassoon</p>
+    </div>
+    <div>
+      <p class="quote" style="font-size:32px;">"In the real world, the smartest people are the people who make mistakes and learn. In school, the smartest people don't make any mistakes"</p>
+      <p class="author" style="font-size:20px;">Robert Kiyosaki</p>
+    </div>
+    <div>
+      <p class="quote" style="font-size:32px;">"A leader is best when people barely know he exists. When his work is done, his aim fulfilled, they will say: we did it ourselves."</p>
+      <p class="author" style="font-size:20px;">Lau Tzu</p>
+    </div>
+    <div>
+      <p class="quote" style="font-size:32px;">"A person who never made a mistake never tried anything new."</p>
+      <p class="author" style="font-size:20px;">Albert Einstein</p>
+    </div>
+    <div>
+      <p class="quote" style="font-size:32px;">"There are 2 rules for success…1. Never tell everything you know."</p>
+      <p class="author" style="font-size:20px;">Roger H.Lincon</p>
+    </div>
+    <div>
+      <p class="quote" style="font-size:32px;">"Entrepreneurship is living a few years of your life like most people won’t, so that you can spend the rest of your life like most people can't."</p>
+      <p class="author" style="font-size:20px;">Anonymous</p>
     </div>
   </div>
 </div>
@@ -175,7 +262,7 @@
                             <h4 class="job-seeker"><a href="{{url('/interview-questions')}}">Sample Interview Questions to Expect </a></h4>
                             <h4><a href="{{url('/questions-you-can-ask')}}">Questions you can ask interviewers</a></h4> 
                             <h4><a href="{{url('/interview-guide')}}">Interview Guide</a></h4> 
-                            <h4><a href="{{url('/')}}">Interview quick checklist (download Pdf file)</a></h4>                          
+                            <h4><a href="{{url('/assets/Resources/Interview Prep Checklist.pdf')}}">Interview quick checklist (download Pdf file)</a></h4>                          
                           </div>
                         </div>
                       </div>       
@@ -192,3 +279,4 @@
     </div>
     <!-- END PAGE CONTENT -->
   </div>
+

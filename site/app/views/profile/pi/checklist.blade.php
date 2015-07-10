@@ -39,34 +39,36 @@
           <div class="tab-content">
             <div class="tab-pane fade active in" id="tab_3_1">
               <p>
-                 For locally trained student, this should be painless, and done by your school, If you haven't registered you should question whether you actually graduated. This process should be relatively easy for you…. Thank God.</p>
-              <p> On the other hand, if you are a foreign-trained student this will probably be the one of the most frustrating parts of your NYSC experience - it’s a rude welcome back to Naija life. You first do the online registration on the Official Nysc website and then book your ticket to Abuja.</p> <p> It is important to use the CorperLife<sup>TM</sup> registration checklist and bring everything! You don't want to fly back because you left something important at home.  The rule is there are never enough documents. They want you to bring everything from your birth certificate to you original degree. Bring all originals and have at least 3 copies of each. The Officials will look through all the documents and confirm your identity.</p>
-              <p>Anyways this is when you begin meeting other corpers, your bonds will strengthen though the your shared troubles. With any luck, you might all end up in the same camp.
-                  So prepare adequately, make friends, take loads of pictures and build your NYSC story with CorperLIfe<sup>TM</sup>. 
-              </p>
+                 Lets begin by congratulating you on your recent graduation. By deciding to participate in the NYSC, program you have taken the first bold step towards becoming  a fine addition to our Nation. Hopefully you are as excited as we are about the year of service.</p>
+              <p> A lot of things have changed very recently in the way NYSC registration is done. In 2014 some corpers still had to travel to Abuja at great cost just to get their Documents verified. The Government changes,like online registration, have significantly reduced the stress involved. Get started by visiting the governments NYSC <a href="http://portal.nysc.org.ng/nysc2/">portal</a> to get your application started. At corperlife, we understand the whole process can be confusing so we are going to do our best to simply the process making sure you spend more time enjoying it.  If you find your self stuck then post the question on our <a href="http://www.corperlife.com/forum">forum</a> or send us a message on our <a href="https://www.facebook.com/pages/Corperlife/137990536376099">Facebook</a> page. </p>
+              <p>So sit back relax and …. lol just kidding, get you mind ready, motived and good to go cause you are about to be a corper!</p>
             </div>
             <div class="tab-pane fade" id="tab_3_2">
               <ul class="pdf-ul">
-                <li><i class="fa fa-file-pdf-o pdf-file pdf-file"></i><a href="assets/Resources/Registeration/Registeration-Checklist.pdf" target="_blank">Registration Checklist</a></li>
-                <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/Rulebook.pdf" target="_blank">Rulebook</a></li>
-                <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/Songbook.pdf" target="_blank">Songbook</a></li>
+                <li><i class="fa fa-file-pdf-o pdf-file pdf-file"></i><a href="assets/Resources/Registeration/NYSC-Rulebook-by-corprerlife.pdf" target="_blank">NYSC Rulebook (by corprerlife)</a></li>
+                <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/NYSC-Songbook-by-corprerlife.pdf" target="_blank">NYSC Songbook (by corprerlife)</a></li>
+                <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/Registeration-Checklist-Foreign-trained.pdf" target="_blank">Registeration Checklist (Foreign trained)</a></li>
+                <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/Registeration-Checklist-Locally-trained.pdf" target="_blank">Registeration Checklist (Locally trained)</a></li>
               </ul>
             </div>
             <div class="tab-pane fade" id="tab_3_3">
               <ol>
-                <li>Read the CorperLife<sup>TM</sup> Official Checklist checklist again!, tick-off things as you acquire them and have everything ready.</li>
-                <li>Take a sealed, official transcript with you to Abuja, it will save you stress.</li>
-                <li>Get connections before going to Abuja, find out if your Parents or Relatives know anyone who works in the NYSC office, this could really help the process and help you get everything done that day.</li>
+                <li>Make sure you use your own Thumbprint! Officials will check it in camp.</li>
+                <li>Only register on the official Government portal. There are a lot of fake websites out there.</li>
+                <li>Read the Corperlife <a href="http://www.corperlife.com/checklist-guide">Registration Checklist</a> checklist again! Also, tick-off things as you acquire them and have everything ready.</li>
+                <li>Take a sealed, official transcript with you to Camp, it will save you stress.</li>
+                <li>Get connections before going to Camp, find out if your Parents or Relatives know anyone who works with NYSC, this could really help the process and help you get everything done that day.</li>
                 <li>You have been given enough time to register. Don’t wait to do it last minute. </li>
-                <li>If you know anyone that lives in Abuja let them know you're coming, so that you have a place to stay if you can't finish registering that day.</li>
+                <li>If you know anyone that lives in Abuja let them know you're coming, so that you have a place to stay if you can't finish registering that day. </li>
                 <li>Make sure you upload ALL supporting documents in the online registration.</li>
-                <li>Get a dataplan on your smartphone so that if you need to scan and upload additional documents to the NYSC portal you can simply take a picture and upload straight from your phone… you wont have to enter that dreadful line.</li>
+                <li>Get a data plan on your smartphone so that if you need to scan and upload additional documents to the NYSC portal you can simply take a picture and upload straight from your phone… you wont have to enter that dreadful line.</li>
                 <li>Get a Bank account setup and get an ATM card before camp!. You can use the ATM machines in camp and people can put money in your account in case you run out.</li>
                 <li>Get a really good folder to keep all your important documents crisp and organised…. cause you will be taking them to camp and using them throughout your journey.</li>
                 <li>Camp Registration is 3 Days, there is no need getting there early on the first day…. relax everyone will get khaki…. but don't go too late so you get a good place to sleep and someone to trade kit with (so that it fits).</li>
+                <li>Print your call up letters before going to camp. There is a fee to obtain it.</li>
                 <li>Don’t Laminate your Call-up letters… Officials need to sign/stamp it in camp.</li>
-                <li>Take note of the day you have to get your call up letter, thats when you find what state/camp you are going to. Dont miss it.</li>
-                <li>Girls it is advisable to make sure your hair needs little maintenance and can withstand lots of sunshine/heat/rain. </li>
+                <li>Take note of the day you have to get your call up letter, thats when you find what state/camp you are going to. Don’t miss it.</li>
+                <li>Meet other people who are going to the same camp. The experience is sweeter with a friend.</li>
               </ol>
             </div>
           </div>
@@ -91,57 +93,69 @@
           <div class="tab-content">
             <div class="tab-pane fade active in" id="tab_2_1">
               <p>
-                 Camp begins with you finding out where will sleeping and receiving your kit. Before we continue, you need to understand that government run programs seem to enjoy making applications hard. With that in mind, you will probably spend 1 day doing just these two things. Our advice is, don't stress yourself!  Just go with the flow because you will be given enough time to do this and everyone will eventually get settled in. The truth is, If you can get through this, you will find Camp is by far the most fun experience in NYSC, don’t cheat yourself by skipping it.</p>
-                 <p> We say its fun because this is your chance to blend in, relax and feel the freedom of being absolutely nobody for 3 weeks, you could even test out a completely new personality.  Some Celebrities have to travel very far to get that, only difference is they stay in the best places and.. well.. camp is no 5-star hotel.</p>
-                  <p>The bedrooms will be packed, the bathrooms suck (degree varies by state),  there are lots of boring lectures to attend and you will be woken up at 4:30ish by the sound of the mood killing bugle and whistles</p>
-                  <p>So whats makes camp so awesome? Well to start off, there is the Mami market. You can find anything in there; friends, groceries, laundry services, bukkas with correct food, tailors, barbers/Hairdressers and even a video game arcade! At night, the Mami market basically transforms into a nightclub/bar with music, drinks and all kinds of food (like shawarmas, suya, small chops, even freakin’ cotton candy). And you know what the best part is? Everything is offered at corper rates ….i.e its dirt cheap.</p>
-                  <p>You will also experience some company sponsored competitions with nice prizes, and if you’re lucky, your camp may even have a concert by a big name artist. During all this, many inter-platoon competitions, reminiscent of secondary school interhouse sports, will be going on. 
-                  </p>
-                  <p>The Officials actually do a good job of making every day interesting. By the end of the 3 weeks you won’t be able to help but feel a bit sad about leaving. It’s like the last day in boarding school, you will miss the environment and all the people you are leaving. Hopefully you diligently collected contact details of all your camp friends. </p>
-                  <p>All in all, camp is a once-in-a-lifetime experience you don't want to miss out on. So set your expectation lows, make friends, take loads of pictures and build your NYSC story with CorperLIfe<sup>TM</sup>.
-              </p>
+                 Camp begins with finding out where you will sleeping and receiving your kit. Before we continue, its important you understand a few things have changed recently, for one, foreign students now do their verification in camp rather than the tedious trip to Abuja also, you get your call up number in text or online. The Government has clearly made an effort to simplify the process but,it may take some time for those higher level changes to efficiently show at camp and local govt level. </p>
+                 <p>Since verification and settling-in will be happening at the same time, our prediction is you will probably spend more than two days going through it all. If it proves to be otherwise, please let us know on our Facebook page and we will send the government an official corperlife™ commendation (we are serious). </p>
+                  <p>Don’t.Stress.Yourself. Settling in will take a few days and camp won’t start till everyone is settled in, so just go with the flow, there will DEFINITELY be enough time to get yourself sorted out. As far as living goes, the bedrooms will be packed, the bathrooms can be below standard (degree varies by state),  there are also lots of boring lectures to attend and you WILL be woken up at 4:30ish by the sound of the almighty bugle, whistles  and shouting soldiers. That aside, camp is by far the most fun experience in NYSC and one worth remembering and sharing with friends.This is your chance to do it so don’t cheat yourself out of an amazing experience by skipping it. Camp is a great opportunity toMake new friends, relax and enjoy the freedom of being absolutely carefree for three weeks. It is essentially a government sponsored retreat.</p>
+                 <p>Probably the greatest thing about camp is Mami market where you will (should) spend most of your time. Everyone that has been through camp knows anything is possible in Mami; friends, future spouses, groceries, laundry services, bukkas with correct food, tailors, barbers/hairdressers and even a video game arcade! At night, the Mami market basically transforms into a nightclub/bar with current music, drinks and all kinds of food (like shawarmas, suya, small chops, even cotton-candy). And you know what the best part is? Everything is offered at corper rates ….i.e dirt cheap.
+
+</p>
+                 <p>You will also experience some company sponsored competitions with the possibility of earning nice prizes, and if you’re lucky, your camp may even have a concert performed by a surprise big-name artist. During all this, many inter-platoon competitions, reminiscent of secondary school interhouse sports, will be going on. The Officials do a good job of making sure there are always things to do. 
+
+</p>
+                 <p>By the end of the 3 weeks you won’t be able to help but feel a bit sad about leaving. It’s like that last day in boarding school, you will miss the once hostile environment and all the people you are leaving. Hopefully you diligently collected contact details of all your camp friends, so keeping in touch wont b an issue. All in all, camp is a once-in-a-lifetime experience you really don't want to miss out on. So set your expectations low, make friends, learn, take lots of pictures and keep up with Corperlife™. </p>
+              
             </div>
             <div class="tab-pane fade" id="tab_2_2">
                 <div class="portlet-body">
                   <ul class="pdf-ul">
                     <li>
-                      Registration Checklist 
-                      <ol class="pdf-ul">
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp -Ajebota-checklist.pdf" target="_blank">Camp Ajebota Checklist</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp-Aje-in-the-middle-checklist.pdf" target="_blank">Camp Aje in the Middle Checklist</a></li>
-                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp-Ajepako-checklist.pdf" target="_blank">Camp Ajepako Checklist</a></li>
-                      </ol>
-                    </li>
-                    <li>
-                      <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/Rulebook.pdf" target="_blank">Rulebook</a>
-                    </li>
-                    <li>
-                      <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Registeration/Songbook.pdf" target="_blank">Songbook</a>
-                    </li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/CCamp-Ajebota-Checklists.pdf" target="_blank">Camp Ajebota Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp Aje-in-the-middle checklist.pdf" target="_blank">Camp Aje in the Middle Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/Camp-Ajepako-checklists.pdf" target="_blank">Camp Ajepako Checklist</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/NYSC-Rulebook.pdf" target="_blank">NYSC Rulebook (by corprerlife)</a></li>
+                        <li><i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Camp/Checklists/NYSC-Songbook.pdf" target="_blank">NYSC Songbook (by corprerlife)</a></li>
+                    </li>                    
                   </ul>
                 </div>  
             </div>
             <div class="tab-pane fade" id="tab_2_3">
               <ol>
-                <li>Take a chill pill first day, there is no point hustling in line and getting into arguments for kits….. they will never run out! Plus you can rock your normal clothes for at least 2 days while waiting for lines to die down.</li>
-                <li>Lower your expectations…(if they’re not already low enough), and you might be pleasantly surprised. </li>
-                <li>Mami market is your friend…. Everything you need can be found here. Its also a great place to meet new people.</li>
-                <li>Do not carry a laptop!  you won't get to use it most of the time and it's too difficult to charge, take only your smartphone and make sure you have a data plan on it.</li>
-                <li>There are ATM machines in some camps (lagos/Abuja.. Confirmed).... Bring an atm card.</li>
-                <li>Bathrooms are cleaned on a daily basis, if you time it right you will get to use a clean bathroom.</li>
-                <li>Use a hanger to keep your towel off dirty surfaces while taking a shower.</li>
-                <li>Don’t test Soldiers……. They can be a crazy bunch</li>
-                <li>If you want to escape the marching parade, find out about special groups early and join them…. Groups like red cross, and OBS (Orientation Broadcasting service)</li>
-                <li>You don’t have to bring too much money, things are pretty cheap in camp so 12k should be enough. There might be ATM machines so bring an Atm Card.</li>
-                <li>This is the time to add some solid connections to your network! Your bunk-mate might be the governor’s son or better yet future governor, you never know. So meet many people. </li>
-                <li>Take lots of photos because it tells a better story of your experience. </li>
-                <li>Write your Call-up number on all your clothes so they don't get mixed up when you take them to the many campus washing services. </li>
-                <li>If you happen to lose something, there is a good chance a “good samaritan” as picked it up and giving it to Obs (Orientation Broadcasting service)</li>
-                <li>Check out the SAED (Skills Acquisition and Entrepreneurship Development) programs when they get to camp see if any interest you.</li>
-                <li>Make sure to get information about your Allowee Bank, so you can get paid.</li>
-                <li>the first Allowance is given in camp, so dont miss it!</li>
-                <li>Sign the Book of Life before leaving camp!</li>
-                <li>Have fun, participate in activities and make friends. Remember...a lot your experience is your own creation. </li>
+               <li>Use the checklist to know exactly what to bring to camp. we provided them in this book and also online.</li>
+               <li>Take a chill pill first day, there is no point hustling in line and getting into arguments for kits;they never run out. Plusyou can rock your normal clothes for at least the first two days while waiting for lines to die down.</li>
+               <li>Lower your expectations (if they’re not already low enough), and you might be pleasantly surprised. </li>
+               <li>Mami market is your friend. Everything you need can be found here. Its also a great place to meet new people.</li>
+               <li>Do not carry a laptop!  you won't get to use it. Take only your smartphone and make sure you have a data plan on it.</li>
+               <li>Bathrooms are cleaned on a daily basis, if you time it right, you will get to use a clean bathroom.</li>
+               <li>Use a hanger to keep your towel off dirty surfaces while taking a shower.</li>
+               <li>Dont use the white government issued shoes, buy a pair of rubber shoes in mami, they are very easy to keep white.</li>
+               <li>Don’t vex the soldiers. They are always better friends than enemies. In fact buy them a drink in mami market every now and then. You might need a favor one day.</li>
+               <li>If you want to escape the marching parade, find out about special groups early and join them…. groups like red cross, and OBS (Orientation Broadcasting service)</li>
+               <li>You don’t have to bring too much money, things are pretty cheap in camp so 12,000 Naira should be enough. There are ATM machines (Lagos and Abuja confirmed) so bring an ATM Card.   </li>
+               <li>This is the time to add some solid connections to your network! So get out of your comfort zone and meet many people.</li>
+               <li>Store new contacts on your phone with the tag NYSC-camp so that you remember where you met. (Ibiso vs Ibiso NYSC camp)</li>
+               <li>Take lots of photos. </li>
+               <li>Write your Call-up number on all your clothes so they don't get mixed up when you take them to the many campuswashing services.</li>
+               <li>If you happen to lose something, there is a good chance a “good samaritan” as picked it up and giving it to OBS (Orientation Broadcasting service)</li>
+               <li>Check out the SAED (Skills Acquisition and Entrepreneurship Development) programs when they get to camp see if any interest you. (if available)</li>
+               <li>Bring a pack of handkerchiefs to protect your white shorts when you have to sit on parade ground.</li>
+               <li> Make sure to get information about your Allowee Bank, so you can get paid during the year.</li>
+               <li>The first Allowance is given in camp, so don’t miss it!</li>
+               <li>Make sure you sign the Book of Life before leaving camp if you don’t, passing out will be difficult.</li>
+               <li>Make sure you sign the Book of  Life before leaving camp if you don’t, passing out will be stressful!</li>
+               <li>Trust your instincts when it comes to food. If you are not sure about it don’t put it in your mouth.</li>
+               <li>From a relationship and stick to certain service providers in mami, they might show appreciation for your loyalty</li>
+               <li>Get a friend to help you take pictures during your Man-o-War training. It is the most action packed time in camp. Ow will be dressed in full kit, and looking rugged….like a true corper.</li>
+               <li>Do not laminate your call-up letter, Officials might have to sign it.</li>
+               <li>make sure your hair is easy to maintain and is comfortable under the sun.</li>
+               <li>People rarely get the right sized kit. Quickly find someone to trade with and hopefully meet a new person in the process.</li>
+               <li>There are religious groups on camps that you can join so don’t fear losing faith.</li>
+               <li>Never ever, ever, lose your cap! write your name/ID in it.</li>
+               <li>Get data on your phone before coming to camp.</li>
+               <li>There are places to charge your phones in Mami, they will tag your phone so it doesn’t get stolen.</li>
+               <li>There will be doctors/pharmasits that offer free health care services/drugs to corpers</li>
+               <li>Nobody tries to keep you in camp, If you are really sick (or homesick) and not enjoying it, then go home.</li>
+               <li>Companies give out a lot of free stuff to corpers! keep your eyes and ears open for camp Awoof (deals).</li>
+               <li>Have fun, participate in activities and make friends. Remember, your experience is your own creation.</li>
               </ol>
             </div>
           </div>
@@ -178,8 +192,8 @@
             </div>
             <div class="tab-pane fade" id="tab_4_2">
               <ul class="pdf-ul">
-                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Serving-PPA/Rulebook.pdf" target="_blank">Rulebook</a></li>
-                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Serving-PPA/Serving-PPA-checklist.pdf" target="_blank">Serving PPA Checklist</a></li>
+                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Serving-PPA/Serving-checklist.pdf" target="_blank"> Serving(PPA) checklist</a></li>
+                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Serving-PPA/NYSC-Rulebook.pdf" target="_blank">NYSC Rulebook (by corprerlife)</a></li>
               </ul>   
                 
             </div>
@@ -222,11 +236,9 @@
                 </p>
             </div>
             <div class="tab-pane fade" id="tab_6_2">
-              <ol class="pdf-ul">
-                <li><a href="javascript:;">NYSC ID card</a></li>
-                <li><a href="javascript:;">Final clearance letter (<span style="color:red;">Must be Stamped and signed</span>)</a></li>
-                <li><a href="javascript:;">Completely signed CD card.</a></li>
-              </ol>
+             <ul class="pdf-ul">               
+                <li> <i class="fa fa-file-pdf-o pdf-file"></i><a href="assets/Resources/Passing-out/Passing-parade-checklist.pdf" target="_blank">Passing out parade (POP) checklist</a></li>
+              </ul>   
             </div>
             <div class="tab-pane fade" id="tab_6_3">
               <ol>
