@@ -65,6 +65,9 @@
     {{ HTML::script("assets/js/back-to-top.js")}}
     {{ HTML::script("assets/js/owl.carousel.min.js")}}
     {{ HTML::script("assets/js/owl.carousel.js")}}
+    {{ HTML::script("assets/js/wysihtml5-0.3.0.js")}}
+    {{ HTML::script("assets/js/bootstrap-wysihtml5.js")}}
+    
     {{ HTML::script("assets/js/custom.js?v=1.2")}}
 
     <!-- END CORE PLUGINS -->

@@ -1737,6 +1737,7 @@ Pre-Footer and pre-footer elements
 }
 .footer .padding-top-10 {
 	opacity: 0.5;
+	  display: -webkit-box;
 }
 .footer .list-inline > li:last-child {
 	padding-right: 0;
