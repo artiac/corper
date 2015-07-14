@@ -490,3 +490,17 @@ span.error{
 .author{
 font-size:20px;
 }
+.mix-grid .mix{
+  display: block;  
+  opacity: 1; 
+  padding:20px 20px 0px 20px;
+}
+.min-height-300{
+min-height: 300px;
+}
+.max-height-300{
+max-height: 300px;
+}
+.mix-grid .mix .mix-details h2 {
+	margin-top: 80px;
+}
