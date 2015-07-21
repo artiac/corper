@@ -50,7 +50,7 @@ class UserprofileController extends BaseController {
         $this->layout->description = 'Find the CVs/resumes you created using the Corperlife CV builder here.';
         $this->layout->keywords = 'CV builder, CVs, corperlife';
         $this->layout->top_active = 6;
-        $cvs = Cv::where('user_id',Auth::id())->get();
+        $cvs = Cv::where('user_id',Auth::id())->orderBy('created_at','DESC')->get();
         $this->layout->main = View::make("profile.pi.cv-page",['cvs'=>$cvs]);
     }
 
@@ -260,21 +260,90 @@ class UserprofileController extends BaseController {
         $cv->religion = $cv_old->religion;
         $cv->religion_text = $cv_old->religion_text;
         $cv->show_profile_pic = $cv_old->show_profile_pic;
-        $cv->local_government= $cv_old->local_governmen;
+        $cv->local_government= $cv_old->local_government;
         $cv->save();
         $new_cv_id = $cv->id;
-        
-        DB::table('sections')->insert(array(
-            array("cv_id"=>"$cv_id","section_name"=>"Work Experience","type"=>"1","priority"=>"1","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Qualfications","type"=>"0","priority"=>"2","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Education","type"=>"2","priority"=>"3","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"NYSC","type"=>"3","priority"=>"4","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Languages","type"=>"4","priority"=>"5","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Passport Photo","type"=>"5","priority"=>"6","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"7","default"=>"1"),
-            array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"8","default"=>"1"),
-        ));
-        return Redirect::to('/cvbuilder/cv/'.$cv->cv_code);
+
+        // copying sections
+
+        $sections = Section::where('cv_id',$cv_old->id)->get();
+        foreach ($sections as $section) {
+            $section_new = new Section;
+            $section_new->cv_id = $new_cv_id;
+            $section_new->section_name = $section->section_name;
+            $section_new->type = $section->type;
+            $section_new->content = $section->content;
+            $section_new->default = $section->default;
+            $section_new->priority = $section->priority;
+            $section_new->save();
+        }
+
+        // copying educations
+
+        $educations = Education::where('cv_id',$cv_old->id)->get();
+        foreach ($educations as $education) {
+            $education_new = new Education;
+            $education_new->cv_id = $new_cv_id;
+            $education_new->coursename = $education->coursename;
+            $education_new->institutename = $education->institutename;
+            $education_new->add_line1 = $education->add_line1;
+            $education_new->add_line2 = $education->add_line2;
+            $education_new->startdate = $education->startdate;
+            $education_new->enddate = $education->enddate;
+            $education_new->otherinfo = $education->otherinfo;
+            $education_new->priority = $education->priority;
+            $education_new->save();
+        }
+
+        // copying languages
+
+        $languages = Language::where('cv_id',$cv_old->id)->get();
+        foreach ($languages as $language) {
+            $language_new = new Language;
+            $language_new->cv_id = $new_cv_id;
+            $language_new->language_id = $language->language_id;
+            $language_new->language_name = $language->language_name;
+            $language_new->ability_id = $language->ability_id;
+            $language_new->level_id = $language->level_id;
+            $language_new->priority = $language->priority;
+            $language_new->save();
+        }
+
+        // copying nysc
+
+        $nyscs = Nysc::where('cv_id',$cv_old->id)->get();
+        foreach ($nyscs as $nysc) {
+            $nysc_new = new Nysc;
+            $nysc_new->cv_id = $new_cv_id;
+            $nysc_new->year = $nysc->year;
+            $nysc_new->batch = $nysc->batch;
+            $nysc_new->ppa = $nysc->ppa;
+            $nysc_new->cd = $nysc->cd;
+            $nysc_new->otherinfo = $nysc->otherinfo;
+            $nysc_new->priority = $nysc->priority;
+            $nysc_new->save();
+        }
+
+
+         // copying work_exp
+
+        $work_exps = WorkExperience::where('cv_id',$cv_old->id)->get();
+        foreach ($work_exps as $work_exp) {
+            $work_exp_new = new WorkExperience;
+            $work_exp_new->cv_id = $new_cv_id;
+            $work_exp_new->title = $work_exp->title;
+            $work_exp_new->company = $work_exp->company;
+            $work_exp_new->location = $work_exp->location;
+            $work_exp_new->startdate = $work_exp->startdate;
+            $work_exp_new->enddate = $work_exp->enddate;
+            $work_exp_new->otherinfo = $work_exp->otherinfo;
+            $work_exp_new->priority = $work_exp->priority;
+            $work_exp_new->save();
+        }
+
+        return Redirect::back();
+
+
     }
 }
     
