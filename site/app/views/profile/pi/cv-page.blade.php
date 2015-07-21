@@ -55,6 +55,7 @@
                     <td>
                       <a href="{{url("/cvbuilder/cv/".$cv->cv_code)}}"> <span class="label label-lg label-success">
                       Edit</span></a>
+                      <a href="{{url("/cv-page/duplicate/".$cv->cv_code)}}"> <span class="label label-lg label-warning">Duplicate</span></a>
                       <a href="{{url("/cv-page/delete/".$cv->cv_code)}}"> <span class="label label-lg label-danger">
                       Delete</span></a>
                     </td>                 

@@ -228,5 +228,53 @@ class UserprofileController extends BaseController {
             return Redirect::back()->withErrors($validator)->withInput();
         }
     }
+
+    public function duplicatecvpage($cv_code){
+        $cv_old = Cv::where('cv_code',$cv_code)->first();
+        if($cv_old->user_id != Auth::id()) return 'False';
+        $new_cv_name = $cv_old->cv_name.' - Copy';
+        $cv = new Cv;
+        do {
+            $random = str_random(10);
+            $count = Cv::where('cv_code',$random)->count();
+        } while($count != 0);
+
+        $cv->cv_code = $random;
+        if(Auth::check()){
+            $cv->user_id = Auth::id();
+        }
+
+        $cv->cv_name = $new_cv_name;
+        $cv->user_id = $cv_old->user_id;
+        $cv->full_name = $cv_old->full_name;
+        $cv->phone_num = $cv_old->phone_num;
+        $cv->email = $cv_old->email;
+        $cv->website = $cv_old->website;
+        $cv->add_line1 = $cv_old->add_line1;
+        $cv->add_line2 = $cv_old->add_line2;
+        $cv->dob = $cv_old->dob;
+        $cv->marital_status = $cv_old->marital_status;
+        $cv->profile_image = $cv_old->profile_image;
+        $cv->sex = $cv_old->sex;
+        $cv->state_origin = $cv_old->state_origin;
+        $cv->religion = $cv_old->religion;
+        $cv->religion_text = $cv_old->religion_text;
+        $cv->show_profile_pic = $cv_old->show_profile_pic;
+        $cv->local_government= $cv_old->local_governmen;
+        $cv->save();
+        $new_cv_id = $cv->id;
+        
+        DB::table('sections')->insert(array(
+            array("cv_id"=>"$cv_id","section_name"=>"Work Experience","type"=>"1","priority"=>"1","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Qualfications","type"=>"0","priority"=>"2","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Education","type"=>"2","priority"=>"3","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"NYSC","type"=>"3","priority"=>"4","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Languages","type"=>"4","priority"=>"5","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Passport Photo","type"=>"5","priority"=>"6","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"Interests","type"=>"0","priority"=>"7","default"=>"1"),
+            array("cv_id"=>"$cv_id","section_name"=>"References","type"=>"0","priority"=>"8","default"=>"1"),
+        ));
+        return Redirect::to('/cvbuilder/cv/'.$cv->cv_code);
+    }
 }
     

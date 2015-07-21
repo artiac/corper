@@ -121,6 +121,7 @@ Route::group(['prefix' => 'knowledge', 'before' => 'auth'], function () {
 });
 Route::group(['prefix' => 'cv-page', 'before' => 'auth'], function () {
 	Route::get('/', 'UserprofileController@getcvpage');
+	Route::get('/duplicate/{code}', 'UserprofileController@duplicatecvpage');
 	Route::get('/delete/{code}', 'UserprofileController@deleteCV');
 });
 
