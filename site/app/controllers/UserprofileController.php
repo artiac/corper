@@ -189,5 +189,44 @@ class UserprofileController extends BaseController {
             return Redirect::Back()->withErrors($validator)->withInput();
         }
     }
+
+    public function changePassword(){
+        $this->layout->title = 'Corpers Profile | Change password';
+        $this->layout->description = 'NYSC corpers can personalise their experience by logging into the Dashboard and editing their Corperlife profiles.';
+        $this->layout->keywords = 'the Dashboard, corpers, corperlife profiles';
+        $this->layout->top_active = 2;
+        $user = User::find(Auth::id());
+        if($user->profile_pic == '') $user->profile_pic = 'assets/avatars/default.png';
+        $this->layout->main = View::make("profile.pi.change-password",array("user"=>$user));
+    }
+
+    public function putChangePassword(){
+        $credentials = [
+            'old_password' => Input::get('old_password'),
+            'new_password' => Input::get('new_password'),
+            're_new_password' => Input::get('re_new_password')
+        ];
+        $rules = [
+            'old_password' => 'required',
+            'new_password' => array('required', 'min:8'),
+            're_new_password' => array('required')
+        ];
+        $validator = Validator::make($credentials, $rules);
+        if ($validator->passes()) { 
+            if (Hash::check(Input::get('old_password'), Auth::user()->password )) {
+                if(Input::get('new_password') === Input::get('re_new_password')){
+                    $password = Hash::make(Input::get('new_password'));
+                    $user = User::find(Auth::id());
+                    $user->password = $password;
+                    $user->save();
+                    return Redirect::back()->withInput()->with('success', 'Password successfully changed');
+                } else return Redirect::back()->withInput()->with('failure', 'New passwords does not match.');
+            } else {
+                return Redirect::back()->withInput()->with('failure', 'Old password does not match.');
+            }
+        } else {
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
+    }
 }
     

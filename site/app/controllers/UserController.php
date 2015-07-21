@@ -46,7 +46,7 @@ class UserController extends BaseController {
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
                 $password = Hash::make(Input::get('password'));
-                $id = DB::table("users")->insertGetID(array('firstname'=>Input::get("firstname"),'lastname'=>Input::get("lastname"),'username'=>Input::get("email"),'password' => $password));
+                $id = DB::table("users")->insertGetID(array('firstname'=>Input::get("firstname"),'lastname'=>Input::get("lastname"),'username'=>Input::get("email"),'password' => $password, 'sex'=>Input::get("gender"), 'serv_year'=>Input::get("serv_year"),'batch'=>Input::get("batch")));
                     require app_path().'/mail.php';
                     require app_path().'/libraries/PHPMailerAutoload.php';
 

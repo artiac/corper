@@ -37,7 +37,7 @@
 						              <a href="javascript:void(0);" class="pull-right" style="color:#FFF"><i class="fa fa-bars"></i></a>
 						            </div>
 								<div id="sortable1" class="cv-links">
-								<div class="section_link active start" data-show="#prop-1">Basic Information<span class="selected"></span></div>										
+								<div class="section_link active start" data-show="#prop-1">Basic Information<span class="selected"></span></div>		
 									@foreach($sections as $section)
 									<div class="section_link" data-show="#prop{{$section->id}}">
 										<span class="selected"></span>
@@ -51,7 +51,6 @@
 									@endforeach 
 								</div>
 								<div class="drag">Drag to arrange the order of sections</div>
-
 								<div class="new"> <a class="btn green" href="#" data-toggle="modal" data-target="#Modal" id="add_new_section">+ Add new section</a></div>     
 							</div>                      
 							<div class="col-md-9" id="section_panel" style="min-height:500px">			

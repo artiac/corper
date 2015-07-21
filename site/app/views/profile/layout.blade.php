@@ -155,7 +155,7 @@
                   </li>
                   @if(empty(Auth::user()->facebook_id))
                     <li>
-                     <a href="{{url('/change-password')}}">Change Password</a>
+                     <a href="{{url('/profile/change-password')}}">Change Password</a>
                     </li>
                   @endif
                 </ul>
