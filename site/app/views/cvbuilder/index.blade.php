@@ -253,7 +253,7 @@
                         <div class="col-md-4">
                           <div class="jsr-section background-2">
                             <h3>Applying</h3>
-                            <h4 class="job-seeker"><a href="{{url('/cv-tips')}}">CV Delivery</a></h4>
+                            <h4 class="job-seeker"><a href="{{url('/cv-delivery')}}">CV Delivery</a></h4>
                           </div>
                         </div>
                         <div class="col-md-4">
