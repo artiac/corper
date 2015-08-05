@@ -48,7 +48,7 @@
 
               </div>
               <div class="col-md-4" style="margin-bottom:10px;">
-                {{Form::select('serv_year',array(""=>"Service Year","1"=>"2014","2"=>"2015"),'',array("class"=>"form-control"))}}
+                {{Form::select('serv_year',$service_year,'',array("class"=>"form-control"))}}
                 <span class="error">{{$errors->first('serv_year')}}</span>
 
               </div>

@@ -1,7 +1,11 @@
 <?php
 
 Route::get('/', function(){
-	$main = View::make('home');
+	$service_year = array(""=>"Service Year");
+	for ($i=2010; $i < 2021; $i++) { 
+		array_push($service_year, $i);
+	}
+	$main = View::make('home',["service_year" => $service_year]);
 	return View::make('main',["title"=>"The Official Corperlife Website","description"=>"Welcome to the Official Corperlife Site. We help Corpers Maximise their NYSC Experience and also get them Started on their Careers.","keywords"=>"Corperlife, Youth Corpers, NYSC batch","main"=>$main]);
 });
 Route::get('/logout', function(){

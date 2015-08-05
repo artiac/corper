@@ -13,7 +13,7 @@
               <h3 class="form-title" style="color:#fff;">NYSC Details</h3>
               <p style="color:#CCC">Please fill following details to continue</p>
               <div class="form-group" style="margin-bottom:10px;">
-                {{Form::select('service_year',array(""=>"Service Year","1"=>"2014","2"=>"2015"),'',array("class"=>"form-control"))}}
+                {{Form::select('service_year',$service_year,'',array("class"=>"form-control"))}}
                 <span class="error">{{$errors->first('serv_year')}}</span>
               </div>
               <br>

@@ -166,7 +166,11 @@ class UserprofileController extends BaseController {
         $this->layout->top_active = 2;
         $states = DB::table('states')->lists('state','id');
         $user = User::find(Auth::id());
-        return View::make('main',array("main"=>View::make('profile.nysc-details'),"title"=>$title,"description"=>$description,"keywords"=>$keywords));
+        $service_year = array(""=>"Service Year");
+        for ($i=2010; $i < 2021; $i++) { 
+            array_push($service_year, $i);
+        }
+        return View::make('main',array("main"=>View::make('profile.nysc-details',["service_year"=>$service_year]),"title"=>$title,"description"=>$description,"keywords"=>$keywords));
     }
 
     public function putnyscDetails(){
