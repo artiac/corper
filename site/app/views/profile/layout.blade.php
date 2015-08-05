@@ -154,8 +154,8 @@
                     <span class="selected"></span></a>
                   </li>
                   @if(empty(Auth::user()->facebook_id))
-                    <li>
-                     <a href="{{url('/profile/change-password')}}">Change Password</a>
+                     <li @if($top_active == 7)class="active"@endif;>
+                     <a href="{{url('/profile/change-password')}}">Change Password<span class="selected"></span></a>
                     </li>
                   @endif
                 </ul>

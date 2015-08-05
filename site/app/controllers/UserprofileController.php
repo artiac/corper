@@ -198,7 +198,7 @@ class UserprofileController extends BaseController {
         $this->layout->title = 'Corpers Profile | Change password';
         $this->layout->description = 'NYSC corpers can personalise their experience by logging into the Dashboard and editing their Corperlife profiles.';
         $this->layout->keywords = 'the Dashboard, corpers, corperlife profiles';
-        $this->layout->top_active = 2;
+        $this->layout->top_active = 7;
         $user = User::find(Auth::id());
         if($user->profile_pic == '') $user->profile_pic = 'assets/avatars/default.png';
         $this->layout->main = View::make("profile.pi.change-password",array("user"=>$user));
