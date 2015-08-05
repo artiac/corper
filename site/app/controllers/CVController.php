@@ -62,40 +62,44 @@ class CVController extends BaseController {
     public function getCV($id){
 
         $cv = Cv::where('cv_code',$id)->first();
-        $cv_id = $cv->id;
-        $dob = explode('-', $cv->dob);
-        $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->leftJoin('abilities','languages.ability_id','=','abilities.id')->select('languages.id','languages.language_id','languages.language_name','langs.language','abilities.ability','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
+        if($cv){
+            $cv_id = $cv->id;
+            $dob = explode('-', $cv->dob);
+            $workex = WorkExperience::where('cv_id',$cv_id)->orderBy('priority')->get();
+            $education = Education::where('cv_id',$cv_id)->orderBy('priority')->get();
+            $nysc = Nysc::where('cv_id',$cv_id)->orderBy('priority')->get();
+            $language = Language::leftJoin('langs','languages.language_id','=','langs.id')->leftJoin('levels','languages.level_id','=','levels.id')->leftJoin('abilities','languages.ability_id','=','abilities.id')->select('languages.id','languages.language_id','languages.language_name','langs.language','abilities.ability','levels.level')->where('cv_id',$cv_id)->orderBy('priority')->get();
 
-        $sex = array("0"=>"Select","1"=>"Male","2"=>"Female");
-        
-        $states =  array("0" => "Select") + DB::table('states')->lists('state','id');
-        $religions =  array("0" => "Select") + DB::table('religions')->lists('religion','id') + array("-1" => "Others");
-        
-        
-        $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
-        $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
+            $sex = array("0"=>"Select","1"=>"Male","2"=>"Female");
+            
+            $states =  array("0" => "Select") + DB::table('states')->lists('state','id');
+            $religions =  array("0" => "Select") + DB::table('religions')->lists('religion','id') + array("-1" => "Others");
+            
+            
+            $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
+            $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
-        $this->layout->title = 'The Corperlife CV Builder'.$id;
-        $this->layout->description = 'Read this guide before your interview! follow it, and you be in a better position than the competition.';
-        $this->layout->keywords = 'Interview, interview guide, interview tips';
-        $this->layout->top_active = 6;
+            $this->layout->title = 'The Corperlife CV Builder'.$id;
+            $this->layout->description = 'Read this guide before your interview! follow it, and you be in a better position than the competition.';
+            $this->layout->keywords = 'Interview, interview guide, interview tips';
+            $this->layout->top_active = 6;
 
 
-        $this->layout->main = View::make('cvbuilder.cv',array(
-            "cv" => $cv,
-            "sections" => $sections,
-            "workex" => $workex,
-            "education" => $education,
-            "dob" => $dob,
-            "nysc" => $nysc,
-            "language" => $language,
-            "sex" => $sex,
-            "states" => $states,
-            "religions" => $religions,
-        ));
+            $this->layout->main = View::make('cvbuilder.cv',array(
+                "cv" => $cv,
+                "sections" => $sections,
+                "workex" => $workex,
+                "education" => $education,
+                "dob" => $dob,
+                "nysc" => $nysc,
+                "language" => $language,
+                "sex" => $sex,
+                "states" => $states,
+                "religions" => $religions,
+            ));
+        } else {
+            return Redirect::to(404);
+        }
     }
 
     public function putSaveInfo($id){
