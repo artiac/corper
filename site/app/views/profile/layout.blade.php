@@ -127,7 +127,7 @@
               </div>    
             </div>
             <div class="profile-toggle">
-              asdsad
+              MENU
               <a href="javascript:void(0);" class="pull-right" style="color:#FFF"><i class="fa fa-bars"></i></a>
             </div>
               <div class="side-menu">

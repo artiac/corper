@@ -4,7 +4,7 @@
                 <!-- BEGIN TOP BAR LEFT PART -->
                 <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
-                        <li><i class="fa fa-envelope-o"></i><span>info@corperlife.com</span></li>
+                        <li><i class="fa fa-envelope-o"></i><a href="mailto:info@corperlife.com">info@corperlife.com</a></li>
                     </ul>
                 </div>
                 <!-- END TOP BAR LEFT PART -->

@@ -15,12 +15,12 @@
               <div class="alert alert-danger display-hide">
                 <button class="close" data-close="alert"></button>
                 <span>
-                Enter any username and password. </span>
+                Enter any email and password. </span>
               </div>
               <div class="form-group">
                 <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                <label class="control-label visible-ie8 visible-ie9">Username</label>
-                {{Form::text('username','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Username","id"=>"Username"))}}
+                <label class="control-label visible-ie8 visible-ie9">Email</label>
+                {{Form::text('username','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Email","id"=>"Username"))}}
                 <span class="error">{{$errors->first('username')}}</span>
                 <!-- <input class=" type="text" autocomplete="off" placeholder="Username" name="username"/> -->
               </div>

@@ -61,7 +61,7 @@
           'date_lang'             => null, // Language for date e.g. 'fr_FR'. See: http://php.net/manual/en/function.setlocale.php
           'twitter_template'      => '<ul id="twitter">{tweets}</ul>',
           'tweet_template'        => '<li><span class="status">{tweet}</span> <span class="meta">{date}</span></li>',
-          'error_template'        => '<li><span class="status">Our twitter feed is unavailable right now.</span> <span class="meta"><a href="{link}">Follow us on Twitter</a></span></li>',
+          'error_template'        => '<li><span class="status">Our twitter feed is unavailable right now.</span> <span class="meta"><a href="{link}" target="_blank">Follow us on Twitter</a></span></li>',
           'debug'                 => false
         ),
         $options
@@ -220,6 +220,7 @@
       }
 
       $href = 'http://twitter.com/' . $tweet['user']['screen_name'] . '/status/' . $tweet['id_str'];
+      $tweet_text = str_replace('<a', '<a target="_blank" ', $tweet_text);
       $output = str_replace('{tweet}', $tweet_text, $this->options['tweet_template']);
       $output = str_replace('{link}', $href, $output);
       $output = str_replace('{date}', $display_time, $output);
