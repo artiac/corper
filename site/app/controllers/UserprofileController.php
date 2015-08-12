@@ -74,7 +74,6 @@ class UserprofileController extends BaseController {
                 $user->origin_state = Input::get('origin_state');
                 $user->state_code = Input::get('state_code');
                 $user->lg = Input::get('lg');
-                $user->profile_pic = Input::get('profile_pic');
                 $user->save();
                 return Redirect::to('/profile');
                       

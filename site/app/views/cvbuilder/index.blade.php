@@ -225,6 +225,7 @@
                              <div class="col-md-9" style="padding-left:0px;">
                               <div class="form-group">
                                 <label class="control-label visible-ie8 visible-ie9">CV Name</label>
+                                {{Form::hidden('email',Auth::user()->username,array("class"=>"form-control form-control-solid placeholder-no-fix"))}}
                                 {{Form::text('cv_name','',array("class"=>"form-control form-control-solid placeholder-no-fix", "autocomplete"=>"off","placeholder"=>"Cv Name"))}}
                                 <span>{{$errors->first('cv_name')}}</span>
                               </div>
@@ -262,7 +263,7 @@
                             <h4 class="job-seeker"><a href="{{url('/interview-questions')}}">Sample Interview Questions to Expect </a></h4>
                             <h4><a href="{{url('/questions-you-can-ask')}}">Questions you can ask interviewers</a></h4> 
                             <h4><a href="{{url('/interview-guide')}}">Interview Guide</a></h4> 
-                            <h4><a href="{{url('/assets/Resources/Interview Prep Checklist.pdf')}}">Interview quick checklist (download Pdf file)</a></h4>                          
+                            <h4><a href="{{url('/assets/Resources/Interview-Prep-Checklist.pdf')}}" target="_blank">Interview Checklist (Download PDF file)</a></h4>                          
                           </div>
                         </div>
                       </div>       

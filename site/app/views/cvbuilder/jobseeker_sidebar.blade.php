@@ -5,5 +5,5 @@
   <li class="navigation"><a href="{{url('/interview-questions')}}">Sample Interview Questions to Expect</a></li>
   <li class="navigation"><a href="{{url('/questions-you-can-ask')}}">Questions You can Ask Interviewers</a></li>
   <li class="navigation"><a href="{{url('/interview-guide')}}">Interview Guide</a></li>
-  <li class="navigation"><a href="assets/Resources/Interview-Prep-Checklist.pdf" target="_blank">Interview Quick Checklist <h5>(download PDF file)</h5></a></li>
+  <li class="navigation"><a href="assets/Resources/Interview-Prep-Checklist.pdf" target="_blank">Interview Checklist <h5>(Download PDF file)</h5></a></li>
 </ul>

@@ -79,7 +79,7 @@ class CVController extends BaseController {
             $sections = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
             $topic = Section::where('cv_id',$cv_id)->orderBy('priority')->get();
 
-            $this->layout->title = 'The Corperlife CV Builder'.$id;
+            $this->layout->title = 'The Corperlife CV Builder '.$id;
             $this->layout->description = 'Read this guide before your interview! follow it, and you be in a better position than the competition.';
             $this->layout->keywords = 'Interview, interview guide, interview tips';
             $this->layout->top_active = 6;
