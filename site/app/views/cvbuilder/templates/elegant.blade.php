@@ -228,12 +228,21 @@
                 <div class="left">{{$section->section_name}}</div>
                   <div class="right">
                     @foreach($language as $lang)
-                    <div class="lang-1 right"><b>{{$lang->language}}</b></div>
-                    @if($lang->language_id == -1)
-                     <div class="lang-1 right"><b>{{$lang->language_name}}</b></div>
-                    @endif                    
-                    <div class="lang-2">{{$lang->ability}}</div>
-                    <div align="right">{{$lang->level}}</div>
+                      <div>
+                        <table style="width:100%; font-size: 14px;">
+                          <tr>
+                            <td style="width:30%">
+                              @if($lang->language_id == -1)
+                                <b>{{$lang->language_name}}</b>
+                              @else
+                                <b>{{$lang->language}}</b>
+                              @endif
+                            </td>
+                            <td style="width:30%; text-align:center">{{$lang->ability}}</td>
+                            <td style="text-align:right">{{$lang->level}}</td>
+                          </tr>
+                        </table>
+                      </div>
                     @endforeach
                   </div>            
             </div>
