@@ -41,9 +41,7 @@
                             <div class="tab-content">
                               <div class="tab-pane active" id="portlet_tab1">
                                 <p class="para_big">
-                                  After experiencing the grueling NYSC experience, we decided that it is time to create a platform that will empower corpers and help them
-                                   get the best out of their NYSC year. CorperLife™ is a place to meet friends, discuss issues, get help and useful information from previous and current
-                                   corpers going through the NYSC hustle.If your a currently serving corper Click the link below and get started
+                                  After experiencing the gruelling NYSC experience, we decided that it is time to create a platform that will empower corpers and help them get the best out of their NYSC year. CorperLife<sup>TM</sup> is a place to meet friends, discuss issues, and get help and useful information from previous and current corpers going through the NYSC hustle. If you're a currently serving corper, click the link below and get started
                                 </p>                    
                                 <p align="center">
                                   <a class="btn green" href="{{url('/profile')}}" target="_blank">The Dashboard </a>
@@ -51,7 +49,7 @@
                               </div>
                               <div class="tab-pane" id="portlet_tab2">
                                 <p class="para_big"> 
-                                  We realize life doesn’t end post-NYSC and so we have built a career center to help you hit the ground running. The Career center comes with a CV builder to help create custom CVs and a lot of other resources to help make a smooth transition from corper to worker. As part of our commitment to serving the community, we decided to make the career center free for everyone.
+                                  We realise life doesn't end post-NYSC and so we have built a career centre to help you hit the ground running. The Career centre comes with a CV builder to help create custom CVs and a lot of other resources to help make a smooth transition from corper to worker. As part of our commitment to serving the community, we decided to make the career centre free for everyone.
                                 </p>
                                 <p align="center">
                                   <a class="btn green" href="{{url('/cvbuilder')}}" target="_blank">Career Center </a>
@@ -59,7 +57,7 @@
                               </div>
                               <div class="tab-pane" id="portlet_tab3">
                                 <p class="para_big">
-                                  Do you have something to offer young adults and don't know where to find them? Look no further! CorperLife™ is a central place for all young adults doing NYSC and starting work. You can post anything from events to products. Visit our ads section to see what's available.
+                                  Do you have something to offer young adults and don't know where to find them? Look no further! CorperLife<sup>TM</sup> is a central place for all young adults doing NYSC and starting work. You can post anything from events to products. Visit our ads section to see what's available.
                                 </p> 
                                 <p align="center">
                                   <a class="btn green" href="{{url('/advertise')}}" target="_blank">Advertise with Us</a>

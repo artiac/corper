@@ -17,16 +17,15 @@
             <div class="row">
               <div class="col-md-9 topics-col9">
                <p class="para_big">                 
-                 <p>You should remember you are going to the interview to see whether you are a good fit, so you should also “interview” the business and find out more about 
-                  them.</p>       
+                 <p>You should remember you are going to the interview to see whether you are a good fit, so you should also "interview" the business and find out more about them.</p>       
                   <ol>
-                    <li> Who would supervise me?</li>
-                    <li> When are you going to make a hiring decision?</li>
+                    <li>Who would supervise me?</li>
+                    <li>When are you going to make a hiring decision?</li>
                     <li>What are the opportunities for advancement?</li>
                     <li>What kind of training is provided or available?</li>
                     <li>Is there a dress code?</li>
                     <li>What exactly does this company value the most, and how do you think my work for you will further these values?</li>
-                    <li> What kinds of processes are in place to help me work collaboratively?</li>
+                    <li>What kinds of processes are in place to help me work collaboratively?</li>
                     <li>In what area could your team use a little polishing?</li>
                     <li>What’s the most important thing I can accomplish in the first 60 days?</li>
                     <li>Can you give me some examples of the most and least desirable aspects of the company’s culture</li>

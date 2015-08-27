@@ -6,7 +6,7 @@
             <!-- BEGIN BOTTOM ABOUT BLOCK -->
             <div class="col-md-3 col-sm-6 pre-footer-col">
               <h2>About Us</h2>
-              <p style="text-align:justify">Corperlife<sup>TM</sup> is run by a small group of ex-corpers who wish to help others maximise their post grad years. We provide Free tools and resources to help Nigerian youths through the NYSC program and into starting their careers.</p>
+              <p style="text-align:justify">Corperlife<sup>TM</sup> is run by a small group of ex-corpers who wish to help others maximize their post-graduate years. We provide free tools and resources to help Nigerian youths through the NYSC program and into starting their careers.</p>
             </div>
         <!-- END BOTTOM ABOUT BLOCK -->
 

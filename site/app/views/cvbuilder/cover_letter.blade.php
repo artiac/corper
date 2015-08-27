@@ -17,11 +17,7 @@
           <div class="row">
             <div class="col-md-9 topics-col9 cover-page">
                  <p class="para_big"> 
-                     <p>You might be asking, what is a cover letter and why do I have to write one? Never fear, the CorperLife™ team is here to school you. </p>
-                      <p>The Cover letter is simply a letter of introduction that accompanies your resume. It is important because it allows you to say everything your resume  
-                        can’t, for example how you invited so
-                         many corpers  to join CorperLife™ proving that you are a very social person. It is important that you take full advantage of the potential the cover letter has to offer. Keep it simple and straight to the point and make sure you talk about yourself in a measurable manner e.g “I met and invited 140 corpers to Corperlife” and not with opinions e.g “I am a very friendly person”.
-                      </p>
+                     You might be asking, what is a cover letter and why do I have to write one? Never fear, the CorperLife<sup>TM</sup> team is here to school you. The Cover letter is simply a letter of introduction that accompanies your CV. It is important because it allows you to say everything your CV can’t, for example, how you invited many corpers to join <a href="http://www.corperlife.com">CorperLife<sup>TM</sup></a> proving that you are a very social person. It is important that you take full advantage of the potential the cover letter has to offer. Keep it simple and straight to the point and make sure you talk about yourself in a measurable manner e.g. "I met and invited 140 corpers to Corperlife" and not with opinions e.g. "I am a very friendly person". Finally, make sure you talk about your why you are interested in the job, what motivates you and what positive impact you wish to make.
                     </p> 
             </div>
             <div class="col-md-3">

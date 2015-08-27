@@ -101,7 +101,7 @@
             <em><i class="fa fa-location-arrow blue"></i></em>
             <a href="{{url('/profile')}}"><span style="color:#B6C876">The</span><span>Dashboard</span></a>
           </div> 
-          <p>The section of the CorperLife<sup>TM</sup> site is dedicated to all currently serving Corpers. We are proud to say we have the deepest and best organized cache of information and tool to make the NYSC Journey a breeze.Corper'WE'Lcome!</p>
+          <p>The section of the CorperLife<sup>TM</sup> site is dedicated to all currently serving Corpers. We are proud to say we have the deepest and best organized cache of information and tools to make the NYSC Journey a breeze. Corper'WE'lcome!</p>
           <div style="text-align:center">
             @if(Auth::check())
             <a href="{{url('/profile')}}" class="btn green">Click Here</a>
@@ -115,7 +115,7 @@
             <em><i class="fa fa-check red"></i></em>
             <a href="{{url('/whycorperlife')}}"><span  style="color:#B6C876">Why</span><span>Corperlife</span></a>
           </div>
-          <p>CorperLife<sup>TM</sup> is custom built to aid Corper and job Seekers through "the best time of their lives".Find out what you can expect from each area of the site and what makes it awesome.</p>
+          <p>CorperLife<sup>TM</sup> is custom built to aid corpers and job seekers through "the best time of their lives". Find out what you can expect from each area of the site and what makes it awesome.</p>
           <div style="text-align:center"><a class="btn green" href="{{url('/whycorperlife')}}">Click Here</a>  </div>
         </div>     
         <div class="col-md-4 col-sm-4">
@@ -123,7 +123,7 @@
             <em><i class="fa fa-compress green"></i></em>
             <a href="{{url('/cvbuilder')}}"><span  style="color:#B6C876">The</span><span>Career Centre</span></a>
           </div>
-          <p>The section of the CorperLife<sup>TM</sup> site is filled with free tools and resources for all people who are in the process of job hunting. Make this your first stop on the path to having a great career!</p>
+          <p>The section of the CorperLife<sup>TM</sup> site is filled with free tools and resources for all people who are in the process of job hunting. Make this your first stop on the path to having a great career.</p>
           <div style="text-align:center"><a class="btn green" href="{{url('/cvbuilder')}}">Click Here</a>  </div>
         </div>
       </div>

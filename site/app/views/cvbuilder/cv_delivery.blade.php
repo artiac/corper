@@ -18,12 +18,12 @@
             <div class="col-md-9 topics-col9">
                  <p class="para_big">  
                     <ol>
-                      <li>When posting/ submitting your CV Don't fold it. Show yourself some respect and put it in an A4 sized envelope.</li>
-                      <li>If you are emailing your cv to an employer put your cover letter as the body of the email and your cv as an attachment.</li>
-                      <li>Make sure your contact informations is accurate so that it gets to the right person.</li>
-                      <li>When you apply to a job advert be careful of the information you give. Be diligent and do your research  and make sure the company is not a fraud. </li>
-                      <li>If your CV is not getting you the results you want, change it. Keep modifying it till employers start calling. Remember applying for jobs is a Job and should be treated as such.</li>
-                      <li>Use a professional email address (firstname_lastname@blah blah.com) to send your resume to recruiters. If you don't have one ….its about that time to get it. </li>
+                      <li>When posting/submitting your CV don't fold it. Show yourself some respect and put it in an A4 sized envelope.</li>
+                      <li>If you are emailing your CV to an employer put your cover letter as the body of the email and your CV as an attachment.</li>
+                      <li>Make sure your contact information is accurate so that it gets to the right person.</li>
+                      <li>When you apply to a job advert be careful of the information you give. Be diligent and do your research and make sure the company is not a fraud. </li>
+                      <li>If your CV is not getting you the results you want, change it. Keep modifying it till employers start calling. Remember applying for jobs is a job and should be treated as such.</li>
+                      <li>Use a professional email address (firstname_lastname@blahblah.com) to send your resume to recruiters. If you don't have one, its about that time to get it. </li>
                     </ol>
                     </p> 
             </div>

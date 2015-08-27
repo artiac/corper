@@ -26,7 +26,7 @@
                           <div class="tab-content">
                             <div class="tab-pane active" id="portlet_tab1">
                               <p class="para_big">
-                                 Launched in 2015, the CorperLife<sup>TM</sup> team decided to take on possibly the largest CD project ever - drumroll, please - the reinvention of the NYSC experience! We want to inspire positive social change in our great nation and we believe that the youth should play a big part in this process. By improving the NYSC experience, we aim to empower Corpers and provide them with better opportunities to improve our country.CorperLife™ aims to be The official Social Network for Nigerian Youth Corpers. Viva la Corper!
+                                 Launched in 2015, the Corperlife<sup>TM</sup> team decided to take on possibly the largest CD project ever - drumroll please - the reinvention of the NYSC experience! We want to inspire positive social change in our great nation and we believe that the youth should play a big part in this process. By improving the NYSC experience, we aim to empower corpers and provide them with better opportunities to improve our country. Corperlife<sup>TM</sup> aims to be the official Social Network for Nigerian youth corpers. Viva la Corper!
                               </p>                                 
                             </div>
                           </div>
@@ -215,9 +215,9 @@
             <div class="mix-inner">
                <img alt="" src="assets/img/story/launched.jpg" class="img-rounded width-100 min-height-300">
                <div class="mix-details">
-                 <h2>The Bugle (by corperlife™) begins</h2>
+                 <h2>The Bugle (by corperlife<sup>TM</sup>) begins</h2>
                  <p>2015 Apr 17th</p>                 
-                  <a data-rel="fancybox-button" title="2015 Apr 17th - The Bugle (by corperlife™) begins" href="assets/img/story/launched1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
+                  <a data-rel="fancybox-button" title="2015 Apr 17th - The Bugle (by corperlife) begins" href="assets/img/story/launched1.jpg" class="mix-preview fancybox-button" target="blank"><i class="fa fa-search"></i></a>
                </div>           
             </div>                       
           </div>
