@@ -1,10 +1,8 @@
  <div class="container-fluid back-div">
   <div class="container">
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-3"></div>
-      <div class="col-md-5">
-        <div style="background:rgba(0,0,0,0.7); padding:20px; margin:55px 0 30px 0;">
+      <div class="col-md-5 col-md-offset-7">
+        <div style="background:rgba(0,0,0,0.7); padding:20px; margin:30px 0 30px 0;">
           @if(Session::has('fail'))
             <div class="alert alert-danger">{{Session::get('fail')}}</div>
           @endif

@@ -326,7 +326,7 @@ class CVController extends BaseController {
         $validator = Validator::make($cre,$rules);
         if($validator->passes()){
             $education = Education::find(input::get('education_id'));
-            $cv=CV::select('id')->where('cv_code',Input::get('cv_code'))->first();
+            $cv=Cv::select('id')->where('cv_code',Input::get('cv_code'))->first();
             if($cv->id==$education->cv_id){
                 $education->coursename = Input::get('coursename');
                 $education->institutename = Input::get('institutename');
@@ -403,7 +403,7 @@ class CVController extends BaseController {
         if($validator->passes()){
 
             $nysc = Nysc::find(input::get('nysc_id'));
-            $cv=CV::select('id')->where('cv_code',Input::get('cv_code'))->first();
+            $cv=Cv::select('id')->where('cv_code',Input::get('cv_code'))->first();
             if($cv->id==$nysc->cv_id){
             $nysc->batch = Input::get('batch');
             $nysc->year = Input::get('year');

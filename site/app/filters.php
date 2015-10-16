@@ -47,6 +47,13 @@ Route::filter('auth', function()
 		}
 	}
 });
+Route::filter('admin', function()
+{
+	if (Auth::user()->priv != 1)
+	{
+		return Redirect::to('/');
+	}
+});
 
 
 Route::filter('auth.basic', function()

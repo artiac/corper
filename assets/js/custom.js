@@ -16,7 +16,7 @@ $(document).ready(function(){
 
     $("#section_panel").css('min-height',($('.section-names').height()+50)+'px');
 
-    var inter = setInterval('cycleQuotes()', 5000);
+    var inter = setInterval('cycleQuotes()', 8000);
     $(document).on("click",".section_link", function(){
         var div_show = $(this).attr("data-show");
         $("#menu_name").html($(this).find('.section_name').eq(0).html());

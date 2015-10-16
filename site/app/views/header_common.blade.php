@@ -29,6 +29,13 @@
               @endif
             <span class="username">{{Auth::user()->firstname}}</span></a>
         </li>
+          @if(Auth::user()->priv == 1)
+          <li>
+              <a href="{{URL('/corper-admin')}}" style="color:#1caf9a">
+                Admin Panel
+              </a>
+          </li>
+          @endif
         @endif
         <!-- END TOP SEARCH -->
       </ul>

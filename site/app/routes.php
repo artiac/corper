@@ -110,6 +110,9 @@ Route::group(['prefix' => 'checklist-guide', 'before' => 'auth'], function () {
 	Route::get('/', 'UserprofileController@getChecklistGuide');
 });
 
+Route::group(['prefix' => 'corper-admin', 'before' => array('auth','admin')], function () {
+	Route::get('/', 'UserController@getUsers');
+});
 
 Route::group(['prefix' => 'forum', 'before' => 'auth'], function () {
 	Route::get('/', 'ForumController@getForum');

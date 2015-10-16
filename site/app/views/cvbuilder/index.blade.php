@@ -1,7 +1,7 @@
 <div class="container-fluid" style="text-align:center; background:#839742; color:#FFF;  padding:50px 0;">
   <div class="container quotes">
     <div class="visible">
-      <p class="quote">"The master has failed more times than the beginner has even tried. -Anonymous"</p>
+      <p class="quote">"The master has failed more times than the beginner has even tried."</p>
       <p class="author">Anonymous</p>
     </div>
     <div>
@@ -132,7 +132,7 @@
 
                       <div class="col-md-4">
                         <div style="background:rgba(0,0,0,0.8); padding:20px; margin:55px 0 30px 0;">
-                          {{Form::open(array("url"=>"/", "method" => "POST","class"=>"login-form"))}}
+                          {{Form::open(array("url"=>"/", "method" => "GET","class"=>"login-form"))}}
                           <h3 class="form-title" style="color:#fff;">Create New CV</h3>
                           <h5 class="form-title" style="color:#fff; font-size:20px;">Are you a corper?</h5>
                           <div class="alert alert-danger display-hide">
